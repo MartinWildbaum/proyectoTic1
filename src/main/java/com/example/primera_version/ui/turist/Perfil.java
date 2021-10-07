@@ -1,7 +1,6 @@
 package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
 import com.example.primera_version.persistence.TuristRepository;
-import com.example.primera_version.persistence.UserRepository;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,9 @@ import java.time.format.DateTimeFormatter;
 
 @Component
 public class Perfil {
+
+    @Autowired
+    private TuristRepository turistRepository;
 
     @FXML
     private Label usuariolabel;
@@ -40,8 +41,6 @@ public class Perfil {
     @Autowired
     private MenuTuristController menuTuristController;
 
-    @Autowired
-    private TuristRepository turistRepository;
 
     private String cambiarLocalDateAString(LocalDate fecha){
         return fecha.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
@@ -58,14 +57,14 @@ public class Perfil {
 
 
 
-//    @FXML
-//    void informacionUsuario(ActionEvent event) {
-//        informacionTurista(mail);
-//        usuariolabel.setText("hola");
-//        paislabel.setText("hola2");
-//        fechalabel.setText("hola3");
-//        intereseslabel.setText("hola4");
-//    }
+    @FXML
+    void informacionUsuario(ActionEvent event) {
+
+        usuariolabel.setText("hola");
+        paislabel.setText("hola2");
+        fechalabel.setText("hola3");
+        intereseslabel.setText("hola4");
+    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{

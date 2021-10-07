@@ -45,7 +45,7 @@ public class MenuTuristController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         closeVentana(event);
         Parent root = fxmlLoader.load(Perfil.class.getResourceAsStream("Perfil.fxml"));
-        //        perfil.informacionUsuario(event);
+        perfil.informacionUsuario(event);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

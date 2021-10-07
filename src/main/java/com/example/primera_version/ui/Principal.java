@@ -46,14 +46,6 @@ public class Principal {
     @FXML
     private PasswordField password;
 
-    public TextField getUsername() {
-        return username;
-    }
-
-    public void setUsername(TextField username) {
-        this.username = username;
-    }
-
     //Esta de aca la usamos para el botton de resgitrarse, lo que hace es me lleva a la pestaña
     // donde pongo todos los datos de mi turista
     @FXML
@@ -77,16 +69,13 @@ public class Principal {
             // ACA VOY A HACER LA BUSQUEDA EN LA BASE DE DATOS. El orden no es en vano.
             if (turistMgr.ingresar(username.getText(), password.getText())) {// Entra al if solo si me deja ingresar
                 closeVentana(event);
-
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
-                variable=username.getText();
 
-
-                Stage stage1 = new Stage();
-                stage1.setScene(new Scene(root));
-                stage1.show();
+                Stage stageMenuTurist = new Stage();
+                stageMenuTurist.setScene(new Scene(root));
+                stageMenuTurist.show();
             } else if (adminMgr.ingresar(username.getText(), password.getText())) {
                 closeVentana(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
