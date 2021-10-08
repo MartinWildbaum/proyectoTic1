@@ -11,6 +11,9 @@ import javax.persistence.*;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idExperiencia;
 
+    @Column(name = "titulo_experiencia", nullable = false)
+    private String tituloExperiencia;
+
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
@@ -41,8 +44,9 @@ import javax.persistence.*;
     @Column(name = "intereses_relacionados")
     private Interes[] intereses;
 
-        public Experiencia(String descripcion, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador, Interes[] intereses) { ;
+        public Experiencia(String descripcion, String tituloExperiencia, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador, Interes[] intereses) { ;
         this.descripcion = descripcion;
+        this.tituloExperiencia = tituloExperiencia;
         this.linkVideos = linkVideos;
         this.cantidad = cantidad;
         this.ubicacion = ubicacion;
@@ -144,6 +148,14 @@ import javax.persistence.*;
 
     public void setIntereses(Interes[] intereses) {
         this.intereses = intereses;
+    }
+
+    public String getTituloExperiencia() {
+        return tituloExperiencia;
+    }
+
+    public void setTituloExperiencia(String tituloExperiencia) {
+        this.tituloExperiencia = tituloExperiencia;
     }
 }
 

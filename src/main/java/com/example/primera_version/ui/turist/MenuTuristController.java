@@ -2,7 +2,6 @@ package com.example.primera_version.ui.turist;
 
 
 import com.example.primera_version.Main;
-import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,32 +11,32 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.example.primera_version.ui.turist.Template;
 
 import java.io.IOException;
 
 @Component
 public class MenuTuristController {
 
-    @FXML
-    private Button myButtonTuPerfil;
 
-    @FXML
-    private Button myButtonMeGusta;
-
-    @FXML
-    private Button myButtonNoMeGusta;
-
-    @FXML
-    private Button myButtonExperiencia;
 
     @Autowired
     private Perfil perfil;
 
     @Autowired
     private Principal principal;
+
+    @FXML
+    private Button irExperiencia;
+
+    @FXML
+    private Image  myImage;
+
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
@@ -50,29 +49,16 @@ public class MenuTuristController {
         stage.setScene(new Scene(root));
         stage.show();
         //funcion para visitar tu perfil
-
     }
 
-    @FXML
-    void bottonMeGusta(ActionEvent event) {
-        //funcion que hace algo al tocar me gusta
-        showAlert("Agregado", "El destino fue agregado a su lista de intereses");
 
-
-    }
-
-    @FXML
-    void bottonNoMeGusta(ActionEvent event) {
-        //funcion que hace algo al tocar no me gusta
-
-    }
 
     @FXML
     void irExperiencia(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         closeVentana(event);
-        Parent root = fxmlLoader.load(Experiencia.class.getResourceAsStream("Experiencia.fxml"));
+        Parent root = fxmlLoader.load(Template.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

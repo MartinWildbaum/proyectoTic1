@@ -9,16 +9,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="620.0" style="-fx-background-color: #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="762.0" style="-fx-background-color: #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
    <children>
-      <Label layoutX="201.0" layoutY="21.0" prefHeight="47.0" prefWidth="217.0" text="Menu Turista" textFill="WHITE">
+      <Label layoutX="273.0" layoutY="24.0" prefHeight="47.0" prefWidth="217.0" text="Menu Turista" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <MenuBar layoutX="-1.0" layoutY="85.0" prefHeight="28.0" prefWidth="620.0" style="-fx-background-color: #87CEEB#87CEEB;">
+      <MenuBar layoutX="-1.0" layoutY="85.0" prefHeight="28.0" prefWidth="762.0" style="-fx-background-color: #87CEEB#87CEEB;">
         <menus>
           <Menu mnemonicParsing="false" text="Hoteles">
             <items>
@@ -44,30 +43,29 @@
             </Menu>
         </menus>
       </MenuBar>
-      <ImageView fitHeight="244.0" fitWidth="316.0" layoutX="55.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="myButtonTuPerfil" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#visitarTuPerfil" text="Tu Perfil" />
+      <Button layoutX="88.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Los  Dedos" />
+      <ImageView fx:id="myImage1" fitHeight="158.0" fitWidth="209.0" layoutX="270.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fotos/dedos.jpeg" />
+            <Image url="@fotos/parqueRodo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="myButtonMeGusta" layoutX="391.0" layoutY="356.0" mnemonicParsing="false" onAction="#bottonMeGusta" style="-fx-background-color: #008000#008000;" text="Me gusta" />
-      <Button fx:id="myButtonNoMeGusta" layoutX="479.0" layoutY="356.0" mnemonicParsing="false" onAction="#bottonNoMeGusta" style="-fx-background-color: #FF0000#FF0000;" text="No me gusta" />
-      <Text layoutX="74.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Label layoutX="391.0" layoutY="212.0" prefHeight="15.0" prefWidth="162.0" style="-fx-background-color: #ffffff;" text="Punta del este">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Label layoutX="391.0" layoutY="237.0" prefHeight="95.0" prefWidth="162.0" style="-fx-background-color: #ffffff;" text="Ubicado sobre la playa brava" />
-      <ImageView fitHeight="47.0" fitWidth="58.0" layoutX="472.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="337.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Parque Rodo" />
+      <Button layoutX="605.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Ni idea" />
+      <ImageView fitHeight="42.0" fitWidth="51.0" layoutX="642.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/usuariologo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="myButtonTuPerfil" layoutX="526.0" layoutY="25.0" mnemonicParsing="false" onAction="#visitarTuPerfil" text="Tu Perfil" />
-      <Button fx:id="myButtonExperiencia" layoutX="391.0" layoutY="131.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="72.0" prefWidth="162.0" text="Los Dedos">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Button>
+      <ImageView fitHeight="143.0" fitWidth="200.0" layoutX="525.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fotos/5c4b9a1762bb9.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fotos/dedos.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

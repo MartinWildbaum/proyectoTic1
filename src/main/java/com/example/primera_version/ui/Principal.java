@@ -64,7 +64,6 @@ public class Principal {
     // me deberia dejar ir al menu de turistas
     @FXML
     void irMenuPrincipal(ActionEvent event) throws Exception {
-        String variable;
 
             // ACA VOY A HACER LA BUSQUEDA EN LA BASE DE DATOS. El orden no es en vano.
             if (turistMgr.ingresar(username.getText(), password.getText())) {// Entra al if solo si me deja ingresar
@@ -72,7 +71,6 @@ public class Principal {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
-
                 Stage stageMenuTurist = new Stage();
                 stageMenuTurist.setScene(new Scene(root));
                 stageMenuTurist.show();
