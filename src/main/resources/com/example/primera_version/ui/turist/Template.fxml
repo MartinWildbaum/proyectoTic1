@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="542.0" prefWidth="555.0" style="-fx-background-color: #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Template">
+   <children>
+      <Text fx:id="templateTitulo" fill="WHITE" layoutX="155.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="templateUbicacion" fill="WHITE" layoutX="239.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicacion:" wrappingWidth="268.125">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="templateDescrpicion" fill="WHITE" layoutX="239.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripicion:" wrappingWidth="268.125">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="templateVideos" fill="WHITE" layoutX="239.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Videos:" wrappingWidth="268.125">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
