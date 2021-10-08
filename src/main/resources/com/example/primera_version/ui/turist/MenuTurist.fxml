@@ -44,7 +44,7 @@
         </menus>
       </MenuBar>
       <Button fx:id="myButtonTuPerfil" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#visitarTuPerfil" text="Tu Perfil" />
-      <Button layoutX="88.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Los  Dedos" />
+      <Button fx:id="irExperiencia" layoutX="88.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="LosDedos" />
       <ImageView fx:id="myImage1" fitHeight="158.0" fitWidth="209.0" layoutX="270.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/parqueRodo.jpg" />

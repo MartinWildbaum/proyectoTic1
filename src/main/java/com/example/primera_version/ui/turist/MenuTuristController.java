@@ -2,6 +2,7 @@ package com.example.primera_version.ui.turist;
 
 
 import com.example.primera_version.Main;
+import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,10 +27,17 @@ public class MenuTuristController {
 
 
     @Autowired
+    private ExperienceRepository experienceRepository;
+
+
+    @Autowired
     private Perfil perfil;
 
     @Autowired
     private Principal principal;
+
+    @Autowired
+    private Template template;
 
     @FXML
     private Button irExperiencia;
@@ -61,6 +69,7 @@ public class MenuTuristController {
         Parent root = fxmlLoader.load(Template.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
+        template.setTemplete((experienceRepository.findOneByTituloExperiencia(irExperiencia.getText()).getIdExperiencia()));
         stage.show();
 
     }

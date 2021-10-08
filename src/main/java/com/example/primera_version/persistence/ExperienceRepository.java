@@ -14,5 +14,6 @@ public interface ExperienceRepository extends CrudRepository<Experiencia, Long> 
      */
     Experiencia findOneByIdExperiencia(Long idExperiencia);
 
+    Experiencia findOneByTituloExperiencia(String tituloExperiencia);
 
 }

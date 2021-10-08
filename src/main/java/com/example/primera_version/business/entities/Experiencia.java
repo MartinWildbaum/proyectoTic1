@@ -11,7 +11,7 @@ import javax.persistence.*;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idExperiencia;
 
-    @Column(name = "titulo_experiencia", nullable = false)
+    @Column(name = "titulo_experiencia", nullable = false, unique = true)
     private String tituloExperiencia;
 
     @Column(name = "descripcion", nullable = false)
@@ -56,6 +56,9 @@ import javax.persistence.*;
         this.administrador = administrador;
         this.mailAdministrador = administrador.getMail();
         this.intereses = intereses;
+    }
+
+    public Experiencia() {
     }
 
     public Long getIdExperiencia() {
