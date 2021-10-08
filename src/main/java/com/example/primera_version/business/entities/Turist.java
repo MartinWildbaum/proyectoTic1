@@ -2,6 +2,9 @@ package com.example.primera_version.business.entities;
 
 
 
+import com.example.primera_version.persistence.CountryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -11,11 +14,12 @@ import java.time.LocalDate;
 @Table(name = "turists")
 public class Turist extends Usuario{
 
-    @Transient
+    @ManyToOne(targetEntity = Pais.class)
+    @JoinColumn(name="nombre_pais", referencedColumnName = "nombre")
     private Pais pais;
 
-    @Column(name = "nombre_pais", nullable = false)
-    private String nombrePais;
+//    @Column(name = "nombre_pais", nullable = false)
+//    private String nombrePais;
 
     @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate birthdate;
@@ -27,7 +31,6 @@ public class Turist extends Usuario{
     public Turist(String mail, String password, Pais pais, LocalDate birthdate, Interes[] interesesAsociados) {
         super(mail, password);
         this.pais = pais;
-        this.nombrePais = pais.getNombre();
         this.birthdate = birthdate;
         this.interesesAsociados = interesesAsociados;
     }
@@ -41,23 +44,14 @@ public class Turist extends Usuario{
 
     public void setPais(Pais pais) {
         this.pais = pais;
-        this.nombrePais = pais.getNombre();
     }
 
     public String getNombrePais() {
-        return nombrePais;
+        return this.pais.getNombre();
     }
 
     public void setNombrePais(String nombrePais) {
-        this.nombrePais = nombrePais;
-    }
-
-    public String getNacionalidad() {
-        return nombrePais;
-    }
-
-    public void setNacionalidad(String nombrePais) {
-        this.nombrePais = nombrePais;
+        this.pais.setNombre(nombrePais);
     }
 
     public LocalDate getBirthdate() {
@@ -74,6 +68,14 @@ public class Turist extends Usuario{
 
     public void setInteresesAsociados(Interes[] interesesAsociados) {
         this.interesesAsociados = interesesAsociados;
+    }
+
+    @Autowired
+    @Transient
+    private CountryRepository countryRepository;
+
+    public void setNacionalidad(String nationality){
+        this.pais = countryRepository.findOneByNombre(nationality);
     }
 }
 

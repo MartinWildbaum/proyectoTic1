@@ -1,6 +1,7 @@
 package com.example.primera_version.business.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
@@ -15,6 +16,9 @@ public abstract class Interes {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
+    @ManyToMany(mappedBy = "intereses",targetEntity = Experiencia.class/*,cascade = CascadeType.ALL,fetch = FetchType.EAGER*/)
+    private Collection<Experiencia> experiencias;
+
 
     public Interes(String nombre) {
         this.nombre = nombre;
@@ -22,6 +26,8 @@ public abstract class Interes {
 
     public Interes() {
     }
+
+
 
 
 

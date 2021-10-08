@@ -1,6 +1,15 @@
 package com.example.primera_version.business.entities;
 
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
+
+import javax.imageio.ImageIO;
 import javax.persistence.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Collection;
 
 
 @Entity
@@ -17,6 +26,9 @@ import javax.persistence.*;
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
+    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB")
+    private byte[] imagen;
+
     @Column(name = "links_videos", nullable = true)
     private String linkVideos;
 
@@ -28,6 +40,10 @@ import javax.persistence.*;
 
     @Column(name = "disponible")
     private Boolean estaDisponible;
+
+    @ManyToMany(targetEntity = Interes.class)
+    @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "idExperiencia", referencedColumnName = "idExperiencia"), inverseJoinColumns = @JoinColumn(name = "idInteres", referencedColumnName = "idInteres"))
+    private Collection<Interes> intereses;
 
     @Transient
     private OperadorTuristico operadorTuristico;
@@ -41,12 +57,14 @@ import javax.persistence.*;
     @Column(name = "mail_administrador", nullable = false) // El oadministrador que la valido
     private String mailAdministrador;
 
-    @Column(name = "intereses_relacionados")
-    private Interes[] intereses;
+//    @Column(name = "intereses_relacionados")
+//    private Interes[] intereses;
 
-        public Experiencia(String descripcion, String tituloExperiencia, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador, Interes[] intereses) { ;
+    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagen, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador/*, Interes[] intereses*/) {
+        ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
+        this.imagen = imagen;
         this.linkVideos = linkVideos;
         this.cantidad = cantidad;
         this.ubicacion = ubicacion;
@@ -55,7 +73,7 @@ import javax.persistence.*;
         this.idOperador = operador_turistico.getIdOpTur();
         this.administrador = administrador;
         this.mailAdministrador = administrador.getMail();
-        this.intereses = intereses;
+//        this.intereses = intereses;
     }
 
     public Experiencia() {
@@ -123,7 +141,7 @@ import javax.persistence.*;
     }
 
     public void setIdOperador(Long idOperador) {
-            // Capaz tendria que ir a buscar a la base de datos y a partir de eso fijar el operador turistico?
+        // Capaz tendria que ir a buscar a la base de datos y a partir de eso fijar el operador turistico?
         this.idOperador = idOperador;
     }
 
@@ -145,13 +163,13 @@ import javax.persistence.*;
         this.mailAdministrador = mailAdministrador;
     }
 
-    public Interes[] getIntereses() {
-        return intereses;
-    }
-
-    public void setIntereses(Interes[] intereses) {
-        this.intereses = intereses;
-    }
+//    public Interes[] getIntereses() {
+//        return intereses;
+//    }
+//
+//    public void setIntereses(Interes[] intereses) {
+//        this.intereses = intereses;
+//    }
 
     public String getTituloExperiencia() {
         return tituloExperiencia;
@@ -159,6 +177,34 @@ import javax.persistence.*;
 
     public void setTituloExperiencia(String tituloExperiencia) {
         this.tituloExperiencia = tituloExperiencia;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public Image getImagenAsJavaFxImage(final int altura, final int ancho) {
+        WritableImage image = new WritableImage(ancho, altura);
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
+            BufferedImage read = ImageIO.read(bis);
+            image = SwingFXUtils.toFXImage(read, null);
+        } catch (IOException excepcion) {
+            //
+        }
+        return image;
+    }
+
+    public Collection<Interes> getIntereses() {
+        return intereses;
+    }
+
+    public void setIntereses(Collection<Interes> intereses) {
+        this.intereses = intereses;
     }
 }
 
