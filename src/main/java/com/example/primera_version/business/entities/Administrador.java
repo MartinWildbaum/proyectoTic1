@@ -1,15 +1,19 @@
 package com.example.primera_version.business.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
 @PrimaryKeyJoinColumn(name = "mail")
 @Table(name = "administrador")
 public class Administrador extends Usuario{
+
+
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Experiencia.class, mappedBy = "administrador")
+    private Collection<Experiencia> experienciasRegistradas;
+
 
     // Constructores
 
@@ -20,4 +24,11 @@ public class Administrador extends Usuario{
     public Administrador() {
     }
 
+    public Collection<Experiencia> getExperienciasRegistradas() {
+        return experienciasRegistradas;
+    }
+
+    public void setExperienciasRegistradas(Collection<Experiencia> experienciasRegistradas) {
+        this.experienciasRegistradas = experienciasRegistradas;
+    }
 }

@@ -1,15 +1,19 @@
 package com.example.primera_version.business.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idInteres")
+@PrimaryKeyJoinColumn(name = "id_interes")
 @Table(name = "intereses_generales")
-public class InteresGeneral extends Interes{
+public class InteresGeneral extends Interes {
 
-    @Column(name = "intereses_asociados", nullable = true)
-    private InteresParticular[] interesesAsociados;
+
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
+    @JoinTable(name = "Intereses_asociados", joinColumns = @JoinColumn(name = "id_interes_general", referencedColumnName = "id_interes"), inverseJoinColumns = @JoinColumn(name = "id_interes_asociado", referencedColumnName = "id_interes"))
+    private Collection<Interes> interesesAsociados;
+
 
     public InteresGeneral() {
     }
@@ -18,11 +22,11 @@ public class InteresGeneral extends Interes{
         super(nombre);
     }
 
-    public InteresParticular[] getInteresesAsociados() {
+    public Collection<Interes> getInteresesAsociados() {
         return interesesAsociados;
     }
 
-    public void setInteresesAsociados(InteresParticular[] interesesAsociados) {
+    public void setInteresesAsociados(Collection<Interes> interesesAsociados) {
         this.interesesAsociados = interesesAsociados;
     }
 }

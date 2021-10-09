@@ -13,6 +13,7 @@ public class Reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "numero_reserva")
     private Long numeroReserva;
 
     @Transient
@@ -36,23 +37,20 @@ public class Reserva {
     @Column(name = "fecha_hora", nullable = false)
     private LocalDateTime fechaHora;
 
-    @Transient
-    private Denuncia denuncia;
 
-    @Column(name = "id_denuncia", nullable = true) // Campo que va a poder ser null
-    private Long idDenuncia;
-
-    @Transient
+    @OneToOne(targetEntity = Puntuacion.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_clasificacion_puntuacion")
     private Puntuacion puntuacion;
 
-    @Column(name = "id_puntuacion", nullable = true) // Campo que va a poder ser null
-    private Long idPuntuacion;
-
-    @Transient
+    @OneToOne(targetEntity = Critica.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_clasificacion_critica")
     private Critica critica;
 
-    @Column(name = "id_critica", nullable = true) // Campo que va a poder ser null
-    private Long idCritica;
+
+    @OneToOne(targetEntity = Denuncia.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_denuncia")
+    private Denuncia denuncia;
+
 
     public Reserva(Long numeroReserva, Turist turista, Experiencia experiencia, Long numeroPersonas) {
         this.numeroReserva = numeroReserva;
@@ -66,9 +64,6 @@ public class Reserva {
         this.denuncia = null;
         this.puntuacion = null;
         this.critica = null;
-        this.idCritica = null;
-        this.idPuntuacion = null;
-        this.idDenuncia = null;
     }
     // No lleva puntuacion ni critica ni denuncia pues son cosas que se setean a posteriori
 
@@ -101,29 +96,7 @@ public class Reserva {
         this.idExperiencia = idExperiencia;
     }
 
-    public Long getIdDenuncia() {
-        return idDenuncia;
-    }
 
-    public void setIdDenuncia(Long idDenuncia) {
-        this.idDenuncia = idDenuncia;
-    }
-
-    public Long getIdPuntuacion() {
-        return idPuntuacion;
-    }
-
-    public void setIdPuntuacion(Long idPuntuacion) {
-        this.idPuntuacion = idPuntuacion;
-    }
-
-    public Long getIdCritica() {
-        return idCritica;
-    }
-
-    public void setIdCritica(Long idCritica) {
-        this.idCritica = idCritica;
-    }
 
     public Long getNumeroPersonas() {
         return numeroPersonas;
@@ -153,23 +126,12 @@ public class Reserva {
         this.fechaHora = fechaHora;
     }
 
-
-    public Denuncia getDenuncia() {
-        return denuncia;
-    }
-
-    public void setDenuncia(Denuncia denuncia) {
-        this.denuncia = denuncia;
-        this.idDenuncia = denuncia.getIdDenuncia();
-    }
-
     public Puntuacion getPuntuacion() {
         return puntuacion;
     }
 
     public void setPuntuacion(Puntuacion puntuacion) {
         this.puntuacion = puntuacion;
-        this.idPuntuacion = puntuacion.getIdCalificacion();
     }
 
     public Critica getCritica() {
@@ -178,7 +140,14 @@ public class Reserva {
 
     public void setCritica(Critica critica) {
         this.critica = critica;
-        this.idCritica = critica.getIdCalificacion();
+    }
+
+    public Denuncia getDenuncia() {
+        return denuncia;
+    }
+
+    public void setDenuncia(Denuncia denuncia) {
+        this.denuncia = denuncia;
     }
 
     public Turist getTurista() {

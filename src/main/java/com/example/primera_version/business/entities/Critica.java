@@ -5,12 +5,15 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idCalificacion")
+@PrimaryKeyJoinColumn(name = "id_calificacion")
 @Table(name = "criticas")
 public class Critica extends Calificacion{
 
     @Column(name = "comentario", nullable = false)
     private String comentario;
+
+    @OneToOne(mappedBy = "critica")
+    private Reserva reserva;
 
     public Critica(LocalDateTime fechaHora, String comentario) {
         super(fechaHora);
@@ -26,5 +29,13 @@ public class Critica extends Calificacion{
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 }

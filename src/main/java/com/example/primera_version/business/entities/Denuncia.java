@@ -5,52 +5,66 @@ import java.time.LocalDateTime;
 
 
 @Entity
-    @Table(name = "denuncia")
-    public class Denuncia {
+@Table(name = "denuncias")
+public class Denuncia {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long idDenuncia;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_denuncia")
+    private Long idDenuncia;
 
-        @Column(name = "descripcion", nullable = false)
-        private String descripcion;
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
 
-        @Column(name = "fecha_hora", nullable = false)
-        private LocalDateTime fechaHora;
+    @Column(name = "fecha_hora", nullable = false)
+    private LocalDateTime fechaHora;
 
-    public Denuncia(Long idDenuncia, String descripcion, LocalDateTime fechaHora) {
-        this.idDenuncia = idDenuncia;
-        this.descripcion = descripcion;
-        this.fechaHora = fechaHora;
+    @OneToOne(mappedBy = "denuncia")
+    private Reserva reserva;
+
+
+    public Denuncia(Long idDenuncia, String descripcion, LocalDateTime fechaHora, Reserva reserva) {
+    this.idDenuncia = idDenuncia;
+    this.descripcion = descripcion;
+    this.fechaHora = fechaHora;
+    this.reserva = reserva;
     }
 
     public Denuncia() {
     }
 
     public Long getIdDenuncia() {
-        return idDenuncia;
+    return idDenuncia;
     }
 
     public void setIdDenuncia(Long idDenuncia) {
-        this.idDenuncia = idDenuncia;
+    this.idDenuncia = idDenuncia;
     }
 
     public String getDescripcion() {
-        return descripcion;
+    return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    this.descripcion = descripcion;
     }
 
     public LocalDateTime getFechaHora() {
-        return fechaHora;
+    return fechaHora;
     }
 
     public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
+    this.fechaHora = fechaHora;
     }
-}
+
+    public Reserva getReserva() {
+    return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+    this.reserva = reserva;
+    }
+    }
 
 
 

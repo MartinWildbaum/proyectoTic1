@@ -3,6 +3,7 @@ package com.example.primera_version.business.entities;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
@@ -18,6 +19,7 @@ import java.util.Collection;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_experiencia")
     private Long idExperiencia;
 
     @Column(name = "titulo_experiencia", nullable = false, unique = true)
@@ -41,26 +43,18 @@ import java.util.Collection;
     @Column(name = "disponible")
     private Boolean estaDisponible;
 
-    @ManyToMany(targetEntity = Interes.class)
-    @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "idExperiencia", referencedColumnName = "idExperiencia"), inverseJoinColumns = @JoinColumn(name = "idInteres", referencedColumnName = "idInteres"))
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
+    @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
-    @Transient
+    @ManyToOne(targetEntity = OperadorTuristico.class)
     private OperadorTuristico operadorTuristico;
 
-    @Column(name = "id_operador", nullable = false) // El operador turistico que las ofrece
-    private Long idOperador;
-
-    @Transient
+    @ManyToOne(targetEntity = Administrador.class)
     private Administrador administrador;
 
-    @Column(name = "mail_administrador", nullable = false) // El oadministrador que la valido
-    private String mailAdministrador;
 
-//    @Column(name = "intereses_relacionados")
-//    private Interes[] intereses;
-
-    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagen, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador/*, Interes[] intereses*/) {
+    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagen, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
         ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
@@ -70,10 +64,7 @@ import java.util.Collection;
         this.ubicacion = ubicacion;
         this.estaDisponible = estaDisponible;
         this.operadorTuristico = operador_turistico;
-        this.idOperador = operador_turistico.getIdOpTur();
         this.administrador = administrador;
-        this.mailAdministrador = administrador.getMail();
-//        this.intereses = intereses;
     }
 
     public Experiencia() {
@@ -131,46 +122,6 @@ import java.util.Collection;
         return operadorTuristico;
     }
 
-    public void setOperadorTuristico(OperadorTuristico operadorTuristico) {
-        this.operadorTuristico = operadorTuristico;
-        this.idOperador = operadorTuristico.getIdOpTur();
-    }
-
-    public Long getIdOperador() {
-        return idOperador;
-    }
-
-    public void setIdOperador(Long idOperador) {
-        // Capaz tendria que ir a buscar a la base de datos y a partir de eso fijar el operador turistico?
-        this.idOperador = idOperador;
-    }
-
-    public Administrador getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
-        this.mailAdministrador = administrador.getMail();
-    }
-
-
-    public String getMailAdministrador() {
-        return mailAdministrador;
-    }
-
-    public void setMailAdministrador(String mailAdministrador) {
-        this.mailAdministrador = mailAdministrador;
-    }
-
-//    public Interes[] getIntereses() {
-//        return intereses;
-//    }
-//
-//    public void setIntereses(Interes[] intereses) {
-//        this.intereses = intereses;
-//    }
-
     public String getTituloExperiencia() {
         return tituloExperiencia;
     }
@@ -205,6 +156,18 @@ import java.util.Collection;
 
     public void setIntereses(Collection<Interes> intereses) {
         this.intereses = intereses;
+    }
+
+    public void setOperadorTuristico(OperadorTuristico operadorTuristico) {
+        this.operadorTuristico = operadorTuristico;
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 }
 

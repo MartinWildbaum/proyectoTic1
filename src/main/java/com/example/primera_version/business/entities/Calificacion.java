@@ -11,6 +11,7 @@ public abstract class Calificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_clasificacion")
     private Long idCalificacion;
 
     @Column(name = "fecha_hora", nullable = false)

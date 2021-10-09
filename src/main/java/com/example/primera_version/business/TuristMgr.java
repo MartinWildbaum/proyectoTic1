@@ -3,8 +3,10 @@ package com.example.primera_version.business;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.business.exceptions.UserNotExists;
+import com.example.primera_version.persistence.CountryRepository;
 import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.persistence.UserRepository;
+import com.sun.xml.bind.v2.runtime.output.C14nXmlOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.primera_version.business.entities.Turist;
@@ -20,6 +22,9 @@ public class TuristMgr {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CountryRepository countryRepository;
 
     private boolean chequearString(String stringAChequear){
         boolean devolucion=false;
@@ -59,7 +64,7 @@ public class TuristMgr {
         Turist turistaAAgregar = new Turist();
 
         turistaAAgregar.setMail(mail);
-        turistaAAgregar.setNacionalidad(nationality);
+        turistaAAgregar.setPais(countryRepository.findOneByNombre(nationality));
         turistaAAgregar.setBirthdate(birthdate);
         turistaAAgregar.setPassword(password);
 

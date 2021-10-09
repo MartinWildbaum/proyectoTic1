@@ -13,7 +13,7 @@ public class Pais {
         this.nombre = nombre;
     }
 
-    @OneToMany(mappedBy = "pais")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pais")
     private Collection<Turist> turistas;
 
 
@@ -30,6 +30,14 @@ public class Pais {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Collection<Turist> getTuristas() {
+        return turistas;
+    }
+
+    public void setTuristas(Collection<Turist> turistas) {
+        this.turistas = turistas;
     }
 }
 

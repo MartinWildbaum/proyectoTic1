@@ -2,6 +2,7 @@ package com.example.primera_version.business.entities;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "operadores_turisticos")
@@ -10,6 +11,7 @@ public class OperadorTuristico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_op_tur")
     private Long idOpTur;
 
     @Column(name = "razon_social", nullable = false)
@@ -32,6 +34,15 @@ public class OperadorTuristico {
 
     @Column(name = "contact_age", nullable = true)
     private Integer contact_age;
+
+    @OneToMany(targetEntity = Administrador.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_op_tur")
+    private Collection<Experiencia> experiencias;
+
+
+    @OneToMany(targetEntity = UsuarioOpTur.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_op_tur")
+    private Collection<UsuarioOpTur> usuariosDelOperador;
 
     public OperadorTuristico() {
     }
@@ -110,5 +121,21 @@ public class OperadorTuristico {
 
     public void setContact_age(Integer contact_age) {
         this.contact_age = contact_age;
+    }
+
+    public Collection<Experiencia> getExperiencias() {
+        return experiencias;
+    }
+
+    public void setExperiencias(Collection<Experiencia> experiencias) {
+        this.experiencias = experiencias;
+    }
+
+    public Collection<UsuarioOpTur> getUsuariosDelOperador() {
+        return usuariosDelOperador;
+    }
+
+    public void setUsuariosDelOperador(Collection<UsuarioOpTur> usuariosDelOperador) {
+        this.usuariosDelOperador = usuariosDelOperador;
     }
 }
