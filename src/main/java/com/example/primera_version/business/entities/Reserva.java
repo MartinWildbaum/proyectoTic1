@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Reserva {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero_reserva")
     private Long numeroReserva;
 

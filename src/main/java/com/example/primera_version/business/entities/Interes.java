@@ -10,7 +10,7 @@ import java.util.Collection;
 public abstract class Interes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_interes")
     private Long idInteres;
 

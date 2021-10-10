@@ -18,7 +18,7 @@ import java.util.Collection;
     public class Experiencia {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_experiencia")
     private Long idExperiencia;
 

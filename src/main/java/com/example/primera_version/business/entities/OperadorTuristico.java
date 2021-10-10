@@ -10,11 +10,11 @@ public class OperadorTuristico {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_op_tur")
     private Long idOpTur;
 
-    @Column(name = "razon_social", nullable = false)
+    @Column(name = "razon_social", nullable = false, unique = true)
     private String razonSocial;
 
     @Column(name = "name_tur_op", nullable = false)

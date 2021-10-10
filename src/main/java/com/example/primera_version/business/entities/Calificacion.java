@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public abstract class Calificacion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_clasificacion")
     private Long idCalificacion;
 

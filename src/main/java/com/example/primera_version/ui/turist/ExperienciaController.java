@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Experiencia {
+public class ExperienciaController {
 
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{
