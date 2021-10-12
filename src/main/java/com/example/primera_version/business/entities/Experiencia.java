@@ -47,10 +47,10 @@ import java.util.Collection;
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
-    @ManyToOne(targetEntity = OperadorTuristico.class)
+    @ManyToOne(targetEntity = OperadorTuristico.class, optional = false)
     private OperadorTuristico operadorTuristico;
 
-    @ManyToOne(targetEntity = Administrador.class)
+    @ManyToOne(targetEntity = Administrador.class, optional = false)
     private Administrador administrador;
 
 

@@ -15,7 +15,7 @@
           <TableColumn fx:id="descripcionExperiencia" prefWidth="208.0" text="Descripcion" />
         </columns>
       </TableView>
-      <Text layoutX="413.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tu Perfil" textAlignment="CENTER" wrappingWidth="128.13671875">
+      <Text layoutX="373.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tu Perfil" textAlignment="CENTER" wrappingWidth="128.13671875">
          <font>
             <Font name="Cambria" size="23.0" />
          </font>
