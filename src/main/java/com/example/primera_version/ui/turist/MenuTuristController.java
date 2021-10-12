@@ -28,8 +28,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
-public class MenuTuristController implements Initializable {
-
+public class MenuTuristController /*implements Initializable*/ {
 
 
     @Autowired
@@ -92,7 +91,7 @@ public class MenuTuristController implements Initializable {
     }
 
     ObservableList<Experiencia> lista;
-
+/*
     @Override
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
@@ -104,7 +103,7 @@ public class MenuTuristController implements Initializable {
         descripcionExperiencia.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
 
     }
-
+*/
 
     @FXML
     void busquedaDinamica(KeyEvent event){

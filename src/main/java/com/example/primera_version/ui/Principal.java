@@ -70,7 +70,7 @@ public class Principal {
                 closeVentana(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTuristMartin.fxml"));
+                Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
                 Stage stageMenuTurist = new Stage();
                 stageMenuTurist.setScene(new Scene(root));
                 stageMenuTurist.show();
