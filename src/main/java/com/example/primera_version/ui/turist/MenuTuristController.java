@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,53 @@ public class MenuTuristController /*implements Initializable*/ {
     @FXML
     private TableColumn<Experiencia, String> descripcionExperiencia;
 
+    @FXML
+    private Button experienciaButton1;
+
+    @FXML
+    private Button experienciaButton2;
+
+    @FXML
+    private Button experienciaButton3;
+
+    @FXML
+    private Button experienciaButton4;
+
+    @FXML
+    private Button experienciaButton5;
+
+    @FXML
+    private Button experienciaButton6;
+
+    @FXML
+    private Button experienciaButton7;
+
+    @FXML
+    private Button experienciaButton8;
+
+    @FXML
+    private ImageView experienciaImage1 ;
+
+    @FXML
+    private ImageView experienciaImage2;
+
+    @FXML
+    private ImageView experienciaImage3;
+
+    @FXML
+    private ImageView experienciaImage4;
+
+    @FXML
+    private ImageView experienciaImage5;
+
+    @FXML
+    private ImageView experienciaImage6;
+
+    @FXML
+    private ImageView experienciaImage7;
+
+    @FXML
+    private ImageView experienciaImage8;
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
@@ -74,8 +122,6 @@ public class MenuTuristController /*implements Initializable*/ {
         stage.show();
         //funcion para visitar tu perfil
     }
-
-
 
     @FXML
     void irExperiencia(ActionEvent event) throws Exception{

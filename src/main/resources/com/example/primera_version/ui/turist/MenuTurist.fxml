@@ -2,70 +2,49 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="762.0" style="-fx-background-color: #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
-   <children>
-      <Label layoutX="273.0" layoutY="24.0" prefHeight="47.0" prefWidth="217.0" text="Menu Turista" textFill="WHITE">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <MenuBar layoutX="-1.0" layoutY="85.0" prefHeight="28.0" prefWidth="762.0" style="-fx-background-color: #87CEEB#87CEEB;">
-        <menus>
-          <Menu mnemonicParsing="false" text="Hoteles">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Hoteles Turisticos" />
-              <MenuItem mnemonicParsing="false" text="Los mejores Hoteles" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Resturantes">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Resturantes de lujo" />
-                  <MenuItem mnemonicParsing="false" text="Resturantes en la playa" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Reservas Naturales">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Reservas Uruguayas" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Museos">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Arte y diseño" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <Button fx:id="myButtonTuPerfil" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#visitarTuPerfil" text="Tu Perfil" />
-      <Button fx:id="irExperiencia" layoutX="88.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="LosDedos" />
-      <ImageView fx:id="myImage1" fitHeight="158.0" fitWidth="209.0" layoutX="270.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@fotos/parqueRodo.jpg" />
-         </image>
-      </ImageView>
-      <Button layoutX="337.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Parque Rodo" />
-      <Button layoutX="605.0" layoutY="279.0" mnemonicParsing="false" onAction="#irExperiencia" text="Ni idea" />
-      <ImageView fitHeight="42.0" fitWidth="51.0" layoutX="642.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+    <children>
+        <Label layoutX="53.0" layoutY="14.0" prefHeight="58.0" prefWidth="332.0" text="Viaja con TurisTIC" textFill="WHITE">
+            <font>
+                <Font name="PT Mono Bold" size="28.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="experienciaImage1" fitHeight="200.0" fitWidth="200.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="experienciaButton1" layoutX="35.0" layoutY="245.0" mnemonicParsing="false" prefWidth="125.0" text="Experiencia1" />
+        <Button fx:id="experienciaButton2" layoutX="292.0" layoutY="245.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" text="Experiencia2" />
+        <Button fx:id="experienciaButton3" layoutX="554.0" layoutY="245.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Experiencia3" />
+        <Button fx:id="experienciaButton4" layoutX="827.0" layoutY="244.0" mnemonicParsing="false" text="Experiencia4" />
+        <Button fx:id="experienciaButton5" layoutX="53.0" layoutY="440.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Experiencia5" />
+        <Button fx:id="experienciaButton6" layoutX="311.0" layoutY="440.0" mnemonicParsing="false" text="Experiencia6" />
+        <Button fx:id="experienciaButton7" layoutX="575.0" layoutY="440.0" mnemonicParsing="false" text="Experiencia7" />
+        <Button fx:id="experienciaButton8" layoutX="801.0" layoutY="440.0" mnemonicParsing="false" text="Experiencia8" />
+        <ImageView fx:id="experienciaImage2" fitHeight="200.0" fitWidth="200.0" layoutX="260.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="experienciaImage3" fitHeight="200.0" fitWidth="200.0" layoutX="510.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="experienciaImage4" fitHeight="200.0" fitWidth="200.0" layoutX="760.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+        <Text layoutX="228.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponele un TIC a otro destino">
+            <font>
+                <Font name="PT Mono Bold" size="28.0" />
+            </font>
+        </Text>
+        <ImageView fx:id="experienciaImage5" fitHeight="200.0" fitWidth="200.0" layoutX="10.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="experienciaImage6" fitHeight="200.0" fitWidth="200.0" layoutX="260.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="experienciaImage7" fitHeight="200.0" fitWidth="200.0" layoutX="510.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="experienciaImage8" fitHeight="200.0" fitWidth="200.0" layoutX="760.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" />
+        <Button layoutX="855.0" layoutY="31.0" mnemonicParsing="false" onAction="#visitarTuPerfil" text="Mi Perfil">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+      <ImageView fitHeight="58.0" fitWidth="66.0" layoutX="787.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/usuariologo.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="143.0" fitWidth="200.0" layoutX="525.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@fotos/5c4b9a1762bb9.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@fotos/dedos.jpeg" />
-         </image>
-      </ImageView>
-   </children>
+    </children>
 </AnchorPane>
