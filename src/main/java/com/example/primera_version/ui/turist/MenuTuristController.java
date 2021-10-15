@@ -181,6 +181,7 @@ public class MenuTuristController implements Initializable{
 
 
         experienciaButton1.setText("LosDedos");
+        //experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage((int)experienciaImage1.getFitHeight(),(int)experienciaImage1.getFitWidth()));
         experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage(200,200));
 
 

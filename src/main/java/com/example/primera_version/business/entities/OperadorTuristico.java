@@ -51,7 +51,7 @@ public class OperadorTuristico {
         this.idOpTur = idOpTur;
         this.razonSocial = razonSocial;
         this.nameTO = nameTO;
-        this.estado = true;
+        this.estado = false;
         this.contact_name = contact_name;
         this.contact_surname = contact_surname;
         this.contact_phone = contact_phone;

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="531.0" prefWidth="780.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.MenuAdministratorController">
+<AnchorPane prefHeight="581.0" prefWidth="824.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.MenuAdministratorController">
    <children>
-      <TableView fx:id="experienciasExpuestas" layoutX="14.0" layoutY="65.0" prefHeight="337.0" prefWidth="756.0">
+      <TableView fx:id="experienciasExpuestas" layoutX="14.0" layoutY="65.0" prefHeight="371.0" prefWidth="756.0">
         <columns>
           <TableColumn fx:id="idExperiencia" prefWidth="94.0" text="IdExperiencia" />
           <TableColumn fx:id="tituloExpriencia" prefWidth="114.0" text="Titulo experiencia" />
@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
-      <Button fx:id="botonAgregarOperador" layoutX="545.0" layoutY="468.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #D3D3D3;" text="Agregar operador turistico">
+      <Button fx:id="botonAgregarOperador" layoutX="556.0" layoutY="24.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #D3D3D3;" text="Agregar operador turistico">
          <font>
             <Font name="Cambria Bold" size="13.0" />
          </font>

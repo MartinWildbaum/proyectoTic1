@@ -26,7 +26,6 @@ public class TOController {
     @FXML
     private TextField txtName;
 
-
     @FXML
     private TextField txtContactName;
 
@@ -61,6 +60,7 @@ public class TOController {
 
                 String razon_social = txtRazonSocial.getText();
                 String name = txtName.getText();
+
                 String contact_name = txtContactName.getText();
                 String contact_surname = txtContactSurname.getText();
                 String contact_phone = txtContactPhone.getText();

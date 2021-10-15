@@ -31,7 +31,7 @@
       </Text>
       <AnchorPane layoutX="-6.0" layoutY="-8.0" prefHeight="652.0" prefWidth="430.0" style="-fx-background-color: #000000;">
          <children>
-            <ImageView fx:id="templateImage" fitHeight="400.0" fitWidth="400.0" layoutX="15.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="templateImage" fitHeight="553.0" fitWidth="408.0" layoutX="15.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <ImageView fx:id="templateImage1" fitHeight="115.0" fitWidth="118.0" layoutX="765.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
@@ -39,7 +39,7 @@
             <Image url="@fotos/logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="778.0" layoutY="601.0" text="TurisTIC" textFill="AQUA">
+      <Label layoutX="778.0" layoutY="601.0" text="TurisTIC">
          <font>
             <Font size="23.0" />
          </font>
