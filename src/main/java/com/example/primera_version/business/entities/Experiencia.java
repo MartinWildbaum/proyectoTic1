@@ -43,6 +43,9 @@ import java.util.Collection;
     @Column(name = "disponible")
     private Boolean estaDisponible;
 
+    @Column(name = "estado_experiencia")
+    private Boolean estadoExperiencia;
+
     @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
@@ -168,6 +171,14 @@ import java.util.Collection;
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+
+    public Boolean getEstadoExperiencia() {
+        return estadoExperiencia;
+    }
+
+    public void setEstadoExperiencia(Boolean estadoExperiencia) {
+        this.estadoExperiencia = estadoExperiencia;
     }
 }
 

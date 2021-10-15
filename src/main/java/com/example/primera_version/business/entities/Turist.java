@@ -2,9 +2,6 @@ package com.example.primera_version.business.entities;
 
 
 
-import com.example.primera_version.persistence.CountryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -16,7 +13,7 @@ import java.util.Collection;
 public class Turist extends Usuario{
 
     @ManyToOne(targetEntity = Pais.class)
-    //@JoinColumn(name="nombre_pais", referencedColumnName = "nombre")
+    @JoinColumn(name="nombre_pais", referencedColumnName = "nombre")
     private Pais pais;
 
 

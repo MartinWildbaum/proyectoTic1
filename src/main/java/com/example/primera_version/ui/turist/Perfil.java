@@ -1,5 +1,6 @@
 package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
+import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
@@ -47,24 +48,16 @@ public class Perfil {
     }
 
 
-//    public void informacionTurista(String mail){
-//        usuariolabel.setText(turistRepository.findOneByMail(mail).getMail());
-//        paislabel.setText(turistRepository.findOneByMail(mail).getNacionalidad());
-//        fechalabel.setText(cambiarLocalDateAString(turistRepository.findOneByMail(mail).getBirthdate()));
-//        intereseslabel.setText(turistRepository.findOneByMail(mail).getInteresesAsociados().toString());
-//
-//    }
-
-
-
-    @FXML
-    void informacionUsuario(ActionEvent event) {
-
-        usuariolabel.setText("hola");
-        paislabel.setText("hola2");
-        fechalabel.setText("hola3");
-        intereseslabel.setText("hola4");
+    public void setInformacionUsuario(String mail){
+        Turist turistAMostrar = turistRepository.findOneByMail(mail);
+        usuariolabel.setText(turistAMostrar.getMail());
+        paislabel.setText(turistAMostrar.getPais().getNombre());
+        fechalabel.setText(cambiarLocalDateAString(turistAMostrar.getBirthdate()));
     }
+
+
+
+
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{

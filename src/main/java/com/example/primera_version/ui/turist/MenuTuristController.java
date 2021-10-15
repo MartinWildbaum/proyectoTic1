@@ -3,7 +3,10 @@ package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.entities.Experiencia;
+import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.persistence.ExperienceRepository;
+import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.ui.Principal;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -25,15 +28,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
-public class MenuTuristController /*implements Initializable*/ {
+public class MenuTuristController implements Initializable{
 
 
     @Autowired
     private ExperienceRepository experienceRepository;
+
+    @Autowired
+    private TuristRepository turistRepository;
 
     @Autowired
     private Perfil perfil;
@@ -49,18 +56,6 @@ public class MenuTuristController /*implements Initializable*/ {
 
     @FXML
     private Image  myImage;
-
-    @FXML
-    private TextField campoBusqueda;
-
-    @FXML
-    private TableView<Experiencia> experienciasOfrecidas;
-
-    @FXML
-    private TableColumn<Experiencia, String> tituloExpriencia;
-
-    @FXML
-    private TableColumn<Experiencia, String> descripcionExperiencia;
 
     @FXML
     private Button experienciaButton1;
@@ -116,7 +111,7 @@ public class MenuTuristController /*implements Initializable*/ {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         closeVentana(event);
         Parent root = fxmlLoader.load(Perfil.class.getResourceAsStream("Perfil.fxml"));
-        perfil.informacionUsuario(event);
+        perfil.setInformacionUsuario(principal.username.getText());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -131,39 +126,9 @@ public class MenuTuristController /*implements Initializable*/ {
         Parent root = fxmlLoader.load(Template.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        template.setTemplete((experienceRepository.findOneByTituloExperiencia(irExperiencia.getText()).getIdExperiencia()));
+        template.setTemplete((experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getIdExperiencia()));
         stage.show();
 
-    }
-
-    ObservableList<Experiencia> lista;
-/*
-    @Override
-    public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
-        //username_label.setText(cliente.getUsername());
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAll();
-        lista = FXCollections.observableArrayList();
-        lista.addAll(query);
-        experienciasOfrecidas.setItems(lista);
-        tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
-        descripcionExperiencia.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-
-    }
-*/
-
-    @FXML
-    void busquedaDinamica(KeyEvent event){
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAllByTituloExperienciaContaining(campoBusqueda.getText());
-        lista = FXCollections.observableArrayList();
-        lista.removeAll();
-        lista.addAll(query);
-        experienciasOfrecidas.setItems(lista);
-        tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
-        descripcionExperiencia.setCellValueFactory(cellData -> {
-            Long idExperiencia = cellData.getValue().getIdExperiencia();
-            String descripcion_experiencia = experienceRepository.findOneByIdExperiencia(idExperiencia).getDescripcion();
-            return new ReadOnlyStringWrapper(descripcion_experiencia);
-        });
     }
 
     private void showAlert(String title, String contextText) {
@@ -182,5 +147,43 @@ public class MenuTuristController /*implements Initializable*/ {
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+
+        Turist turist = turistRepository.findOneByMail(principal.username.getText());
+        /*
+        Iterator<Interes> iter = turist.getIntereses().iterator();
+
+        String nombreExperiencia1 = iter.next().getNombre();
+
+        experienciaButton1.setText(nombreExperiencia1);
+        experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia1).getImagenAsJavaFxImage(200,200));
+
+        String nombreExperiencia2 = iter.next().getNombre();
+
+        experienciaButton2.setText(nombreExperiencia2);
+        experienciaImage2.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia2).getImagenAsJavaFxImage(200,200));
+
+
+        String nombreExperiencia3 = iter.next().getNombre();
+
+        experienciaButton3.setText(nombreExperiencia3);
+        experienciaImage3.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia3).getImagenAsJavaFxImage(200,200));
+
+
+        String nombreExperiencia4 = iter.next().getNombre();
+
+        experienciaButton4.setText(nombreExperiencia4);
+        experienciaImage4.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia4).getImagenAsJavaFxImage(200,200));
+
+*/
+
+
+        experienciaButton1.setText("LosDedos");
+        experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage(200,200));
+
+
+
+    }
 }
