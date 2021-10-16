@@ -7,7 +7,7 @@ import java.util.Collection;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "intereses")
-public abstract class Interes {
+public class Interes { //ERA ABSTRACTO!!
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,9 +37,10 @@ public abstract class Interes {
     public Interes() {
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return nombre;
+    }
 
     public Long getId() {
         return idInteres;

@@ -21,7 +21,7 @@ public class Turist extends Usuario{
     private LocalDate birthdate;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 

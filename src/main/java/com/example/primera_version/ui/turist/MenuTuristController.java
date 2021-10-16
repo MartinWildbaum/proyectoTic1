@@ -28,9 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 @Component
 public class MenuTuristController implements Initializable{
@@ -152,37 +150,56 @@ public class MenuTuristController implements Initializable{
 
 
         Turist turist = turistRepository.findOneByMail(principal.username.getText());
-        /*
-        Iterator<Interes> iter = turist.getIntereses().iterator();
 
-        String nombreExperiencia1 = iter.next().getNombre();
+        Collection<Interes> intereses = turist.getIntereses();
+        Iterable<Experiencia> allExperiencias = experienceRepository.findAll();
+        ArrayList<Experiencia> experienciasRecomendadas = new ArrayList<>(); // Experiencias que voy a mostrar en el menu principal
 
-        experienciaButton1.setText(nombreExperiencia1);
-        experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia1).getImagenAsJavaFxImage(200,200));
+        for (Experiencia experiencia : allExperiencias) {
 
-        String nombreExperiencia2 = iter.next().getNombre();
+            for (Interes interes : intereses) {
+                if(experiencia.getIntereses().contains(interes)){
+                    experienciasRecomendadas.add(experiencia);
+                    break; // Para que no me agregue los intereses mas de una vez
+                }
+            }
+        }
 
-        experienciaButton2.setText(nombreExperiencia2);
-        experienciaImage2.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia2).getImagenAsJavaFxImage(200,200));
+        try {
+            experienciaButton1.setText(experienciasRecomendadas.get(0).getTituloExperiencia());
+            experienciaImage1.setImage(experienciasRecomendadas.get(0).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton2.setText(experienciasRecomendadas.get(1).getTituloExperiencia());
+            experienciaImage2.setImage(experienciasRecomendadas.get(1).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton3.setText(experienciasRecomendadas.get(2).getTituloExperiencia());
+            experienciaImage3.setImage(experienciasRecomendadas.get(2).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton4.setText(experienciasRecomendadas.get(3).getTituloExperiencia());
+            experienciaImage4.setImage(experienciasRecomendadas.get(3).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton5.setText(experienciasRecomendadas.get(4).getTituloExperiencia());
+            experienciaImage5.setImage(experienciasRecomendadas.get(4).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton5.setText(experienciasRecomendadas.get(5).getTituloExperiencia());
+            experienciaImage5.setImage(experienciasRecomendadas.get(5).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton6.setText(experienciasRecomendadas.get(6).getTituloExperiencia());
+            experienciaImage6.setImage(experienciasRecomendadas.get(6).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton7.setText(experienciasRecomendadas.get(7).getTituloExperiencia());
+            experienciaImage7.setImage(experienciasRecomendadas.get(7).getImagenAsJavaFxImage(200, 200));
+
+            experienciaButton8.setText(experienciasRecomendadas.get(8).getTituloExperiencia());
+            experienciaImage8.setImage(experienciasRecomendadas.get(8).getImagenAsJavaFxImage(200, 200));
+
+        }catch (Exception e){e.printStackTrace();}
 
 
-        String nombreExperiencia3 = iter.next().getNombre();
 
-        experienciaButton3.setText(nombreExperiencia3);
-        experienciaImage3.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia3).getImagenAsJavaFxImage(200,200));
-
-
-        String nombreExperiencia4 = iter.next().getNombre();
-
-        experienciaButton4.setText(nombreExperiencia4);
-        experienciaImage4.setImage(experienceRepository.findOneByTituloExperiencia(nombreExperiencia4).getImagenAsJavaFxImage(200,200));
-
-*/
-
-
-        experienciaButton1.setText("LosDedos");
-        //experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage((int)experienciaImage1.getFitHeight(),(int)experienciaImage1.getFitWidth()));
-        experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage(200,200));
+//        experienciaButton1.setText("LosDedos");
+//        //experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage((int)experienciaImage1.getFitHeight(),(int)experienciaImage1.getFitWidth()));
+//        experienciaImage1.setImage(experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getImagenAsJavaFxImage(200,200));
 
 
 
