@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -36,11 +35,6 @@ public class Perfil {
     @FXML
     private Label intereseslabel;
 
-    @Autowired
-    private Principal principal;
-
-    @Autowired
-    private MenuTuristController menuTuristController;
 
 
     private String cambiarLocalDateAString(LocalDate fecha){

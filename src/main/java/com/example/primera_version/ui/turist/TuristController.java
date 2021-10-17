@@ -116,10 +116,6 @@ public class TuristController {
             try {
 
                 String pais = myComboBoxPaises.getValue();
-
-                //FIXME RECORDARLE A MARTIN ESTO
-
-//              String pais = countryRepository.findOneByNombre(myComboBoxPaises.getValue()).getNombre(); // Asumo que la base de deatos tiene precargada la informacion de los paises
                 String mail = txtMail.getText();
                 LocalDate birthdate = txtBirthdate.getValue();
                 String password = txtPassword1.getText();
