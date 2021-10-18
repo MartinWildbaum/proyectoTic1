@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1100.0" style="-fx-background-color: #87CEEB;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1100.0" style="-fx-background-color: #87CEEB;" stylesheets="com/example/primera_version/ui/turist/MenuTurist.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
     <children>
         <Label layoutX="376.0" layoutY="31.0" prefHeight="58.0" prefWidth="332.0" text="Viaja con TurisTIC" textFill="WHITE">
             <font>
@@ -40,7 +40,7 @@
                 </Button>
                 <ImageView fitHeight="66.0" fitWidth="83.0" layoutX="52.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@fotos/usuariologo.jpg" />
+                        <Image url="fotos/usuariologo.jpg" />
                     </image>
                 </ImageView>
                 <Label layoutX="109.0" layoutY="510.0" text="TurisTIC" textFill="AQUA">
@@ -50,7 +50,7 @@
                 </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="34.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="221.74578857421875">

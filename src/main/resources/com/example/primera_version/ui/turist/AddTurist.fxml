@@ -62,7 +62,7 @@
             <PasswordField fx:id="txtPassword1" layoutX="203.0" layoutY="195.0" prefHeight="26.0" prefWidth="187.0" />
             <PasswordField fx:id="txtPassword2" layoutX="203.0" layoutY="240.0" prefHeight="26.0" prefWidth="190.0" />
             <ComboBox fx:id="myComboBoxPaises" layoutX="203.0" layoutY="107.0" onAction="#addPaises" prefHeight="26.0" prefWidth="185.0" />
-            <CheckComboBox fx:id="seleccionadorIntereses" layoutX="83.0" layoutY="348.0" prefHeight="25.0" prefWidth="174.0" title="Seleccione sus intereses" />
+            <CheckComboBox fx:id="seleccionadorIntereses" layoutX="201.0" layoutY="308.0" prefHeight="26.0" prefWidth="194.0" title="Seleccione sus intereses" />
             </children>
         </AnchorPane>
    </top>
