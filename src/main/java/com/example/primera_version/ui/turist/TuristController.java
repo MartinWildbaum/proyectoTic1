@@ -74,9 +74,6 @@ public class TuristController {
 //    @FXML
 //    private CheckBox boxTurismoRapido;
 
-//    @FXML
-//    public ChoiceBox<String> myChoiceBoxPaises;
-
     @FXML
     public ComboBox<String> myComboBoxPaises;
 
