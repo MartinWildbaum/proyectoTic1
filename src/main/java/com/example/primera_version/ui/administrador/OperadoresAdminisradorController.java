@@ -5,6 +5,8 @@ import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.TurOpRepository;
+import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.turist.MenuTuristController;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -16,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -41,9 +44,6 @@ public class OperadoresAdminisradorController implements Initializable{
     @Autowired
     private TurOpRepository turOpRepository;
 
-
-    @FXML
-    private Button botonAgregarOperador;
 
 
     @FXML
@@ -200,5 +200,34 @@ public class OperadoresAdminisradorController implements Initializable{
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @FXML
+    void cerrarSesion(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        closeVentana(event);
+        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void volverAlMenu(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        closeVentana(event);
+        Parent root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void closeVentana(ActionEvent actionEvent) {
+        Node source = (Node)  actionEvent.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }

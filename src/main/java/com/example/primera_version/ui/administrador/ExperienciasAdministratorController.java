@@ -4,6 +4,8 @@ package com.example.primera_version.ui.administrador;
 import com.example.primera_version.Main;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.persistence.ExperienceRepository;
+import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.turist.MenuTuristController;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn.*;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -167,5 +170,35 @@ public class ExperienciasAdministratorController implements Initializable {
                 return cell;
             }
         });
+    }
+
+
+    @FXML
+    void cerrarSesion(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        closeVentana(event);
+        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void volverAlMenu(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        closeVentana(event);
+        Parent root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void closeVentana(ActionEvent actionEvent) {
+        Node source = (Node)  actionEvent.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
