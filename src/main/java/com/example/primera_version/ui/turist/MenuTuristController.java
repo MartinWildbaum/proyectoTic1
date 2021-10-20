@@ -1,6 +1,5 @@
 package com.example.primera_version.ui.turist;
 
-
 import com.example.primera_version.Main;
 import com.example.primera_version.business.MenuMgr;
 import com.example.primera_version.business.entities.Experiencia;

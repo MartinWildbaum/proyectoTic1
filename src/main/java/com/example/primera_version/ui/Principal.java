@@ -87,7 +87,7 @@ public class Principal {
                 closeVentana(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                Parent root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTO.fxml"));
+                Parent root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
                 Stage stage1 = new Stage();
                 stage1.setScene(new Scene(root));
                 stage1.show();
