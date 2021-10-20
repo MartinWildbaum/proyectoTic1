@@ -20,7 +20,7 @@ public class OperadorTuristico {
     @Column(name = "name_tur_op", nullable = false)
     private String nameTO;
 
-    @Column(name = "estado", nullable = false)
+    @Column(name = "estado", nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estado;
 
     @Column(name = "contact_name", nullable = false)

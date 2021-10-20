@@ -4,7 +4,7 @@ import com.example.primera_version.Main;
 import com.example.primera_version.business.AdminMgr;
 import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.TuristMgr;
-import com.example.primera_version.ui.administrador.MenuAdministratorController;
+import com.example.primera_version.ui.administrador.ExperienciasAdministratorController;
 import com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController;
 import com.example.primera_version.ui.turist.MenuTuristController;
 import com.example.primera_version.ui.turist.Perfil;
@@ -78,7 +78,7 @@ public class Principal {
                 closeVentana(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                Parent root = fxmlLoader.load(MenuAdministratorController.class.getResourceAsStream("MenuAdministrador.fxml"));
+                Parent root = fxmlLoader.load(ExperienciasAdministratorController.class.getResourceAsStream("ExperienciasAdministrador.fxml"));
                 Stage stage1 = new Stage();
                 stage1.setScene(new Scene(root));
                 stage1.show();

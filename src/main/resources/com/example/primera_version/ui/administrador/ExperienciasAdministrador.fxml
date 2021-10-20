@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="624.0" prefWidth="928.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.ExperienciasAdministratorController">
+   <children>
+      <TableView fx:id="experienciasExpuestas" layoutX="14.0" layoutY="65.0" prefHeight="371.0" prefWidth="872.0">
+        <columns>
+          <TableColumn fx:id="idExperiencia" editable="false" prefWidth="94.0" sortable="false" text="IdExperiencia" />
+          <TableColumn fx:id="tituloExpriencia" editable="false" prefWidth="134.0" text="Titulo experiencia" />
+            <TableColumn fx:id="descripcionExperiencia" editable="false" minWidth="0.0" prefWidth="73.33331298828125" sortable="false" text="Descripcion" />
+            <TableColumn fx:id="ubicacionExperiencia" editable="false" prefWidth="77.66668701171875" sortable="false" text="Ubicacion" />
+            <TableColumn editable="false" prefWidth="98.66665649414062" sortable="false" text="Intereses" />
+            <TableColumn fx:id="aforoExperiencia" editable="false" prefWidth="120.66665649414062" sortable="false" text="Aforo disponible" />
+            <TableColumn fx:id="operadorExperiencia" editable="false" prefWidth="136.0" sortable="false" text="Operador oferente" />
+            <TableColumn fx:id="estadoExperiencia" prefWidth="138.0" text="Estado" />
+        </columns>
+      </TableView>
+      <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
+   </children>
+</AnchorPane>

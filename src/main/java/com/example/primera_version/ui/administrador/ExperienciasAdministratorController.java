@@ -3,42 +3,40 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.entities.Experiencia;
-import com.example.primera_version.business.entities.Interes;
-import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.persistence.ExperienceRepository;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn.*;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.StyledEditorKit;
 import java.net.URL;
-import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
 
 @Component
-public class MenuAdministratorController implements Initializable {
+public class ExperienciasAdministratorController implements Initializable {
 
 
     @Autowired
     private ExperienceRepository experienceRepository;
-
-
-    @FXML
-    private Button botonAgregarOperador;
 
 
     @FXML
@@ -69,7 +67,7 @@ public class MenuAdministratorController implements Initializable {
 //    private TableColumn<Experiencia, OperadorTuristico> operadorExperiencia; // Refiere al nombre del operador turistico
 
     @FXML
-    private TableColumn<Experiencia, String> estadoExperiencia;
+    private TableColumn<Experiencia, Boolean> estadoExperiencia;
 
 
     private void showAlert(String title, String contextText) {
@@ -115,15 +113,15 @@ public class MenuAdministratorController implements Initializable {
             return new ReadOnlyStringWrapper(String.valueOf(aforoExperiencia));
         });
 
-        estadoExperiencia.setCellValueFactory(cellData -> {
-            Long idExperiencia = cellData.getValue().getIdExperiencia();
-            Boolean estadoExperiencia = experienceRepository.findOneByIdExperiencia(idExperiencia).getEstadoExperiencia();
-            String estado = "Bloqueado";
-            if(estadoExperiencia == null || estadoExperiencia){
-                estado = "Autorizado";
-            }
-            return new ReadOnlyStringWrapper(estado);
-        });
+//        estadoExperiencia.setCellValueFactory(cellData -> {
+//            Long idExperiencia = cellData.getValue().getIdExperiencia();
+//            Boolean estadoExperiencia = experienceRepository.findOneByIdExperiencia(idExperiencia).getEstadoExperiencia();
+//            String estado = "Bloqueado";
+//            if(estadoExperiencia == null || estadoExperiencia){
+//                estado = "Autorizado";
+//            }
+//            return new ReadOnlyStringWrapper(estado);
+//        });
     }
 
 
@@ -142,18 +140,32 @@ public class MenuAdministratorController implements Initializable {
         ubicacionExperiencia.setCellValueFactory((new PropertyValueFactory<>("ubicacion")));
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
         estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
+        estadoExperiencia.setCellValueFactory(new Callback<CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
+            @Override
+            public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {
+                Experiencia experiencia = param.getValue();
 
-    }
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstadoExperiencia());
 
+                //estadoExperiencia.setOnEditCommit();
 
+                booleanProperty.addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                        experiencia.setEstadoExperiencia(newValue);
+                    }
+                });
 
-    @FXML
-    void agregarOTAction(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(TOController.class.getResourceAsStream("AddOperadorTuristico.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+                return booleanProperty;
+            }
+        });
+        estadoExperiencia.setCellFactory(new Callback<TableColumn<Experiencia, Boolean>, TableCell<Experiencia, Boolean>>() {
+            @Override
+            public TableCell<Experiencia, Boolean> call(TableColumn<Experiencia, Boolean> param) {
+                CheckBoxTableCell<Experiencia,Boolean> cell = new CheckBoxTableCell<Experiencia, Boolean>();
+                cell.setAlignment(Pos.CENTER);
+                return cell;
+            }
+        });
     }
 }

@@ -40,10 +40,10 @@ import java.util.Collection;
     @Column(name = "ubicacion", nullable = false)
     private String ubicacion;
 
-    @Column(name = "disponible")
+    @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible;
 
-    @Column(name = "estado_experiencia")
+    @Column(name = "estado_experiencia", nullable = false)
     private Boolean estadoExperiencia;
 
     @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
