@@ -2,6 +2,7 @@ package com.example.primera_version.business.entities;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 
 @Entity
@@ -81,4 +82,13 @@ public class Interes { //ERA ABSTRACTO!!
     public void setInteresesGeneralesAsociados(Collection<InteresGeneral> interesesGeneralesAsociados) {
         this.interesesGeneralesAsociados = interesesGeneralesAsociados;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Interes)) return false;
+        Interes interes = (Interes) o;
+        return this.getId().equals(interes.getId());
+    }
+
 }

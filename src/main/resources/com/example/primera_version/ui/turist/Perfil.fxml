@@ -10,45 +10,57 @@
 
 <AnchorPane prefHeight="489.0" prefWidth="735.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Perfil">
    <children>
-      <Label layoutX="333.0" layoutY="21.0" prefHeight="53.0" prefWidth="156.0" text="Tu perfil" textFill="WHITE">
+      <Label layoutX="306.0" layoutY="42.0" prefHeight="53.0" prefWidth="156.0" text="Tu perfil" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="41.0" />
          </font>
       </Label>
-      <Label layoutX="355.0" layoutY="139.0" text="Usuario" textFill="WHITE">
+      <Label layoutX="365.0" layoutY="148.0" text="Usuario :" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="259.0" layoutY="187.0" text="Pais de nacimiento" textFill="WHITE">
+      <Label layoutX="262.0" layoutY="196.0" text="Pais de nacimiento : " textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="250.0" layoutY="231.0" text="Fecha de nacimiento" textFill="WHITE">
+      <Label layoutX="249.0" layoutY="240.0" text="Fecha de nacimiento :" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="348.0" layoutY="275.0" text="Intereses" textFill="WHITE">
+      <Label layoutX="344.0" layoutY="284.0" text="Intereses : " textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="usuariolabel" layoutX="468.0" layoutY="146.0" prefHeight="28.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" />
-      <Label fx:id="paislabel" layoutX="468.0" layoutY="193.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" />
-      <Label fx:id="fechalabel" layoutX="468.0" layoutY="232.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" />
-      <Label fx:id="intereseslabel" layoutX="468.0" layoutY="275.0" prefHeight="28.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" />
+      <Label fx:id="usuariolabel" layoutX="468.0" layoutY="146.0" prefHeight="28.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="paislabel" layoutX="468.0" layoutY="193.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="fechalabel" layoutX="468.0" layoutY="232.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="intereseslabel" layoutX="461.0" layoutY="284.0" prefHeight="34.0" prefWidth="249.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font></Label>
       <AnchorPane prefHeight="493.0" prefWidth="230.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="82.0" layoutY="284.0" text="TurisTIC" textFill="AQUA">
+            <Label layoutX="117.0" layoutY="342.0" text="TurisTIC" textFill="AQUA">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Text fill="WHITE" layoutX="16.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="215.74578857421875">
+            <Text fill="WHITE" layoutX="25.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="215.74578857421875">
                <font>
-                  <Font size="19.0" />
+                  <Font name="System Italic" size="18.0" />
                </font>
             </Text>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="49.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
@@ -58,7 +70,13 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="336.0" layoutY="354.0" mnemonicParsing="false" onAction="#volverAlMenu" text="Volver al menu" />
-      <Button layoutX="459.0" layoutY="354.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
+      <Button layoutX="384.0" layoutY="439.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ADD8E6;" text="Volver al menu" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="507.0" layoutY="439.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ADD8E6;" text="Cerrar Sesión" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

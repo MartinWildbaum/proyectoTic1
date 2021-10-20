@@ -13,13 +13,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.example.primera_version.ui.turist.MenuTuristController;
-import com.example.primera_version.business.entities.Turist;
-import com.example.primera_version.persistence.TuristRepository;
-import com.example.primera_version.ui.Principal;
-
-
-
 
 @Component
 public class Template {
@@ -44,12 +37,14 @@ public class Template {
     private ExperienceRepository experienceRepository;
 
     public void setTemplete(Long id){
+
         Experiencia experiencia_mostrada = experienceRepository.findOneByIdExperiencia(id);
         templateTitulo.setText(experiencia_mostrada.getTituloExperiencia());
         templateUbicacion.setText("Ubicacion: " + experiencia_mostrada.getUbicacion());
         templateDescrpicion.setText("Descripcion: " + experiencia_mostrada.getDescripcion());
         templateVideos.setText("Videos: " + experiencia_mostrada.getLinkVideos());
         templateImage.setImage(experienceRepository.findOneByIdExperiencia(id).getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
+
     }
 
     @FXML

@@ -7,7 +7,6 @@ import com.example.primera_version.business.exceptions.UserNotExists;
 import com.example.primera_version.persistence.CountryRepository;
 import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.persistence.UserRepository;
-import com.sun.xml.bind.v2.runtime.output.C14nXmlOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.primera_version.business.entities.Turist;

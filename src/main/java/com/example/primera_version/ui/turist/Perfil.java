@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class Perfil {
     @FXML
     private Label intereseslabel;
 
+    @FXML
+    private Button cerrarSesion;
+
 
 
     private String cambiarLocalDateAString(LocalDate fecha){
@@ -43,10 +47,17 @@ public class Perfil {
 
 
     public void setInformacionUsuario(String mail){
+
         Turist turistAMostrar = turistRepository.findOneByMail(mail);
+
         usuariolabel.setText(turistAMostrar.getMail());
+        usuariolabel.setStyle("-fx-alignment: CENTER;");// Me centra el texto
         paislabel.setText(turistAMostrar.getPais().getNombre());
+        paislabel.setStyle("-fx-alignment: CENTER;");
         fechalabel.setText(cambiarLocalDateAString(turistAMostrar.getBirthdate()));
+        fechalabel.setStyle("-fx-alignment: CENTER;");
+        intereseslabel.setText(turistAMostrar.getIntereses().toString());
+        intereseslabel.setStyle("-fx-alignment: CENTER;");
     }
 
 

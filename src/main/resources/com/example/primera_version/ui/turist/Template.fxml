@@ -10,24 +10,24 @@
 
 <AnchorPane prefHeight="576.0" prefWidth="900.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Template">
    <children>
-      <Text fx:id="templateTitulo" fill="WHITE" layoutX="450.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
+      <Text fx:id="templateTitulo" fill="WHITE" layoutX="469.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
          <font>
-            <Font size="27.0" />
+            <Font name="Cambria" size="27.0" />
          </font>
       </Text>
       <Text fx:id="templateUbicacion" fill="WHITE" layoutX="450.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicacion:" wrappingWidth="268.125">
          <font>
-            <Font size="19.0" />
+            <Font name="Cambria" size="27.0" />
          </font>
       </Text>
       <Text fx:id="templateDescrpicion" fill="WHITE" layoutX="450.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripicion:" wrappingWidth="268.125">
          <font>
-            <Font size="19.0" />
+            <Font name="Cambria" size="27.0" />
          </font>
       </Text>
       <Text fx:id="templateVideos" fill="WHITE" layoutX="450.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Videos:" wrappingWidth="268.125">
          <font>
-            <Font size="19.0" />
+            <Font name="Cambria" size="27.0" />
          </font>
       </Text>
       <AnchorPane layoutX="-6.0" layoutY="-8.0" prefHeight="593.0" prefWidth="430.0" style="-fx-background-color: #000000;">
@@ -37,10 +37,13 @@
       </AnchorPane>
       <Label layoutX="788.0" layoutY="540.0" text="TurisTIC">
          <font>
-            <Font size="23.0" />
+            <Font name="System Italic" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="430.0" layoutY="524.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="43.0" prefWidth="106.0" text="Volver al menu" />
+      <Button layoutX="430.0" layoutY="524.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="43.0" prefWidth="128.0" text="Volver al menu">
+         <font>
+            <Font name="Cambria Bold" size="14.0" />
+         </font></Button>
       <ImageView fitHeight="141.0" fitWidth="171.0" layoutX="755.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/logo.png" />
