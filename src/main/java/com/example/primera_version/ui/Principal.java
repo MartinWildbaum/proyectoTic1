@@ -78,7 +78,7 @@ public class Principal {
                 closeVentana(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                Parent root = fxmlLoader.load(ExperienciasAdministratorController.class.getResourceAsStream("ExperienciasAdministrador.fxml"));
+                Parent root = fxmlLoader.load(ExperienciasAdministratorController.class.getResourceAsStream("MenuAdministrador.fxml"));
                 Stage stage1 = new Stage();
                 stage1.setScene(new Scene(root));
                 stage1.show();
