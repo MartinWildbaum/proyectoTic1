@@ -3,6 +3,8 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.entities.Experiencia;
+import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.ui.Principal;
 import com.example.primera_version.ui.turist.MenuTuristController;
@@ -30,6 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,14 +63,14 @@ public class ExperienciasAdministratorController implements Initializable {
     @FXML
     private TableColumn<Experiencia, String> ubicacionExperiencia;
 
-//    @FXML
-//    private TableColumn<Experiencia, Collection<Interes>> interesesExperiencia;
+    @FXML
+    private TableColumn<Experiencia, Collection<Interes>> interesesExperiencia;
 
     @FXML
     private TableColumn<Experiencia, String> aforoExperiencia;
 
-//    @FXML
-//    private TableColumn<Experiencia, OperadorTuristico> operadorExperiencia; // Refiere al nombre del operador turistico
+    @FXML
+    private TableColumn<Experiencia, OperadorTuristico> operadorExperiencia; // Refiere al nombre del operador turistico
 
     @FXML
     private TableColumn<Experiencia, Boolean> estadoExperiencia;
@@ -91,6 +94,7 @@ public class ExperienciasAdministratorController implements Initializable {
         lista.removeAll();
         lista.addAll(query);
         experienciasExpuestas.setItems(lista);
+        /*
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
 
         descripcionExperiencia.setCellValueFactory(cellData -> {
@@ -125,6 +129,8 @@ public class ExperienciasAdministratorController implements Initializable {
 //            }
 //            return new ReadOnlyStringWrapper(estado);
 //        });
+*/
+
     }
 
 
@@ -137,11 +143,23 @@ public class ExperienciasAdministratorController implements Initializable {
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         experienciasExpuestas.setItems(lista);
+
+        idExperiencia.setStyle("-fx-alignment: CENTER;");
+        tituloExpriencia.setStyle("-fx-alignment: CENTER;");
+        descripcionExperiencia.setStyle("-fx-alignment: CENTER;");
+        ubicacionExperiencia.setStyle("-fx-alignment: CENTER;");
+        aforoExperiencia.setStyle("-fx-alignment: CENTER;");
+        operadorExperiencia.setStyle("-fx-alignment: CENTER;");
+        interesesExperiencia.setStyle("-fx-alignment: CENTER;");
+
+
         idExperiencia.setCellValueFactory((new PropertyValueFactory<>("idExperiencia")));
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
         descripcionExperiencia.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         ubicacionExperiencia.setCellValueFactory((new PropertyValueFactory<>("ubicacion")));
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
+        operadorExperiencia.setCellValueFactory(new PropertyValueFactory<>("operadorTuristico"));
+        interesesExperiencia.setCellValueFactory(new PropertyValueFactory<>("intereses"));
         estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
         estadoExperiencia.setCellValueFactory(new Callback<CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override

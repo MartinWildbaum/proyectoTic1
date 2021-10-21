@@ -3,6 +3,7 @@ package com.example.primera_version.ui.tur_op_user;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.entities.Experiencia;
+import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
 import com.example.primera_version.ui.Principal;
@@ -31,6 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -64,8 +66,8 @@ public class ExperienciasOperadorController implements  Initializable{
     @FXML
     private TableColumn<Experiencia, String> ubicacionExperiencia;
 
-//    @FXML
-//    private TableColumn<Experiencia, Collection<Interes>> interesesExperiencia;
+    @FXML
+    private TableColumn<Experiencia, Collection<Interes>> interesesExperiencia;
 
     @FXML
     private TableColumn<Experiencia, String> aforoExperiencia;
@@ -83,6 +85,7 @@ public class ExperienciasOperadorController implements  Initializable{
         lista.removeAll();
         lista.addAll(query);
         misExperiencias.setItems(lista);
+        /*
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
 
         descripcionExperiencia.setCellValueFactory(cellData -> {
@@ -117,6 +120,8 @@ public class ExperienciasOperadorController implements  Initializable{
 //            }
 //            return new ReadOnlyStringWrapper(estado);
 //        });
+
+         */
     }
 
 
@@ -130,12 +135,21 @@ public class ExperienciasOperadorController implements  Initializable{
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         misExperiencias.setItems(lista);
+
+        idExperiencia.setStyle("-fx-alignment: CENTER;");
+        tituloExpriencia.setStyle("-fx-alignment: CENTER;");
+        descripcionExperiencia.setStyle("-fx-alignment: CENTER;");
+        ubicacionExperiencia.setStyle("-fx-alignment: CENTER;");
+        aforoExperiencia.setStyle("-fx-alignment: CENTER;");
+        interesesExperiencia.setStyle("-fx-alignment: CENTER;");
+
         idExperiencia.setCellValueFactory((new PropertyValueFactory<>("idExperiencia")));
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
         descripcionExperiencia.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         ubicacionExperiencia.setCellValueFactory((new PropertyValueFactory<>("ubicacion")));
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
-        estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
+        interesesExperiencia.setCellValueFactory(new PropertyValueFactory<>("intereses"));
+        //estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
         estadoExperiencia.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {

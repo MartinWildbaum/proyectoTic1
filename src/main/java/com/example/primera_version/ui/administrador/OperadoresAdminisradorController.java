@@ -95,8 +95,8 @@ public class OperadoresAdminisradorController implements Initializable{
         lista.removeAll();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);
+        /*
         nombreOperador.setCellValueFactory(new PropertyValueFactory<>("nameTO"));
-
         razonSocial.setCellValueFactory(cellData -> {
             Long idOperador = cellData.getValue().getIdOpTur();
             String razSoc = turOpRepository.findOneByIdOpTur(idOperador).getRazonSocial();
@@ -137,7 +137,7 @@ public class OperadoresAdminisradorController implements Initializable{
 //                estado = "Autorizado";
 //            }
 //            return new ReadOnlyStringWrapper(estado);
-//        });
+//        });*/
     }
 
 
@@ -150,6 +150,15 @@ public class OperadoresAdminisradorController implements Initializable{
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);
+
+        idOperadorTuristico.setStyle("-fx-alignment: CENTER;");
+        nombreOperador.setStyle("-fx-alignment: CENTER;");
+        razonSocial.setStyle("-fx-alignment: CENTER;");
+        nombreContacto.setStyle("-fx-alignment: CENTER;");
+        apellidoContacto.setStyle("-fx-alignment: CENTER;");
+        edadContacto.setStyle("-fx-alignment: CENTER;");
+        telefonoContacto.setStyle("-fx-alignment: CENTER;");
+
         idOperadorTuristico.setCellValueFactory((new PropertyValueFactory<>("idOpTur")));
         nombreOperador.setCellValueFactory(new PropertyValueFactory<>("nameTO"));
         razonSocial.setCellValueFactory(new PropertyValueFactory<>("razonSocial"));

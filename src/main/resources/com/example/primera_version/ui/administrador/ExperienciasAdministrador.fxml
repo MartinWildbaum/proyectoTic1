@@ -15,7 +15,7 @@
           <TableColumn fx:id="tituloExpriencia" editable="false" prefWidth="134.0" text="Titulo experiencia" />
             <TableColumn fx:id="descripcionExperiencia" editable="false" minWidth="0.0" prefWidth="73.33331298828125" sortable="false" text="Descripcion" />
             <TableColumn fx:id="ubicacionExperiencia" editable="false" prefWidth="77.66668701171875" sortable="false" text="Ubicacion" />
-            <TableColumn editable="false" prefWidth="98.66665649414062" sortable="false" text="Intereses" />
+            <TableColumn fx:id="interesesExperiencia" editable="false" prefWidth="98.66665649414062" sortable="false" text="Intereses" />
             <TableColumn fx:id="aforoExperiencia" editable="false" prefWidth="120.66665649414062" sortable="false" text="Aforo disponible" />
             <TableColumn fx:id="operadorExperiencia" editable="false" prefWidth="136.0" sortable="false" text="Operador oferente" />
             <TableColumn fx:id="estadoExperiencia" prefWidth="138.0" text="Estado" />

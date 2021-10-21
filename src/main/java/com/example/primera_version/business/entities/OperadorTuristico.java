@@ -138,4 +138,9 @@ public class OperadorTuristico {
     public void setUsuariosDelOperador(Collection<UsuarioOpTur> usuariosDelOperador) {
         this.usuariosDelOperador = usuariosDelOperador;
     }
+
+    @Override
+    public String toString() {
+        return nameTO;
+    }
 }

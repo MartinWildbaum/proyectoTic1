@@ -15,9 +15,9 @@
             <TableColumn fx:id="tituloExpriencia" editable="false" prefWidth="119.33332824707031" text="Titulo experiencia" />
             <TableColumn fx:id="descripcionExperiencia" editable="false" minWidth="0.0" prefWidth="115.33334350585938" sortable="false" text="Descripcion" />
             <TableColumn fx:id="ubicacionExperiencia" editable="false" prefWidth="102.66665649414062" sortable="false" text="Ubicacion" />
-            <TableColumn editable="false" prefWidth="129.66668701171875" sortable="false" text="Intereses" />
+            <TableColumn fx:id="interesesExperiencia" editable="false" prefWidth="129.66668701171875" sortable="false" text="Intereses" />
             <TableColumn fx:id="aforoExperiencia" editable="false" prefWidth="123.00003051757812" sortable="false" text="Aforo disponible" />
-            <TableColumn fx:id="estadoExperiencia" editable="false" prefWidth="173.66668701171875" text="Estado" />
+            <TableColumn fx:id="estadoExperiencia" prefWidth="173.66668701171875" text="Estado" />
          </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
