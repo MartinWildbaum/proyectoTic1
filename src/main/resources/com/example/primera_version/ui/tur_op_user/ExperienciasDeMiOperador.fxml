@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="624.0" prefWidth="928.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.ExperienciasOperadorController">
    <children>
-      <TableView fx:id="experienciasExpuestas" layoutX="14.0" layoutY="65.0" prefHeight="371.0" prefWidth="872.0">
+      <TableView fx:id="misExperiencias" layoutX="14.0" layoutY="65.0" prefHeight="371.0" prefWidth="872.0">
          <columns>
             <TableColumn fx:id="idExperiencia" editable="false" prefWidth="108.66667175292969" sortable="false" text="IdExperiencia" />
             <TableColumn fx:id="tituloExpriencia" editable="false" prefWidth="119.33332824707031" text="Titulo experiencia" />
