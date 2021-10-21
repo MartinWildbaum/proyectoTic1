@@ -19,7 +19,6 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 
-//Esta de aca me controla la ventana del turista, en donde me puedo registrar y eso
 @Component
 public class TuristController {
 
