@@ -45,7 +45,6 @@ public class Perfil {
         return fecha.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
     }
 
-
     public void setInformacionUsuario(String mail){
 
         Turist turistAMostrar = turistRepository.findOneByMail(mail);
@@ -59,10 +58,6 @@ public class Perfil {
         intereseslabel.setText(turistAMostrar.getIntereses().toString());
         intereseslabel.setStyle("-fx-alignment: CENTER;");
     }
-
-
-
-
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{

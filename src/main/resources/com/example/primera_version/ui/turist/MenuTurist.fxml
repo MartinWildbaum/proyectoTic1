@@ -2,33 +2,21 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1100.0" style="-fx-background-color: #87CEEB;" stylesheets="com/example/primera_version/ui/turist/MenuTurist.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
     <children>
         <ImageView fx:id="experienciaImage1" fitHeight="200.0" fitWidth="200.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
-        <Button fx:id="experienciaButton1" layoutX="309.0" layoutY="261.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="21.0" prefWidth="105.0" text="Experiencia1" />
-        <Button fx:id="experienciaButton2" layoutX="487.0" layoutY="258.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="119.0" text="Experiencia2" />
-        <Button fx:id="experienciaButton3" layoutX="697.0" layoutY="260.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="113.0" text="Experiencia3" />
-        <Button fx:id="experienciaButton4" layoutX="940.0" layoutY="261.0" mnemonicParsing="false" onAction="#irExperiencia" text="Experiencia4" />
-        <Button fx:id="experienciaButton5" layoutX="294.0" layoutY="444.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="111.0" text="Experiencia5" />
-        <Button fx:id="experienciaButton6" layoutX="486.0" layoutY="442.0" mnemonicParsing="false" text="Experiencia6" />
-        <Button fx:id="experienciaButton7" layoutX="719.0" layoutY="438.0" mnemonicParsing="false" text="Experiencia7" />
-        <Button fx:id="experienciaButton8" layoutX="929.0" layoutY="440.0" mnemonicParsing="false" text="Experiencia8" />
-        <ImageView fx:id="experienciaImage2" fitHeight="172.0" fitWidth="171.0" layoutX="440.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage3" fitHeight="171.0" fitWidth="205.0" layoutX="646.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage4" fitHeight="150.0" fitWidth="200.0" layoutX="868.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage5" fitHeight="104.0" fitWidth="115.0" layoutX="294.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage6" fitHeight="200.0" fitWidth="200.0" layoutX="444.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage7" fitHeight="200.0" fitWidth="200.0" layoutX="659.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="experienciaImage8" fitHeight="200.0" fitWidth="200.0" layoutX="866.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" />
         <AnchorPane layoutX="-7.0" layoutY="-8.0" prefHeight="621.0" prefWidth="268.0" style="-fx-background-color: #000000;">
             <children>
-                <Button fx:id="miPerfil" layoutX="154.0" layoutY="40.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="44.0" prefWidth="89.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" text="Mi Perfil" textAlignment="CENTER">
+                <Button layoutX="154.0" layoutY="40.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="44.0" prefWidth="89.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" text="Mi Perfil" textAlignment="CENTER">
                     <font>
                         <Font name="Cambria Bold" size="14.0" />
                     </font>
@@ -38,7 +26,7 @@
                         <Image url="@fotos/usuariologo.jpg" />
                     </image>
                 </ImageView>
-                <Label layoutX="162.0" layoutY="509.0" text="TurisTIC" textFill="AQUA">
+                <Label layoutX="135.0" layoutY="512.0" text="TurisTIC" textFill="AQUA">
                     <font>
                         <Font name="System Bold Italic" size="23.0" />
                     </font>
@@ -65,11 +53,19 @@
             <Font name="Papyrus" size="27.0" />
          </font>
       </Text>
-      <ImageView fx:id="experienciaImage1" fitHeight="137.0" fitWidth="150.0" layoutX="304.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="142.0" layoutY="114.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" text="Cerrar Sesion">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
+      <ScrollPane layoutX="343.0" layoutY="146.0" prefHeight="432.0" prefWidth="694.0">
+         <content>
+            <GridPane fx:id="experienciaGrid">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
     </children>
 </AnchorPane>
