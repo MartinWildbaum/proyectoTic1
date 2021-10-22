@@ -19,16 +19,16 @@ public class Interes { //ERA ABSTRACTO!!
     private String nombre;
 
     @ManyToMany(mappedBy = "intereses",
-            targetEntity = Experiencia.class, cascade = CascadeType.ALL)
+            targetEntity = Experiencia.class)
     private Collection<Experiencia> experiencias;
 
 
     @ManyToMany(mappedBy = "intereses",
-            targetEntity = Turist.class, cascade = CascadeType.ALL)
+            targetEntity = Turist.class)
     private Collection<Turist> turistas;
 
     @ManyToMany(mappedBy = "interesesAsociados",
-            targetEntity = InteresGeneral.class, cascade = CascadeType.ALL)
+            targetEntity = InteresGeneral.class)
     private Collection<InteresGeneral> interesesGeneralesAsociados;
 
     public Interes(String nombre) {

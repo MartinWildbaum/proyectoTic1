@@ -21,16 +21,17 @@ public class Turist extends Usuario{
     private LocalDate birthdate;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
 
 
-    public Turist(String mail, String password, Pais pais, LocalDate birthdate) {
+    public Turist(String mail, String password, Pais pais, LocalDate birthdate, Collection<Interes> intereses) {
         super(mail, password);
         this.pais = pais;
         this.birthdate = birthdate;
+        this.intereses = intereses;
     }
 
     public Turist() {

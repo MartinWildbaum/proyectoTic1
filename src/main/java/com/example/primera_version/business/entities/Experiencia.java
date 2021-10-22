@@ -46,7 +46,7 @@ import java.util.Collection;
     @Column(name = "estado_experiencia", nullable = false)
     private Boolean estadoExperiencia;
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
