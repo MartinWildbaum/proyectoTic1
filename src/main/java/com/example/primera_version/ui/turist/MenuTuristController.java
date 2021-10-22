@@ -16,11 +16,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
+import java.io.IOError;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -31,9 +34,6 @@ public class MenuTuristController implements Initializable{
     MenuMgr menuMgr;
 
     @Autowired
-    private ExperienceRepository experienceRepository;
-
-    @Autowired
     private TuristRepository turistRepository;
 
     @Autowired
@@ -42,62 +42,10 @@ public class MenuTuristController implements Initializable{
     @Autowired
     private Principal principal;
 
-    @Autowired
-    private Template template;
-
     @FXML
-    private Button irExperiencia;
+    private GridPane experienciaGrid;
 
-    @FXML
-    private Image  myImage;
 
-    @FXML
-    private Button experienciaButton1;
-
-    @FXML
-    private Button experienciaButton2;
-
-    @FXML
-    private Button experienciaButton3;
-
-    @FXML
-    private Button experienciaButton4;
-
-    @FXML
-    private Button experienciaButton5;
-
-    @FXML
-    private Button experienciaButton6;
-
-    @FXML
-    private Button experienciaButton7;
-
-    @FXML
-    private Button experienciaButton8;
-
-    @FXML
-    private ImageView experienciaImage1;
-
-    @FXML
-    private ImageView experienciaImage2;
-
-    @FXML
-    private ImageView experienciaImage3;
-
-    @FXML
-    private ImageView experienciaImage4;
-
-    @FXML
-    private ImageView experienciaImage5;
-
-    @FXML
-    private ImageView experienciaImage6;
-
-    @FXML
-    private ImageView experienciaImage7;
-
-    @FXML
-    private ImageView experienciaImage8;
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
@@ -111,27 +59,6 @@ public class MenuTuristController implements Initializable{
         stage.show();
     }
 
-    @FXML
-    void irExperiencia(ActionEvent event) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Template.class.getResourceAsStream("Template.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        template.setTemplete((experienceRepository.findOneByTituloExperiencia(experienciaButton1.getText()).getIdExperiencia()));
-        stage.show();
-    }
-
-    //Poner una pa cada una de las 8 experiencias y una flechita  que me cambie las o experiencias. Como se hace de manera mejor?
-
-    private void showAlert(String title, String contextText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
@@ -153,40 +80,24 @@ public class MenuTuristController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
         ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistRepository.findOneByMail(principal.username.getText()));
-
-        try {
-            experienciaButton1.setText(experienciasRecomendadas.get(0).getTituloExperiencia());
-            experienciaImage1.setImage(experienciasRecomendadas.get(0).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton2.setText(experienciasRecomendadas.get(1).getTituloExperiencia());
-            experienciaImage2.setImage(experienciasRecomendadas.get(1).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton3.setText(experienciasRecomendadas.get(2).getTituloExperiencia());
-            experienciaImage3.setImage(experienciasRecomendadas.get(2).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton4.setText(experienciasRecomendadas.get(3).getTituloExperiencia());
-            experienciaImage4.setImage(experienciasRecomendadas.get(3).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton5.setText(experienciasRecomendadas.get(4).getTituloExperiencia());
-            experienciaImage5.setImage(experienciasRecomendadas.get(4).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton5.setText(experienciasRecomendadas.get(5).getTituloExperiencia());
-            experienciaImage5.setImage(experienciasRecomendadas.get(5).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton6.setText(experienciasRecomendadas.get(6).getTituloExperiencia());
-            experienciaImage6.setImage(experienciasRecomendadas.get(6).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton7.setText(experienciasRecomendadas.get(7).getTituloExperiencia());
-            experienciaImage7.setImage(experienciasRecomendadas.get(7).getImagenAsJavaFxImage(200, 200));
-
-            experienciaButton8.setText(experienciasRecomendadas.get(8).getTituloExperiencia());
-            experienciaImage8.setImage(experienciasRecomendadas.get(8).getImagenAsJavaFxImage(200, 200));
-
-        }catch (Exception e){e.printStackTrace();} // M eimprime la excepcion
-
-
+        int columns=0;
+        int row=1;
+        try{
+            for(int i=0;i< experienciasRecomendadas.size();i++){
+                FXMLLoader fxmlLoader=new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("MostrarExperienciasDinamico.fxml"));
+                AnchorPane anchorPane= fxmlLoader.load();
+                MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController= fxmlLoader.getController();
+                mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.get(i));
+                if(columns==2){
+                    columns=0;
+                    ++row;
+                }
+                experienciaGrid.add(anchorPane,columns++,row);
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

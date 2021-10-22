@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 public class JavaFXApplication extends Application {
 
-    private Parent root;
-
     @Override
     public void init() throws Exception {
         // Para que es esto?
@@ -22,7 +20,7 @@ public class JavaFXApplication extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show(); // Me muestra la primera pantalla
 

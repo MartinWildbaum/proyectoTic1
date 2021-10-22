@@ -38,9 +38,6 @@ public class Principal {
     @Autowired
     private TuristController turistController;
 
-    @Autowired
-    private Perfil perfil;
-
     @FXML
     public TextField username;
 
@@ -65,7 +62,6 @@ public class Principal {
     // me deberia dejar ir al menu de turistas
     @FXML
     void irMenuPrincipal(ActionEvent event) throws Exception {
-
             // ACA VOY A HACER LA BUSQUEDA EN LA BASE DE DATOS. El orden no es en vano.
             if (turistMgr.ingresar(username.getText(), password.getText())) {// Entra al if solo si me deja ingresar
                 closeVentana(event);

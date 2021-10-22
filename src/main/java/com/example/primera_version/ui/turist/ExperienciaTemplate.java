@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Template {
+public class ExperienciaTemplate {
 
 
     @FXML
@@ -64,6 +64,8 @@ public class Template {
         Stage stage  = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
+
 
 
 
