@@ -62,6 +62,7 @@ public class ExperienceMgr {
         experienciaAgregar.setTituloExperiencia(tituloExperiencia);
         experienciaAgregar.setDescripcion(descripcion);
         experienciaAgregar.setIntereses(intereses);
+        experienciaAgregar.setUbicacion(ubicacion);
         experienciaAgregar.setCantidad(Integer.valueOf(aforoDisponible));
         experienciaAgregar.setLinkVideos(linkVideos);
         experienciaAgregar.setImagen(imagen);

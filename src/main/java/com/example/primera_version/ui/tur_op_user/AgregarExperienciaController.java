@@ -9,7 +9,7 @@ import com.example.primera_version.business.exceptions.InvalidExperienceInformat
 import com.example.primera_version.persistence.InterestRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
 import com.example.primera_version.ui.Principal;
-import com.example.primera_version.ui.administrador.MenuAdministradorController;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
@@ -95,7 +96,7 @@ public class AgregarExperienciaController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         closeVentana(event);
-        Parent root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
+        Parent root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -152,6 +153,7 @@ public class AgregarExperienciaController implements Initializable {
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
         } catch (Exception e) {
+            e.printStackTrace();
             showAlert(
                     "Algo salio mal!",
                     "Por favor, revise los datos ingresados"
@@ -183,21 +185,20 @@ public class AgregarExperienciaController implements Initializable {
         Scene sceneActual =((Node)actionEvent.getSource()).getScene();
         Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         File selectedFile = fileChooser.showOpenDialog(stage);
-        /*
+/*
         VBox vBox= new VBox();
         Scene scene = new Scene(vBox,960,600);
         stage.setScene(scene);
         stage.show();
-        while(selectedFile==null);
+        while(selectedFile == null);
         stage.setScene(sceneActual);
         stage.show();
-         */
+*/
         Path url = selectedFile.toPath();
         //nombreImagen.setText(url.getFileName().toString());
         try {
             imagen = Files.readAllBytes(url);
         }catch (IOException e){
-
         }
     }
 

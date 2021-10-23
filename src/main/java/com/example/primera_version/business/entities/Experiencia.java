@@ -18,7 +18,7 @@ import java.util.Collection;
     public class Experiencia {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_experiencia")
     private Long idExperiencia;
 
@@ -41,10 +41,10 @@ import java.util.Collection;
     private String ubicacion;
 
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
-    private Boolean estaDisponible;
+    private Boolean estaDisponible = false;
 
     @Column(name = "estado_experiencia", nullable = false)
-    private Boolean estadoExperiencia;
+    private Boolean estadoExperiencia = false;
 
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
@@ -53,7 +53,7 @@ import java.util.Collection;
     @ManyToOne(targetEntity = OperadorTuristico.class, optional = false)
     private OperadorTuristico operadorTuristico;
 
-    @ManyToOne(targetEntity = Administrador.class, optional = false)
+    @ManyToOne(targetEntity = Administrador.class/*, optional = false*/)
     private Administrador administrador;
 
 
