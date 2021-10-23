@@ -81,8 +81,8 @@ public class MenuTuristController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistRepository.findOneByMail(principal.username.getText()));
-        int columns=0;
-        int row=1;
+        int columns = 0;
+        int row = 1;
         try{
             for(int i=0;i< experienciasRecomendadas.size();i++){
                 FXMLLoader fxmlLoader=new FXMLLoader();
@@ -90,8 +90,8 @@ public class MenuTuristController implements Initializable{
                 AnchorPane anchorPane= fxmlLoader.load();
                 MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController= fxmlLoader.getController();
                 mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.get(i));
-                if(columns==2){
-                    columns=0;
+                if(columns == 2){
+                    columns = 0;
                     ++row;
                 }
                 experienciaGrid.add(anchorPane,columns++,row);

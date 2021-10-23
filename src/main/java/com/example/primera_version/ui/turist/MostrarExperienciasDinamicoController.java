@@ -41,7 +41,7 @@ public class MostrarExperienciasDinamicoController {
         Parent root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        experienciaTemplate.setTemplete((experienceRepository.findOneByTituloExperiencia(buttonExperiencia.getText()).getIdExperiencia()));
+        experienciaTemplate.setTemplete(this.experienceRepository.findOneByTituloExperiencia(buttonExperiencia.getText()).getIdExperiencia());
         stage.show();
     }
 

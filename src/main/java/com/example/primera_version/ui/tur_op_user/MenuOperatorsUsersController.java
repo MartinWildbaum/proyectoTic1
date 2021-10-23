@@ -30,6 +30,17 @@ public class MenuOperatorsUsersController {
 
 
     @FXML
+    void agregarUnaExperiencia(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        closeVentana(event);
+        Parent root = fxmlLoader.load(AgregarExperienciaController.class.getResourceAsStream("AgregarMiNuevaExperiencia.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
