@@ -1,6 +1,7 @@
 package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.persistence.ExperienceRepository;
 import javafx.event.ActionEvent;
@@ -23,7 +24,7 @@ public class MostrarExperienciasDinamicoController {
     private Button buttonExperiencia;
 
     @Autowired
-    private ExperienceRepository experienceRepository;
+    private ExperienceMgr experienceMgr;
 
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
@@ -41,7 +42,7 @@ public class MostrarExperienciasDinamicoController {
         Parent root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        experienciaTemplate.setTemplete(this.experienceRepository.findOneByTituloExperiencia(buttonExperiencia.getText()).getIdExperiencia());
+        experienciaTemplate.setTemplete(this.experienceMgr.encontrarExperienciaPorTitulo(buttonExperiencia.getText()).getIdExperiencia());
         stage.show();
     }
 

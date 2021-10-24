@@ -104,4 +104,10 @@ public class TuristMgr {
     }
 
 
+    public Turist encontrarTurista(String mail){
+        Turist turista = turistRepository.findOneByMail(mail);
+        return turista;
+    }
+
+
 }

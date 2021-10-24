@@ -51,7 +51,7 @@ public class Principal {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(TuristController.class.getResourceAsStream("AddTurist.fxml"));
-        turistController.addPaises(); //preciso llamarla aca porque tengo que precargar los datos en el choice box
+        //turistController.addPaises(); //preciso llamarla aca porque tengo que precargar los datos en el choice box
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

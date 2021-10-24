@@ -1,5 +1,6 @@
 package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
+import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.persistence.ExperienceRepository;
 import javafx.event.ActionEvent;
@@ -34,16 +35,16 @@ public class ExperienciaTemplate {
     private Text templateVideos;
 
     @Autowired
-    private ExperienceRepository experienceRepository;
+    private ExperienceMgr experienceMgr;
 
     public void setTemplete(Long id){
 
-        Experiencia experiencia_mostrada = experienceRepository.findOneByIdExperiencia(id);
+        Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorId(id);
         templateTitulo.setText(experiencia_mostrada.getTituloExperiencia());
         templateUbicacion.setText("Ubicacion: " + experiencia_mostrada.getUbicacion());
         templateDescrpicion.setText("Descripcion: " + experiencia_mostrada.getDescripcion());
         templateVideos.setText("Videos: " + experiencia_mostrada.getLinkVideos());
-        templateImage.setImage(experienceRepository.findOneByIdExperiencia(id).getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
+        templateImage.setImage(experiencia_mostrada.getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
 
     }
 

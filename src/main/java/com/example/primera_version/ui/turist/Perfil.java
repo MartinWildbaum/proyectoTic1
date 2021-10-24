@@ -1,5 +1,6 @@
 package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
+import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.ui.Principal;
@@ -21,8 +22,9 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class Perfil {
 
+
     @Autowired
-    private TuristRepository turistRepository;
+    private TuristMgr turistMgr;
 
     @FXML
     private Label usuariolabel;
@@ -47,7 +49,7 @@ public class Perfil {
 
     public void setInformacionUsuario(String mail){
 
-        Turist turistAMostrar = turistRepository.findOneByMail(mail);
+        Turist turistAMostrar = turistMgr.encontrarTurista(mail);
 
         usuariolabel.setText(turistAMostrar.getMail());
         usuariolabel.setStyle("-fx-alignment: CENTER;");// Me centra el texto

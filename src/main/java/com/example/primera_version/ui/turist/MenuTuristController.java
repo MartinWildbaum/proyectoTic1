@@ -2,9 +2,8 @@ package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.MenuMgr;
+import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Experiencia;
-import com.example.primera_version.persistence.ExperienceRepository;
-import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,16 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.IOError;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -34,7 +28,7 @@ public class MenuTuristController implements Initializable{
     MenuMgr menuMgr;
 
     @Autowired
-    private TuristRepository turistRepository;
+    private TuristMgr turistMgr;
 
     @Autowired
     private Perfil perfil;
@@ -80,7 +74,7 @@ public class MenuTuristController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistRepository.findOneByMail(principal.username.getText()));
+        ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
         int columns = 0;
         int row = 1;
         try{

@@ -3,16 +3,13 @@ package com.example.primera_version.business;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.OperadorTuristico;
-import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.business.exceptions.*;
-import com.example.primera_version.persistence.CountryRepository;
 import com.example.primera_version.persistence.ExperienceRepository;
-import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+
 import java.util.Collection;
 
 
@@ -75,6 +72,16 @@ public class ExperienceMgr {
 
     }
 
+    public Experiencia encontrarExperienciaPorTitulo(String tituloExperiencia){
+        Experiencia experiencia = experienceRepository.findOneByTituloExperiencia(tituloExperiencia);
+        return experiencia;
 
+    }
+
+    public Experiencia encontrarExperienciaPorId(Long id){
+        Experiencia experiencia = experienceRepository.findOneByIdExperiencia(id);
+        return experiencia;
+
+    }
 
 }
