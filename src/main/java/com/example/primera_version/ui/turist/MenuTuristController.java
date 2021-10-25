@@ -6,6 +6,7 @@ import com.example.primera_version.business.MenuMgr;
 import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.administrador.MenuAdministradorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -83,10 +84,10 @@ public class MenuTuristController implements Initializable{
         int row = 1;
         try{
             for(int i=0;i< experienciasRecomendadas.size();i++){
-                FXMLLoader fxmlLoader=new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("MostrarExperienciasDinamico.fxml"));
-                AnchorPane anchorPane= fxmlLoader.load();
-                MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController= fxmlLoader.getController();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                AnchorPane anchorPane = fxmlLoader.load(MostrarExperienciasDinamicoController.class.getResourceAsStream("MostrarExperienciasDinamico.fxml"));
+                MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController = fxmlLoader.getController();
                 mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.get(i));
                 if(columns == 2){
                     columns = 0;

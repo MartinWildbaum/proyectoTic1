@@ -152,7 +152,6 @@ public class ExperienciasAdministratorController implements Initializable {
         operadorExperiencia.setStyle("-fx-alignment: CENTER;");
         interesesExperiencia.setStyle("-fx-alignment: CENTER;");
 
-
         idExperiencia.setCellValueFactory((new PropertyValueFactory<>("idExperiencia")));
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
         descripcionExperiencia.setCellValueFactory(new PropertyValueFactory<>("descripcion"));

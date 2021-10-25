@@ -3,7 +3,6 @@ package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
 import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
-import com.example.primera_version.persistence.ExperienceRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,7 @@ public class MostrarExperienciasDinamicoController {
     private Button buttonExperiencia;
 
     @Autowired
-    private ExperienceMgr experienceMgr = new ExperienceMgr();
+    private ExperienceMgr experienceMgr;
 
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
