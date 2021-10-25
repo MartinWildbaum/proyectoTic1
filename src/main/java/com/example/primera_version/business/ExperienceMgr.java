@@ -7,6 +7,7 @@ import com.example.primera_version.business.exceptions.*;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
@@ -73,12 +74,14 @@ public class ExperienceMgr {
     }
 
     public Experiencia encontrarExperienciaPorTitulo(String tituloExperiencia){
+
         Experiencia experiencia = experienceRepository.findOneByTituloExperiencia(tituloExperiencia);
         return experiencia;
 
     }
 
     public Experiencia encontrarExperienciaPorId(Long id){
+
         Experiencia experiencia = experienceRepository.findOneByIdExperiencia(id);
         return experiencia;
 

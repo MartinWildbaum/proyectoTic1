@@ -14,7 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MostrarExperienciasDinamicoController {
 
     @FXML
@@ -24,7 +26,7 @@ public class MostrarExperienciasDinamicoController {
     private Button buttonExperiencia;
 
     @Autowired
-    private ExperienceMgr experienceMgr;
+    private ExperienceMgr experienceMgr = new ExperienceMgr();
 
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
@@ -41,8 +43,8 @@ public class MostrarExperienciasDinamicoController {
         closeVentana(event);
         Parent root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
+        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(buttonExperiencia.getText()).getIdExperiencia());
         stage.setScene(new Scene(root));
-        experienciaTemplate.setTemplete(this.experienceMgr.encontrarExperienciaPorTitulo(buttonExperiencia.getText()).getIdExperiencia());
         stage.show();
     }
 

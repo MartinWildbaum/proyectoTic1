@@ -37,6 +37,9 @@ public class ExperienciaTemplate {
     @Autowired
     private ExperienceMgr experienceMgr;
 
+//    @Autowired
+//    private MenuTuristController menuTuristController;
+
     public void setTemplete(Long id){
 
         Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorId(id);

@@ -1,6 +1,7 @@
 package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.MenuMgr;
 import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Experiencia;
@@ -35,6 +36,9 @@ public class MenuTuristController implements Initializable{
 
     @Autowired
     private Principal principal;
+
+    @Autowired
+    private ExperienceMgr experienceMgr;
 
     @FXML
     private GridPane experienciaGrid;
