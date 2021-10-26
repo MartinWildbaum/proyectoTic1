@@ -5,6 +5,7 @@ import com.example.primera_version.Main;
 import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.exceptions.ExperienceAlreadyExists;
 import com.example.primera_version.business.exceptions.InvalidExperienceInformation;
 import com.example.primera_version.persistence.InterestRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
@@ -144,15 +145,21 @@ public class AgregarExperienciaController implements Initializable {
                 experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, imagen, interes, aforoDisponible, opTurUsersRepository.findOneByMail(principal.username.getText()).getOperadorTuristico());
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
+                volverAlMenu(actionEvent);
+                //closeVentana(actionEvent);
 
-                closeVentana(actionEvent);
+
             }
 
         } catch(InvalidExperienceInformation e){
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
-        } catch (Exception e) {
+        }catch (ExperienceAlreadyExists e){
+            showAlert(
+                    "Información invalida!",
+                    "Ya hay una experiencia con este nombre");
+        }catch (Exception e) {
             e.printStackTrace();
             showAlert(
                     "Algo salio mal!",
