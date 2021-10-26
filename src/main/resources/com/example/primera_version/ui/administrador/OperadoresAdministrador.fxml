@@ -18,7 +18,7 @@
             <TableColumn fx:id="apellidoContacto" editable="false" prefWidth="121.33331298828125" sortable="false" text="Apellido contacto" />
             <TableColumn fx:id="edadContacto" editable="false" prefWidth="107.6666259765625" sortable="false" text="Edad Contacto" />
             <TableColumn fx:id="telefonoContacto" editable="false" prefWidth="131.3333740234375" sortable="false" text="Telefono Contacto" />
-            <TableColumn fx:id="estadoOperador" prefWidth="120.0" text="Estado" />
+            <TableColumn fx:id="estaDisponible" prefWidth="120.0" text="Disponible" />
          </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar operador turistico por nombre..." />

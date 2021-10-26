@@ -74,7 +74,7 @@ public class OperadoresAdminisradorController implements Initializable{
     private TableColumn<OperadorTuristico, String> telefonoContacto;
 
     @FXML
-    private TableColumn<OperadorTuristico, Boolean> estadoOperador;
+    private TableColumn<OperadorTuristico, Boolean> estaDisponible;
 
 
     private void showAlert(String title, String contextText) {
@@ -87,6 +87,8 @@ public class OperadoresAdminisradorController implements Initializable{
 
 
     ObservableList<OperadorTuristico> lista;
+
+
 
     @FXML
     void busquedaDinamica(KeyEvent event){
@@ -146,6 +148,7 @@ public class OperadoresAdminisradorController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
+        operadoresExpuestos.setEditable(true);
         List<OperadorTuristico> query = (List<OperadorTuristico>) turOpRepository.findAll();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
@@ -166,8 +169,8 @@ public class OperadoresAdminisradorController implements Initializable{
         apellidoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_surname")));
         edadContacto.setCellValueFactory((new PropertyValueFactory<>("contact_age")));
         telefonoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_phone")));
-        //estadoOperador.setCellValueFactory((new PropertyValueFactory<>("estado")));
-        estadoOperador.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
+        estaDisponible.setCellValueFactory((new PropertyValueFactory<>("estado")));
+        estaDisponible.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(CellDataFeatures<OperadorTuristico, Boolean> param) {
                 OperadorTuristico operadorTuristico = param.getValue();
@@ -188,7 +191,7 @@ public class OperadoresAdminisradorController implements Initializable{
             }
         });
 
-        estadoOperador.setCellFactory(new Callback<TableColumn<OperadorTuristico, Boolean>, TableCell<OperadorTuristico, Boolean>>() {
+        estaDisponible.setCellFactory(new Callback<TableColumn<OperadorTuristico, Boolean>, TableCell<OperadorTuristico, Boolean>>() {
             @Override
             public TableCell<OperadorTuristico, Boolean> call(TableColumn<OperadorTuristico, Boolean> param) {
                 CheckBoxTableCell<OperadorTuristico,Boolean> cell = new CheckBoxTableCell<OperadorTuristico, Boolean>();
@@ -200,6 +203,11 @@ public class OperadoresAdminisradorController implements Initializable{
     }
 
 
+//    @FXML
+//    void cambiarEstadoOperadores(ActionEvent actionEvent){
+//
+//
+//    }
 
     @FXML
     void agregarOTAction(ActionEvent event) throws Exception {

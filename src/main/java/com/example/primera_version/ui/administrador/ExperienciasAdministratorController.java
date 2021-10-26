@@ -165,14 +165,14 @@ public class ExperienciasAdministratorController implements Initializable {
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {
                 Experiencia experiencia = param.getValue();
 
-                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstadoExperiencia());
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstaDisponible());
 
                 //estadoExperiencia.setOnEditCommit();
 
                 booleanProperty.addListener(new ChangeListener<Boolean>() {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                        experiencia.setEstadoExperiencia(newValue);
+                        experiencia.setEstaDisponible(newValue);
                     }
                 });
 

@@ -43,9 +43,6 @@ import java.util.Collection;
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible = false;
 
-    @Column(name = "estado_experiencia", nullable = false)
-    private Boolean estadoExperiencia = false;
-
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
@@ -173,13 +170,6 @@ import java.util.Collection;
         this.administrador = administrador;
     }
 
-    public Boolean getEstadoExperiencia() {
-        return estadoExperiencia;
-    }
-
-    public void setEstadoExperiencia(Boolean estadoExperiencia) {
-        this.estadoExperiencia = estadoExperiencia;
-    }
 }
 
 

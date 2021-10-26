@@ -73,7 +73,7 @@ public class ExperienciasOperadorController implements  Initializable{
     private TableColumn<Experiencia, String> aforoExperiencia;
 
     @FXML
-    private TableColumn<Experiencia, Boolean> estadoExperiencia;
+    private TableColumn<Experiencia, Boolean> estaDisponible;
 
 
     ObservableList<Experiencia> lista;
@@ -150,26 +150,26 @@ public class ExperienciasOperadorController implements  Initializable{
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
         interesesExperiencia.setCellValueFactory(new PropertyValueFactory<>("intereses"));
         //estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
-        estadoExperiencia.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
+        estaDisponible.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {
                 Experiencia experiencia = param.getValue();
 
-                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstadoExperiencia());
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstaDisponible());
 
                 //estadoExperiencia.setOnEditCommit();
 
                 booleanProperty.addListener(new ChangeListener<Boolean>() {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                        experiencia.setEstadoExperiencia(newValue);
+                        experiencia.setEstaDisponible(newValue);
                     }
                 });
 
                 return booleanProperty;
             }
         });
-        estadoExperiencia.setCellFactory(new Callback<TableColumn<Experiencia, Boolean>, TableCell<Experiencia, Boolean>>() {
+        estaDisponible.setCellFactory(new Callback<TableColumn<Experiencia, Boolean>, TableCell<Experiencia, Boolean>>() {
             @Override
             public TableCell<Experiencia, Boolean> call(TableColumn<Experiencia, Boolean> param) {
                 CheckBoxTableCell<Experiencia,Boolean> cell = new CheckBoxTableCell<Experiencia, Boolean>();

@@ -146,7 +146,6 @@ public class AgregarExperienciaController implements Initializable {
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);
-                //closeVentana(actionEvent);
 
 
             }

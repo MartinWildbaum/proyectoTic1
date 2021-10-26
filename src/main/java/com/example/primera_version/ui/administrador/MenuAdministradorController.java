@@ -2,7 +2,6 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.ui.Principal;
-import com.example.primera_version.ui.turist.Perfil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +14,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MenuAdministradorController {
-
-
 
 
     @FXML
