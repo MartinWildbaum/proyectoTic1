@@ -8,37 +8,47 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="641.0" style="-fx-background-color: #000000#000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.Principal">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CCEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.Principal">
    <children>
-      <Label layoutX="149.0" layoutY="31.0" text="¡Bienvenido!" textFill="WHITE">
+      <Label fx:id="labelTitulo" layoutX="382.0" layoutY="62.0" text="¡Bienvenido!" textFill="WHITE">
          <font>
             <Font size="58.0" />
          </font>
       </Label>
-      <Label layoutX="149.0" layoutY="164.0" text="Usuario" textFill="WHITE">
+      <Label fx:id="usernameLabel" layoutX="350.0" layoutY="201.0" text="Usuario" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label layoutX="118.0" layoutY="213.0" text="Contraseña" textFill="WHITE">
+      <Label fx:id="passwordLabel" layoutX="325.0" layoutY="249.0" text="Contraseña" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="242.0" layoutY="163.0" prefHeight="26.0" prefWidth="186.0" />
-      <Button layoutX="276.0" layoutY="259.0" mnemonicParsing="false" onAction="#irMenuPrincipal" text="Iniciar Sesión" />
-      <PasswordField fx:id="password" layoutX="243.0" layoutY="213.0" prefHeight="26.0" prefWidth="186.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="488.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="fotos/logo.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="528.0" layoutY="174.0" text="TurisTIC" textFill="AQUA">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Button layoutX="276.0" layoutY="300.0" mnemonicParsing="false" onAction="#agregarTuristaAction" prefHeight="26.0" prefWidth="89.0" text="Registrarse" />
+      <TextField fx:id="username" layoutX="450.0" layoutY="200.0" prefHeight="26.0" prefWidth="200.0" />
+      <Button fx:id="iniciarSesionButton" layoutX="500.0" layoutY="322.0" mnemonicParsing="false" onAction="#irMenuPrincipal" prefHeight="29.0" prefWidth="113.0" text="Iniciar Sesión" />
+      <PasswordField fx:id="password" layoutX="450.0" layoutY="249.0" prefHeight="26.0" prefWidth="200.0" />
+      <Button fx:id="registrarseButton" layoutX="500.0" layoutY="375.0" mnemonicParsing="false" onAction="#agregarTuristaAction" prefHeight="29.0" prefWidth="104.0" text="Registrarse" />
+      <AnchorPane layoutY="-6.0" prefHeight="611.0" prefWidth="279.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label layoutX="98.0" layoutY="491.0" text="TurisTIC" textFill="AQUA">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+            <Text fill="WHITE" layoutX="35.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="221.74578857421875">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="215.0" fitWidth="228.0" layoutX="32.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

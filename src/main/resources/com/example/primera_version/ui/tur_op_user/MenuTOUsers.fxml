@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="624.0" prefWidth="928.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController">
    <children>
       <Button layoutX="324.0" layoutY="209.0" mnemonicParsing="false" onAction="#verMisExperiencias" prefHeight="80.0" prefWidth="252.0" text="Nuestras Experiencias">
          <font>
@@ -16,7 +16,7 @@
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="756.0" layoutY="549.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="792.0" layoutY="534.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

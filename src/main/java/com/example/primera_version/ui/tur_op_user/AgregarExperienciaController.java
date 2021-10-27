@@ -22,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -58,9 +59,6 @@ public class AgregarExperienciaController implements Initializable {
     @FXML
     private Button botonImagen;
 
-//    @FXML
-//    private Label nombreImagen;
-
     @FXML
     private TextField txtTitulo;
 
@@ -81,36 +79,32 @@ public class AgregarExperienciaController implements Initializable {
 
     private FileChooser fileChooser;
 
+    private byte[] imagen;
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
+
+
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        principal.setearAnchorPane(root);
     }
 
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
+        principal.setearAnchorPane(root);
     }
-
-    @FXML
-    void closeVentana(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
-    private byte[] imagen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -166,25 +160,6 @@ public class AgregarExperienciaController implements Initializable {
             );
         }
     }
-
-
-    private void clean() {
-
-        txtTitulo.setText(null);
-        txtDescripcion.setText(null);
-        txtUbicacion.setText(null);
-        txtAforoDisponible.setText(null);
-        txtEnlacesRelacionados.setText(null);
-    }
-
-    private void showAlert(String title, String contextText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
-
 
     @FXML
     public void addImagen(ActionEvent actionEvent) {

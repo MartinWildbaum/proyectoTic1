@@ -1,15 +1,21 @@
 package com.example.primera_version.ui.administrador;
 
+import com.example.primera_version.Main;
 import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.exceptions.InvalidTOInformation;
+import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 
 @Component
@@ -19,6 +25,9 @@ public class TOController {
 
     @Autowired
     private TurOpMgr toMgr;
+
+    @Autowired
+    private Principal principal;
 
     @FXML
     private TextField txtRazonSocial;
@@ -38,12 +47,6 @@ public class TOController {
     @FXML
     private TextField txtContactAge;
 
-    @FXML
-    void close(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
 
 
     @FXML
@@ -73,7 +76,10 @@ public class TOController {
 
                     showAlert("Turista agregado", "Se agrego con exito el Turista!");
 
-                    close(event);
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                    AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("MenuAdministrador.fxml"));
+                    principal.setearAnchorPane(root);
 
                 } catch (InvalidTOInformation invalidTOInformation) {
                     showAlert(
@@ -83,6 +89,8 @@ public class TOController {
                     showAlert(
                             "Mail ya registrado !",
                             "El mail indicado ya ha sido registrado en el sistema).");
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
             } catch (NumberFormatException e) {

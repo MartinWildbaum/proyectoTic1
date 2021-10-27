@@ -1,5 +1,6 @@
 package com.example.primera_version.ui.turist;
 
+import com.example.primera_version.Main;
 import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.PaisMgr;
 import com.example.primera_version.business.TuristMgr;
@@ -9,20 +10,28 @@ import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.persistence.CountryRepository;
 import com.example.primera_version.persistence.InterestRepository;
+import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
 
 
 @Component
-public class TuristController {
+public class AddTuristController {
+
+    @Autowired
+    Principal principal;
 
     @Autowired
     private TuristMgr turistMgr;
@@ -51,16 +60,8 @@ public class TuristController {
     @FXML
     public ComboBox<String> myComboBoxPaises;
 
-    @FXML
-    void close(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
 
     public void ajestarComboBoxes(){
-
         for (Interes interes : interesMgr.getIntereses()){
             myComboBoxPaises.getItems().add(interes.toString());
         }
@@ -95,8 +96,6 @@ public class TuristController {
 
                     showAlert("Turista agregado", "Se agrego con exito el Turista!");
 
-                    close(event);
-
                 } catch (InvalidUserInformation invalidTuristInformation) {
                     showAlert(
                             "Informacion invalida !",
@@ -122,6 +121,15 @@ public class TuristController {
 
     }
 
+    @FXML
+    void close(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane pane = fxmlLoader.load(Principal.class.getResourceAsStream("MenuTurist.fxml"));
+        principal.setearAnchorPane(pane);
+
+    }
+
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -129,5 +137,6 @@ public class TuristController {
         alert.setContentText(contextText);
         alert.showAndWait();
     }
+
 
 }

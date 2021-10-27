@@ -22,6 +22,7 @@ public class JavaFXApplication extends Application {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show(); // Me muestra la primera pantalla
 
     }

@@ -5,13 +5,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="305.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperienciasDinamicoController">
+<AnchorPane prefHeight="290.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperienciasDinamicoController">
    <children>
-      <ImageView fx:id="imagenExperiencia" fitHeight="205.0" fitWidth="338.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagenExperiencia" fitHeight="185.0" fitWidth="300.0" layoutX="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/punta-del-este.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonExperiencia" layoutX="130.0" layoutY="233.0" mnemonicParsing="false" onAction="#irExperiencia" text="Button" />
+      <Button fx:id="buttonExperiencia" layoutX="161.0" layoutY="219.0" mnemonicParsing="false" onAction="#irExperiencia" text="Button" />
    </children>
 </AnchorPane>

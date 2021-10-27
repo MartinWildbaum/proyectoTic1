@@ -26,6 +26,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,8 @@ public class ExperienciasAdministratorController implements Initializable {
     @Autowired
     private ExperienceRepository experienceRepository;
 
+    @Autowired
+    private Principal principal;
 
     @FXML
     private TextField campoBusqueda;
@@ -74,15 +77,6 @@ public class ExperienciasAdministratorController implements Initializable {
 
     @FXML
     private TableColumn<Experiencia, Boolean> estadoExperiencia;
-
-
-    private void showAlert(String title, String contextText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
 
 
     ObservableList<Experiencia> lista;
@@ -194,28 +188,16 @@ public class ExperienciasAdministratorController implements Initializable {
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        principal.setearAnchorPane(root);
     }
 
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
+        principal.setearAnchorPane(root);
     }
 
-    @FXML
-    void closeVentana(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
 }

@@ -1,5 +1,8 @@
 package com.example.primera_version.ui.turist;
+import com.example.primera_version.ui.Principal;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.example.primera_version.Main;
 import javafx.event.ActionEvent;
@@ -12,22 +15,18 @@ import javafx.stage.Stage;
 @Component
 public class ExperienciaController {
 
+    @Autowired
+    private Principal principal;
+
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
+        principal.setearAnchorPane(root);
+
     }
 
-    @FXML
-    void closeVentana(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
+
 
 }

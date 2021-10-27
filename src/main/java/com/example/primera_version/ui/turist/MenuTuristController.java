@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -39,23 +40,18 @@ public class MenuTuristController implements Initializable{
     private Principal principal;
 
     @Autowired
-    private ExperienceMgr experienceMgr;
+    private MostrarExperienciasDinamicoController mostrarExperienciasDinamicoController;
 
     @FXML
     private GridPane experienciaGrid;
-
-
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Perfil.class.getResourceAsStream("Perfil.fxml"));
+        AnchorPane root = fxmlLoader.load(Perfil.class.getResourceAsStream("Perfil.fxml"));
         perfil.setInformacionUsuario(principal.username.getText());
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        principal.setearAnchorPane(root);
     }
 
 
@@ -63,22 +59,12 @@ public class MenuTuristController implements Initializable{
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        principal.setearAnchorPane(root);
     }
-
-    @FXML
-    void closeVentana(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
         int columns = 0;
         int row = 1;
@@ -94,6 +80,9 @@ public class MenuTuristController implements Initializable{
                     ++row;
                 }
                 experienciaGrid.add(anchorPane,columns++,row);
+                //TODO BORRAR LINEA 87, NO SE COMO HACERLO DE OTRA FORMA Y NO SE SI ESTA FUNCIONA
+                mostrarExperienciasDinamicoController.buttonExperiencia.setId("buttonExperiencia"+ i);
+
             }
         }catch (IOException e){
             e.printStackTrace();

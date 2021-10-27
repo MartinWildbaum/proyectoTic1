@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,6 +27,9 @@ public class Perfil {
     @Autowired
     private TuristMgr turistMgr;
 
+    @Autowired
+    private Principal principal;
+
     @FXML
     private Label usuariolabel;
 
@@ -37,11 +41,6 @@ public class Perfil {
 
     @FXML
     private Label intereseslabel;
-
-    @FXML
-    private Button cerrarSesion;
-
-
 
     private String cambiarLocalDateAString(LocalDate fecha){
         return fecha.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
@@ -65,30 +64,16 @@ public class Perfil {
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        principal.setearAnchorPane(root);
     }
 
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        closeVentana(event);
-        Parent root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        AnchorPane root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
+        principal.setearAnchorPane(root);
     }
-
-    @FXML
-    void closeVentana(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
 
 }

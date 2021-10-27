@@ -11,10 +11,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1100.0" style="-fx-background-color: #87CEEB;" stylesheets="com/example/primera_version/ui/turist/MenuTurist.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" stylesheets="com/example/primera_version/ui/turist/MenuTurist.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
     <children>
         <ImageView fx:id="experienciaImage1" fitHeight="200.0" fitWidth="200.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
-        <AnchorPane layoutX="-7.0" layoutY="-8.0" prefHeight="621.0" prefWidth="268.0" style="-fx-background-color: #000000;">
+        <AnchorPane layoutX="-7.0" layoutY="-8.0" prefHeight="608.0" prefWidth="276.0" style="-fx-background-color: #000000;">
             <children>
                 <Button layoutX="154.0" layoutY="40.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="44.0" prefWidth="89.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" text="Mi Perfil" textAlignment="CENTER">
                     <font>
@@ -31,7 +31,7 @@
                         <Font name="System Bold Italic" size="23.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image1" fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
                <image>
                    <Image url="@fotos/logo.png" />
                </image>
@@ -58,7 +58,7 @@
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="343.0" layoutY="146.0" prefHeight="432.0" prefWidth="694.0">
+      <ScrollPane layoutX="279.0" layoutY="114.0" prefHeight="432.0" prefWidth="713.0">
          <content>
             <GridPane fx:id="experienciaGrid">
               <rowConstraints>
