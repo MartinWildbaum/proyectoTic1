@@ -2,13 +2,8 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.TurOpMgr;
-import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
-import com.example.primera_version.persistence.ExperienceRepository;
-import com.example.primera_version.persistence.TurOpRepository;
 import com.example.primera_version.ui.Principal;
-import com.example.primera_version.ui.turist.MenuTuristController;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.*;
@@ -30,7 +24,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import javassist.Loader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -141,11 +134,14 @@ public class OperadoresAdminisradorController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
+
         operadoresExpuestos.setEditable(true);
         List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodos();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);
+
+
 
         idOperadorTuristico.setStyle("-fx-alignment: CENTER;");
         nombreOperador.setStyle("-fx-alignment: CENTER;");
@@ -162,7 +158,7 @@ public class OperadoresAdminisradorController implements Initializable{
         apellidoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_surname")));
         edadContacto.setCellValueFactory((new PropertyValueFactory<>("contact_age")));
         telefonoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_phone")));
-        estaDisponible.setCellValueFactory((new PropertyValueFactory<>("estado")));
+        //estaDisponible.setCellValueFactory((new PropertyValueFactory<>("estado")));
         estaDisponible.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(CellDataFeatures<OperadorTuristico, Boolean> param) {
@@ -196,11 +192,7 @@ public class OperadoresAdminisradorController implements Initializable{
     }
 
 
-//    @FXML
-//    void cambiarEstadoOperadores(ActionEvent actionEvent){
-//
-//
-//    }
+
 
     @FXML
     void agregarOTAction(ActionEvent event) throws Exception {

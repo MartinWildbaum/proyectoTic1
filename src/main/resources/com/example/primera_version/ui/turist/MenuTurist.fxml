@@ -58,7 +58,7 @@
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="279.0" layoutY="114.0" prefHeight="432.0" prefWidth="713.0">
+      <ScrollPane layoutX="279.0" layoutY="114.0" prefHeight="432.0" prefWidth="713.0" style="-fx-background: #87CEEB;">
          <content>
             <GridPane fx:id="experienciaGrid">
               <rowConstraints>
