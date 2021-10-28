@@ -1,6 +1,7 @@
 package com.example.primera_version.business;
 
 import com.example.primera_version.business.entities.OperadorTuristico;
+import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.business.entities.UsuarioOpTur;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
@@ -96,5 +97,9 @@ public class TurOpUsersMgr {
 
     }
 
+    public UsuarioOpTur encontrarUnUsuariosOperadorTuristico(String mail){
+        UsuarioOpTur uot = opTurUsersRepository.findOneByMail(mail);
+        return uot;
+    }
 
 }

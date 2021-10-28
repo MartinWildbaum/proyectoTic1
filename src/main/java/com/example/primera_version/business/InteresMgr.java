@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class InteresMgr {
 
@@ -27,6 +29,10 @@ public class InteresMgr {
         return intereses;
     }
 
+    public ArrayList<Interes> obtenerTodosIntereses(){
+        ArrayList<Interes> intereses = (ArrayList<Interes>) interestRepository.findAll();
+        return intereses;
+    }
 
 
 }

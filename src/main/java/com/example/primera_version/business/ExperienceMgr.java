@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -85,5 +86,17 @@ public class ExperienceMgr {
         return experiencia;
 
     }
+    public ArrayList<Experiencia> encontrarTodasContenidoTitulo(String texto){
+        ArrayList<Experiencia> listaExperiencias = (ArrayList<Experiencia>) experienceRepository.findAllByTituloExperienciaContaining(texto);
+        return listaExperiencias;
+    }
+    public ArrayList<Experiencia> encontrarTodasPorOperadorTuristico(OperadorTuristico operadorTuristico){
+        ArrayList<Experiencia> devolucion = (ArrayList<Experiencia>) experienceRepository.findAllByOperadorTuristico(operadorTuristico);
+        return devolucion;
 
+    }
+
+    public ArrayList<Experiencia> encontrarTodas(){
+        return (ArrayList<Experiencia>) experienceRepository.findAll();
+    }
 }

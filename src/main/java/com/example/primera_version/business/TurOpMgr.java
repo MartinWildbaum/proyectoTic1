@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.example.primera_version.business.exceptions.InvalidTOInformation;
 import com.example.primera_version.business.exceptions.TOAlreadyExists;
 
+import java.util.ArrayList;
+
 
 @Service
 public class TurOpMgr {
@@ -62,6 +64,14 @@ public class TurOpMgr {
 
         turOpRepository.save(operadorTuristico);
 
+    }
+
+    public ArrayList<OperadorTuristico> encontrarTodos(){
+        return (ArrayList<OperadorTuristico>) turOpRepository.findAll();
+    }
+
+    public ArrayList<OperadorTuristico> encontrarTodosPorContenidoNombre(String texto){
+        return (ArrayList<OperadorTuristico>) turOpRepository.findAllByNameTOContaining(texto);
     }
 
 }
