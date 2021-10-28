@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -94,6 +95,7 @@ public class MenuTuristController implements Initializable{
                     ++row;
                 }
                 experienciaGrid.add(anchorPane,columns++,row);
+                GridPane.setMargin(anchorPane, new Insets(10));
             }
         }catch (IOException e){
             e.printStackTrace();

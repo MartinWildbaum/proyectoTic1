@@ -10,7 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,10 +32,15 @@ public class MostrarExperienciasDinamicoController {
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
 
+    //private Experiencia exp;
+
     public void setData(Experiencia experiencia){
+        //exp = experiencia;
         imagenExperiencia.setImage(experiencia.getImagenAsJavaFxImage(200, 200));
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
     }
+
+
 
     @FXML
     void irExperiencia(ActionEvent event) throws Exception{
@@ -42,7 +49,7 @@ public class MostrarExperienciasDinamicoController {
         closeVentana(event);
         Parent root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         Stage stage = new Stage();
-        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(buttonExperiencia.getText()).getIdExperiencia());
+        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
         stage.setScene(new Scene(root));
         stage.show();
     }
