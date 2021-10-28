@@ -2,6 +2,8 @@ package com.example.primera_version.ui.tur_op_user;
 
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.ExperienceMgr;
+import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.persistence.ExperienceRepository;
@@ -43,10 +45,10 @@ public class ExperienciasOperadorController implements  Initializable{
     private Principal principal;
 
     @Autowired
-    private OpTurUsersRepository opTurUsersRepository;
+    private ExperienceMgr experienceMgr;
 
     @Autowired
-    private ExperienceRepository experienceRepository;
+    private TurOpUsersMgr turOpUsersMgr;
 
     @FXML
     private TextField campoBusqueda;
@@ -80,7 +82,7 @@ public class ExperienciasOperadorController implements  Initializable{
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAllByTituloExperienciaContaining(campoBusqueda.getText());
+        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasContenidoTitulo(campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
         lista.addAll(query);
@@ -131,7 +133,7 @@ public class ExperienciasOperadorController implements  Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
         //Agarro todas las experiencias del operador turistico para el que trabaja el operador que ingreso.
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAllByOperadorTuristico((opTurUsersRepository.findOneByMail(principal.username.getText())).getOperadorTuristico());
+        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasPorOperadorTuristico((turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText())).getOperadorTuristico());
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         misExperiencias.setItems(lista);

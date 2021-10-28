@@ -1,6 +1,8 @@
 package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.TurOpMgr;
+import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.persistence.ExperienceRepository;
@@ -40,12 +42,8 @@ import java.util.ResourceBundle;
 @Component
 public class OperadoresAdminisradorController implements Initializable{
 
-
     @Autowired
-    private TurOpRepository turOpRepository;
-
-
-
+    private TurOpMgr turOpMgr;
     @FXML
     private TextField campoBusqueda;
 
@@ -92,7 +90,7 @@ public class OperadoresAdminisradorController implements Initializable{
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpRepository.findAllByNameTOContaining(campoBusqueda.getText());
+        List<OperadorTuristico> query = turOpMgr.encontrarTodosPorContenidoNombre(campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
         lista.addAll(query);
@@ -149,7 +147,7 @@ public class OperadoresAdminisradorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
         operadoresExpuestos.setEditable(true);
-        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpRepository.findAll();
+        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodos();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);

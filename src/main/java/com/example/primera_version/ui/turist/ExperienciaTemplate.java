@@ -37,6 +37,8 @@ public class ExperienciaTemplate {
     @Autowired
     private ExperienceMgr experienceMgr;
 
+    private Experiencia exp;
+
 //    @Autowired
 //    private MenuTuristController menuTuristController;
 

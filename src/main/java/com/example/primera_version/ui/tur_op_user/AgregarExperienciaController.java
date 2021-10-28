@@ -3,7 +3,9 @@ package com.example.primera_version.ui.tur_op_user;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.ExperienceMgr;
+import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.TurOpMgr;
+import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.exceptions.ExperienceAlreadyExists;
 import com.example.primera_version.business.exceptions.InvalidExperienceInformation;
@@ -41,10 +43,10 @@ import java.util.ResourceBundle;
 public class AgregarExperienciaController implements Initializable {
 
     @Autowired
-    private OpTurUsersRepository opTurUsersRepository;
+    private InteresMgr interesMgr;
 
     @Autowired
-    private InterestRepository interestRepository;
+    private TurOpUsersMgr turOpUsersMgr;
 
     @Autowired
     private Principal principal;
@@ -115,7 +117,7 @@ public class AgregarExperienciaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser = new FileChooser();
-        for(Interes interes : interestRepository.findAll()) {
+        for(Interes interes : interesMgr.obtenerTodosIntereses()) {
             interesesRelacionados.getItems().add(interes);
         }
 
@@ -142,7 +144,7 @@ public class AgregarExperienciaController implements Initializable {
 
             else {
 
-                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, imagen, interes, aforoDisponible, opTurUsersRepository.findOneByMail(principal.username.getText()).getOperadorTuristico());
+                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, imagen, interes, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);
