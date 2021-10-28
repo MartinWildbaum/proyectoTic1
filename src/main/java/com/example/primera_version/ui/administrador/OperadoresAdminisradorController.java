@@ -1,6 +1,7 @@
 package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.persistence.ExperienceRepository;
@@ -43,7 +44,7 @@ public class OperadoresAdminisradorController implements Initializable{
 
 
     @Autowired
-    private TurOpRepository turOpRepository;
+    private TurOpMgr turOpMgr;
 
     @Autowired
     private Principal principal;
@@ -84,7 +85,7 @@ public class OperadoresAdminisradorController implements Initializable{
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpRepository.findAllByNameTOContaining(campoBusqueda.getText());
+        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodosPorContenidoNombre(campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
         lista.addAll(query);
@@ -141,7 +142,7 @@ public class OperadoresAdminisradorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
         operadoresExpuestos.setEditable(true);
-        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpRepository.findAll();
+        List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodos();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);
@@ -214,7 +215,12 @@ public class OperadoresAdminisradorController implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+        //principal.setearAnchorPane(root);
 
     }
 
@@ -223,7 +229,12 @@ public class OperadoresAdminisradorController implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(MenuAdministradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+        //principal.setearAnchorPane(root);
 
     }
 

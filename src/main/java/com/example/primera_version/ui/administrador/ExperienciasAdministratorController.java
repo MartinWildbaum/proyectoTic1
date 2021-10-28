@@ -2,6 +2,7 @@ package com.example.primera_version.ui.administrador;
 
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.OperadorTuristico;
@@ -41,9 +42,8 @@ import java.util.ResourceBundle;
 @Component
 public class ExperienciasAdministratorController implements Initializable {
 
-
     @Autowired
-    private ExperienceRepository experienceRepository;
+    private ExperienceMgr experienceMgr;
 
     @Autowired
     private Principal principal;
@@ -83,7 +83,7 @@ public class ExperienciasAdministratorController implements Initializable {
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAllByTituloExperienciaContaining(campoBusqueda.getText());
+        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasContenidoTitulo(campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
         lista.addAll(query);
@@ -133,7 +133,7 @@ public class ExperienciasAdministratorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
-        List<Experiencia> query = (List<Experiencia>) experienceRepository.findAll();
+        List<Experiencia> query = experienceMgr.encontrarTodas();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         experienciasExpuestas.setItems(lista);
@@ -189,7 +189,12 @@ public class ExperienciasAdministratorController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+        //principal.setearAnchorPane(root);
     }
 
     @FXML

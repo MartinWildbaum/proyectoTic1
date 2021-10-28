@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
+import java.io.NotSerializableException;
 import java.net.URL;
 import java.util.*;
 
@@ -56,12 +57,18 @@ public class MenuTuristController implements Initializable{
 
 
     @FXML
-    void cerrarSesion(ActionEvent event) throws Exception{
+    void cerrarSesion(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -80,8 +87,7 @@ public class MenuTuristController implements Initializable{
                     ++row;
                 }
                 experienciaGrid.add(anchorPane,columns++,row);
-                //TODO BORRAR LINEA 87, NO SE COMO HACERLO DE OTRA FORMA Y NO SE SI ESTA FUNCIONA
-                mostrarExperienciasDinamicoController.buttonExperiencia.setId("buttonExperiencia"+ i);
+
 
             }
         }catch (IOException e){

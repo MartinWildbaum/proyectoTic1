@@ -44,7 +44,12 @@ public class MenuAdministradorController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+        //principal.setearAnchorPane(root);
 
     }
 

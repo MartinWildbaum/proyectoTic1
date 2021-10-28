@@ -46,7 +46,7 @@ public class MostrarExperienciasDinamicoController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
-        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(buttonExperiencia.getText()).getIdExperiencia());
+        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
         principal.setearAnchorPane(root);
 
     }
