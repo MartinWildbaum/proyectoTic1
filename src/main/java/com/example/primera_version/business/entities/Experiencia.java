@@ -3,13 +3,13 @@ package com.example.primera_version.business.entities;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -28,8 +28,9 @@ import java.util.Collection;
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB")
-    private byte[] imagen;
+
+    @Column(name = "imagenes", columnDefinition = "LONGBLOB")
+    private ArrayList<byte[]> imagenes;
 
     @Column(name = "links_videos", nullable = true)
     private String linkVideos;
@@ -43,6 +44,8 @@ import java.util.Collection;
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible = false;
 
+
+
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
@@ -54,11 +57,11 @@ import java.util.Collection;
     private Administrador administrador;
 
 
-    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagen, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
+    public Experiencia(String descripcion, String tituloExperiencia, ArrayList<byte[]> imagenes, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
         ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
-        this.imagen = imagen;
+        this.imagenes = imagenes;
         this.linkVideos = linkVideos;
         this.cantidad = cantidad;
         this.ubicacion = ubicacion;
@@ -130,24 +133,28 @@ import java.util.Collection;
         this.tituloExperiencia = tituloExperiencia;
     }
 
-    public byte[] getImagen() {
-        return imagen;
+    public ArrayList<byte[]> getImagen() {
+        return imagenes;
     }
 
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
+    public void setImagen(ArrayList<byte[]> imagen) {
+        this.imagenes = imagen;
     }
 
     public Image getImagenAsJavaFxImage(final int altura, final int ancho) {
         WritableImage image = new WritableImage(ancho, altura);
         try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
+            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen().get(0));
             BufferedImage read = ImageIO.read(bis);
             image = SwingFXUtils.toFXImage(read, null);
         } catch (IOException excepcion) {
             //
         }
         return image;
+    }
+
+    public ArrayList<byte[]> getImagenes() {
+        return imagenes;
     }
 
     public Collection<Interes> getIntereses() {

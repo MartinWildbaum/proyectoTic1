@@ -2,6 +2,7 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.TurOpMgr;
+import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.ui.Principal;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -10,6 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -189,8 +192,14 @@ public class OperadoresAdminisradorController implements Initializable{
             }
         });
 
-    }
 
+//        operadoresExpuestos.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+//                System.out.println("Hola");
+//            }
+//        });
+    }
 
 
 

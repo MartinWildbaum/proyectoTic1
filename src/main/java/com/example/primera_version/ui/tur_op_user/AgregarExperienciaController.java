@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
@@ -81,7 +82,7 @@ public class AgregarExperienciaController implements Initializable {
 
     private FileChooser fileChooser;
 
-    private byte[] imagen;
+    private ArrayList<byte[]> imagenes = new ArrayList<>();
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -132,18 +133,18 @@ public class AgregarExperienciaController implements Initializable {
             String ubicacion = txtUbicacion.getText();
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
-            byte[] foto = imagen;
+            ArrayList<byte[]> fotos = imagenes;
             Collection<Interes> interes = interesesRelacionados.getItems();
 
-            if (imagen == null) {
+            if (imagenes == null) {
 
                 showAlert("Todos los datos son obligatorios",
                         "Debes ingresar una imagen de la experiencia");
             }
 
             else {
-
-                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, imagen, interes, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
+                System.out.println(fotos.size());
+                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, interes, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);
@@ -185,7 +186,7 @@ public class AgregarExperienciaController implements Initializable {
         Path url = selectedFile.toPath();
         //nombreImagen.setText(url.getFileName().toString());
         try {
-            imagen = Files.readAllBytes(url);
+            imagenes.add(Files.readAllBytes(url));
         }catch (IOException e){
         }
     }

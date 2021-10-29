@@ -6,6 +6,7 @@ import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.business.exceptions.*;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.UserRepository;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,11 +37,11 @@ public class ExperienceMgr {
     }
 
 
-    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, byte[] imagen, Collection<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
+    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Collection<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 
-        if ( chequearString(tituloExperiencia) || chequearString(descripcion) || chequearString(linkVideos) || chequearString(ubicacion) || chequearString(aforoDisponible) || imagen == null || intereses == null || operadorTuristico == null) { //agregue que si la fecha es despues de hoy que de un error
+        if ( chequearString(tituloExperiencia) || chequearString(descripcion) || chequearString(linkVideos) || chequearString(ubicacion) || chequearString(aforoDisponible) || intereses == null || operadorTuristico == null) { //agregue que si la fecha es despues de hoy que de un error
 
             throw new InvalidExperienceInformation("ERROR!, Alguno de los datos ingresados no es correcto");
 
@@ -63,7 +64,7 @@ public class ExperienceMgr {
         experienciaAgregar.setUbicacion(ubicacion);
         experienciaAgregar.setCantidad(Integer.valueOf(aforoDisponible));
         experienciaAgregar.setLinkVideos(linkVideos);
-        experienciaAgregar.setImagen(imagen);
+        experienciaAgregar.setImagen(imagenes);
         experienciaAgregar.setOperadorTuristico(operadorTuristico);
 
 

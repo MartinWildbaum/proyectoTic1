@@ -2,6 +2,8 @@ package com.example.primera_version.business.entities;
 
 
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -20,6 +22,19 @@ public class Turist extends Usuario{
     @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate birthdate;
 
+    @Column(name = "esta_vacunado", nullable = true)
+    private Boolean estaVacunado;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_documento", nullable = true)
+    private TipoDocumento tipoDocumento;
+
+    private enum TipoDocumento {
+        PASAPORTE, CEDULA;
+    }
+
+    @Column(name = "valor_documento", nullable = true)
+    private String valorDocumento;
 
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))

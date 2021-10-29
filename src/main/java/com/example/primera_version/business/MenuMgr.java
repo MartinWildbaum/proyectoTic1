@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.PriorityQueue;
 
 @Service
 public class MenuMgr {
@@ -21,13 +22,18 @@ public class MenuMgr {
     @Transactional
     public ArrayList<Experiencia> asociadorExperiencias(Turist turista) {
 
-        Collection<Interes> intereses = turista.getIntereses();
+        // Me genero la cola de prioridad de 100 lugares ya que me parece un numero razonable de experiencias que coinciden con sus intereses
+        PriorityQueue<Experiencia> colaExperiencias = new PriorityQueue<>(100);
+
+        Collection<Interes> interesesTurista = turista.getIntereses();
+
         Iterable<Experiencia> allExperiencias = experienceRepository.findAll();
-        ArrayList<Experiencia> experienciasRecomendadas = new ArrayList<>(); // Experiencias que voy a mostrar en el menu principal
+
+        ArrayList<Experiencia> experienciasRecomendadas = new ArrayList<>(); // Experiencias que voy a mostrar en el menu principal en orden de relevancia
 
         for (Experiencia experiencia : allExperiencias) {
 
-            for (Interes interes : intereses) {
+            for (Interes interes : interesesTurista) {
                 if (experiencia.getIntereses().contains(interes)) {
                     experienciasRecomendadas.add(experiencia);
                     break; // Para que no me agregue las experiencias mas de una vez

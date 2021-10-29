@@ -22,7 +22,7 @@
          </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar operador turistico por nombre..." />
-      <Button fx:id="botonAgregarOperador" layoutX="688.0" layoutY="26.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #D3D3D3;" text="Agregar operador turistico">
+      <Button fx:id="botonAgregarOperador" layoutX="637.0" layoutY="26.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #D3D3D3;" text="Agregar operador turistico">
          <font>
             <Font name="Cambria Bold" size="13.0" />
          </font>
