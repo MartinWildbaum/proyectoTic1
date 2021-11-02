@@ -23,7 +23,7 @@ public class MenuMgr {
     public ArrayList<Experiencia> asociadorExperiencias(Turist turista) {
 
         // Me genero la cola de prioridad de 100 lugares ya que me parece un numero razonable de experiencias que coinciden con sus intereses
-        PriorityQueue<Experiencia> colaExperiencias = new PriorityQueue<>(100);
+        //PriorityQueue<Experiencia> colaExperiencias = new PriorityQueue<>(100);
 
         Collection<Interes> interesesTurista = turista.getIntereses();
 

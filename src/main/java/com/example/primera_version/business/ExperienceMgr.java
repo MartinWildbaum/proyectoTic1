@@ -37,7 +37,7 @@ public class ExperienceMgr {
     }
 
 
-    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Collection<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
+    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, byte[] imagenes, Collection<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 

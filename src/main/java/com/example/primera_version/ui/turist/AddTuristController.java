@@ -14,6 +14,7 @@ import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -25,14 +26,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.ResourceBundle;
 
 
 @Component
-public class AddTuristController {
+public class AddTuristController implements Initializable {
 
     @Autowired
     Principal principal;
@@ -62,17 +65,18 @@ public class AddTuristController {
     private CheckComboBox<Interes> seleccionadorIntereses;
 
     @FXML
-    public ComboBox<String> myComboBoxPaises;
+    private ComboBox<String> myComboBoxPaises;
 
 
-    public void ajestarComboBoxes(){
+    /*@FXML
+    void ajestarComboBoxes(ActionEvent actionEvent){
         for (Interes interes : interesMgr.getIntereses()){
-            myComboBoxPaises.getItems().add(interes.toString());
+            seleccionadorIntereses.getItems().add(interes);
         }
         for (String nombrePais : paisMgr.getPaises()){
             myComboBoxPaises.getItems().add(nombrePais);
         }
-    }
+    }*/
 
     @FXML
     void addTurist(ActionEvent event) {
@@ -142,4 +146,13 @@ public class AddTuristController {
         alert.showAndWait();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        for (Interes interes : interesMgr.getIntereses()){
+            seleccionadorIntereses.getItems().add(interes);
+        }
+        for (String nombrePais : paisMgr.getPaises()){
+            myComboBoxPaises.getItems().add(nombrePais);
+        }
+        }
 }

@@ -39,7 +39,7 @@
       <Label layoutX="273.0" layoutY="246.0" text="Confirmar Contraseña" textFill="WHITE" />
       <PasswordField fx:id="txtPassword1" layoutX="400.0" layoutY="195.0" prefHeight="26.0" prefWidth="200.0" />
       <PasswordField fx:id="txtPassword2" layoutX="400.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" />
-      <ComboBox fx:id="myComboBoxPaises" layoutX="400.0" layoutY="115.0" onAction="#ajestarComboBoxes" prefHeight="26.0" prefWidth="200.0" />
+      <ComboBox fx:id="myComboBoxPaises" layoutX="400.0" layoutY="115.0" prefHeight="26.0" prefWidth="200.0" />
       <CheckComboBox fx:id="seleccionadorIntereses" layoutX="400.0" layoutY="280.0" prefHeight="26.0" prefWidth="200.0" title="Seleccione sus intereses" />
       <Button fx:id="btnAdd" layoutX="407.0" layoutY="341.0" mnemonicParsing="false" onAction="#addTurist" text="Agregar" />
       <Button fx:id="btnClose" layoutX="513.0" layoutY="342.0" mnemonicParsing="false" onAction="#close" text="Cancelar" />

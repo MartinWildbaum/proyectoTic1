@@ -30,7 +30,7 @@ import java.util.Collection;
 
 
     @Column(name = "imagenes", columnDefinition = "LONGBLOB")
-    private ArrayList<byte[]> imagenes;
+    private byte[] imagenes;
 
     @Column(name = "links_videos", nullable = true)
     private String linkVideos;
@@ -57,7 +57,7 @@ import java.util.Collection;
     private Administrador administrador;
 
 
-    public Experiencia(String descripcion, String tituloExperiencia, ArrayList<byte[]> imagenes, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
+    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagenes, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
         ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
@@ -133,18 +133,18 @@ import java.util.Collection;
         this.tituloExperiencia = tituloExperiencia;
     }
 
-    public ArrayList<byte[]> getImagen() {
+    public byte[] getImagen() {
         return imagenes;
     }
 
-    public void setImagen(ArrayList<byte[]> imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagenes = imagen;
     }
 
     public Image getImagenAsJavaFxImage(final int altura, final int ancho) {
         WritableImage image = new WritableImage(ancho, altura);
         try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen().get(0));
+            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
             BufferedImage read = ImageIO.read(bis);
             image = SwingFXUtils.toFXImage(read, null);
         } catch (IOException excepcion) {
@@ -153,7 +153,7 @@ import java.util.Collection;
         return image;
     }
 
-    public ArrayList<byte[]> getImagenes() {
+    public byte[] getImagenes() {
         return imagenes;
     }
 

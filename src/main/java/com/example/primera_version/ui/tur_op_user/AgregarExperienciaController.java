@@ -82,7 +82,7 @@ public class AgregarExperienciaController implements Initializable {
 
     private FileChooser fileChooser;
 
-    private ArrayList<byte[]> imagenes = new ArrayList<>();
+    private byte[] imagenes;
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -133,7 +133,7 @@ public class AgregarExperienciaController implements Initializable {
             String ubicacion = txtUbicacion.getText();
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
-            ArrayList<byte[]> fotos = imagenes;
+            byte[] fotos = imagenes;
             Collection<Interes> interes = interesesRelacionados.getItems();
 
             if (imagenes == null) {
@@ -143,7 +143,6 @@ public class AgregarExperienciaController implements Initializable {
             }
 
             else {
-                System.out.println(fotos.size());
                 experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, interes, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
@@ -186,7 +185,7 @@ public class AgregarExperienciaController implements Initializable {
         Path url = selectedFile.toPath();
         //nombreImagen.setText(url.getFileName().toString());
         try {
-            imagenes.add(Files.readAllBytes(url));
+            imagenes = (Files.readAllBytes(url));
         }catch (IOException e){
         }
     }

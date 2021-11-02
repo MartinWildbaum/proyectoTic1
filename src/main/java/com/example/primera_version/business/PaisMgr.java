@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class PaisMgr {
 
@@ -29,8 +31,7 @@ public class PaisMgr {
     public ObservableList<String> getPaises() {
 
         ObservableList<String> paises = FXCollections.observableArrayList();
-        Iterable<Pais> temp = countryRepository.findAll();
-
+        ArrayList<Pais> temp = (ArrayList<Pais>) countryRepository.findAll();
         for(Pais pais : temp){
             paises.add(pais.getNombre());
         }
