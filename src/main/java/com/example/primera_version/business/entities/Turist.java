@@ -83,6 +83,15 @@ public class Turist extends Usuario{
         return intereses;
     }
 
+    public String getListaIntereses(){
+        String devolucion = " ";
+        intereses = this.getIntereses();
+        for (Interes interes: intereses) {
+            devolucion = devolucion + "\n" + interes.getNombre();
+        }
+        return devolucion;
+    }
+
     public void setIntereses(Collection<Interes> intereses) {
         this.intereses = intereses;
     }

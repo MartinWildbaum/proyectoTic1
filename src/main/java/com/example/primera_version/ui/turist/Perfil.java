@@ -13,9 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -31,6 +34,12 @@ public class Perfil {
     private Principal principal;
 
     @FXML
+    private Button misIntereses;
+
+    @FXML
+    private Button misReservas;
+
+    @FXML
     private Label usuariolabel;
 
     @FXML
@@ -40,7 +49,7 @@ public class Perfil {
     private Label fechalabel;
 
     @FXML
-    private Label intereseslabel;
+    private Text intereseslabel;
 
     private String cambiarLocalDateAString(LocalDate fecha){
         return fecha.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
@@ -56,8 +65,16 @@ public class Perfil {
         paislabel.setStyle("-fx-alignment: CENTER;");
         fechalabel.setText(cambiarLocalDateAString(turistAMostrar.getBirthdate()));
         fechalabel.setStyle("-fx-alignment: CENTER;");
-        intereseslabel.setText(turistAMostrar.getIntereses().toString());
+        intereseslabel.setText(turistAMostrar.getListaIntereses());
         intereseslabel.setStyle("-fx-alignment: CENTER;");
+    }
+
+    @FXML
+    void modificarIntereses(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(ModificadorInteresesController.class.getResourceAsStream("ModificarIntereses.fxml"));
+        principal.setearAnchorPane(root);
     }
 
     @FXML

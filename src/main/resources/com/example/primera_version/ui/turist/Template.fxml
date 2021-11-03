@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ExperienciaTemplate">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ExperienciaTemplate">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="-8.0" prefHeight="593.0" prefWidth="430.0" style="-fx-background-color: #000000;">
          <children>
-            <ImageView fx:id="templateImage" fitHeight="553.0" fitWidth="408.0" layoutX="15.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="templateImage" fitHeight="569.0" fitWidth="404.0" layoutX="15.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <Label layoutX="907.0" layoutY="572.0" text="TurisTIC">
@@ -25,38 +25,34 @@
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font></Button>
-      <ScrollPane layoutX="428.0" layoutY="2.0" prefHeight="479.0" prefWidth="568.0" style="-fx-background: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB; -fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB#87CEEB#87CEEB#87CEEB;">
-         <content>
-            <AnchorPane prefHeight="465.0" prefWidth="560.0">
-               <children>
-                  <Text fx:id="templateTitulo" fill="WHITE" layoutX="6.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
-                     <font>
-                        <Font name="Cambria" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="templateDescrpicion" fill="WHITE" layoutX="11.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripicion:" wrappingWidth="268.125">
-                     <font>
-                        <Font name="Cambria" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="templateUbicacion" fill="WHITE" layoutX="13.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicacion:" wrappingWidth="268.125">
-                     <font>
-                        <Font name="Cambria" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="templateVideos" fill="WHITE" layoutX="14.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Videos:" wrappingWidth="268.125">
-                     <font>
-                        <Font name="Cambria" size="27.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="874.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/logo.png" />
          </image>
       </ImageView>
+      <ScrollPane layoutX="433.0" layoutY="375.0" prefHeight="103.0" prefWidth="584.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
+         <content>
+            <Text fx:id="templateDescrpicion" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripicion:" wrappingWidth="547.125">
+               <font>
+                  <Font name="Cambria" size="27.0" />
+               </font>
+            </Text>
+         </content>
+      </ScrollPane>
+      <Text fx:id="templateTitulo" fill="WHITE" layoutX="435.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
+         <font>
+            <Font name="Cambria" size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="templateUbicacion" fill="WHITE" layoutX="436.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicacion:" wrappingWidth="268.125">
+         <font>
+            <Font name="Cambria" size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="templateVideos" fill="WHITE" layoutX="441.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Videos:" wrappingWidth="268.125">
+         <font>
+            <Font name="Cambria" size="27.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -23,10 +23,19 @@ public class MenuAdministradorController {
 
     @FXML
     void administrarExperiencias(ActionEvent event) throws Exception {
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ExperienciasAdministratorController.class.getResourceAsStream("ExperienciasAdministrador.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+//        AnchorPane root = fxmlLoader.load(ExperienciasAdministratorController.class.getResourceAsStream("ExperienciasAdministrador.fxml"));
+//        principal.setearAnchorPane(root);
 
     }
 
@@ -35,7 +44,15 @@ public class MenuAdministradorController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("OperadoresAdministrador.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+//        AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("OperadoresAdministrador.fxml"));
+//        principal.setearAnchorPane(root);
 
     }
 
@@ -49,7 +66,6 @@ public class MenuAdministradorController {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
 
     }
 

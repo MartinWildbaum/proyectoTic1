@@ -11,6 +11,7 @@ import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.persistence.CountryRepository;
 import com.example.primera_version.persistence.InterestRepository;
 import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.administrador.MenuAdministradorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -100,9 +101,8 @@ public class AddTuristController implements Initializable {
                 try {
 
                     turistMgr.addTurist(mail, pais, birthdate, password,password2,interesCollection);
-
-
                     showAlert("Turista agregado", "Se agrego con exito el Turista!");
+                    close(event);
 
                 } catch (InvalidUserInformation invalidTuristInformation) {
                     showAlert(
@@ -116,6 +116,8 @@ public class AddTuristController implements Initializable {
                     showAlert(
                             "Error en la contraseña !",
                             "Las contraseñas no coinciden.");
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
             } catch (NumberFormatException e) {
@@ -129,13 +131,17 @@ public class AddTuristController implements Initializable {
 
     }
 
+
     @FXML
     void close(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane pane = fxmlLoader.load(Principal.class.getResourceAsStream("MenuTurist.fxml"));
-        principal.setearAnchorPane(pane);
-
+        AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("Principal.fxml"));
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     private void showAlert(String title, String contextText) {

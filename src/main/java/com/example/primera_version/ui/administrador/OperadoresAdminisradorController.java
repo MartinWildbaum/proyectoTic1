@@ -235,7 +235,6 @@ public class OperadoresAdminisradorController implements Initializable{
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
 
     }
 

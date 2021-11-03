@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Perfil">
    <children>
-      <Label layoutX="500.0" layoutY="43.0" prefHeight="50.0" prefWidth="150.0" text="Tu perfil" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="500.0" layoutY="43.0" prefHeight="50.0" prefWidth="150.0" text="Mis " textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="41.0" />
          </font>
@@ -39,15 +39,18 @@
       <Label fx:id="usuariolabel" layoutX="500.0" layoutY="146.0" prefHeight="28.0" prefWidth="131.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="paislabel" layoutX="500.0" layoutY="193.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="fechalabel" layoutX="500.0" layoutY="232.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <AnchorPane prefHeight="600.0" prefWidth="249.0" style="-fx-background-color: #000000;">
          <children>
             <Label layoutX="84.0" layoutY="450.0" text="TurisTIC" textFill="AQUA">
@@ -65,12 +68,12 @@
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="3.0" layoutY="23.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis intereses" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="misIntereses" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#modificarIntereses" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis intereses" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="11.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="misReservas" layoutX="11.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
@@ -80,11 +83,13 @@
       <Button layoutX="403.0" layoutY="398.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ADD8E6;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
+         </font>
+      </Button>
       <Button layoutX="534.0" layoutY="397.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ADD8E6;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
+         </font>
+      </Button>
       <ScrollPane layoutX="485.0" layoutY="297.0" prefHeight="59.0" prefWidth="344.0" style="-fx-background: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;">
          <content>
             <Text fx:id="intereseslabel" fill="WHITE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="341.0000305175781">
