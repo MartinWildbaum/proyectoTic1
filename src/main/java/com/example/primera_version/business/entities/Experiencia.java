@@ -1,16 +1,10 @@
 package com.example.primera_version.business.entities;
 
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 
-import javax.imageio.ImageIO;
 import javax.persistence.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 
 @Entity
@@ -28,9 +22,8 @@ import java.util.Collection;
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-
-    @Column(name = "imagenes", columnDefinition = "LONGBLOB")
-    private byte[] imagenes;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia", fetch = FetchType.EAGER)
+    private Set<Imagen> imagenes;
 
     @Column(name = "links_videos", nullable = true)
     private String linkVideos;
@@ -57,11 +50,10 @@ import java.util.Collection;
     private Administrador administrador;
 
 
-    public Experiencia(String descripcion, String tituloExperiencia, byte[] imagenes, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
+    public Experiencia(String descripcion, String tituloExperiencia, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
         ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
-        this.imagenes = imagenes;
         this.linkVideos = linkVideos;
         this.cantidad = cantidad;
         this.ubicacion = ubicacion;
@@ -133,29 +125,6 @@ import java.util.Collection;
         this.tituloExperiencia = tituloExperiencia;
     }
 
-    public byte[] getImagen() {
-        return imagenes;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagenes = imagen;
-    }
-
-    public Image getImagenAsJavaFxImage(final int altura, final int ancho) {
-        WritableImage image = new WritableImage(ancho, altura);
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
-            BufferedImage read = ImageIO.read(bis);
-            image = SwingFXUtils.toFXImage(read, null);
-        } catch (IOException excepcion) {
-            //
-        }
-        return image;
-    }
-
-    public byte[] getImagenes() {
-        return imagenes;
-    }
 
     public Collection<Interes> getIntereses() {
         return intereses;
@@ -177,6 +146,14 @@ import java.util.Collection;
         this.administrador = administrador;
     }
 
+
+    public Set<Imagen> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(Set<Imagen> imagenes) {
+        this.imagenes = imagenes;
+    }
 }
 
 

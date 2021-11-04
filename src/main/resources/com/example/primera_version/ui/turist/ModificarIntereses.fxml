@@ -9,46 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Perfil">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ModificadorInteresesController">
    <children>
-      <Label layoutX="500.0" layoutY="43.0" prefHeight="50.0" prefWidth="150.0" text="Mis " textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="354.0" layoutY="43.0" prefHeight="50.0" prefWidth="296.0" text="Mis Intereses" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="41.0" />
-         </font>
-      </Label>
-      <Label layoutX="369.0" layoutY="147.0" prefHeight="32.0" prefWidth="90.0" text="Usuario :" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="274.0" layoutY="193.0" text="Pais de nacimiento : " textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="267.0" layoutY="229.0" text="Fecha de nacimiento :" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="368.0" layoutY="289.0" text="Intereses : " textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="usuariolabel" layoutX="500.0" layoutY="146.0" prefHeight="28.0" prefWidth="131.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="paislabel" layoutX="500.0" layoutY="193.0" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="fechalabel" layoutX="500.0" layoutY="232.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold" size="12.0" />
          </font>
       </Label>
       <AnchorPane prefHeight="600.0" prefWidth="249.0" style="-fx-background-color: #000000;">
@@ -68,36 +33,33 @@
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="misIntereses" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#modificarIntereses" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis intereses" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="misIntereses" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" mouseTransparent="true" onAction="#modificarIntereses" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis intereses" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button fx:id="misReservas" layoutX="11.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="misReservas" layoutX="11.0" layoutY="78.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="403.0" layoutY="398.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ADD8E6;" text="Volver al menu" textAlignment="CENTER">
+      <Button layoutX="639.0" layoutY="525.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #ADD8E6;" text="Volver" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="534.0" layoutY="397.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ADD8E6;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="770.0" layoutY="526.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ADD8E6;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="485.0" layoutY="297.0" prefHeight="59.0" prefWidth="344.0" style="-fx-background: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;">
-         <content>
-            <Text fx:id="intereseslabel" fill="WHITE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="341.0000305175781">
-               <font>
-                  <Font name="Cambria Bold" size="14.0" />
-               </font>
-            </Text>
-         </content>
-      </ScrollPane>
+      <ScrollPane layoutX="485.0" layoutY="297.0" prefHeight="59.0" prefWidth="344.0" style="-fx-background: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" />
+      <Button fx:id="guardarCambios" layoutX="328.0" layoutY="525.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" text="Guardar cambios" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -52,7 +52,12 @@ public class ExperienciaTemplate {
         templateUbicacion.setText("Ubicacion: " + experiencia_mostrada.getUbicacion());
         templateDescrpicion.setText("Descripcion: " + experiencia_mostrada.getDescripcion());
         templateVideos.setText("Videos: " + experiencia_mostrada.getLinkVideos());
-        templateImage.setImage(experiencia_mostrada.getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
+
+        // Pogramar aparicion de imagenes
+        if (experiencia_mostrada.getImagenes().size() > 0){
+            templateImage.setImage(experiencia_mostrada.getImagenes().iterator().next().getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
+        }
+
 
     }
 

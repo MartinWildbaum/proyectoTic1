@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ModificadorInteresesController implements Initializable {
     @Autowired
     private Principal principal;
 
+
+    @FXML
+    private Button guardarCambios;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

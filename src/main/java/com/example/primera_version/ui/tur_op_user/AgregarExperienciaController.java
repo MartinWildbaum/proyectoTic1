@@ -82,7 +82,7 @@ public class AgregarExperienciaController implements Initializable {
 
     private FileChooser fileChooser;
 
-    private byte[] imagenes;
+    private ArrayList<byte[]> imagenes = new ArrayList<>(5);
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -133,7 +133,7 @@ public class AgregarExperienciaController implements Initializable {
             String ubicacion = txtUbicacion.getText();
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
-            byte[] fotos = imagenes;
+            ArrayList<byte[]> fotos = imagenes;
             Collection<Interes> interes = interesesRelacionados.getItems();
 
             if (imagenes == null) {
@@ -182,10 +182,11 @@ public class AgregarExperienciaController implements Initializable {
         stage.setScene(sceneActual);
         stage.show();
 */
+        while (selectedFile == null);
         Path url = selectedFile.toPath();
         //nombreImagen.setText(url.getFileName().toString());
         try {
-            imagenes = (Files.readAllBytes(url));
+            imagenes.add(Files.readAllBytes(url));
         }catch (IOException e){
         }
     }

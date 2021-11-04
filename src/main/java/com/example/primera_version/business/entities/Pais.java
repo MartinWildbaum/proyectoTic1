@@ -13,7 +13,7 @@ public class Pais {
         this.nombre = nombre;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pais")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pais") // Me hace el programa mas lento
     private Collection<Turist> turistas;
 
 
