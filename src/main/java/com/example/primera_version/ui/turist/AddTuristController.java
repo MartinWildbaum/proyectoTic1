@@ -5,6 +5,8 @@ import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.PaisMgr;
 import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.InteresGeneral;
+import com.example.primera_version.business.entities.InteresParticular;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
@@ -50,6 +52,9 @@ public class AddTuristController implements Initializable {
     @Autowired
     private InteresMgr interesMgr;
 
+    @Autowired
+    private SeleccionadorInicialInteresesController seleccionadorInicialInteresesController;
+
     @FXML
     private TextField txtMail;
 
@@ -61,9 +66,6 @@ public class AddTuristController implements Initializable {
 
     @FXML
     private PasswordField txtPassword2;
-
-    @FXML
-    private CheckComboBox<Interes> seleccionadorIntereses;
 
     @FXML
     private ComboBox<String> myComboBoxPaises;
@@ -96,11 +98,14 @@ public class AddTuristController implements Initializable {
                 LocalDate birthdate = txtBirthdate.getValue();
                 String password = txtPassword1.getText();
                 String password2= txtPassword2.getText();
-                Collection<Interes> interesCollection = seleccionadorIntereses.getItems();
+
+                Collection<InteresGeneral> interesesGenerales = seleccionadorInicialInteresesController.seleccionadorInteresesGenerales.getItems();
+                Collection<InteresParticular> interesesParticulares = seleccionadorInicialInteresesController.seleccionadorInteresesParticulares.getItems();
+
 
                 try {
 
-                    turistMgr.addTurist(mail, pais, birthdate, password,password2,interesCollection);
+                    turistMgr.addTurist(mail, pais, birthdate, password,password2,interesesGenerales, interesesParticulares);
                     showAlert("Turista agregado", "Se agrego con exito el Turista!");
                     close(event);
 
@@ -154,11 +159,23 @@ public class AddTuristController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for (Interes interes : interesMgr.getIntereses()){
-            seleccionadorIntereses.getItems().add(interes);
-        }
         for (String nombrePais : paisMgr.getPaises()){
             myComboBoxPaises.getItems().add(nombrePais);
         }
         }
+
+    @FXML
+    public void irASeleccionarIntereses(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
+        principal.setearAnchorPane(root);
+        /*Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();*/
+    }
+
+
 }

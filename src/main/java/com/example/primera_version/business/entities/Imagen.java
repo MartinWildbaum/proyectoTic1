@@ -1,7 +1,6 @@
 package com.example.primera_version.business.entities;
 
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
@@ -12,7 +11,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @Entity
-@Table(name = "iamgenes_expereincias")
+@Table(name = "imagenes_expereincias")
 public class Imagen {
 
 
@@ -59,15 +58,13 @@ public class Imagen {
     }
 
     public Image getImagenAsJavaFxImage(final int altura, final int ancho) {
-        WritableImage image = new WritableImage(ancho, altura);
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
-            BufferedImage read = ImageIO.read(bis);
-            image = SwingFXUtils.toFXImage(read, null);
-        } catch (IOException excepcion) {
-            //
-        }
-        return image;
+        //WritableImage image = new WritableImage(ancho, altura);
+        Image imagen = null;
+        ByteArrayInputStream bis = new ByteArrayInputStream(this.getImagen());
+        //BufferedImage read = ImageIO.read(bis);
+        //image = SwingFXUtils.toFXImage(read, null);
+        imagen = new Image(bis);
+        return imagen;
     }
 
 

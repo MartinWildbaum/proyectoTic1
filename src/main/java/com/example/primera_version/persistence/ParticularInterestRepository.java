@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ParticularInterest extends CrudRepository<InteresParticular,Long> {
+public interface ParticularInterestRepository extends CrudRepository<InteresParticular,Long> {
 
     /**
      * Retorna un interes particular por idInteres si encuentra mas de una lanza una excepcion

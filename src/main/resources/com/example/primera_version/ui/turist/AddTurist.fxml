@@ -10,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.CheckComboBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.AddTuristController">
    <children>
@@ -40,7 +39,6 @@
       <PasswordField fx:id="txtPassword1" layoutX="400.0" layoutY="195.0" prefHeight="26.0" prefWidth="200.0" />
       <PasswordField fx:id="txtPassword2" layoutX="400.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" />
       <ComboBox fx:id="myComboBoxPaises" layoutX="400.0" layoutY="115.0" prefHeight="26.0" prefWidth="200.0" />
-      <CheckComboBox fx:id="seleccionadorIntereses" layoutX="400.0" layoutY="280.0" prefHeight="26.0" prefWidth="200.0" title="Seleccione sus intereses" />
       <Button fx:id="btnAdd" layoutX="407.0" layoutY="341.0" mnemonicParsing="false" onAction="#addTurist" text="Agregar" />
       <Button fx:id="btnClose" layoutX="513.0" layoutY="342.0" mnemonicParsing="false" onAction="#close" text="Cancelar" />
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
@@ -48,5 +46,10 @@
             <Image url="@fotos/logo.png" />
          </image>
       </ImageView>
+      <Button alignment="TOP_CENTER" layoutX="408.0" layoutY="286.0" mnemonicParsing="false" onAction="#irASeleccionarIntereses" prefHeight="26.0" prefWidth="206.0" text="Seleccionar mis intereses" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,6 +1,8 @@
 package com.example.primera_version.business;
 
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.InteresGeneral;
+import com.example.primera_version.business.entities.InteresParticular;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.business.exceptions.UserNotExists;
@@ -39,7 +41,7 @@ public class TuristMgr {
     }
 
 
-    public void addTurist(String mail, String nationality, LocalDate birthdate, String password, String passwordConfirmar, Collection<Interes> intereses) throws InvalidUserInformation, UserAlreadyExists,PasswordNoCoinciden {
+    public void addTurist(String mail, String nationality, LocalDate birthdate, String password, String passwordConfirmar, Collection<InteresGeneral> interesesGenerales, Collection<InteresParticular> interesesParticulares) throws InvalidUserInformation, UserAlreadyExists,PasswordNoCoinciden {
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 
@@ -68,7 +70,7 @@ public class TuristMgr {
         turistaAAgregar.setPais(countryRepository.findOneByNombre(nationality));
         turistaAAgregar.setBirthdate(birthdate);
         turistaAAgregar.setPassword(password);
-        turistaAAgregar.setIntereses(intereses);
+        //turistaAAgregar.setIntereses(intereses);
 
         // Guardo el turista que me cree anteriormente en mi base de datos
 

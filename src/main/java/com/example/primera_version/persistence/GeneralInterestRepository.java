@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface GeneralInterest extends CrudRepository<InteresGeneral,Long> {
+public interface GeneralInterestRepository extends CrudRepository<InteresGeneral,Long> {
 
     /**
      * Retorna un interes general por idInteres si encuentra mas de una lanza una excepcion

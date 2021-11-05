@@ -2,7 +2,11 @@ package com.example.primera_version.business;
 
 
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.InteresGeneral;
+import com.example.primera_version.business.entities.InteresParticular;
+import com.example.primera_version.persistence.GeneralInterestRepository;
 import com.example.primera_version.persistence.InterestRepository;
+import com.example.primera_version.persistence.ParticularInterestRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,12 @@ public class InteresMgr {
     @Autowired
     InterestRepository interestRepository;
 
+    @Autowired
+    GeneralInterestRepository generalInterestRepository;
+
+    @Autowired
+    ParticularInterestRepository particularInterestRepository;
+
     public ObservableList<Interes> getIntereses() {
 
         ObservableList<Interes> intereses = FXCollections.observableArrayList();
@@ -28,6 +38,29 @@ public class InteresMgr {
 
         return intereses;
     }
+
+    public ObservableList<InteresGeneral> getIntereseGenerales(){
+        ObservableList<InteresGeneral> interesesGenerales = FXCollections.observableArrayList();
+        Iterable<InteresGeneral> temp = generalInterestRepository.findAll();
+
+        for(InteresGeneral interes : temp){
+            interesesGenerales.add(interes);
+        }
+
+        return interesesGenerales;
+    }
+
+    public  ObservableList<InteresParticular> getInteresParticular(){
+        ObservableList<InteresParticular> interesesParticulares = FXCollections.observableArrayList();
+        Iterable<InteresParticular> temp = particularInterestRepository.findAll();
+
+        for(InteresParticular interes : temp){
+            interesesParticulares.add(interes);
+        }
+
+        return interesesParticulares;
+    }
+
 
     public ArrayList<Interes> obtenerTodosIntereses(){
         ArrayList<Interes> intereses = (ArrayList<Interes>) interestRepository.findAll();
