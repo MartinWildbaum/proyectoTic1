@@ -27,9 +27,9 @@ public class Interes { //ERA ABSTRACTO!!
             targetEntity = Turist.class)
     private Collection<Turist> turistas;
 
-    @ManyToMany(mappedBy = "interesesAsociados",
+   /* @ManyToMany(mappedBy = "interesesAsociados",
             targetEntity = InteresGeneral.class)
-    private Collection<InteresGeneral> interesesGeneralesAsociados;
+    private Collection<InteresGeneral> interesesGeneralesAsociados;*/
 
     public Interes(String nombre) {
         this.nombre = nombre;
@@ -73,14 +73,6 @@ public class Interes { //ERA ABSTRACTO!!
 
     public void setTuristas(Collection<Turist> turistas) {
         this.turistas = turistas;
-    }
-
-    public Collection<InteresGeneral> getInteresesGeneralesAsociados() {
-        return interesesGeneralesAsociados;
-    }
-
-    public void setInteresesGeneralesAsociados(Collection<InteresGeneral> interesesGeneralesAsociados) {
-        this.interesesGeneralesAsociados = interesesGeneralesAsociados;
     }
 
     @Override

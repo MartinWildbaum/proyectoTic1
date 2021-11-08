@@ -10,9 +10,8 @@ import java.util.Collection;
 public class InteresGeneral extends Interes {
 
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Interes.class)
-    @JoinTable(name = "Intereses_asociados", joinColumns = @JoinColumn(name = "id_interes_general", referencedColumnName = "id_interes"), inverseJoinColumns = @JoinColumn(name = "id_interes_asociado", referencedColumnName = "id_interes"))
-    private Collection<Interes> interesesAsociados;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "interesGeneral")
+    private Collection<InteresParticular> interesesParticularesAsociados;
 
 
     public InteresGeneral() {
@@ -22,11 +21,11 @@ public class InteresGeneral extends Interes {
         super(nombre);
     }
 
-    public Collection<Interes> getInteresesAsociados() {
-        return interesesAsociados;
+    public Collection<InteresParticular> getInteresesParticularesAsociados() {
+        return interesesParticularesAsociados;
     }
 
-    public void setInteresesAsociados(Collection<Interes> interesesAsociados) {
-        this.interesesAsociados = interesesAsociados;
+    public void setInteresesParticularesAsociados(Collection<InteresParticular> interesesParticularesAsociados) {
+        this.interesesParticularesAsociados = interesesParticularesAsociados;
     }
 }
