@@ -36,7 +36,7 @@ public class ExperienciaTemplate {
     private ImageView templateImage;
 
     @FXML
-    private Text templateTitulo;
+    public Text templateTitulo;
 
     @FXML
     private Text templateUbicacion;

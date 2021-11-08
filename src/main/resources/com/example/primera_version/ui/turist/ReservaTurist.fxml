@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -31,5 +33,23 @@
       </AnchorPane>
       <Button layoutX="383.0" layoutY="500.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="42.0" prefWidth="114.0" text="Volver al Menu" />
       <Button layoutX="521.0" layoutY="500.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="42.0" prefWidth="114.0" text="Realizar Reserva" />
+      <Label layoutX="375.0" layoutY="165.0" text="Tipo de documento" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="221.0" text="Número de documento" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="278.0" text="Cantidad de personas" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNumeroDeDocumento" layoutX="540.0" layoutY="215.0" />
+      <TextField fx:id="txtCantidadDePersonas" layoutX="540.0" layoutY="272.0" />
+      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="537.0" layoutY="161.0" prefHeight="26.0" prefWidth="160.0" />
    </children>
 </AnchorPane>

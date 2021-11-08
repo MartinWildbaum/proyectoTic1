@@ -41,7 +41,7 @@ public class MostrarExperienciasDinamicoController {
     public void setData(Experiencia experiencia){
 
         if (experiencia.getImagenes().size()>0){
-            imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
+            imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(500,500));
         }
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
 

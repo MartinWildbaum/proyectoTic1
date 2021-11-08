@@ -95,5 +95,21 @@ public class Turist extends Usuario{
     public void setIntereses(Collection<Interes> intereses) {
         this.intereses = intereses;
     }
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getValorDocumento() {
+        return valorDocumento;
+    }
+
+    public void setValorDocumento(String valorDocumento) {
+        this.valorDocumento = valorDocumento;
+    }
 }
 

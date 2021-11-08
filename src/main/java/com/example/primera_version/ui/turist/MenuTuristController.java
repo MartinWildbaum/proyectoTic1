@@ -82,7 +82,7 @@ public class MenuTuristController implements Initializable{
                 AnchorPane anchorPane = fxmlLoader.load(MostrarExperienciasDinamicoController.class.getResourceAsStream("MostrarExperienciasDinamico.fxml"));
                 MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController = fxmlLoader.getController();
                 mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.get(i));
-                if(columns == 2){
+                if(columns == 1){
                     columns = 0;
                     ++row;
                 }
