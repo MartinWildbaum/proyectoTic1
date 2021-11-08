@@ -71,8 +71,6 @@ public class MenuTuristController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
         // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
         ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
         int columns = 0;

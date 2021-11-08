@@ -35,6 +35,9 @@ public class MostrarExperienciasDinamicoController {
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
 
+    @Autowired
+    private MostrarFotosDinamicoTemplate mostrarFotosDinamicoTemplate;
+
     public void setData(Experiencia experiencia){
 
         if (experiencia.getImagenes().size()>0){
@@ -45,11 +48,12 @@ public class MostrarExperienciasDinamicoController {
     }
 
     @FXML
-    void irExperiencia(ActionEvent event) throws Exception{
+    public void irExperiencia(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
+//        mostrarFotosDinamicoTemplate.setDataExperienciasFotos(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
         principal.setearAnchorPane(root);
 
     }

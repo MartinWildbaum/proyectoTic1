@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="150.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarFotosDinamicoTemplate">
+   <children>
+      <ImageView fx:id="imagenExperiencias" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -28,7 +28,6 @@ public class ModificadorInteresesController implements Initializable {
     @Autowired
     private Principal principal;
 
-
     @FXML
     private Button guardarCambios;
 
@@ -36,8 +35,6 @@ public class ModificadorInteresesController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
