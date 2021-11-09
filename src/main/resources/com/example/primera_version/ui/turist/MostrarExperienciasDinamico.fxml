@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="290.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperienciasDinamicoController">
+<AnchorPane prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperienciasDinamicoController">
    <children>
-      <ImageView fx:id="imagenExperiencia" fitHeight="185.0" fitWidth="700.0" layoutX="38.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@fotos/punta-del-este.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="buttonExperiencia" layoutX="334.0" layoutY="213.0" mnemonicParsing="false" onAction="#irExperiencia" text="Button" />
+      <Button fx:id="buttonExperiencia" layoutX="152.0" layoutY="211.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="170.0" text="Button" />
+      <ImageView fx:id="imagenExperiencia" fitHeight="200.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
