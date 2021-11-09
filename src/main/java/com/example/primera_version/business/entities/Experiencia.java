@@ -37,9 +37,11 @@ import java.util.Set;
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible = false;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia") // Me hace el programa mas lento
+    private Collection<Reserva> reservas;
 
 
-    @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Interes.class/*, fetch = FetchType.EAGER*/)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 

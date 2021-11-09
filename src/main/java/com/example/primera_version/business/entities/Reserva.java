@@ -12,21 +12,19 @@ import java.time.LocalDateTime;
 public class Reserva {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "numero_reserva")
     private Long numeroReserva;
 
-    @Transient
+    @ManyToOne(targetEntity = Turist.class)
+    @JoinColumn(name = "mail_turista", referencedColumnName = "mail")
     private Turist turista;
 
-    @Column(name = "mail_turista", nullable = false)
-    private String mailTurista;
 
-    @Transient
+    @ManyToOne(targetEntity = Experiencia.class)
+    @JoinColumn(name="id_experiencia", referencedColumnName = "id_experiencia")
     private Experiencia experiencia;
 
-    @Column(name = "id_experiencia", nullable = false)
-    private Long idExperiencia;
 
     @Column(name = "numero_personas", nullable = false)
     private Long numeroPersonas;
@@ -52,12 +50,9 @@ public class Reserva {
     private Denuncia denuncia;
 
 
-    public Reserva(Long numeroReserva, Turist turista, Experiencia experiencia, Long numeroPersonas) {
-        this.numeroReserva = numeroReserva;
+    public Reserva(Turist turista, Experiencia experiencia, Long numeroPersonas) {
         this.turista = turista;
-        this.mailTurista = turista.getMail();
         this.experiencia = experiencia;
-        this.idExperiencia = experiencia.getIdExperiencia();
         this.numeroPersonas = numeroPersonas;
         this.estado = false;
         this.fechaHora = LocalDateTime.now();
@@ -69,6 +64,8 @@ public class Reserva {
 
 
     public Reserva() {
+        this.fechaHora = LocalDateTime.now();
+        this.estado = false;
     }
 
 
@@ -79,24 +76,6 @@ public class Reserva {
     public void setNumeroReserva(Long numeroReserva) {
         this.numeroReserva = numeroReserva;
     }
-
-    public String getMailTurista() {
-        return mailTurista;
-    }
-
-    public void setMailTurista(String mailTurista) {
-        this.mailTurista = mailTurista;
-    }
-
-    public Long getIdExperiencia() {
-        return idExperiencia;
-    }
-
-    public void setIdExperiencia(Long idExperiencia) {
-        this.idExperiencia = idExperiencia;
-    }
-
-
 
     public Long getNumeroPersonas() {
         return numeroPersonas;
@@ -156,7 +135,6 @@ public class Reserva {
 
     public void setTurista(Turist turista) {
         this.turista = turista;
-        this.mailTurista = turista.getMail();
     }
 
     public Experiencia getExperiencia() {
@@ -165,7 +143,6 @@ public class Reserva {
 
     public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
-        this.idExperiencia = experiencia.getIdExperiencia();
     }
 }
 

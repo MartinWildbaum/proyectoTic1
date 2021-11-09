@@ -25,6 +25,7 @@ public class ReservaMgr {
     private TuristRepository turistRepository;
 
 
+
     private boolean chequearString(String stringAChequear){
         boolean devolucion=false;
 
@@ -72,8 +73,7 @@ public class ReservaMgr {
         Reserva reserva=new Reserva(); //Hay algunas cosas que no tienen sentido con la base de datos
 
 
-        reserva.setNumeroReserva(111L); //esto hay que cambiarlo
-        reserva.setMailTurista(mail);
+        reserva.setTurista(turistRepository.findOneByMail(mail));
         reserva.setExperiencia(experiencia);
         reserva.setNumeroPersonas(numeroPersonas);
 

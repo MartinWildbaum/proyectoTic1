@@ -40,7 +40,8 @@ public class Turist extends Usuario{
     @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turista")
+    private Collection<Reserva> reservas;
 
     public Turist(String mail, String password, Pais pais, LocalDate birthdate, Collection<Interes> intereses) {
         super(mail, password);
@@ -110,6 +111,22 @@ public class Turist extends Usuario{
 
     public void setValorDocumento(String valorDocumento) {
         this.valorDocumento = valorDocumento;
+    }
+
+    public Boolean getEstaVacunado() {
+        return estaVacunado;
+    }
+
+    public void setEstaVacunado(Boolean estaVacunado) {
+        this.estaVacunado = estaVacunado;
+    }
+
+    public Collection<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Collection<Reserva> reservas) {
+        this.reservas = reservas;
     }
 }
 
