@@ -16,28 +16,27 @@
             <ImageView fx:id="templateImage" fitHeight="496.0" fitWidth="402.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <Label layoutX="907.0" layoutY="572.0" text="TurisTIC">
+      <Label layoutX="874.0" layoutY="163.0" style="-fx-background-color: martinmartin;" text="TurisTIC">
          <font>
             <Font name="System Italic" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="339.0" layoutY="524.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="43.0" prefWidth="128.0" text="Volver al menu">
+      <Button layoutX="433.0" layoutY="530.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="43.0" prefWidth="128.0" style="-fx-background-color: #ffffff;" text="Volver al menu">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="874.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@fotos/logo.png" />
-         </image>
-      </ImageView>
-      <ScrollPane layoutX="430.0" layoutY="324.0" prefHeight="103.0" prefWidth="584.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
+      <ScrollPane layoutX="430.0" layoutY="324.0" prefHeight="162.0" prefWidth="577.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
          <content>
-            <Text fx:id="templateDescrpicion" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripicion:" wrappingWidth="547.125">
-               <font>
-                  <Font name="Cambria" size="27.0" />
-               </font>
-            </Text>
+            <AnchorPane prefHeight="152.0" prefWidth="570.0">
+               <children>
+                  <Text fx:id="templateDescrpicion" fill="WHITE" layoutX="4.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripición:" wrappingWidth="553.7916259765625">
+                     <font>
+                        <Font name="Cambria" size="27.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </content>
       </ScrollPane>
       <Text fx:id="templateTitulo" fill="WHITE" layoutX="435.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="245.13671875">
@@ -55,10 +54,15 @@
             <Font name="Cambria" size="27.0" />
          </font>
       </Text>
-      <Button layoutX="496.0" layoutY="525.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="43.0" prefWidth="128.0" text="Hacer reserva">
+      <Button layoutX="593.0" layoutY="530.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="43.0" prefWidth="128.0" style="-fx-background-color: #ffffff;" text="Hacer reserva">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="840.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fotos/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

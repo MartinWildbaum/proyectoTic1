@@ -1,19 +1,14 @@
 package com.example.primera_version.ui.turist;
-
 import com.example.primera_version.Main;
 import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.PaisMgr;
 import com.example.primera_version.business.TuristMgr;
-import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.InteresGeneral;
 import com.example.primera_version.business.entities.InteresParticular;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
-import com.example.primera_version.persistence.CountryRepository;
-import com.example.primera_version.persistence.InterestRepository;
 import com.example.primera_version.ui.Principal;
-import com.example.primera_version.ui.administrador.MenuAdministradorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,15 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -50,9 +40,6 @@ public class AddTuristController implements Initializable {
     private PaisMgr paisMgr;
 
     @Autowired
-    private InteresMgr interesMgr;
-
-    @Autowired
     private SeleccionadorInicialInteresesController seleccionadorInicialInteresesController;
 
     @FXML
@@ -69,17 +56,6 @@ public class AddTuristController implements Initializable {
 
     @FXML
     private ComboBox<String> myComboBoxPaises;
-
-
-    /*@FXML
-    void ajestarComboBoxes(ActionEvent actionEvent){
-        for (Interes interes : interesMgr.getIntereses()){
-            seleccionadorIntereses.getItems().add(interes);
-        }
-        for (String nombrePais : paisMgr.getPaises()){
-            myComboBoxPaises.getItems().add(nombrePais);
-        }
-    }*/
 
     @FXML
     void addTurist(ActionEvent event) {
@@ -170,11 +146,7 @@ public class AddTuristController implements Initializable {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
         principal.setearAnchorPane(root);
-        /*Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-        stage.setScene(new Scene(root));
-        stage.show();*/
+
     }
 
 

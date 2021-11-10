@@ -7,13 +7,9 @@ import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,13 +31,14 @@ public class MostrarExperienciasDinamicoController {
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
 
-    @Autowired
-    private MostrarFotosDinamicoTemplate mostrarFotosDinamicoTemplate;
 
     public void setData(Experiencia experiencia){
 
         if (experiencia.getImagenes().size()>0){
-            imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(500,500));
+            imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
+//            imagenExperiencia.setStyle("-fx-alignment: CENTER;");// Me centra el texto
+
+            imagenExperiencia.setX(75);
         }
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
 

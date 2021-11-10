@@ -1,17 +1,13 @@
 package com.example.primera_version.business;
-
 import com.example.primera_version.business.entities.Administrador;
-import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.business.exceptions.UserNotExists;
 import com.example.primera_version.persistence.AdministratorRepository;
-import com.example.primera_version.persistence.TuristRepository;
 import com.example.primera_version.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.time.LocalDate;
 
 
 @Service
@@ -86,16 +82,7 @@ public class AdminMgr {
             return true;
 
         }else{
-
-            //throw new InvalidUserInformation("Los datos ingresador para iniciar sesion no son correctos");
-            //return false; //esto antes retornaba false pero yo no quiero que retorne false, porque si pongo usuario
-            //no tiene sentido que retorne false porque si pongo un usario cualuiqer
-
             return false;
-
         }
-
     }
-
-
 }

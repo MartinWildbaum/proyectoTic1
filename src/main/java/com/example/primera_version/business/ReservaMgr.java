@@ -9,9 +9,6 @@ import com.example.primera_version.persistence.ReservationRepository;
 import com.example.primera_version.persistence.TuristRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-
 @Service
 public class ReservaMgr {
 
@@ -23,8 +20,6 @@ public class ReservaMgr {
 
     @Autowired
     private TuristRepository turistRepository;
-
-
 
     private boolean chequearString(String stringAChequear){
         boolean devolucion=false;
@@ -67,21 +62,11 @@ public class ReservaMgr {
         Turist turist= turistRepository.findOneByMail(mail);
 //        turist.setTipoDocumento(); como seteo esto
         turist.setValorDocumento(numeroDeDocumento);
-
-
-
         Reserva reserva=new Reserva(); //Hay algunas cosas que no tienen sentido con la base de datos
-
-
         reserva.setTurista(turistRepository.findOneByMail(mail));
         reserva.setExperiencia(experiencia);
         reserva.setNumeroPersonas(numeroPersonas);
-
         reservationRepository.save(reserva);
-
-
-
-
     }
 
 

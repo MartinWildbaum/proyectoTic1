@@ -1,17 +1,13 @@
 package com.example.primera_version.business;
-
-
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.persistence.ExperienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.PriorityQueue;
 
 @Service
 public class MenuMgr {

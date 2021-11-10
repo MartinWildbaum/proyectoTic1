@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperienciasDinamicoController">
    <children>
-      <Button fx:id="buttonExperiencia" layoutX="152.0" layoutY="211.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="170.0" text="Button" />
+      <Button fx:id="buttonExperiencia" layoutX="152.0" layoutY="211.0" mnemonicParsing="false" onAction="#irExperiencia" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #ffffff;" text="Button" />
       <ImageView fx:id="imagenExperiencia" fitHeight="200.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

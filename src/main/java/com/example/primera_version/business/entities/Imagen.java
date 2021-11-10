@@ -1,14 +1,7 @@
 package com.example.primera_version.business.entities;
-
-
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
-
-import javax.imageio.ImageIO;
 import javax.persistence.*;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 
 @Entity
 @Table(name = "imagenes_expereincias")

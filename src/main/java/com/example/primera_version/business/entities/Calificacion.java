@@ -1,8 +1,6 @@
 package com.example.primera_version.business.entities;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -18,7 +16,6 @@ public abstract class Calificacion {
     private LocalDateTime fechaHora;
 
     // Constructores
-
 
     public Calificacion(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;

@@ -23,7 +23,7 @@
             <Font name="Papyrus" size="27.0" />
          </font>
       </Text>
-      <ScrollPane layoutX="408.0" layoutY="105.0" prefHeight="432.0" prefWidth="500.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
+      <ScrollPane layoutX="352.0" layoutY="105.0" prefHeight="432.0" prefWidth="582.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
          <content>
             <GridPane fx:id="experienciaGrid">
               <rowConstraints>

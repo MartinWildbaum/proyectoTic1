@@ -1,6 +1,4 @@
 package com.example.primera_version.business;
-
-
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.InteresGeneral;
 import com.example.primera_version.business.entities.InteresParticular;
@@ -11,12 +9,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 
 @Service
 public class InteresMgr {
-
 
     @Autowired
     InterestRepository interestRepository;
@@ -61,11 +57,9 @@ public class InteresMgr {
         return interesesParticulares;
     }
 
-
     public ArrayList<Interes> obtenerTodosIntereses(){
         ArrayList<Interes> intereses = (ArrayList<Interes>) interestRepository.findAll();
         return intereses;
     }
-
 
 }

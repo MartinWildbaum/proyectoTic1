@@ -1,14 +1,10 @@
 package com.example.primera_version.business.entities;
-
-
 import javax.persistence.*;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id_interes")
 @Table(name = "intereses_particulares")
 public class InteresParticular extends Interes{
-
-
 
     @ManyToOne(targetEntity = InteresGeneral.class)
     @JoinColumn(name="intere_general", referencedColumnName = "id_interes")

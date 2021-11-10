@@ -1,13 +1,9 @@
 package com.example.primera_version.business.entities;
-
-
 import javax.persistence.*;
 import java.util.Collection;
-
 @Entity
 @Table(name = "operadores_turisticos")
 public class OperadorTuristico {
-
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,6 @@
 package com.example.primera_version.business.entities;
-
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
-
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
