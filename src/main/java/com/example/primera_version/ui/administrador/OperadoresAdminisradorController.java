@@ -11,7 +11,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -208,7 +207,15 @@ public class OperadoresAdminisradorController implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(TOController.class.getResourceAsStream("AddOperadorTuristico.fxml"));
-        principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+//        AnchorPane root = fxmlLoader.load(TOController.class.getResourceAsStream("AddOperadorTuristico.fxml"));
+//        principal.setearAnchorPane(root);
     }
 
     @FXML

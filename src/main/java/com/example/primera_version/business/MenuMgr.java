@@ -31,8 +31,9 @@ public class MenuMgr {
 
             for (Interes interes : interesesTurista) {
                 if (experiencia.getIntereses().contains(interes)) {
-                    experienciasRecomendadas.add(experiencia);
-                    break; // Para que no me agregue las experiencias mas de una vez
+                    if(experiencia.getEstaDisponible())
+                        experienciasRecomendadas.add(experiencia);
+                        break; // Para que no me agregue las experiencias mas de una vez
                 }
             }
         }
