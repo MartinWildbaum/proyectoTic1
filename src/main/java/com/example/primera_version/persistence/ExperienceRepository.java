@@ -24,4 +24,5 @@ public interface ExperienceRepository extends CrudRepository<Experiencia, Long> 
 
     List<Experiencia> findAllByOperadorTuristico(OperadorTuristico operadorTuristico);
 
+
 }

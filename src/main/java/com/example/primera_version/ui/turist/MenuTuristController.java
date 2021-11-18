@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.NotSerializableException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 
@@ -72,16 +73,17 @@ public class MenuTuristController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
-        ArrayList<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
+        Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
+        int numExpAMostrar = experienciasRecomendadas.size();
         int columns = 0;
         int row = 1;
         try{
-            for(int i=0;i< experienciasRecomendadas.size();i++){
+            for(int i = 0; i < numExpAMostrar;i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 AnchorPane anchorPane = fxmlLoader.load(MostrarExperienciasDinamicoController.class.getResourceAsStream("MostrarExperienciasDinamico.fxml"));
                 MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController = fxmlLoader.getController();
-                mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.get(i));
+                mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.remove());
                 if(columns == 1){
                     columns = 0;
                     ++row;

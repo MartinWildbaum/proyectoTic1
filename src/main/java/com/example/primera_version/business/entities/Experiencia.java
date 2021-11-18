@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "experiencias")
-    public class Experiencia {
+    public class Experiencia implements Comparable<Experiencia>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +37,8 @@ import java.util.Set;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia") // Me hace el programa mas lento
     private Collection<Reserva> reservas;
 
+    @Transient
+    public Float puntaje = 0f;
 
     @ManyToMany(targetEntity = Interes.class/*, fetch = FetchType.EAGER*/)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
@@ -152,5 +154,17 @@ import java.util.Set;
 
     public void setImagenes(Set<Imagen> imagenes) {
         this.imagenes = imagenes;
+    }
+
+    @Override
+    public int compareTo(Experiencia o) { //Cuanto mas recomendable es para la persona, mayor es el puntaje que tiene
+        if (this.puntaje > o.puntaje){
+            return (-1);
+        }else if(this.puntaje < o.puntaje){
+            return (1);
+        }else{
+            return 0;
+        }
+
     }
 }

@@ -34,7 +34,7 @@ public class Turist extends Usuario{
     private String valorDocumento;
 
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
-    @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
+    @JoinTable(name = "turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
 
