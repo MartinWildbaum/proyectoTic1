@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3; -fx-background-image: url('fotos/fondoMenuTurist.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController">
    <children>
-      <Button layoutX="324.0" layoutY="209.0" mnemonicParsing="false" onAction="#verMisExperiencias" prefHeight="80.0" prefWidth="252.0" text="Nuestras Experiencias">
+      <Button layoutX="240.0" layoutY="265.0" mnemonicParsing="false" onAction="#verMisExperiencias" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Ver experiencias de la empresa">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="611.0" layoutY="213.0" mnemonicParsing="false" onAction="#agregarUnaExperiencia" prefHeight="80.0" prefWidth="252.0" text="Agregar Experiencia">
+      <Button layoutX="532.0" layoutY="266.0" mnemonicParsing="false" onAction="#agregarUnaExperiencia" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Agregar una nueva experiencia">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="792.0" layoutY="534.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="792.0" layoutY="534.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Label layoutX="306.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="¡Bienvenido Operador!">
+         <font>
+            <Font name="Cambria Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="218.0" layoutY="180.0" style="-fx-background-color: #ffffff;" text="¿Que operación le gustaria realizar?">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

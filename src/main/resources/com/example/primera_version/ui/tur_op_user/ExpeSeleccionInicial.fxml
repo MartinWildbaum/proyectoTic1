@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane fx:id="guardarCambiosInterese" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.SeleccionadorInteresesExperiencia">
+<AnchorPane fx:id="guardarCambiosInterese" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3; -fx-background-image: url('fotos/fondoMenuTurist.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.SeleccionadorInteresesExperiencia">
    <children>
       <Label layoutX="316.0" layoutY="254.0" textFill="WHITE" />
       <Label layoutX="867.0" layoutY="194.0" text="TurisTIC" textFill="AQUA">
@@ -18,7 +18,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="550.0" layoutY="522.0" mnemonicParsing="false" onAction="#volverAddExperience" prefHeight="20.0" prefWidth="307.0" text="Confirmar intereses y volver ">
+      <Button layoutX="550.0" layoutY="522.0" mnemonicParsing="false" onAction="#volverAddExperience" prefHeight="20.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" text="Confirmar intereses y volver ">
          <font>
             <Font name="Cambria Bold Italic" size="20.0" />
          </font>

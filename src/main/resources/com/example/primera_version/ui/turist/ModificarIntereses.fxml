@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ModificadorInteresesController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ModificadorInteresesController">
    <children>
       <Label layoutX="354.0" layoutY="43.0" prefHeight="50.0" prefWidth="296.0" text="Mis Intereses" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -36,12 +36,12 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="544.0" layoutY="526.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #ADD8E6;" text="Volver" textAlignment="CENTER">
+      <Button layoutX="544.0" layoutY="526.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #87CEEB;" text="Volver" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="672.0" layoutY="526.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ADD8E6;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="672.0" layoutY="526.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #87CEEB;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
@@ -63,7 +63,7 @@
          </font>
       </Text>
       <CheckComboBox fx:id="seleccionadorInteresesParticulares" layoutX="587.0" layoutY="267.0" onMouseClicked="#ajustarIntereses" onMouseEntered="#ajustarIntereses" onMouseExited="#ajustarIntereses" prefHeight="28.0" prefWidth="285.0" title="Seleccionar intereses particulares" />
-      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="583.0" layoutY="176.0" prefHeight="73.0" prefWidth="322.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6; -fx-background: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6; -fx-border-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;">
+      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="583.0" layoutY="176.0" prefHeight="73.0" prefWidth="322.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
          <content>
             <Text fx:id="interesesGeneralesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="319.4700012207031">
                <font>
@@ -77,7 +77,7 @@
             <Font name="Cambria Italic" size="18.0" />
          </font>
       </Text>
-      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="583.0" layoutY="328.0" prefHeight="74.0" prefWidth="323.0" style="-fx-background-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6; -fx-background: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6; -fx-border-color: #ADD8E6#ADD8E6 #ADD8E6#ADD8E6;">
+      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="583.0" layoutY="328.0" prefHeight="74.0" prefWidth="323.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
          <content>
             <Text fx:id="interesesParticularesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="331.4700012207031">
                <font>
