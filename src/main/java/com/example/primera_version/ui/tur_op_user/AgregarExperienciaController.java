@@ -197,7 +197,7 @@ public class AgregarExperienciaController implements Initializable {
     public void seleccionarInteresesExperiencia(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(SeleccionadorInteresesExperiencia.class.getResourceAsStream("SeleccionadorInteresesExperiencia.fxml"));
+        Parent root = fxmlLoader.load(SeleccionadorInteresesExperiencia.class.getResourceAsStream("ExpeSeleccionInicial.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -206,7 +206,7 @@ public class AgregarExperienciaController implements Initializable {
         //principal.setearAnchorPane(root);
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
-        //Stage stage = (Stage) source.getScene().getWindow();
+        //Stage stage = (Stage) source.getScene().getWindow();ExpeSeleccionInicial.fxml
         //stage.close();
         stage.setScene(new Scene(root));
         stage.show();

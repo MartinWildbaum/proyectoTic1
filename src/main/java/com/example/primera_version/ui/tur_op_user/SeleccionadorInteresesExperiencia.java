@@ -68,7 +68,7 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
     }
 
     @FXML
-    public void ajustarIntereses(MouseEvent mouseEvent){
+    public void ajustarInt(MouseEvent mouseEvent){
         String textoGeneral = "";
         for (Interes txt : seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()) {
             textoGeneral = textoGeneral + "\n" + txt.getNombre();
