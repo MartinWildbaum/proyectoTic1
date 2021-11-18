@@ -5,10 +5,10 @@ import java.util.Collection;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "intereses")
-public class Interes { //ERA ABSTRACTO!!
+public abstract class Interes { //ERA ABSTRACTO!!
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_interes")
     private Long idInteres;
 

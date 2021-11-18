@@ -3,6 +3,7 @@ import com.example.primera_version.Main;
 import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.PaisMgr;
 import com.example.primera_version.business.TuristMgr;
+import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.InteresGeneral;
 import com.example.primera_version.business.entities.InteresParticular;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -75,8 +77,8 @@ public class AddTuristController implements Initializable {
                 String password = txtPassword1.getText();
                 String password2= txtPassword2.getText();
 
-                Collection<InteresGeneral> interesesGenerales = seleccionadorInicialInteresesController.seleccionadorInteresesGenerales.getItems();
-                Collection<InteresParticular> interesesParticulares = seleccionadorInicialInteresesController.seleccionadorInteresesParticulares.getItems();
+                Collection<Interes> interesesGenerales = seleccionadorInicialInteresesController.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems();
+                Collection<Interes> interesesParticulares = seleccionadorInicialInteresesController.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems();
 
 
                 try {
@@ -144,9 +146,20 @@ public class AddTuristController implements Initializable {
     public void irASeleccionarIntereses(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        /*
         AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
-        principal.setearAnchorPane(root);
-
+        //principal.setearAnchorPane(root);
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        //Stage stage = (Stage) source.getScene().getWindow();
+        //stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+*/
     }
 
 

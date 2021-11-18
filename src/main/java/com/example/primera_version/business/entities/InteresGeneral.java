@@ -7,7 +7,7 @@ import java.util.Collection;
 @Table(name = "intereses_generales")
 public class InteresGeneral extends Interes {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "interesGeneral")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "interesGeneral", fetch = FetchType.EAGER)
     private Collection<InteresParticular> interesesParticularesAsociados;
 
 
@@ -25,4 +25,5 @@ public class InteresGeneral extends Interes {
     public void setInteresesParticularesAsociados(Collection<InteresParticular> interesesParticularesAsociados) {
         this.interesesParticularesAsociados = interesesParticularesAsociados;
     }
+
 }

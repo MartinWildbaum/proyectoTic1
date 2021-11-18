@@ -1,9 +1,6 @@
 package com.example.primera_version.business.entities;
 
 
-
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -40,6 +37,7 @@ public class Turist extends Usuario{
     @JoinTable(name = "Turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "turista")
     private Collection<Reserva> reservas;
 
@@ -71,14 +69,6 @@ public class Turist extends Usuario{
     }
 
 
-    /*// Agregado en la clase de base de datos viernes 8/10
-    @Autowired
-    @Transient
-    private CountryRepository countryRepository;
-
-    public void setNacionalidad(String nationality){
-        this.pais = countryRepository.findOneByNombre(nationality);
-    }*/
 
     public Collection<Interes> getIntereses() {
         return intereses;
@@ -86,16 +76,26 @@ public class Turist extends Usuario{
 
     public String getListaIntereses(){
         String devolucion = " ";
-        intereses = this.getIntereses();
-        for (Interes interes: intereses) {
+        for (Interes interes: this.getIntereses()) {
             devolucion = devolucion + "\n" + interes.getNombre();
         }
         return devolucion;
     }
 
     public void setIntereses(Collection<Interes> intereses) {
+        //Porque no anda?
         this.intereses = intereses;
+
     }
+
+    /*public void sumarIntereses(Collection<Interes> intereses){
+        if (this.intereses == null){
+            this.intereses = intereses;
+        }else{
+            this.intereses.addAll(intereses);
+        }
+    }*/
+
 
     public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
