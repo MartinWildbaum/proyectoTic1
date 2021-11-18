@@ -38,18 +38,18 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="375.0" layoutY="221.0" text="Número de documento" textFill="WHITE">
+      <Label layoutX="366.0" layoutY="216.0" text="Número de documento" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="375.0" layoutY="278.0" text="Cantidad de personas" textFill="WHITE">
+      <Label layoutX="373.0" layoutY="273.0" text="Cantidad de personas" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNumeroDeDocumento" layoutX="540.0" layoutY="215.0" />
-      <TextField fx:id="txtCantidadDePersonas" layoutX="540.0" layoutY="272.0" />
+      <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="540.0" layoutY="215.0" />
+      <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="540.0" layoutY="272.0" />
       <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="537.0" layoutY="161.0" prefHeight="26.0" prefWidth="160.0" />
    </children>
 </AnchorPane>

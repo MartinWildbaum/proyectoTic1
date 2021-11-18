@@ -25,7 +25,7 @@
       </Button>
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../turist/fotos/logo.png" />
+            <Image url="@fotos/logo.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="45.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales:" textAlignment="CENTER" wrappingWidth="182.13672637939453">

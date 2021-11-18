@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 
@@ -69,27 +70,40 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
 
     @FXML
     public void ajustarInt(MouseEvent mouseEvent){
-        String textoGeneral = "";
-        for (Interes txt : seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()) {
-            textoGeneral = textoGeneral + "\n" + txt.getNombre();
-        }
-        interesesGeneralesSeleccionados.setText(textoGeneral);
+        try{
+            //Cargo los intereses particulares de acuerdo a los generales que seleccione
 
-        String textoParticular = "";
-        for (Interes txt : seleccionadorInteresesParticulares.getCheckModel().getCheckedItems()) {
-            textoParticular = textoParticular + "\n" + txt.getNombre();
-        }
-        interesesParticularesSeleccionados.setText(textoParticular);
-
-        //Cargo los intereses particulares de acuerdo a los generales que seleccione
-        for(Interes interesGeneral: seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()){
-            InteresGeneral intgen = (InteresGeneral) interesGeneral;
-            for (InteresParticular interesParticular: intgen.getInteresesParticularesAsociados()){
-                if(!seleccionadorInteresesParticulares.getItems().contains(interesParticular)){
-                    seleccionadorInteresesParticulares.getItems().add(interesParticular);
+            //Saco los intereses particulares que no tienen su interesgeneral seleccionado
+            for(Interes interes: seleccionadorInteresesParticulares.getItems()){
+                InteresParticular intpar = (InteresParticular) interes;
+                if(!seleccionadorInteresesGenerales.getCheckModel().getCheckedItems().contains(intpar.getInteresGeneral())){
+                    seleccionadorInteresesParticulares.getItems().remove(interes);
                 }
             }
+
+            for(Interes interesGeneral: seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()){
+                InteresGeneral intgen = (InteresGeneral) interesGeneral;
+                for (InteresParticular interesParticular: intgen.getInteresesParticularesAsociados()){
+                    if(!seleccionadorInteresesParticulares.getItems().contains(interesParticular)){
+                        seleccionadorInteresesParticulares.getItems().add(interesParticular);
+                    }
+                }
+            }
+            String textoGeneral = "";
+            for (Interes txt : seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()) {
+                textoGeneral = textoGeneral + "\n" + txt.getNombre();
+            }
+            interesesGeneralesSeleccionados.setText(textoGeneral);
+
+            String textoParticular = "";
+            for (Interes txt : seleccionadorInteresesParticulares.getCheckModel().getCheckedItems()) {
+                textoParticular = textoParticular + "\n" + txt.getNombre();
+            }
+            interesesParticularesSeleccionados.setText(textoParticular);
+        }catch (Exception ignored){
+
         }
+
 
     }
 

@@ -85,27 +85,41 @@ public class SeleccionadorInicialInteresesController implements Initializable {
 
     @FXML
     public void ajustarIntereses(MouseEvent mouseEvent){
-        String textoGeneral = "";
-        for (Interes txt : seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()) {
-            textoGeneral = textoGeneral + "\n" + txt.getNombre();
-        }
-        interesesGeneralesSeleccionados.setText(textoGeneral);
 
-        String textoParticular = "";
-        for (Interes txt : seleccionadorInteresesParticulares.getCheckModel().getCheckedItems()) {
-            textoParticular = textoParticular + "\n" + txt.getNombre();
-        }
-        interesesParticularesSeleccionados.setText(textoParticular);
-
-        //Cargo los intereses particulares de acuerdo a los generales que seleccione
-        for(Interes interesGeneral: seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()){
-            InteresGeneral intgen = (InteresGeneral) interesGeneral;
-            for (InteresParticular interesParticular: intgen.getInteresesParticularesAsociados()){
-                if(!seleccionadorInteresesParticulares.getItems().contains(interesParticular)){
-                    seleccionadorInteresesParticulares.getItems().add(interesParticular);
+        try{
+            //Saco los intereses particulares que no tienen su interesgeneral seleccionado
+            for(Interes interes: seleccionadorInteresesParticulares.getItems()){
+                InteresParticular intpar = (InteresParticular) interes;
+                if(!seleccionadorInteresesGenerales.getCheckModel().getCheckedItems().contains(intpar.getInteresGeneral())){
+                    seleccionadorInteresesParticulares.getItems().remove(interes);
                 }
             }
+
+            //Cargo los intereses particulares de acuerdo a los generales que seleccione
+            for(Interes interesGeneral: seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()){
+                InteresGeneral intgen = (InteresGeneral) interesGeneral;
+                for (InteresParticular interesParticular: intgen.getInteresesParticularesAsociados()){
+                    if(!seleccionadorInteresesParticulares.getItems().contains(interesParticular)){
+                        seleccionadorInteresesParticulares.getItems().add(interesParticular);
+                    }
+                }
+            }
+
+            String textoGeneral = "";
+            for (Interes txt : seleccionadorInteresesGenerales.getCheckModel().getCheckedItems()) {
+                textoGeneral = textoGeneral + "\n" + txt.getNombre();
+            }
+            interesesGeneralesSeleccionados.setText(textoGeneral);
+
+            String textoParticular = "";
+            for (Interes txt : seleccionadorInteresesParticulares.getCheckModel().getCheckedItems()) {
+                textoParticular = textoParticular + "\n" + txt.getNombre();
+            }
+            interesesParticularesSeleccionados.setText(textoParticular);
+        }catch (Exception ignored){
+
         }
+
 
     }
 

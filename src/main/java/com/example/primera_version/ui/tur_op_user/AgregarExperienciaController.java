@@ -41,6 +41,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
@@ -133,8 +134,10 @@ public class AgregarExperienciaController implements Initializable {
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
             ArrayList<byte[]> fotos = imagenes;
-            Collection<Interes> intereses = seleccionadorInteresesExperiencia.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems();
+            Collection<Interes> intereses = new ArrayList<>(10);
+            intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems());
             intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
+            //intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
 
 
             if (imagenes == null) {
