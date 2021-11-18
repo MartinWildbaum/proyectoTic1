@@ -66,12 +66,12 @@ public class MenuMgr {
 
             for (InteresGeneral interesGeneral:interesesGeneralesExperiencia) {
                 if (interesesGeneralesTurista.contains(interesGeneral)){
-                    puntaje = puntaje + (1 / ( (2 * N) + (M) ));
+                    puntaje = puntaje + (100 / ( (2 * N) + (M) ));
                 }
             }
             for (InteresParticular interesParticular: interesesParticularesExperiencia) {
                 if(interesParticularesTurista.contains(interesParticular)){
-                    puntaje = puntaje + (3 / ( (2 * n) + (m) ));
+                    puntaje = puntaje + (300 / ( (2 * n) + (m) ));
                 }
             }
             /*Agrego la experiencia a la priority queue si esta habilitada y si matcheo con al menos un interes. Vease que recien ahora me fijo si esta habilitada

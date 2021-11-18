@@ -11,6 +11,7 @@ public class UsuarioOpTur extends Usuario {
 
 
     @ManyToOne(targetEntity = OperadorTuristico.class)
+    @JoinColumn(name="id_op_tur", referencedColumnName = "id_op_tur", nullable = false)
     private OperadorTuristico operadorTuristico;
 
     public UsuarioOpTur(String mail, String password, OperadorTuristico operadorTuristico) {

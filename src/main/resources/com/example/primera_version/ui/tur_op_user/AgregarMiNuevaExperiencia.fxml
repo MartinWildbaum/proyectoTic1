@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.CheckComboBox?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.AgregarExperienciaController">
    <children>
@@ -76,7 +75,6 @@
          </font>
       </Label>
       <Button fx:id="botonImagen" layoutX="400.0" layoutY="328.0" mnemonicParsing="false" onAction="#addImagen" prefHeight="26.0" prefWidth="203.0" text="Agregar nueva imagen" />
-      <CheckComboBox fx:id="interesesRelacionados" layoutX="400.0" layoutY="291.0" prefHeight="25.0" prefWidth="203.0" title="Seleccione los intereses" />
       <Button layoutX="354.0" layoutY="456.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #D3D3D3;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -85,6 +83,11 @@
       <Button layoutX="525.0" layoutY="457.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button alignment="TOP_CENTER" layoutX="397.0" layoutY="286.0" mnemonicParsing="false" onAction="#seleccionarInteresesExperiencia" prefHeight="26.0" prefWidth="206.0" text="Seleccionar intereses asociados" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
          </font>
       </Button>
    </children>

@@ -34,7 +34,7 @@ import java.util.Set;
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible = false;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia") // Me hace el programa mas lento
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia")
     private Collection<Reserva> reservas;
 
     @Transient

@@ -34,7 +34,7 @@ public class MostrarExperienciasDinamicoController {
 
     public void setData(Experiencia experiencia){
 
-        if (experiencia.getImagenes().size()>0){
+        if (experiencia.getImagenes().size() > 0){
             imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
 //            imagenExperiencia.setStyle("-fx-alignment: CENTER;");// Me centra el texto
 

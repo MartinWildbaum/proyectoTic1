@@ -1,5 +1,6 @@
 package com.example.primera_version.ui.administrador;
 
+import ch.qos.logback.core.encoder.EchoEncoder;
 import com.example.primera_version.Main;
 import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.exceptions.InvalidTOInformation;
@@ -8,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -74,11 +76,11 @@ public class TOController {
 
                     toMgr.addTO(razon_social, name, contact_name, contact_surname, contact_phone, contact_age);
 
-                    showAlert("Turista agregado", "Se agrego con exito el Turista!");
+                    showAlert("Operador turistico agregado", "Se agrego con exito el Operador turistico!");
 
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                    AnchorPane root = fxmlLoader.load(Principal.class.getResourceAsStream("MenuAdministrador.fxml"));
+                    AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
                     principal.setearAnchorPane(root);
 
                 } catch (InvalidTOInformation invalidTOInformation) {
@@ -124,6 +126,17 @@ public class TOController {
     }
 
 
+    @FXML
+    void volverAdminOper(ActionEvent actionEvent) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("OperadoresAdministrador.fxml"));
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
 
+    }
 }
 

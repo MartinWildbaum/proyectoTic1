@@ -6,7 +6,7 @@ import java.util.Collection;
 public class OperadorTuristico {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_op_tur")
     private Long idOpTur;
 
@@ -17,7 +17,7 @@ public class OperadorTuristico {
     private String nameTO;
 
     @Column(name = "estado", nullable = false, columnDefinition = "BOOLEAN")
-    private Boolean estado;
+    private Boolean estado = false;
 
     @Column(name = "contact_name", nullable = false)
     private String contact_name;
@@ -36,8 +36,7 @@ public class OperadorTuristico {
     private Collection<Experiencia> experiencias;
 
 
-    @OneToMany(targetEntity = UsuarioOpTur.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_op_tur")
+    @OneToMany(mappedBy = "operadorTuristico", cascade = CascadeType.ALL)
     private Collection<UsuarioOpTur> usuariosDelOperador;
 
     public OperadorTuristico() {

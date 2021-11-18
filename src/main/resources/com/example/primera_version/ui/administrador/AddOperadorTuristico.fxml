@@ -14,13 +14,13 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="438.0" layoutY="116.0" />
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="438.0" layoutY="116.0" />
       <Label layoutX="338.0" layoutY="121.0" prefHeight="17.0" prefWidth="59.0" text="Nombre" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="458.0" layoutY="180.0" text="Contacto" textFill="WHITE">
+      <Label layoutX="458.0" layoutY="171.0" text="Contacto" textFill="WHITE">
          <font>
             <Font name="System Italic" size="29.0" />
          </font>
@@ -30,9 +30,9 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContactName" layoutX="439.0" layoutY="216.0" />
-      <TextField fx:id="txtContactPhone" layoutX="441.0" layoutY="296.0" />
-      <TextField fx:id="txtContactAge" layoutX="458.0" layoutY="340.0" prefHeight="26.0" prefWidth="66.0" />
+      <TextField fx:id="txtContactName" alignment="CENTER" layoutX="439.0" layoutY="216.0" />
+      <TextField fx:id="txtContactPhone" alignment="CENTER" layoutX="441.0" layoutY="296.0" />
+      <TextField fx:id="txtContactAge" alignment="CENTER" layoutX="439.0" layoutY="345.0" prefHeight="26.0" prefWidth="66.0" />
       <Label layoutX="337.0" layoutY="298.0" prefHeight="20.0" prefWidth="66.0" text="Telefono" textFill="WHITE">
          <font>
             <Font size="16.0" />
@@ -44,19 +44,19 @@
          </font>
       </Label>
       <Button layoutX="426.0" layoutY="400.0" mnemonicParsing="false" onAction="#addTO" text="Agregar" />
-      <TextField fx:id="txtContactSurname" layoutX="439.0" layoutY="261.0" />
+      <TextField fx:id="txtContactSurname" alignment="CENTER" layoutX="439.0" layoutY="261.0" />
       <Label layoutX="345.0" layoutY="266.0" text="Apellido" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtRazonSocial" layoutX="435.0" layoutY="74.0" />
+      <TextField fx:id="txtRazonSocial" alignment="CENTER" layoutX="435.0" layoutY="74.0" />
       <Label layoutX="314.0" layoutY="77.0" prefHeight="20.0" prefWidth="91.0" text="Razón Social" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="531.0" layoutY="399.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="531.0" layoutY="399.0" mnemonicParsing="false" onAction="#volverAdminOper" text="Cancelar" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="573.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

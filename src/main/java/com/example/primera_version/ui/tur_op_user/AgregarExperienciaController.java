@@ -13,6 +13,7 @@ import com.example.primera_version.persistence.InterestRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
 import com.example.primera_version.ui.Principal;
 
+import com.example.primera_version.ui.turist.SeleccionadorInicialInteresesController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +31,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -59,6 +61,9 @@ public class AgregarExperienciaController implements Initializable {
     @Autowired
     private ExperienceMgr experienceMgr;
 
+    @Autowired
+    private SeleccionadorInteresesExperiencia seleccionadorInteresesExperiencia;
+
     @FXML
     private Button botonImagen;
 
@@ -76,9 +81,6 @@ public class AgregarExperienciaController implements Initializable {
 
     @FXML
     private TextField txtAforoDisponible;
-
-    @FXML
-    private CheckComboBox<Interes> interesesRelacionados;
 
     private FileChooser fileChooser;
 
@@ -117,9 +119,6 @@ public class AgregarExperienciaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser = new FileChooser();
-        for(Interes interes : interesMgr.obtenerTodosIntereses()) {
-            interesesRelacionados.getItems().add(interes);
-        }
 
     }
 
@@ -134,7 +133,9 @@ public class AgregarExperienciaController implements Initializable {
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
             ArrayList<byte[]> fotos = imagenes;
-            Collection<Interes> interes = interesesRelacionados.getItems();
+            Collection<Interes> intereses = seleccionadorInteresesExperiencia.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems();
+            intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
+
 
             if (imagenes == null) {
 
@@ -143,7 +144,7 @@ public class AgregarExperienciaController implements Initializable {
             }
 
             else {
-                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, interes, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
+                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, intereses, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);
@@ -192,5 +193,24 @@ public class AgregarExperienciaController implements Initializable {
     }
 
 
+    @FXML
+    public void seleccionarInteresesExperiencia(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(SeleccionadorInteresesExperiencia.class.getResourceAsStream("SeleccionadorInteresesExperiencia.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        /*
+        AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
+        //principal.setearAnchorPane(root);
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        //Stage stage = (Stage) source.getScene().getWindow();
+        //stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+*/
+    }
 }
 
