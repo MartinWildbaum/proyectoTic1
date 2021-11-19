@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3; -fx-background-image: url('fotos/fondoMenuTurist.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.ExperienciasOperadorController">
    <children>
-      <TableView fx:id="misExperiencias" layoutX="77.0" layoutY="84.0" prefHeight="371.0" prefWidth="872.0">
+      <TableView fx:id="misExperiencias" layoutX="80.0" layoutY="84.0" prefHeight="371.0" prefWidth="872.0">
          <columns>
             <TableColumn fx:id="idExperiencia" editable="false" prefWidth="108.66667175292969" sortable="false" text="IdExperiencia" />
             <TableColumn fx:id="tituloExpriencia" editable="false" prefWidth="119.33332824707031" text="Titulo experiencia" />
@@ -21,12 +21,12 @@
          </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="80.0" layoutY="32.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
-      <Button layoutX="369.0" layoutY="536.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
+      <Button layoutX="380.0" layoutY="550.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="513.0" layoutY="536.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="515.0" layoutY="550.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>

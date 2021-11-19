@@ -21,18 +21,18 @@
             <TableColumn fx:id="estadoExperiencia" prefWidth="174.6666259765625" text="Estado" />
         </columns>
       </TableView>
-      <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
+      <TextField fx:id="campoBusqueda" layoutX="14.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
       <Button layoutX="334.0" layoutY="523.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
       <Button layoutX="467.0" layoutY="523.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="827.0" layoutY="476.0" mnemonicParsing="false" onAction="#validarExperiencia" style="-fx-border-color: #90EE90; -fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER">
+      <Button layoutX="816.0" layoutY="476.0" mnemonicParsing="false" onAction="#validarExperiencia" prefHeight="32.0" prefWidth="80.0" style="-fx-border-color: #90EE90; -fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER">
          <font>
             <Font name="Cambria Italic" size="15.0" />
          </font>

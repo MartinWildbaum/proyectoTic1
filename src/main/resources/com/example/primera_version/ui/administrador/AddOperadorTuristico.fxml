@@ -19,35 +19,35 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="458.0" layoutY="171.0" text="Contacto" textFill="WHITE">
+      <Label layoutX="442.0" layoutY="210.0" text="Contacto" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="344.0" layoutY="219.0" text="Nombre" textFill="WHITE">
+      <Label layoutX="344.0" layoutY="260.0" text="Nombre" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContactName" alignment="CENTER" layoutX="439.0" layoutY="216.0" />
-      <TextField fx:id="txtContactPhone" alignment="CENTER" layoutX="439.0" layoutY="305.0" />
-      <TextField fx:id="txtContactAge" alignment="CENTER" layoutX="439.0" layoutY="345.0" prefHeight="26.0" prefWidth="66.0" />
-      <Label layoutX="339.0" layoutY="308.0" prefHeight="20.0" prefWidth="66.0" text="Telefono" textFill="WHITE">
+      <TextField fx:id="txtContactName" alignment="CENTER" layoutX="439.0" layoutY="260.0" />
+      <TextField fx:id="txtContactPhone" alignment="CENTER" layoutX="439.0" layoutY="350.0" />
+      <TextField fx:id="txtContactAge" alignment="CENTER" layoutX="439.0" layoutY="395.0" prefHeight="26.0" prefWidth="66.0" />
+      <Label layoutX="339.0" layoutY="350.0" prefHeight="20.0" prefWidth="66.0" text="Telefono" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="350.0" layoutY="345.0" prefHeight="20.0" prefWidth="49.0" text="Edad" textFill="WHITE">
+      <Label layoutX="350.0" layoutY="395.0" prefHeight="20.0" prefWidth="49.0" text="Edad" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="396.0" layoutY="400.0" mnemonicParsing="false" onAction="#addTO" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Agregar">
+      <Button layoutX="396.0" layoutY="450.0" mnemonicParsing="false" onAction="#addTO" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Agregar">
          <font>
-            <Font size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font></Button>
-      <TextField fx:id="txtContactSurname" alignment="CENTER" layoutX="439.0" layoutY="261.0" />
-      <Label layoutX="345.0" layoutY="266.0" text="Apellido" textFill="WHITE">
+      <TextField fx:id="txtContactSurname" alignment="CENTER" layoutX="439.0" layoutY="300.0" />
+      <Label layoutX="345.0" layoutY="300.0" text="Apellido" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -58,6 +58,9 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="401.0" mnemonicParsing="false" onAction="#volverAdminOper" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Cancelar" />
+      <Button layoutX="528.0" layoutY="450.0" mnemonicParsing="false" onAction="#volverAdminOper" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Cancelar">
+         <font>
+            <Font name="Cambria Bold Italic" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

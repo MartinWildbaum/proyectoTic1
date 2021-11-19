@@ -124,7 +124,6 @@ public class ExperienciasAdministratorController implements Initializable {
 //            return new ReadOnlyStringWrapper(estado);
 //        });
 */
-
     }
 
 

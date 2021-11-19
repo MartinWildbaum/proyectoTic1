@@ -19,7 +19,7 @@
       </Button>
       <Button layoutX="16.0" layoutY="21.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
-            <Font name="Cambria Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
       <Label layoutX="288.0" layoutY="23.0" prefHeight="70.0" prefWidth="449.0" text="¡Bienvenido Operador!" textFill="WHITE">

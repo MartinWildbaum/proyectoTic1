@@ -76,5 +76,10 @@ public class ReservaMgr {
         return (ArrayList<Reserva>) reservationRepository.findAll();
     }
 
+    public ArrayList<Reserva> encontrarTodasContenidoTitulo(Long numero){
+        ArrayList<Reserva> listaReservas = (ArrayList<Reserva>) reservationRepository.findAllByNumeroReservaContaining(numero);
+        return listaReservas;
+    }
+
 
 }

@@ -8,17 +8,17 @@
    <children>
       <Button layoutX="225.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarOperadores" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Operadores">
          <font>
-            <Font name="Cambria Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="20.0" />
          </font>
       </Button>
       <Button layoutX="550.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarExperiencias" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Experiencias">
          <font>
-            <Font name="Cambria Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="19.0" />
          </font>
       </Button>
       <Button layoutX="25.0" layoutY="38.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="19.0" />
          </font>
       </Button>
    </children>
