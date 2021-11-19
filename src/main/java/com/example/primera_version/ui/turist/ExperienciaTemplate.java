@@ -45,7 +45,6 @@ public class ExperienciaTemplate {
 
         // Pogramar aparicion de imagenes
         if (experiencia_mostrada.getImagenes().size() > 0){
-//            templateImage.setImage(experiencia_mostrada.getImagenes().iterator().next().getImagenAsJavaFxImage((int) templateImage.getFitHeight(),(int) templateImage.getFitWidth()));
             templateImage.setImage(experiencia_mostrada.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
 
         }

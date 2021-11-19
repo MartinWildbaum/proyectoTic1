@@ -20,9 +20,6 @@ public class MenuOperatorsUsersController {
     @Autowired
     private Principal principal;
 
-
-
-
     @FXML
     void verMisExperiencias(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -51,18 +48,8 @@ public class MenuOperatorsUsersController {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
 
     }
 
-
-
-    private void showAlert(String title, String contextText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
 
 }

@@ -183,20 +183,20 @@ public class ExperienciasAdministratorController implements Initializable {
     }
 
 
-    @FXML
-    void validarExperiencia(ActionEvent actionEvent)throws Exception{
-        Collection<Experiencia> experiencias = experienciasExpuestas.getSelectionModel().getSelectedCells();
-    }
-
-    @FXML
-    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
-        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
-        for (Experiencia experiencia: exper) {
-            if(experiencia.getEstaDisponible()){
-                experiencia.setEstaDisponible(false);
-            }
-        }
-    }
+//    @FXML
+//    void validarExperiencia(ActionEvent actionEvent)throws Exception{
+//        Collection<Experiencia> experiencias = experienciasExpuestas.getSelectionModel().getSelectedCells();
+//    }
+//
+//    @FXML
+//    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
+//        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
+//        for (Experiencia experiencia: exper) {
+//            if(experiencia.getEstaDisponible()){
+//                experiencia.setEstaDisponible(false);
+//            }
+//        }
+//    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
@@ -208,8 +208,9 @@ public class ExperienciasAdministratorController implements Initializable {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
+
     }
+
 
     @FXML
     void volverAlMenu(ActionEvent event) throws Exception{

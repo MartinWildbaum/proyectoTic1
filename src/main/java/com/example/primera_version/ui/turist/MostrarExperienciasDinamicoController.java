@@ -36,7 +36,6 @@ public class MostrarExperienciasDinamicoController {
 
         if (experiencia.getImagenes().size() > 0){
             imagenExperiencia.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
-//            imagenExperiencia.setStyle("-fx-alignment: CENTER;");// Me centra el texto
 
             imagenExperiencia.setX(75);
         }
@@ -50,7 +49,6 @@ public class MostrarExperienciasDinamicoController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
         experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
-//        mostrarFotosDinamicoTemplate.setDataExperienciasFotos(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
         principal.setearAnchorPane(root);
 
     }
