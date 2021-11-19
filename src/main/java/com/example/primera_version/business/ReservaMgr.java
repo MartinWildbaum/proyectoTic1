@@ -9,6 +9,9 @@ import com.example.primera_version.persistence.ReservationRepository;
 import com.example.primera_version.persistence.TuristRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+
 @Service
 public class ReservaMgr {
 
@@ -67,6 +70,10 @@ public class ReservaMgr {
         reserva.setExperiencia(experiencia);
         reserva.setNumeroPersonas(numeroPersonas);
         reservationRepository.save(reserva);
+    }
+
+    public ArrayList<Reserva> encontrarTodas(){
+        return (ArrayList<Reserva>) reservationRepository.findAll();
     }
 
 

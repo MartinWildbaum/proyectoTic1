@@ -206,4 +206,15 @@ public class ExperienciasOperadorController implements  Initializable{
 
     }
 
+    @FXML
+    void verReservas(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(Reservas_Operador.class.getResourceAsStream("ReservasTO.fxml"));
+        principal.setearAnchorPane(root);
+
+    }
+
+
+
 }

@@ -6,7 +6,9 @@ import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.OperadorTuristico;
+import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.turist.ExperienciaTemplate;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -44,7 +46,7 @@ public class ExperienciasAdministratorController implements Initializable {
     private ExperienceMgr experienceMgr;
 
     @Autowired
-    private Principal principal;
+    private ExperienceRepository experienceRepository;
 
     @FXML
     private TextField campoBusqueda;
@@ -183,20 +185,25 @@ public class ExperienciasAdministratorController implements Initializable {
     }
 
 
-//    @FXML
-//    void validarExperiencia(ActionEvent actionEvent)throws Exception{
-//        Collection<Experiencia> experiencias = experienciasExpuestas.getSelectionModel().getSelectedCells();
-//    }
-//
-//    @FXML
-//    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
-//        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
-//        for (Experiencia experiencia: exper) {
-//            if(experiencia.getEstaDisponible()){
-//                experiencia.setEstaDisponible(false);
-//            }
-//        }
-//    }
+    @FXML
+    void validarExperiencia(ActionEvent actionEvent)throws Exception{
+        //Tengo que buscar la experiencia
+        TableView.TableViewSelectionModel selectionModel = experienciasExpuestas.getSelectionModel();
+        Experiencia experiencia=experienceRepository.findOneByTituloExperiencia(((Experiencia)selectionModel.getSelectedItems().iterator().next()).getTituloExperiencia());
+        experiencia.setEstaDisponible(true);
+        //falta setear la box con un tic, que nose como hacelo
+
+    }
+
+    @FXML
+    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
+        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
+        for (Experiencia experiencia: exper) {
+            if(experiencia.getEstaDisponible()){
+                experiencia.setEstaDisponible(false);
+            }
+        }
+    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{

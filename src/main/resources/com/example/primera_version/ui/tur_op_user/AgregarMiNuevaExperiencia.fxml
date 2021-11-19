@@ -78,12 +78,12 @@
          </font></Button>
       <Button layoutX="21.0" layoutY="28.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
       <Button layoutX="19.0" layoutY="82.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
       <Button alignment="TOP_CENTER" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" onAction="#seleccionarInteresesExperiencia" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #ffffff;" text="Seleccionar intereses asociados" textAlignment="CENTER">
