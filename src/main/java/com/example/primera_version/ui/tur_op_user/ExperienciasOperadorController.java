@@ -6,6 +6,7 @@ import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.UsuarioOpTur;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
 import com.example.primera_version.ui.Principal;
@@ -138,7 +139,6 @@ public class ExperienciasOperadorController implements  Initializable{
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         misExperiencias.setItems(lista);
-
         idExperiencia.setStyle("-fx-alignment: CENTER;");
         tituloExpriencia.setStyle("-fx-alignment: CENTER;");
         descripcionExperiencia.setStyle("-fx-alignment: CENTER;");
@@ -152,6 +152,7 @@ public class ExperienciasOperadorController implements  Initializable{
         ubicacionExperiencia.setCellValueFactory((new PropertyValueFactory<>("ubicacion")));
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
         interesesExperiencia.setCellValueFactory(new PropertyValueFactory<>("intereses"));
+
         //estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
         estaDisponible.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override

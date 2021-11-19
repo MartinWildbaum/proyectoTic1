@@ -2,7 +2,11 @@ package com.example.primera_version.business;
 import com.example.primera_version.business.entities.*;
 import com.example.primera_version.persistence.ExperienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.reactive.WebFluxProperties;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Service;
+
+import javax.management.Query;
 import javax.transaction.Transactional;
 import java.sql.Array;
 import java.util.*;
@@ -21,6 +25,7 @@ public class MenuMgr {
         Queue<Experiencia> colaExperienciasAMostrar = new PriorityQueue<>(100);
 
         // PREPARO TURISTA
+        
         Collection<Interes> interesesTurista = turista.getIntereses(); // Todos los intereses del turista
         Collection<InteresGeneral> interesesGeneralesTurista = new ArrayList<>(10);// Todos los INTERESES GENERALES del turista
         Collection<InteresParticular> interesParticularesTurista = new ArrayList<>(10); // Todos los INTERESES PARTICULARES del turista

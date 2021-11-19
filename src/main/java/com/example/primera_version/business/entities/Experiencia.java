@@ -40,7 +40,7 @@ import java.util.Set;
     @Transient
     public Float puntaje = 0f;
 
-    @ManyToMany(targetEntity = Interes.class/*, fetch = FetchType.EAGER*/)
+    @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
@@ -52,7 +52,6 @@ import java.util.Set;
 
 
     public Experiencia(String descripcion, String tituloExperiencia, String linkVideos, Integer cantidad, String ubicacion, Boolean estaDisponible, OperadorTuristico operador_turistico, Administrador administrador) {
-        ;
         this.descripcion = descripcion;
         this.tituloExperiencia = tituloExperiencia;
         this.linkVideos = linkVideos;

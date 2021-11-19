@@ -131,6 +131,7 @@ public class ExperienciasAdministratorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
+        experienciasExpuestas.setEditable(true);
         List<Experiencia> query = experienceMgr.encontrarTodas();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
@@ -181,6 +182,21 @@ public class ExperienciasAdministratorController implements Initializable {
         });
     }
 
+
+    @FXML
+    void validarExperiencia(ActionEvent actionEvent)throws Exception{
+        Collection<Experiencia> experiencias = experienciasExpuestas.getSelectionModel().getSelectedCells();
+    }
+
+    @FXML
+    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
+        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
+        for (Experiencia experiencia: exper) {
+            if(experiencia.getEstaDisponible()){
+                experiencia.setEstaDisponible(false);
+            }
+        }
+    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
