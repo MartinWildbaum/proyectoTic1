@@ -6,17 +6,23 @@ import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 @Component
-public class ExperienciaTemplate {
+public class ExperienciaTemplate implements Initializable {
 
     @FXML
     private ImageView templateImage;
@@ -33,11 +39,17 @@ public class ExperienciaTemplate {
     @FXML
     private Text templateVideos;
 
+    @FXML
+    private GridPane templateFotos;
+
     @Autowired
     private ExperienceMgr experienceMgr;
 
     @Autowired
     private Principal principal;
+
+
+
 
     public void setTemplete(Long id){
         Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorId(id);
@@ -104,5 +116,34 @@ public class ExperienciaTemplate {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorTitulo(templateTitulo.getText());
+        //no me esta encontrando la experiencia
+        int cantidadDeFotos=experiencia_mostrada.getImagenes().size();
+        int columns = 0;
+        int row = 1;
+        try{
+            for(int i = 0; i < cantidadDeFotos;i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                AnchorPane anchorPane = fxmlLoader.load(ImagenesTemplateController.class.getResourceAsStream("ImagenesTemplate.fxml"));
+                ImagenesTemplateController  imagenesTemplateController = fxmlLoader.getController();
+                imagenesTemplateController.setDataImagenesTemplate(experiencia_mostrada);
+                if(columns == 1){
+                    columns = 0;
+                    ++row;
+                }
+                templateFotos.add(anchorPane,columns++,row);
+
+
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 }
