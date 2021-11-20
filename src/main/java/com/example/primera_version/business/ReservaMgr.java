@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Service
@@ -83,6 +84,14 @@ public class ReservaMgr {
         reservationRepository.save(reserva);
     }
 
+    public ArrayList<Reserva> encontrarTodas(){
+        return (ArrayList<Reserva>) reservationRepository.findAll();
+    }
+
+    public ArrayList<Reserva> encontrarTodasContenidoTitulo(Long numero){
+        ArrayList<Reserva> listaReservas = (ArrayList<Reserva>) reservationRepository.findAllByNumeroReservaContaining(numero);
+        return listaReservas;
+    }
 
 
 

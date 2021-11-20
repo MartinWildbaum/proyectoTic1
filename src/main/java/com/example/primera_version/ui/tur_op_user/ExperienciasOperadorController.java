@@ -56,7 +56,7 @@ public class ExperienciasOperadorController implements  Initializable{
     private TextField campoBusqueda;
 
     @FXML
-    private TableView<Experiencia> misExperiencias;
+    public TableView<Experiencia> misExperiencias;
 
     @FXML
     private TableColumn<Experiencia, String> tituloExpriencia;

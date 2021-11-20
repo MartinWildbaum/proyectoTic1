@@ -23,9 +23,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 @Component
 public class Reservas_Operador implements Initializable {
@@ -43,7 +46,7 @@ public class Reservas_Operador implements Initializable {
     private TableColumn<Reserva,Boolean> estadoReserva;
 
     @FXML
-    private TableColumn<Reserva,LocalDateTime> fechayhoraReserva;
+    private TableColumn<Reserva, LocalDate> fechayhoraReserva;
 
     @FXML
     private TableColumn<Reserva,Long> idExperienciaReserva;
@@ -52,13 +55,16 @@ public class Reservas_Operador implements Initializable {
     private TableColumn<Reserva, String> mailTuristReserva;
 
     @FXML
-    private TableColumn<Reserva, Long> cantidadReserva;
+    private TableColumn<Reserva, Long> numero_personas;
 
     @Autowired
     private ReservaMgr reservaMgr;
 
     @Autowired
     private Principal principal;
+
+    @Autowired
+    private ExperienciasOperadorController experienciasOperadorController;
 
     private ObservableList<Reserva> listaReserva;
 
@@ -79,15 +85,23 @@ public class Reservas_Operador implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
-        principal.setearAnchorPane(root);
-
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
+
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         misReservas.setEditable(true);
-        List<Reserva> query = reservaMgr.encontrarTodas();
+
+        Collection<Reserva> query = experienciasOperadorController.misExperiencias.getSelectionModel().getSelectedItem().getReservas();
         listaReserva = FXCollections.observableArrayList();
         listaReserva.addAll(query);
         misReservas.setItems(listaReserva);
@@ -97,15 +111,14 @@ public class Reservas_Operador implements Initializable {
         fechayhoraReserva.setStyle("-fx-alignment: CENTER;");
         idExperienciaReserva.setStyle("-fx-alignment: CENTER;");
         mailTuristReserva.setStyle("-fx-alignment: CENTER;");
-        cantidadReserva.setStyle("-fx-alignment: CENTER;");
+        numero_personas.setStyle("-fx-alignment: CENTER;");
 
-        numeroReserva.setCellValueFactory((new PropertyValueFactory<>("Número de Reserva")));
-        estadoReserva.setCellValueFactory(new PropertyValueFactory<>("Estado de reserva"));
-        fechayhoraReserva.setCellValueFactory(new PropertyValueFactory<>("Fecha y Hora"));
-        idExperienciaReserva.setCellValueFactory((new PropertyValueFactory<>("Id Experiencia")));
-        mailTuristReserva.setCellValueFactory((new PropertyValueFactory<>("Mail Turista")));
-        cantidadReserva.setCellValueFactory(new PropertyValueFactory<>("Cantidad Reserva"));
-
+        numeroReserva.setCellValueFactory((new PropertyValueFactory<>("numeroReserva")));
+        fechayhoraReserva.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        idExperienciaReserva.setCellValueFactory((new PropertyValueFactory<>("experiencia")));
+        mailTuristReserva.setCellValueFactory((new PropertyValueFactory<>("turista")));
+        numero_personas.setCellValueFactory(new PropertyValueFactory<>("numeroPersonas"));
+        estadoReserva.setCellValueFactory(new PropertyValueFactory<>("estado"));
     }
 
     @FXML

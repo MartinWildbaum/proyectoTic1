@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reserva, Long> {
@@ -32,5 +33,6 @@ public interface ReservationRepository extends CrudRepository<Reserva, Long> {
 
     // esto me cuenta cuantas reservas tengo para un determinado dia
 
+    List<Reserva> findAllByNumeroReservaContaining(Long numero);
 
 }

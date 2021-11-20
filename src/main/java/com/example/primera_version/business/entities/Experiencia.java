@@ -34,7 +34,7 @@ import java.util.Set;
     @Column(name = "disponible",nullable = false, columnDefinition = "BOOLEAN")
     private Boolean estaDisponible = false;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia", fetch = FetchType.EAGER)
     private Collection<Reserva> reservas;
 
     @Transient
@@ -165,5 +165,14 @@ import java.util.Set;
             return 0;
         }
 
+    }
+
+
+    public Collection<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Collection<Reserva> reservas) {
+        this.reservas = reservas;
     }
 }
