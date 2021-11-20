@@ -41,7 +41,7 @@ public class MenuMgr {
         //PREPARO EXPERIENCIAS
         Collection<Experiencia> allExperiencias = (Collection<Experiencia>) experienceRepository.findAll();
 
-        ArrayList<Experiencia> experienciasRecomendadas = new ArrayList<>(15); // Experiencias que voy a mostrar en el menu principal en orden de relevancia
+        //ArrayList<Experiencia> experienciasRecomendadas = new ArrayList<>(15); // Experiencias que voy a mostrar en el menu principal en orden de relevancia
 
         //Designo mis parametros
         int N = interesesTurista.size();
@@ -88,6 +88,14 @@ public class MenuMgr {
                 colaExperienciasAMostrar.add(experiencia);
             }
         }
+
+        //Aca termino de meter las experiencias en orden segun los intereses. Ahora si el tamaño es menor 5 lleno hasta tener 10 por lo menos
+        for (Experiencia experiencia:allExperiencias) {
+            if(colaExperienciasAMostrar.size() <= 10 && !colaExperienciasAMostrar.contains(experiencia)){
+                colaExperienciasAMostrar.add(experiencia);
+            }
+        }
+
 
 
         return colaExperienciasAMostrar;

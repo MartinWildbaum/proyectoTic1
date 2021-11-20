@@ -6,6 +6,7 @@ import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.InteresMgr;
 import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.TurOpUsersMgr;
+import com.example.primera_version.business.entities.Imagen;
 import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.exceptions.ExperienceAlreadyExists;
 import com.example.primera_version.business.exceptions.InvalidExperienceInformation;
@@ -77,6 +78,7 @@ public class AgregarExperienciaController implements Initializable {
     private FileChooser fileChooser;
 
     private ArrayList<byte[]> imagenes = new ArrayList<>(5);
+    private byte[] imagenPortada = new byte[10];
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -125,6 +127,7 @@ public class AgregarExperienciaController implements Initializable {
             String aforoDisponible = txtAforoDisponible.getText();
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
             ArrayList<byte[]> fotos = imagenes;
+            byte[] fotoPortada = imagenPortada;
             Set<Interes> intereses = new HashSet<>(10);
             intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems());
             intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
@@ -138,7 +141,7 @@ public class AgregarExperienciaController implements Initializable {
             }
 
             else {
-                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, intereses, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico());
+                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, intereses, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico(), fotoPortada);
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);
@@ -182,6 +185,29 @@ public class AgregarExperienciaController implements Initializable {
         //nombreImagen.setText(url.getFileName().toString());
         try {
             imagenes.add(Files.readAllBytes(url));
+        }catch (IOException e){
+        }
+    }
+
+    @FXML
+    public void addImagenDePortada(ActionEvent actionEvent) {
+        Scene sceneActual =((Node)actionEvent.getSource()).getScene();
+        Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+/*
+        VBox vBox= new VBox();
+        Scene scene = new Scene(vBox,960,600);
+        stage.setScene(scene);
+        stage.show();
+        while(selectedFile == null);
+        stage.setScene(sceneActual);
+        stage.show();
+*/
+        while (selectedFile == null);
+        Path url = selectedFile.toPath();
+        //nombreImagen.setText(url.getFileName().toString());
+        try {
+            imagenPortada = Files.readAllBytes(url);
         }catch (IOException e){
         }
     }

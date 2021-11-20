@@ -19,6 +19,9 @@ import java.util.Set;
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
+    @Column(name = "foto_portada", columnDefinition = "MEDIUMBLOB")
+    private byte[] fotoPortada;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia", fetch = FetchType.EAGER)
     private Set<Imagen> imagenes;
 
@@ -63,6 +66,16 @@ import java.util.Set;
     }
 
     public Experiencia() {
+    }
+
+
+
+    public byte[] getFotoPortada() {
+        return fotoPortada;
+    }
+
+    public void setFotoPortada(byte[] fotoPortada) {
+        this.fotoPortada = fotoPortada;
     }
 
     public Long getIdExperiencia() {
@@ -175,4 +188,6 @@ import java.util.Set;
     public void setReservas(Collection<Reserva> reservas) {
         this.reservas = reservas;
     }
+
+
 }

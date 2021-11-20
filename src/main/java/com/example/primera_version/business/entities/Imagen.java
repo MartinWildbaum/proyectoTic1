@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.ByteArrayInputStream;
 
 @Entity
-@Table(name = "iamgenes_expereincias")
+@Table(name = "imagenes_expereincias")
 public class Imagen {
 
 

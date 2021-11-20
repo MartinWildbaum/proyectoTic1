@@ -36,11 +36,11 @@ public class ExperienceMgr {
     }
 
 
-    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Set<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
+    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Set<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico, byte[] imagenPortada) throws InvalidExperienceInformation, ExperienceAlreadyExists{
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 
-        if ( chequearString(tituloExperiencia) || chequearString(descripcion) || chequearString(linkVideos) || chequearString(ubicacion) || chequearString(aforoDisponible) || intereses == null || operadorTuristico == null) { //agregue que si la fecha es despues de hoy que de un error
+        if ( chequearString(tituloExperiencia) || chequearString(descripcion) || chequearString(linkVideos) || chequearString(ubicacion) || chequearString(aforoDisponible) || intereses == null || operadorTuristico == null || imagenPortada == null) { //agregue que si la fecha es despues de hoy que de un error
 
             throw new InvalidExperienceInformation("ERROR!, Alguno de los datos ingresados no es correcto");
 
@@ -64,12 +64,13 @@ public class ExperienceMgr {
         experienciaAgregar.setCantidad(Integer.valueOf(aforoDisponible));
         experienciaAgregar.setLinkVideos(linkVideos);
         experienciaAgregar.setOperadorTuristico(operadorTuristico);
+        experienciaAgregar.setFotoPortada(imagenPortada);
 
         // Guardo el turista que me cree anteriormente en mi base de datos
 
         experienceRepository.save(experienciaAgregar);
 
-
+        //FIXME
         for (byte[] imagen: imagenes) {
             Imagen imagenAgregar = new Imagen();
             imagenAgregar.setImagen(imagen);
