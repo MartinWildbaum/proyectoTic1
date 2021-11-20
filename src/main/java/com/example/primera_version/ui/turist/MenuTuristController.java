@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.*;
 
 @Component
-public class MenuTuristController implements Initializable{
+public class MenuTuristController{
 
     @Autowired
     MenuMgr menuMgr;
@@ -67,30 +67,44 @@ public class MenuTuristController implements Initializable{
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
-        Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
-        int numExpAMostrar = experienciasRecomendadas.size();
-        int columns = 0;
-        int row = 1;
-        try{
-            for(int i = 0; i < numExpAMostrar;i++){
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                AnchorPane anchorPane = fxmlLoader.load(MostrarExperienciasDinamicoController.class.getResourceAsStream("MostrarExperienciasDinamico.fxml"));
-                MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController = fxmlLoader.getController();
-                mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.remove());
-                if(columns == 1){
-                    columns = 0;
-                    ++row;
-                }
-                experienciaGrid.add(anchorPane,columns++,row);
-
-
-            }
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    @FXML
+    void bottonMisExperiencias(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(MostrarExperiencias.class.getResourceAsStream("MostrarExperiencias.fxml"));
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
+
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
+//        Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
+//        int numExpAMostrar = experienciasRecomendadas.size();
+//        int columns = 0;
+//        int row = 1;
+//        try{
+//            for(int i = 0; i < numExpAMostrar;i++){
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+//                AnchorPane anchorPane = fxmlLoader.load(MostrarExperienciasDinamicoController.class.getResourceAsStream("MostrarExperienciasDinamico.fxml"));
+//                MostrarExperienciasDinamicoController  mostrarExperienciasDinamicoController = fxmlLoader.getController();
+//                mostrarExperienciasDinamicoController.setData(experienciasRecomendadas.remove());
+//                if(columns == 1){
+//                    columns = 0;
+//                    ++row;
+//                }
+//                experienciaGrid.add(anchorPane,columns++,row);
+//
+//
+//            }
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
 }

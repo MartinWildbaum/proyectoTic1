@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperiencias">
+   <children>
+      <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="135.0" layoutY="36.0" prefWidth="157.0" text="TurisTIC" textFill="AQUA">
+               <font>
+                  <Font name="System Bold Italic" size="41.0" />
+               </font>
+            </Label>
+            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="908.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/fotoPerfil.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="418.0" layoutY="159.0" prefHeight="592.0" prefWidth="948.0" style="-fx-background-color: #ffffff; -fx-background: #ffffff;">
+         <content>
+            <GridPane fx:id="experienciaGrid">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

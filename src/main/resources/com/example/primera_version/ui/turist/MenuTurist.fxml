@@ -2,72 +2,110 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" stylesheets="com/example/primera_version/ui/turist/MenuTurist.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
-    <children>
-      <Label layoutX="342.0" layoutY="26.0" prefHeight="58.0" prefWidth="332.0" text="Viaja con TurisTIC" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Papyrus" size="28.0" />
-         </font>
-      </Label>
-      <Text fill="#000000e0" layoutX="622.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponele el TIC, a otro destino" textAlignment="CENTER" wrappingWidth="374.13671875">
-         <font>
-            <Font name="Papyrus" size="27.0" />
-         </font>
-      </Text>
-      <ScrollPane layoutX="352.0" layoutY="105.0" prefHeight="432.0" prefWidth="582.0" style="-fx-background: #87CEEB; -fx-background-color: #87CEEB;">
-         <content>
-            <GridPane fx:id="experienciaGrid">
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
-      <AnchorPane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #000000;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+   <children>
+      <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="96.0" layoutY="529.0" text="TurisTIC" textFill="AQUA">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-            </Label>
-            <Text fill="WHITE" layoutX="44.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="221.74578857421875">
-               <font>
-                  <Font name="System Font" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="151.0" fitWidth="204.0" layoutX="63.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
-            <ScrollPane prefHeight="358.0" prefWidth="300.0" style="-fx-background-color: #000000; -fx-background: #000000#000000;">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="296.0">
-                     <children>
-                        <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="187.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Cambria Bold" size="27.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="18.0" layoutY="80.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Cambria Bold" size="27.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+            <Label layoutX="135.0" layoutY="36.0" prefWidth="157.0" text="TurisTIC" textFill="AQUA">
+               <font>
+                  <Font name="System Bold Italic" size="41.0" />
+               </font>
+            </Label>
+            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="908.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/fotoPerfil.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-    </children>
+      <AnchorPane layoutX="74.0" layoutY="297.0" prefHeight="400.0" prefWidth="1200.0" style="-fx-background-image: url('fotos/uruguay.jpg');">
+         <children>
+            <TextField layoutX="250.0" layoutY="150.0" prefHeight="60.0" prefWidth="687.0" promptText="Buscar experiencia....">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/lupa.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="74.0" layoutY="167.0" prefHeight="111.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Button alignment="CENTER_RIGHT" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="224.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="EcoTurismo">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER_RIGHT" layoutX="250.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Salud">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER_RIGHT" layoutX="500.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Aventura">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER_RIGHT" layoutX="750.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Rural">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER_RIGHT" layoutX="1000.0" layoutY="5.0" mnemonicParsing="false" onAction="#bottonMisExperiencias" prefHeight="110.0" prefWidth="244.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Mis Experiencias">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="30.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/hoja.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="290.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/corazon2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="75.0" layoutX="506.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/cowboyhat.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="75.0" layoutX="779.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/cow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="1011.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/lupa.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
