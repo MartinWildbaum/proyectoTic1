@@ -32,15 +32,5 @@
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="816.0" layoutY="476.0" mnemonicParsing="false" onAction="#validarExperiencia" prefHeight="32.0" prefWidth="80.0" style="-fx-border-color: #90EE90; -fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Italic" size="15.0" />
-         </font>
-      </Button>
-      <Button layoutX="902.0" layoutY="476.0" mnemonicParsing="false" style="-fx-border-color: #ff0000; -fx-background-color: #ffffff;" text="Invalidar" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Italic" size="15.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

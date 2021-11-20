@@ -84,6 +84,20 @@ public class Perfil implements Initializable {
         stage.show();
     }
 
+
+    @FXML
+    void verMisReservas(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(ModificadorInteresesController.class.getResourceAsStream("VerMisReservas.fxml"));
+        //principal.setearAnchorPane(root);
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();

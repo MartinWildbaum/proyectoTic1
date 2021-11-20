@@ -88,11 +88,14 @@ public class ReservaMgr {
         return (ArrayList<Reserva>) reservationRepository.findAll();
     }
 
-    public ArrayList<Reserva> encontrarTodasContenidoTitulo(Long numero){
+    public ArrayList<Reserva> encontrarNumeroReserva(Long numero){
         ArrayList<Reserva> listaReservas = (ArrayList<Reserva>) reservationRepository.findAllByNumeroReservaContaining(numero);
         return listaReservas;
     }
 
+    public void actualizarReserva(Reserva reserva){
+        reservationRepository.save(reserva);
+    }
 
 
 }

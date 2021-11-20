@@ -83,7 +83,7 @@ public class MenuMgr {
             * ya que se espera que este algoritmo recomendador NO se lleve a cabo en cada entrada del turista, sino guardar a las experiencias recomendadas en una variable de clase y
             * volver a ejecutar el algoritmo solo en el caso de que el turista cambie los intereses o se agregue un determinado numero de experiencias nuevas. Tal vez sea bueno ejecutarlo cada
             * determinado tiempo por ejemplo. */
-            experiencia.puntaje = puntaje;
+            experiencia.setPuntaje(puntaje);
             if(experiencia.getEstaDisponible() && puntaje > 0){
                 colaExperienciasAMostrar.add(experiencia);
             }

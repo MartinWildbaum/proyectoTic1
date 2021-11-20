@@ -30,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.bytebuddy.asm.Advice;
 import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
@@ -40,6 +41,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Component
@@ -107,7 +109,12 @@ public class AgregarExperienciaController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @Override
@@ -131,6 +138,7 @@ public class AgregarExperienciaController implements Initializable {
             Set<Interes> intereses = new HashSet<>(10);
             intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesGenerales.getCheckModel().getCheckedItems());
             intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
+
             //intereses.addAll(seleccionadorInteresesExperiencia.seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
 
 

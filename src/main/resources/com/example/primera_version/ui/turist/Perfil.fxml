@@ -11,29 +11,29 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.Perfil">
    <children>
-      <Label layoutX="522.0" layoutY="37.0" prefHeight="50.0" prefWidth="150.0" text="Tu perfil" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="522.0" layoutY="37.0" prefHeight="59.0" prefWidth="210.0" text="Mi perfil" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="41.0" />
+            <Font name="System Bold Italic" size="41.0" />
          </font>
       </Label>
       <Label layoutX="452.0" layoutY="152.0" prefHeight="32.0" prefWidth="113.0" text="Usuario :" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font name="System Italic" size="27.0" />
          </font>
       </Label>
       <Label layoutX="338.0" layoutY="225.0" prefHeight="33.0" prefWidth="245.0" text="Pais de nacimiento : " textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font name="System Italic" size="27.0" />
          </font>
       </Label>
       <Label layoutX="324.0" layoutY="291.0" text="Fecha de nacimiento :" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font name="System Italic" size="27.0" />
          </font>
       </Label>
       <Label layoutX="405.0" layoutY="366.0" text="Intereses : " textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font name="System Italic" size="27.0" />
          </font>
       </Label>
       <Label fx:id="usuariolabel" layoutX="601.0" layoutY="153.0" prefHeight="28.0" prefWidth="166.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER">
@@ -83,7 +83,7 @@
                               <Font name="Cambria Bold" size="27.0" />
                            </font>
                         </Button>
-                        <Button fx:id="misReservas" layoutX="20.0" layoutY="72.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="misReservas" layoutX="20.0" layoutY="72.0" mnemonicParsing="false" onAction="#verMisReservas" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #000000;" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Cambria Bold" size="27.0" />
                            </font>

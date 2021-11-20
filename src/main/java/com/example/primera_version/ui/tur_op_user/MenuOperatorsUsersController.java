@@ -25,7 +25,12 @@ public class MenuOperatorsUsersController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ExperienciasOperadorController.class.getResourceAsStream("ExperienciasDeMiOperador.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 
@@ -34,7 +39,12 @@ public class MenuOperatorsUsersController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(AgregarExperienciaController.class.getResourceAsStream("AgregarMiNuevaExperiencia.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 

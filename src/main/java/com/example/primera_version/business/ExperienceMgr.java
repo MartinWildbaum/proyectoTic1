@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
@@ -46,7 +48,7 @@ public class ExperienceMgr {
 
         }
 
-        //FIXME el cliente pretende este control?
+        // Suponemos que el cliente pretende este control en principio
         if (experienceRepository.findOneByTituloExperiencia(tituloExperiencia) != null) {
 
             throw new ExperienceAlreadyExists("Ya existe una experiencia registrada con ese titulo");
@@ -65,6 +67,7 @@ public class ExperienceMgr {
         experienciaAgregar.setLinkVideos(linkVideos);
         experienciaAgregar.setOperadorTuristico(operadorTuristico);
         experienciaAgregar.setFotoPortada(imagenPortada);
+        experienciaAgregar.setMomentoRegistro(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         // Guardo el turista que me cree anteriormente en mi base de datos
 
@@ -111,4 +114,5 @@ public class ExperienceMgr {
     public void actualizarExperiencia(Experiencia experiencia){
         experienceRepository.save(experiencia);
     }
+
 }

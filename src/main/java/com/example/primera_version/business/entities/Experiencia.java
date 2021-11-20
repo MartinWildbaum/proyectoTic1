@@ -1,5 +1,10 @@
 package com.example.primera_version.business.entities;
+import javafx.scene.image.Image;
+
 import javax.persistence.*;
+import java.io.ByteArrayInputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
@@ -40,8 +45,11 @@ import java.util.Set;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencia", fetch = FetchType.EAGER)
     private Collection<Reserva> reservas;
 
+    @Column(name = "fecha_registro", columnDefinition = "DATETIME")
+    private String momentoRegistro;
+
     @Transient
-    public Float puntaje = 0f;
+    private Float puntaje = 0f;
 
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
@@ -189,5 +197,33 @@ import java.util.Set;
         this.reservas = reservas;
     }
 
+    public Float getPuntaje() {
+        return puntaje;
+    }
 
+    public void setPuntaje(Float puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public String getMomentoRegistro() {
+        return momentoRegistro;
+    }
+
+    public void setMomentoRegistro(String momentoRegistro) {
+        this.momentoRegistro = momentoRegistro;
+    }
+
+    public LocalDateTime obtenerMomentoRegistroComoFecha(){
+        return  LocalDateTime.parse(momentoRegistro, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    public Image getFotoPortadaAsJavaFxImage(final int altura, final int ancho) {
+        //WritableImage image = new WritableImage(ancho, altura);
+        Image imagen = null;
+        ByteArrayInputStream bis = new ByteArrayInputStream(this.getFotoPortada());
+        //BufferedImage read = ImageIO.read(bis);
+        //image = SwingFXUtils.toFXImage(read, null);
+        imagen = new Image(bis);
+        return imagen;
+    }
 }

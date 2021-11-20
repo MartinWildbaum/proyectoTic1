@@ -6,12 +6,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000; -fx-background-image: url('fotos/fotoAdmin.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.MenuAdministradorController">
    <children>
-      <Button layoutX="225.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarOperadores" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Operadores">
+      <Button layoutX="50.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarOperadores" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Operadores">
          <font>
             <Font name="Cambria Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="550.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarExperiencias" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Experiencias">
+      <Button layoutX="375.0" layoutY="250.0" mnemonicParsing="false" onAction="#administrarExperiencias" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: #ffffff;" text="Administrar Experiencias">
          <font>
             <Font name="Cambria Bold Italic" size="19.0" />
          </font>
@@ -19,6 +19,11 @@
       <Button layoutX="25.0" layoutY="38.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="659.0" layoutY="250.0" mnemonicParsing="false" onAction="#experienciasASerValidadas" prefHeight="80.0" prefWidth="305.0" style="-fx-background-color: #ffffff;" text="Habilitar nuevas experiencias">
+         <font>
+            <Font name="Cambria Bold Italic" size="20.0" />
          </font>
       </Button>
    </children>

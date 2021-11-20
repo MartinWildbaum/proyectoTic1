@@ -202,7 +202,12 @@ public class ExperienciasOperadorController implements  Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(MenuOperatorsUsersController.class.getResourceAsStream("MenuTOUsers.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
@@ -211,7 +216,12 @@ public class ExperienciasOperadorController implements  Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Reservas_Operador.class.getResourceAsStream("ReservasTO.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 

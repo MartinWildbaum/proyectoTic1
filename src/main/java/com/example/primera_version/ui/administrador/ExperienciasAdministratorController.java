@@ -170,6 +170,7 @@ public class ExperienciasAdministratorController implements Initializable {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                         experiencia.setEstaDisponible(newValue);
+                        experienceMgr.actualizarExperiencia(experiencia);
                     }
                 });
 
@@ -186,7 +187,7 @@ public class ExperienciasAdministratorController implements Initializable {
         });
     }
 
-
+/*
     @FXML
     void validarExperiencia(ActionEvent actionEvent)throws Exception{
         Experiencia experiencia = experienciasExpuestas.getSelectionModel().getSelectedItem();
@@ -206,7 +207,7 @@ public class ExperienciasAdministratorController implements Initializable {
         experienceMgr.actualizarExperiencia(experiencia);
         actualizarEstados();
     }
-
+*/
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -244,7 +245,7 @@ public class ExperienciasAdministratorController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+/*
     void actualizarEstados(){
         estadoExperiencia.setCellValueFactory(new Callback<CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override
@@ -274,5 +275,5 @@ public class ExperienciasAdministratorController implements Initializable {
             }
         });
     }
-
+*/
 }

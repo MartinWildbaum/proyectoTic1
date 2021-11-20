@@ -31,7 +31,7 @@ public class Reserva {
     private Long numeroPersonas;
 
     @Column(name = "estado")
-    private Boolean estado;
+    private Boolean estado = true;
 
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;

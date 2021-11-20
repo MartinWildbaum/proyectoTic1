@@ -175,6 +175,7 @@ public class OperadoresAdminisradorController implements Initializable{
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                         operadorTuristico.setEstado(newValue);
+                        turOpMgr.actualizarOperadorTuristico(operadorTuristico);
                     }
                 });
 
@@ -194,7 +195,7 @@ public class OperadoresAdminisradorController implements Initializable{
     }
 
 
-
+/*
     @FXML
     void validarExperiencia(ActionEvent actionEvent)throws Exception{
         OperadorTuristico operadorTuristico = operadoresExpuestos.getSelectionModel().getSelectedItem();
@@ -211,7 +212,7 @@ public class OperadoresAdminisradorController implements Initializable{
         turOpMgr.actualizarOperadorTuristico(operadorTuristico);
         actualizarEstados();
     }
-
+*/
 
 
     @FXML
@@ -256,7 +257,7 @@ public class OperadoresAdminisradorController implements Initializable{
         stage.show();
 
     }
-
+/*
     void actualizarEstados(){
         estaDisponible.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
             @Override
@@ -289,5 +290,5 @@ public class OperadoresAdminisradorController implements Initializable{
         });
 
     }
-
+*/
 }

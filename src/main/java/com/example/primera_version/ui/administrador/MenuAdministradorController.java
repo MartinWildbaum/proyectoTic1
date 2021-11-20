@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
+
 
 @Component
 public class MenuAdministradorController {
@@ -52,7 +54,18 @@ public class MenuAdministradorController {
 //        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 //        AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("OperadoresAdministrador.fxml"));
 //        principal.setearAnchorPane(root);
+    }
 
+    @FXML
+    void experienciasASerValidadas(ActionEvent actionEvent)throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("HabilitadorNuevasExperiencias.fxml"));
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
