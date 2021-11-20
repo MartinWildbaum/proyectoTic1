@@ -189,12 +189,19 @@ public class ModificadorInteresesController implements Initializable {
         interesesNuevos.addAll(seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
         Turist turist = turistMgr.encontrarTurista(principal.username.getText());
         turist.setIntereses(interesesNuevos);
+        turistMgr.actualizarTurista(turist);
         perfil.setInformacionUsuario();
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(Perfil.class.getResourceAsStream("Perfil.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 /*
     @FXML

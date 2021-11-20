@@ -22,18 +22,18 @@ public class Turist extends Usuario{
     @Column(name = "esta_vacunado", nullable = true)
     private Boolean estaVacunado;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     @Column(name = "tipo_documento", nullable = true)
-    private TipoDocumento tipoDocumento;
-
+    private String tipoDocumento;
+/*
     private enum TipoDocumento {
         PASAPORTE, CEDULA;
     }
-
+*/
     @Column(name = "valor_documento", nullable = true)
     private String valorDocumento;
 
-    @ManyToMany(targetEntity = Interes.class/*, fetch = FetchType.EAGER*/)
+    @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "turista_interes", joinColumns = @JoinColumn(name = "mail_turista", referencedColumnName = "mail"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
     private Collection<Interes> intereses;
 
@@ -97,11 +97,11 @@ public class Turist extends Usuario{
     }*/
 
 
-    public TipoDocumento getTipoDocumento() {
+    public String getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+    public void setTipoDocumento(String tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 

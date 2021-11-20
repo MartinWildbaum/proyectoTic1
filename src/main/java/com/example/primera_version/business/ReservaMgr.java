@@ -9,11 +9,18 @@ import com.example.primera_version.persistence.ReservationRepository;
 import com.example.primera_version.persistence.TuristRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.Date;
+
 @Service
 public class ReservaMgr {
 
     @Autowired
     private ExperienceRepository  experienceRepository;
+
+    @Autowired
+    private TuristMgr turistMgr;
 
     @Autowired
     private ReservationRepository reservationRepository;
@@ -32,18 +39,22 @@ public class ReservaMgr {
 
     }
 
-    private boolean puedoHacerReserva(Experiencia experiencia,Long cantidadDePersonas){
-        boolean devolucion=true;
+    private boolean puedoHacerReserva(Experiencia experiencia,Long cantidadDePersonas, LocalDate fechaReserva){
 
-
-        if(cantidadDePersonas >experiencia.getCantidad()){
-            devolucion = false;
+        // Ni me fijo que haya lugar
+        if(cantidadDePersonas > experiencia.getCantidad()){
+            return false;
         }
-
-        return devolucion;
+        // Aca controlo que no se haya pasado el aforo
+        if(reservationRepository.countByExperienciaAndFecha(experiencia, fechaReserva) == null){
+            return true;
+        }else if (reservationRepository.countByExperienciaAndFecha(experiencia, fechaReserva) + cantidadDePersonas > experiencia.getCantidad()){
+            return false;
+        }
+        return true;
     }
 
-    public void agregarReserva(String mail, String nombreExperiencia, String tipoDeDocumento,String numeroDeDocumento,Long numeroPersonas) throws InvalidUserInformation, ReservaNoDisponible {
+    public void agregarReserva(String mail, String nombreExperiencia, String tipoDeDocumento, String numeroDeDocumento, Long numeroPersonas, LocalDate fechaReserva) throws InvalidUserInformation, ReservaNoDisponible {
 
 
         if ( chequearString(mail) || chequearString(nombreExperiencia) || chequearString(tipoDeDocumento) || chequearString(numeroDeDocumento) || numeroPersonas==null) { //agregue que si la fecha es despues de hoy que de un error
@@ -52,20 +63,23 @@ public class ReservaMgr {
 
         }
 
-        Experiencia experiencia=experienceRepository.findOneByTituloExperiencia(nombreExperiencia);
+        Experiencia experiencia = experienceRepository.findOneByTituloExperiencia(nombreExperiencia);
 
 
-        if(!puedoHacerReserva(experiencia,numeroPersonas)){
-            throw new ReservaNoDisponible("ERROR!,No nos queda espacio, intente más tarde");
+        if(!puedoHacerReserva(experiencia, numeroPersonas, fechaReserva)){
+            throw new ReservaNoDisponible("ERROR!,No nos queda espacio, intente realizar una reserva para otro dia. ");
         }
 
-        Turist turist= turistRepository.findOneByMail(mail);
-//        turist.setTipoDocumento(); como seteo esto
+        Turist turist = turistRepository.findOneByMail(mail);
+        turist.setTipoDocumento(tipoDeDocumento);
         turist.setValorDocumento(numeroDeDocumento);
-        Reserva reserva=new Reserva(); //Hay algunas cosas que no tienen sentido con la base de datos
-        reserva.setTurista(turistRepository.findOneByMail(mail));
+        turistMgr.actualizarTurista(turist);
+
+        Reserva reserva = new Reserva(); //Hay algunas cosas que no tienen sentido con la base de datos
+        reserva.setTurista(turist);
         reserva.setExperiencia(experiencia);
         reserva.setNumeroPersonas(numeroPersonas);
+        reserva.setFecha(fechaReserva);
         reservationRepository.save(reserva);
     }
 

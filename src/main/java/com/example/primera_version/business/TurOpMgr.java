@@ -74,4 +74,8 @@ public class TurOpMgr {
         return (ArrayList<OperadorTuristico>) turOpRepository.findAllByNameTOContaining(texto);
     }
 
+    public void actualizarOperadorTuristico(OperadorTuristico operadorTuristico){
+        turOpRepository.save(operadorTuristico);
+    }
+
 }

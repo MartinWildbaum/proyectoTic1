@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 
 @Service
@@ -35,7 +36,7 @@ public class ExperienceMgr {
     }
 
 
-    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Collection<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
+    public void addExperience(String tituloExperiencia, String descripcion, String linkVideos, String ubicacion, ArrayList<byte[]> imagenes, Set<Interes> intereses, String aforoDisponible, OperadorTuristico operadorTuristico) throws InvalidExperienceInformation, ExperienceAlreadyExists{
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 
@@ -104,5 +105,9 @@ public class ExperienceMgr {
 
     public ArrayList<Experiencia> encontrarTodas(){
         return (ArrayList<Experiencia>) experienceRepository.findAll();
+    }
+
+    public void actualizarExperiencia(Experiencia experiencia){
+        experienceRepository.save(experiencia);
     }
 }

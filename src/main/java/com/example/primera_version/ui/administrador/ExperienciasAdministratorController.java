@@ -2,6 +2,7 @@ package com.example.primera_version.ui.administrador;
 
 
 import com.example.primera_version.Main;
+import com.example.primera_version.business.AdminMgr;
 import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
@@ -42,6 +43,9 @@ public class ExperienciasAdministratorController implements Initializable {
 
     @Autowired
     private ExperienceMgr experienceMgr;
+
+    @Autowired
+    private AdminMgr adminMgr;
 
     @Autowired
     private Principal principal;
@@ -152,7 +156,7 @@ public class ExperienciasAdministratorController implements Initializable {
         aforoExperiencia.setCellValueFactory((new PropertyValueFactory<>("cantidad")));
         operadorExperiencia.setCellValueFactory(new PropertyValueFactory<>("operadorTuristico"));
         interesesExperiencia.setCellValueFactory(new PropertyValueFactory<>("intereses"));
-        estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
+        //estadoExperiencia.setCellValueFactory((new PropertyValueFactory<>("estadoExperiencia")));
         estadoExperiencia.setCellValueFactory(new Callback<CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {
@@ -185,17 +189,22 @@ public class ExperienciasAdministratorController implements Initializable {
 
     @FXML
     void validarExperiencia(ActionEvent actionEvent)throws Exception{
-        Collection<Experiencia> experiencias = experienciasExpuestas.getSelectionModel().getSelectedCells();
+        Experiencia experiencia = experienciasExpuestas.getSelectionModel().getSelectedItem();
+        experiencia.setEstaDisponible(true);
+        // Quiero guardar en la tabla quien fue el ultimo administrador que modifico mi expereincia asi hay un responsable
+        experiencia.setAdministrador(adminMgr.encontrarAdministradorPorMail(principal.username.getText()));
+        experienceMgr.actualizarExperiencia(experiencia);
+        actualizarEstados();
     }
 
     @FXML
     void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
-        Collection<Experiencia> exper = experienciasExpuestas.getSelectionModel().getSelectedItems();
-        for (Experiencia experiencia: exper) {
-            if(experiencia.getEstaDisponible()){
-                experiencia.setEstaDisponible(false);
-            }
-        }
+        Experiencia experiencia = experienciasExpuestas.getSelectionModel().getSelectedItem();
+        experiencia.setEstaDisponible(false);
+        // Quiero guardar en la tabla quien fue el ultimo administrador que modifico mi expereincia asi hay un responsable
+        experiencia.setAdministrador(adminMgr.encontrarAdministradorPorMail(principal.username.getText()));
+        experienceMgr.actualizarExperiencia(experiencia);
+        actualizarEstados();
     }
 
     @FXML
@@ -236,5 +245,34 @@ public class ExperienciasAdministratorController implements Initializable {
         stage.show();
     }
 
+    void actualizarEstados(){
+        estadoExperiencia.setCellValueFactory(new Callback<CellDataFeatures<Experiencia, Boolean>, ObservableValue<Boolean>>() {
+            @Override
+            public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Experiencia, Boolean> param) {
+                Experiencia experiencia = param.getValue();
+
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(experiencia.getEstaDisponible());
+
+                //estadoExperiencia.setOnEditCommit();
+
+                booleanProperty.addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                        experiencia.setEstaDisponible(newValue);
+                    }
+                });
+
+                return booleanProperty;
+            }
+        });
+        estadoExperiencia.setCellFactory(new Callback<TableColumn<Experiencia, Boolean>, TableCell<Experiencia, Boolean>>() {
+            @Override
+            public TableCell<Experiencia, Boolean> call(TableColumn<Experiencia, Boolean> param) {
+                CheckBoxTableCell<Experiencia,Boolean> cell = new CheckBoxTableCell<Experiencia, Boolean>();
+                cell.setAlignment(Pos.CENTER);
+                return cell;
+            }
+        });
+    }
 
 }

@@ -137,7 +137,7 @@ public class OperadoresAdminisradorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
 
-        operadoresExpuestos.setEditable(true);
+        //operadoresExpuestos.setEditable(true);
         List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodos();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
@@ -191,13 +191,25 @@ public class OperadoresAdminisradorController implements Initializable{
             }
         });
 
+    }
 
-//        operadoresExpuestos.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-//                System.out.println("Hola");
-//            }
-//        });
+
+
+    @FXML
+    void validarExperiencia(ActionEvent actionEvent)throws Exception{
+        OperadorTuristico operadorTuristico = operadoresExpuestos.getSelectionModel().getSelectedItem();
+        operadorTuristico.setEstado(true);
+        turOpMgr.actualizarOperadorTuristico(operadorTuristico);
+        actualizarEstados();
+
+    }
+
+    @FXML
+    void invalidarExperiencia(ActionEvent actionEvent)throws Exception{
+        OperadorTuristico operadorTuristico = operadoresExpuestos.getSelectionModel().getSelectedItem();
+        operadorTuristico.setEstado(false);
+        turOpMgr.actualizarOperadorTuristico(operadorTuristico);
+        actualizarEstados();
     }
 
 
@@ -242,6 +254,39 @@ public class OperadoresAdminisradorController implements Initializable{
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
+
+    }
+
+    void actualizarEstados(){
+        estaDisponible.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
+            @Override
+            public ObservableValue<Boolean> call(CellDataFeatures<OperadorTuristico, Boolean> param) {
+                OperadorTuristico operadorTuristico = param.getValue();
+
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(operadorTuristico.getEstado());
+
+                //estadoOperador.setOnEditCommit();
+
+
+                booleanProperty.addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                        operadorTuristico.setEstado(newValue);
+                    }
+                });
+
+                return booleanProperty;
+            }
+        });
+
+        estaDisponible.setCellFactory(new Callback<TableColumn<OperadorTuristico, Boolean>, TableCell<OperadorTuristico, Boolean>>() {
+            @Override
+            public TableCell<OperadorTuristico, Boolean> call(TableColumn<OperadorTuristico, Boolean> param) {
+                CheckBoxTableCell<OperadorTuristico,Boolean> cell = new CheckBoxTableCell<OperadorTuristico, Boolean>();
+                cell.setAlignment(Pos.CENTER);
+                return cell;
+            }
+        });
 
     }
 

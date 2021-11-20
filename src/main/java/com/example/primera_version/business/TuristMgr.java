@@ -117,5 +117,8 @@ public class TuristMgr {
         return turista;
     }
 
+    public void actualizarTurista(Turist turist){
+        turistRepository.save(turist);
+    }
 
 }

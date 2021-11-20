@@ -42,7 +42,7 @@ import java.util.Set;
 
     @ManyToMany(targetEntity = Interes.class, fetch = FetchType.EAGER)
     @JoinTable(name = "Experiencia_interes", joinColumns = @JoinColumn(name = "id_experiencia", referencedColumnName = "id_experiencia"), inverseJoinColumns = @JoinColumn(name = "id_interes", referencedColumnName = "id_interes"))
-    private Collection<Interes> intereses;
+    private Set<Interes> intereses;
 
     @ManyToOne(targetEntity = OperadorTuristico.class, optional = false)
     private OperadorTuristico operadorTuristico;
@@ -126,11 +126,11 @@ import java.util.Set;
     }
 
 
-    public Collection<Interes> getIntereses() {
+    public Set<Interes> getIntereses() {
         return intereses;
     }
 
-    public void setIntereses(Collection<Interes> intereses) {
+    public void setIntereses(Set<Interes> intereses) {
         this.intereses = intereses;
     }
 

@@ -7,6 +7,7 @@ import com.example.primera_version.business.exceptions.UserNotExists;
 import com.example.primera_version.persistence.AdministratorRepository;
 import com.example.primera_version.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 
 
@@ -84,5 +85,10 @@ public class AdminMgr {
         }else{
             return false;
         }
+    }
+
+    public Administrador encontrarAdministradorPorMail(String mailAdministrador){
+        Administrador administrador = administratorRepository.findOneByMail(mailAdministrador);
+        return administrador;
     }
 }

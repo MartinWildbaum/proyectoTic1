@@ -1,6 +1,8 @@
 package com.example.primera_version.ui.turist;
 import com.example.primera_version.Main;
 import com.example.primera_version.business.ReservaMgr;
+import com.example.primera_version.business.TuristMgr;
+import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.ReservaNoDisponible;
 import com.example.primera_version.ui.Principal;
@@ -12,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 @Component
@@ -34,6 +38,9 @@ public class ReservaController implements Initializable {
     @FXML
     private TextField txtCantidadDePersonas;
 
+    @FXML
+    private DatePicker fechaReserva;
+
     @Autowired
     private Principal principal;
 
@@ -42,6 +49,9 @@ public class ReservaController implements Initializable {
 
     @Autowired
     private ReservaMgr reservaMgr;
+
+    @Autowired
+    private TuristMgr turistMgr;
 
 
     @FXML
@@ -59,21 +69,30 @@ public class ReservaController implements Initializable {
 
     @FXML
     void addReserva(ActionEvent event) {
-
-        if(txtTipoDeDocumento.getValue()==null || txtNumeroDeDocumento.getText()==null || txtNumeroDeDocumento.getText().equals("") || txtCantidadDePersonas.getText()==null || txtCantidadDePersonas.getText().equals("")){
+        long cantPersonas = 0l;
+        try{
+            cantPersonas = Long.parseLong(txtCantidadDePersonas.getText());
+        }catch(Exception e){
             showAlert(
-                    "Datos faltantes!",
-                    "No se ingresaron los datos necesarios para completar el ingreso.");
+                    "Error en los datos!",
+                    "La cantidad de personas debe ser un numero positivo.");
+        }
+
+        if(cantPersonas <= 0 || txtTipoDeDocumento.getValue()==null || txtNumeroDeDocumento.getText()==null || txtNumeroDeDocumento.getText().equals("") || txtCantidadDePersonas.getText()==null || txtCantidadDePersonas.getText().equals("") || fechaReserva == null || fechaReserva.getValue().isBefore(LocalDate.now())){
+            showAlert(
+                    "Error en los datos!",
+                    "Por favor ingrese los datos correctamente.");
         }else{
 
             String tipoDeDoc = txtTipoDeDocumento.getValue();
             String numeroDeDoc= txtNumeroDeDocumento.getText();;
-            Long cantidadPersonas= Long.valueOf((txtCantidadDePersonas.getText()));
+            //Long cantidadPersonas= Long.valueOf((txtCantidadDePersonas.getText()));
+            LocalDate fecha = fechaReserva.getValue();
 
             //Llamo a la funcion para ver si puedo hacer la reserva
 
             try {
-                reservaMgr.agregarReserva(principal.username.getText(),experienciaTemplate.templateTitulo.getText(),tipoDeDoc,numeroDeDoc,cantidadPersonas);
+                reservaMgr.agregarReserva(principal.username.getText(),experienciaTemplate.templateTitulo.getText(), tipoDeDoc, numeroDeDoc, cantPersonas, fecha);
                 showAlert("Reserva agregada", "Se agrego con exito la Reserva!");
                 close(event);
 
@@ -103,6 +122,11 @@ public class ReservaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         String[] tiposDeDocumentos={"Pasaporte","Cédula"};
         txtTipoDeDocumento.getItems().addAll(tiposDeDocumentos);
+        Turist turist = turistMgr.encontrarTurista(principal.username.getText());
+        if(turist.getValorDocumento() != null){ // Ya realizo alguna reserva
+            txtTipoDeDocumento.getSelectionModel().select(turist.getTipoDocumento());
+            txtNumeroDeDocumento.setText(turist.getValorDocumento());
+        }
     }
 
     private void showAlert(String title, String contextText) {

@@ -1,8 +1,15 @@
 package com.example.primera_version.persistence;
 
+import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Reserva;
+import com.example.primera_version.business.entities.Turist;
+import org.hibernate.sql.Select;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reserva, Long> {
@@ -13,6 +20,17 @@ public interface ReservationRepository extends CrudRepository<Reserva, Long> {
      * @return
      */
     Reserva findOneByNumeroReserva(Long numeroReserva);
+
+
+
+    @Query("select sum(r.numeroPersonas) from Reserva r where r.experiencia = ?1 and r.fecha = ?2")
+    Long countByExperienciaAndFecha(Experiencia experiencia, LocalDate fecha);
+
+
+    // Si la cantidad es cero me devuelve null porque no hay nadie anotado
+
+
+    // esto me cuenta cuantas reservas tengo para un determinado dia
 
 
 }

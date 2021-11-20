@@ -3,6 +3,7 @@ import com.example.primera_version.Main;
 import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.ui.Principal;
+import com.example.primera_version.ui.administrador.MenuAdministradorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +67,6 @@ public class Perfil implements Initializable {
     public void setInformacionUsuario(){
 
         Turist turistAMostrar = turistMgr.encontrarTurista(principal.username.getText());
-        System.out.println(turistAMostrar.getListaIntereses());
         usuariolabel.setText(turistAMostrar.getMail());
         usuariolabel.setStyle("-fx-alignment: CENTER;");// Me centra el texto
         paislabel.setText(turistAMostrar.getPais().getNombre());
@@ -82,7 +82,12 @@ public class Perfil implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(ModificadorInteresesController.class.getResourceAsStream("ModificarIntereses.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -103,7 +108,12 @@ public class Perfil implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         AnchorPane root = fxmlLoader.load(MenuTuristController.class.getResourceAsStream("MenuTurist.fxml"));
-        principal.setearAnchorPane(root);
+        //principal.setearAnchorPane(root);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @Override

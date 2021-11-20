@@ -3,6 +3,7 @@ package com.example.primera_version.business.entities;
 
 import javax.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -32,8 +33,8 @@ public class Reserva {
     @Column(name = "estado")
     private Boolean estado;
 
-    @Column(name = "fecha_hora", nullable = false)
-    private LocalDateTime fechaHora;
+    @Column(name = "fecha", nullable = false)
+    private LocalDate fecha;
 
 
     @OneToOne(targetEntity = Puntuacion.class, cascade = CascadeType.ALL)
@@ -50,12 +51,12 @@ public class Reserva {
     private Denuncia denuncia;
 
 
-    public Reserva(Turist turista, Experiencia experiencia, Long numeroPersonas) {
+    public Reserva(Turist turista, Experiencia experiencia, Long numeroPersonas, LocalDate fechaReserva) {
         this.turista = turista;
         this.experiencia = experiencia;
         this.numeroPersonas = numeroPersonas;
         this.estado = false;
-        this.fechaHora = LocalDateTime.now();
+        this.fecha = fechaReserva;
         this.denuncia = null;
         this.puntuacion = null;
         this.critica = null;
@@ -64,8 +65,7 @@ public class Reserva {
 
 
     public Reserva() {
-        this.fechaHora = LocalDateTime.now();
-        this.estado = false;
+
     }
 
 
@@ -97,12 +97,12 @@ public class Reserva {
         this.estado = true;
     }
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
+    public void setFecha(LocalDate fechaHora) {
+        this.fecha = fechaHora;
     }
 
     public Puntuacion getPuntuacion() {
