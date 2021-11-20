@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.OperadoresAdminisradorController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000; -fx-background-image: url('fotos/fotoAdmin.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.OperadoresAdminisradorController">
    <children>
       <TableView fx:id="operadoresExpuestos" layoutX="14.0" layoutY="65.0" prefHeight="416.0" prefWidth="965.0">
          <columns>
@@ -21,20 +21,20 @@
             <TableColumn fx:id="estaDisponible" prefWidth="120.0" text="Disponible" />
          </columns>
       </TableView>
-      <TextField fx:id="campoBusqueda" layoutX="33.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar operador turistico por nombre..." />
-      <Button fx:id="botonAgregarOperador" layoutX="637.0" layoutY="26.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #D3D3D3;" text="Agregar operador turistico">
+      <TextField fx:id="campoBusqueda" layoutX="14.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar operador turistico por nombre..." />
+      <Button fx:id="botonAgregarOperador" layoutX="773.0" layoutY="27.0" mnemonicParsing="false" onAction="#agregarOTAction" prefHeight="21.0" prefWidth="202.0" style="-fx-background-color: #ffffff;" text="Agregar operador turistico">
          <font>
-            <Font name="Cambria Bold" size="13.0" />
+            <Font name="Cambria Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="382.0" layoutY="551.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #D3D3D3;" text="Volver al menu" textAlignment="CENTER">
+      <Button layoutX="382.0" layoutY="551.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="511.0" layoutY="551.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button layoutX="511.0" layoutY="551.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
       <Button layoutX="819.0" layoutY="501.0" mnemonicParsing="false" onAction="#validarExperiencia" style="-fx-border-color: #90EE90;" text="Validar" textAlignment="CENTER">

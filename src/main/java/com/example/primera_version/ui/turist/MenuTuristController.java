@@ -36,14 +36,7 @@ public class MenuTuristController implements Initializable{
     private TuristMgr turistMgr;
 
     @Autowired
-    private Perfil perfil;
-
-    @Autowired
     private Principal principal;
-
-    @Autowired
-    private MostrarExperienciasDinamicoController mostrarExperienciasDinamicoController;
-
     @FXML
     private GridPane experienciaGrid;
 

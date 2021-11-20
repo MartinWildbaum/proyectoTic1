@@ -195,7 +195,6 @@ public class ExperienciasOperadorController implements  Initializable{
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
     }
 
     @FXML
@@ -206,5 +205,16 @@ public class ExperienciasOperadorController implements  Initializable{
         principal.setearAnchorPane(root);
 
     }
+
+    @FXML
+    void verReservas(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(Reservas_Operador.class.getResourceAsStream("ReservasTO.fxml"));
+        principal.setearAnchorPane(root);
+
+    }
+
+
 
 }

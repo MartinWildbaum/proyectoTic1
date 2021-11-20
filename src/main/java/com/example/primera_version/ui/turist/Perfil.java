@@ -40,13 +40,7 @@ public class Perfil implements Initializable {
     private ModificadorInteresesController modificadorInteresesController;
 
     @FXML
-    private Button misIntereses;
-
-    @FXML
     private ScrollPane scrollIntereses;
-
-    @FXML
-    private Button misReservas;
 
     @FXML
     private Label usuariolabel;
@@ -100,7 +94,6 @@ public class Perfil implements Initializable {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-        //principal.setearAnchorPane(root);
     }
 
     @FXML

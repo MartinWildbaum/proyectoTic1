@@ -150,16 +150,7 @@ public class AddTuristController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        /*
-        AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
-        //principal.setearAnchorPane(root);
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        //Stage stage = (Stage) source.getScene().getWindow();
-        //stage.close();
-        stage.setScene(new Scene(root));
-        stage.show();
-*/
+
     }
 
 

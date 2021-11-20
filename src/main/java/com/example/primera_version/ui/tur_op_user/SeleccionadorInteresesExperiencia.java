@@ -31,9 +31,6 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
     @Autowired
     private InteresMgr interesMgr;
 
-    @Autowired
-    private Principal principal;
-
     @FXML
     public CheckComboBox<Interes> seleccionadorInteresesGenerales;
 
@@ -110,10 +107,6 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
 
     @FXML
     public void volverAddExperience(ActionEvent actionEvent) throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(AddTuristController.class.getResourceAsStream("AddTurist.fxml"));
-        principal.setearAnchorPane(root);*/
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

@@ -54,16 +54,10 @@ public class AgregarExperienciaController implements Initializable {
     private Principal principal;
 
     @Autowired
-    private TurOpMgr turOpMgr;
-
-    @Autowired
     private ExperienceMgr experienceMgr;
 
     @Autowired
     private SeleccionadorInteresesExperiencia seleccionadorInteresesExperiencia;
-
-    @FXML
-    private Button botonImagen;
 
     @FXML
     private TextField txtTitulo;
@@ -201,16 +195,6 @@ public class AgregarExperienciaController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        /*
-        AnchorPane root = fxmlLoader.load(SeleccionadorInicialInteresesController.class.getResourceAsStream("SeleccionadorInicialIntereses.fxml"));
-        //principal.setearAnchorPane(root);
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        //Stage stage = (Stage) source.getScene().getWindow();ExpeSeleccionInicial.fxml
-        //stage.close();
-        stage.setScene(new Scene(root));
-        stage.show();
-*/
     }
 }
 
