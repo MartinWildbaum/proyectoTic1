@@ -16,15 +16,11 @@ public class ImagenesTemplateController {
     @FXML
     private ImageView imagenExperiencias;
 
-    @Autowired
-    private ExperienceMgr experienceMgr;
-
-    @Autowired
-    private ExperienciaTemplate experienciaTemplate;
-
     public void setDataImagenesTemplate(Experiencia experiencia){
 //        experiencia.getImagenes().iterator().next()
         imagenExperiencias.setImage(experiencia.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
+        imagenExperiencias.setStyle("-fx-alignment: CENTER;");// Me centra el texto
+
 
 
     }

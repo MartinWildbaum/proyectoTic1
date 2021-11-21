@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperiencias">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MostrarExperiencias">
    <children>
       <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
          <children>
@@ -42,7 +41,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="418.0" layoutY="159.0" prefHeight="592.0" prefWidth="948.0" style="-fx-background-color: #ffffff; -fx-background: #ffffff;">
+      <ScrollPane layoutX="418.0" layoutY="159.0" prefHeight="592.0" prefWidth="948.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
          <content>
             <GridPane fx:id="experienciaGrid">
                <rowConstraints>

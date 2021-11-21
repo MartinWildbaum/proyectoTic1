@@ -25,8 +25,6 @@ import java.util.ResourceBundle;
 @Component
 public class ExperienciaTemplate implements Initializable {
 
-    @FXML
-    private ImageView templateImage;
 
     @FXML
     public Text templateTitulo;
@@ -62,10 +60,6 @@ public class ExperienciaTemplate implements Initializable {
         templateDescrpicion.setText("Descripcion: " + experiencia_mostrada.getDescripcion());
         templateVideos.setText("Videos: " + experiencia_mostrada.getLinkVideos());
 
-        // Pogramar aparicion de imagenes
-        if (experiencia_mostrada.getImagenes().size() > 0){
-            templateImage.setImage(experiencia_mostrada.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
-        }
     }
 
     @FXML

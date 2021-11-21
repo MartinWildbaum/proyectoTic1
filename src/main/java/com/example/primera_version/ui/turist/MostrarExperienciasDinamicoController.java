@@ -40,9 +40,10 @@ public class MostrarExperienciasDinamicoController {
 
         if (experiencia.getImagenes().size() > 0){
             imagenExperiencia.setImage(experiencia.getFotoPortadaAsJavaFxImage(200,200));
-//            imagenExperiencia.setStyle("-fx-alignment: CENTER;");// Me centra el texto
+            imagenExperiencia.setStyle("-fx-alignment: CENTER;");// Me centra el texto
 
-            imagenExperiencia.setX(75);
+
+//            imagenExperiencia.setX(75);
         }
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
 

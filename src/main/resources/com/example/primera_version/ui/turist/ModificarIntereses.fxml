@@ -10,60 +10,31 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ModificadorInteresesController">
+<AnchorPane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ModificadorInteresesController">
    <children>
-      <Label layoutX="354.0" layoutY="43.0" prefHeight="50.0" prefWidth="296.0" text="Mis Intereses" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="581.0" layoutY="138.0" prefHeight="50.0" prefWidth="268.0" text="Mis Intereses" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="41.0" />
+            <Font name="Cambria Bold" size="41.0" />
          </font>
       </Label>
-      <AnchorPane prefHeight="600.0" prefWidth="249.0" style="-fx-background-color: #000000;">
-         <children>
-            <Label layoutX="84.0" layoutY="450.0" text="TurisTIC" textFill="AQUA">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Text fill="WHITE" layoutX="38.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="215.74578857421875">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="217.0" fitWidth="204.0" layoutX="27.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@fotos/logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <Button layoutX="544.0" layoutY="526.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #87CEEB;" text="Volver" textAlignment="CENTER">
+      <Text fill="WHITE" layoutX="140.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales:" textAlignment="CENTER" wrappingWidth="409.0">
          <font>
-            <Font name="Cambria Bold Italic" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="672.0" layoutY="526.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #87CEEB;" text="Cerrar Sesión" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold Italic" size="18.0" />
-         </font>
-      </Button>
-      <Text fill="WHITE" layoutX="323.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales:" textAlignment="CENTER" wrappingWidth="182.13672637939453">
-         <font>
-            <Font name="Cambria Bold Italic" size="20.0" />
+            <Font name="Cambria Bold Italic" size="41.0" />
          </font>
       </Text>
-      <CheckComboBox fx:id="seleccionadorInteresesGenerales" layoutX="593.0" layoutY="126.0" onMouseClicked="#ajustarIntereses" onMouseEntered="#ajustarIntereses" onMouseExited="#ajustarIntereses" prefHeight="28.0" prefWidth="285.0" title="Seleccionar intereses generales" />
-      <Text fill="WHITE" layoutX="315.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales seleccionados:" wrappingWidth="204.8033905029297">
+      <CheckComboBox fx:id="seleccionadorInteresesGenerales" layoutX="600.0" layoutY="218.0" onMouseClicked="#ajustarIntereses" onMouseEntered="#ajustarIntereses" onMouseExited="#ajustarIntereses" prefHeight="48.0" prefWidth="301.0" style="-fx-background: #ffffff;" title="Seleccionar intereses generales" />
+      <Text fill="WHITE" layoutX="140.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales seleccionados:" wrappingWidth="419.47007751464844">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Cambria Italic" size="41.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="291.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses Particulares:">
+      <Text fill="WHITE" layoutX="140.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses Particulares:">
          <font>
-            <Font name="Cambria Bold Italic" size="20.0" />
+            <Font name="Cambria Bold Italic" size="40.0" />
          </font>
       </Text>
-      <CheckComboBox fx:id="seleccionadorInteresesParticulares" layoutX="587.0" layoutY="267.0" onMouseClicked="#ajustarIntereses" onMouseEntered="#ajustarIntereses" onMouseExited="#ajustarIntereses" prefHeight="28.0" prefWidth="285.0" title="Seleccionar intereses particulares" />
-      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="583.0" layoutY="176.0" prefHeight="73.0" prefWidth="322.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
+      <CheckComboBox fx:id="seleccionadorInteresesParticulares" layoutX="600.0" layoutY="510.0" onMouseClicked="#ajustarIntereses" onMouseEntered="#ajustarIntereses" onMouseExited="#ajustarIntereses" prefHeight="62.0" prefWidth="289.0" title="Seleccionar intereses particulares" />
+      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="600.0" layoutY="350.0" prefHeight="73.0" prefWidth="322.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
          <content>
             <Text fx:id="interesesGeneralesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="319.4700012207031">
                <font>
@@ -72,12 +43,12 @@
             </Text>
          </content>
       </ScrollPane>
-      <Text fill="WHITE" layoutX="306.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses particulares seleccionados:" wrappingWidth="204.8033905029297">
+      <Text fill="WHITE" layoutX="140.0" layoutY="700.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses particulares seleccionados:" wrappingWidth="420.8033905029297">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Cambria Italic" size="40.0" />
          </font>
       </Text>
-      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="583.0" layoutY="328.0" prefHeight="74.0" prefWidth="323.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
+      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="600.0" layoutY="675.0" prefHeight="74.0" prefWidth="323.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB; -fx-border-color: #87CEEB;">
          <content>
             <Text fx:id="interesesParticularesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="331.4700012207031">
                <font>
@@ -86,5 +57,29 @@
             </Text>
          </content>
       </ScrollPane>
+      <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="197.0" text="TurisTIC" textFill="AQUA">
+               <font>
+                  <Font name="Cambria Bold Italic" size="41.0" />
+               </font>
+            </Label>
+            <Button layoutX="937.0" layoutY="35.0" mnemonicParsing="false" onAction="#volver" prefHeight="52.0" prefWidth="210.0" style="-fx-background-color: #000000;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

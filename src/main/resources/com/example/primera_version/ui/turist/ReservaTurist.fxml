@@ -9,60 +9,60 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ReservaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ReservaController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #000000;">
+      <Button layoutX="537.0" layoutY="620.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="76.0" prefWidth="366.0" style="-fx-background-color: #87CEEB;" text="Realizar Reserva" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="40.0" />
+         </font></Button>
+      <Label layoutX="394.0" layoutY="228.0" text="Tipo de documento:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="331.0" layoutY="312.0" text="Número de documento:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="350.0" layoutY="385.0" text="Cantidad de personas:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="752.0" layoutY="322.0" prefHeight="40.0" prefWidth="250.0" />
+      <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="752.0" layoutY="390.0" prefHeight="40.0" prefWidth="250.0" />
+      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="752.0" layoutY="233.0" prefHeight="40.0" prefWidth="250.0" />
+      <Label layoutX="399.0" layoutY="467.0" text="Fecha de la reserva:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="fechaReserva" layoutX="752.0" layoutY="475.0" prefHeight="40.0" prefWidth="250.0" />
+      <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="98.0" layoutY="491.0" text="TurisTIC" textFill="AQUA">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-            </Label>
-            <Text fill="WHITE" layoutX="35.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicación desarollada por estudiantes universitarios" wrappingWidth="221.74578857421875">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="196.0" fitWidth="230.0" layoutX="50.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
+            <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="197.0" text="TurisTIC" textFill="AQUA">
+               <font>
+                  <Font name="Cambria Bold Italic" size="41.0" />
+               </font>
+            </Label>
+            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="383.0" layoutY="500.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB;" text="Volver al Menu" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="521.0" layoutY="500.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="42.0" prefWidth="129.0" style="-fx-background-color: #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB #87CEEB#87CEEB#87CEEB#87CEEB #87CEEB;" text="Realizar Reserva" textAlignment="CENTER">
-         <font>
-            <Font name="Cambria Bold Italic" size="14.0" />
-         </font></Button>
-      <Label layoutX="375.0" layoutY="165.0" text="Tipo de documento" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="366.0" layoutY="216.0" text="Número de documento" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="373.0" layoutY="273.0" text="Cantidad de personas" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="561.0" layoutY="215.0" prefHeight="25.0" prefWidth="191.0" />
-      <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="561.0" layoutY="272.0" prefHeight="25.0" prefWidth="191.0" />
-      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="558.0" layoutY="161.0" prefHeight="26.0" prefWidth="191.0" />
-      <Label layoutX="392.0" layoutY="317.0" text="Fecha de la reserva" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="fechaReserva" layoutX="556.0" layoutY="317.0" prefHeight="26.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
