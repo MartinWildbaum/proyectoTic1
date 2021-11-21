@@ -67,7 +67,7 @@
             <TableColumn fx:id="numeroReserva" editable="false" prefWidth="148.99998474121094" sortable="false" text="Número de Reserva" />
             <TableColumn fx:id="fechayhoraReserva" editable="false" minWidth="0.0" prefWidth="75.00003051757812" sortable="false" text="Fecha " />
             <TableColumn fx:id="tituloExperiencia" editable="false" prefWidth="130.33331298828125" sortable="false" text="Titulo experiencia" />
-            <TableColumn fx:id="numero_personas" prefWidth="193.0" text="Número de acompañantes" />
+            <TableColumn fx:id="numeroAcompanantes" prefWidth="193.0" text="Número de acompanantes" />
          </columns>
       </TableView>
    </children>

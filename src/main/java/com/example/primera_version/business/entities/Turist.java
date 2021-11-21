@@ -4,6 +4,7 @@ package com.example.primera_version.business.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Set;
 
 
 @Entity
@@ -39,7 +40,7 @@ public class Turist extends Usuario{
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "turista")
-    private Collection<Reserva> reservas;
+    private Set<Reserva> reservas;
 
     public Turist(String mail, String password, Pais pais, LocalDate birthdate, Collection<Interes> intereses) {
         super(mail, password);
@@ -121,11 +122,11 @@ public class Turist extends Usuario{
         this.estaVacunado = estaVacunado;
     }
 
-    public Collection<Reserva> getReservas() {
+    public Set<Reserva> getReservas() {
         return reservas;
     }
 
-    public void setReservas(Collection<Reserva> reservas) {
+    public void setReservas(Set<Reserva> reservas) {
         this.reservas = reservas;
     }
 }

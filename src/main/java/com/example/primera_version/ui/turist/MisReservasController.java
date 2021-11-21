@@ -23,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -32,7 +33,9 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 @Component
 public class MisReservasController implements Initializable {
@@ -54,7 +57,7 @@ public class MisReservasController implements Initializable {
     private TableColumn<Reserva,String> tituloExperiencia;
 
     @FXML
-    private TableColumn<Reserva, Long> numeroAcompañantes;
+    private TableColumn<Reserva, Long> numeroAcompanantes;
 
     @Autowired
     private ReservaMgr reservaMgr;
@@ -71,28 +74,38 @@ public class MisReservasController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         misReservas.setEditable(true);
-
-        Collection<Reserva> query = turistMgr.encontrarTurista(principal.username.getText()).getReservas();
+/*
+        Set<Reserva> query = turistMgr.encontrarTurista(principal.username.getText()).getReservas();
         listaReserva = FXCollections.observableArrayList();
-        listaReserva.addAll(query);
+        for (Reserva reserva: query) {
+            listaReserva.add(reserva);
+        }*/
+        //listaReserva.addAll(query);
         misReservas.setItems(listaReserva);
 
         numeroReserva.setStyle("-fx-alignment: CENTER;");
         tituloExperiencia.setStyle("-fx-alignment: CENTER;");
         fechayhoraReserva.setStyle("-fx-alignment: CENTER;");
-        numeroAcompañantes.setStyle("-fx-alignment: CENTER;");
+        numeroAcompanantes.setStyle("-fx-alignment: CENTER;");
 
 
         numeroReserva.setCellValueFactory((new PropertyValueFactory<>("numeroReserva")));
         fechayhoraReserva.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        numeroAcompañantes.setCellValueFactory((new PropertyValueFactory<>("numeroPersonas")));
+        numeroAcompanantes.setCellValueFactory((new PropertyValueFactory<>("numeroPersonas")));
         tituloExperiencia.setCellValueFactory((new PropertyValueFactory<>("experiencia"))); // Ver como hacer para que me muestre el titulo y no el id de la experiencia
-
-
 
     }
 
 
+
+    @FXML
+    void busquedaDinamica(KeyEvent event) {
+        List<Reserva> query = (List<Reserva>) reservaMgr.encontrarNumeroReserva(Long.valueOf((campoBusqueda.getText())));
+        listaReserva = FXCollections.observableArrayList();
+        listaReserva.removeAll();
+        listaReserva.addAll(query);
+        misReservas.setItems(listaReserva);
+    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws Exception{
