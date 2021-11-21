@@ -81,7 +81,8 @@ public class TOController {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                     AnchorPane root = fxmlLoader.load(OperadoresAdminisradorController.class.getResourceAsStream("MenuAdministrador.fxml"));
-                    principal.setearAnchorPane(root);
+                    //principal.setearAnchorPane(root);
+                    volverAdminOper(event);
 
                 } catch (InvalidTOInformation invalidTOInformation) {
                     showAlert(
@@ -91,8 +92,9 @@ public class TOController {
                     showAlert(
                             "Mail ya registrado !",
                             "El mail indicado ya ha sido registrado en el sistema).");
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
+
                 }
 
             } catch (NumberFormatException e) {

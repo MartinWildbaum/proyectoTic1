@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
+<AnchorPane style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MenuTuristController">
    <children>
       <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
          <children>
@@ -17,7 +17,7 @@
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="195.0" text="TurisTIC" textFill="AQUA">
+            <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="221.0" text="TurisTIC" textFill="AQUA">
                <font>
                   <Font name="Cambria Bold Italic" size="41.0" />
                </font>
@@ -41,9 +41,9 @@
       </AnchorPane>
       <AnchorPane layoutX="74.0" layoutY="297.0" prefHeight="400.0" prefWidth="1248.0" style="-fx-background-image: url('fotos/uruguay.jpg');">
          <children>
-            <TextField layoutX="250.0" layoutY="150.0" prefHeight="60.0" prefWidth="687.0" promptText="Buscar experiencia....">
+            <TextField layoutX="250.0" layoutY="150.0" opacity="0.61" prefHeight="60.0" prefWidth="687.0" promptText="Buscar experiencia....">
                <font>
-                  <Font size="28.0" />
+                  <Font name="Cambria Italic" size="28.0" />
                </font>
             </TextField>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="180.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
@@ -55,29 +55,29 @@
       </AnchorPane>
       <AnchorPane layoutX="74.0" layoutY="167.0" prefHeight="111.0" prefWidth="1200.0" style="-fx-background-color: #87CEEB;">
          <children>
-            <Button alignment="CENTER_RIGHT" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="224.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="EcoTurismo">
+            <Button fx:id="boton1" alignment="CENTER_RIGHT" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="EcoTurismo">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Cambria Italic" size="23.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="250.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Salud">
+            <Button fx:id="boton2" alignment="CENTER_RIGHT" layoutX="250.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #87CEEB;" text="Salud">
                <font>
-                  <Font size="33.0" />
+                  <Font name="Cambria Italic" size="33.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="500.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Aventura">
+            <Button fx:id="boton3" alignment="CENTER_RIGHT" layoutX="500.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #87CEEB;" text="Aventura">
                <font>
-                  <Font size="29.0" />
+                  <Font name="Cambria Italic" size="29.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="750.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Rural">
+            <Button fx:id="boton4" alignment="CENTER_RIGHT" layoutX="750.0" layoutY="5.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #87CEEB;" text="Rural">
                <font>
-                  <Font size="34.0" />
+                  <Font name="Cambria Italic" size="34.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="1000.0" layoutY="5.0" mnemonicParsing="false" onAction="#bottonMisExperiencias" prefHeight="110.0" prefWidth="244.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Mis Experiencias">
+            <Button fx:id="boton5" alignment="CENTER_RIGHT" layoutX="1000.0" layoutY="5.0" mnemonicParsing="false" onAction="#bottonMisExperiencias" prefHeight="110.0" prefWidth="244.0" style="-fx-background-color: #87CEEB;" text="Mis Experiencias" textAlignment="RIGHT">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Cambria Italic" size="23.0" />
                </font>
             </Button>
             <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="30.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -100,7 +100,7 @@
                   <Image url="@fotos/cow.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="1011.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="1009.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@fotos/lupa.jpeg" />
                </image>

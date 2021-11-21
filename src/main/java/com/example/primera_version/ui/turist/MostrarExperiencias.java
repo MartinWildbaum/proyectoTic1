@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -36,6 +37,9 @@ public class MostrarExperiencias implements Initializable  {
 
     @FXML
     private GridPane experienciaGrid;
+
+    @FXML
+    private ScrollPane scrollExperiencias;
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
@@ -67,6 +71,9 @@ public class MostrarExperiencias implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        scrollExperiencias.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollExperiencias.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
         Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
         int numExpAMostrar = experienciasRecomendadas.size();

@@ -6,6 +6,7 @@ import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.TurOpUsersMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Interes;
+import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.business.entities.UsuarioOpTur;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.OpTurUsersRepository;
@@ -84,7 +85,8 @@ public class ExperienciasOperadorController implements  Initializable{
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasContenidoTitulo(campoBusqueda.getText());
+        OperadorTuristico opTuri = turOpUsersMgr.encontrarOperadorTuristicoParaElQueTrabaja(principal.username.getText());
+        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasPorTituloYOperador(opTuri, campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
         lista.addAll(query);

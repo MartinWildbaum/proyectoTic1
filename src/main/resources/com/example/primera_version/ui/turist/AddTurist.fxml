@@ -13,16 +13,31 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.AddTuristController">
    <children>
-      <Label layoutX="304.0" layoutY="200.0" text="Contraseña" textFill="WHITE" />
-      <Label layoutX="350.0" layoutY="79.0" text="Mail" textFill="WHITE" />
-      <TextField fx:id="txtMail" layoutX="400.0" layoutY="75.0" prefHeight="26.0" prefWidth="200.0" />
-      <Label layoutX="280.0" layoutY="121.0" text="Pais de Nacimiento" textFill="WHITE" />
-      <DatePicker fx:id="txtBirthdate" layoutX="400.0" layoutY="155.0" prefHeight="26.0" prefWidth="200.0" />
-      <Label layoutX="280.0" layoutY="162.0" text="Fecha de Nacimiento" textFill="WHITE" />
-      <Label layoutX="316.0" layoutY="254.0" textFill="WHITE" />
-      <Label layoutX="373.0" layoutY="19.0" text="Registrar un Turista" textFill="WHITE">
+      <Label layoutX="221.0" layoutY="251.0" text="Contraseña" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="32.0" />
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="287.0" layoutY="130.0" text="Mail" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Label>
+      <TextField fx:id="txtMail" alignment="CENTER" layoutX="373.0" layoutY="131.0" prefHeight="26.0" prefWidth="200.0">
+         <font>
+            <Font name="Cambria Italic" size="12.0" />
+         </font></TextField>
+      <Label layoutX="141.0" layoutY="172.0" text="Pais de Nacimiento" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Label>
+      <DatePicker fx:id="txtBirthdate" layoutX="373.0" layoutY="214.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="124.0" layoutY="213.0" text="Fecha de Nacimiento" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="316.0" layoutY="254.0" textFill="WHITE" />
+      <Label layoutX="168.0" layoutY="32.0" text="Registrar un Turista" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="32.0" />
          </font>
       </Label>
       <Label layoutX="867.0" layoutY="194.0" text="TurisTIC" textFill="AQUA">
@@ -30,23 +45,32 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="224.0" layoutY="284.0" text="Seleccione Intereses:" textFill="WHITE">
+      <Label layoutX="122.0" layoutY="335.0" text="Seleccione Intereses:" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="Cambria Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="273.0" layoutY="246.0" text="Confirmar Contraseña" textFill="WHITE" />
-      <PasswordField fx:id="txtPassword1" layoutX="400.0" layoutY="195.0" prefHeight="26.0" prefWidth="200.0" />
-      <PasswordField fx:id="txtPassword2" layoutX="400.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" />
-      <ComboBox fx:id="myComboBoxPaises" layoutX="400.0" layoutY="115.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button fx:id="btnAdd" layoutX="407.0" layoutY="341.0" mnemonicParsing="false" onAction="#addTurist" text="Agregar" />
-      <Button fx:id="btnClose" layoutX="513.0" layoutY="342.0" mnemonicParsing="false" onAction="#close" text="Cancelar" />
+      <Label layoutX="100.0" layoutY="297.0" text="Confirmar Contraseña" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Label>
+      <PasswordField fx:id="txtPassword1" alignment="CENTER" layoutX="373.0" layoutY="256.0" prefHeight="26.0" prefWidth="200.0" />
+      <PasswordField fx:id="txtPassword2" alignment="CENTER" layoutX="373.0" layoutY="301.0" prefHeight="26.0" prefWidth="200.0" />
+      <ComboBox fx:id="myComboBoxPaises" layoutX="373.0" layoutY="173.0" prefHeight="26.0" prefWidth="200.0" promptText="Seleccione un pais ... " />
+      <Button fx:id="btnAdd" layoutX="380.0" layoutY="438.0" mnemonicParsing="false" onAction="#addTurist" style="-fx-background-color: #000000;" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Button>
+      <Button fx:id="btnClose" layoutX="486.0" layoutY="439.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #000000;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font></Button>
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/logo.png" />
          </image>
       </ImageView>
-      <Button alignment="TOP_CENTER" layoutX="408.0" layoutY="286.0" mnemonicParsing="false" onAction="#irASeleccionarIntereses" prefHeight="26.0" prefWidth="206.0" text="Seleccionar mis intereses" textAlignment="CENTER" underline="true">
+      <Button alignment="TOP_CENTER" layoutX="374.0" layoutY="337.0" mnemonicParsing="false" onAction="#irASeleccionarIntereses" prefHeight="26.0" prefWidth="206.0" text="Seleccionar mis intereses" textAlignment="CENTER" underline="true">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>

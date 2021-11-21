@@ -11,15 +11,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ExperienciaTemplate">
+<AnchorPane style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ExperienciaTemplate">
    <children>
-      <ScrollPane layoutX="74.0" layoutY="500.0" prefHeight="162.0" prefWidth="577.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
+      <ScrollPane fx:id="scrollDescripcion" layoutX="74.0" layoutY="500.0" prefHeight="162.0" prefWidth="577.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
          <content>
             <AnchorPane prefHeight="122.0" prefWidth="540.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
                <children>
                   <Text fx:id="templateDescrpicion" fill="WHITE" layoutX="10.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripición:" wrappingWidth="517.7916259765625">
                      <font>
-                        <Font name="Cambria" size="38.0" />
+                        <Font name="Cambria Bold Italic" size="38.0" />
                      </font>
                   </Text>
                </children>
@@ -33,15 +33,15 @@
       </Text>
       <Text fx:id="templateUbicacion" fill="WHITE" layoutX="74.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicacion:" wrappingWidth="430.125">
          <font>
-            <Font name="Cambria" size="38.0" />
+            <Font name="Cambria Italic" size="38.0" />
          </font>
       </Text>
-      <Text fx:id="templateVideos" fill="WHITE" layoutX="76.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Videos:" wrappingWidth="430.125">
+      <Text fx:id="templateVideos" fill="WHITE" layoutX="76.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enlaces Relevantes: " wrappingWidth="430.125">
          <font>
             <Font name="Cambria" size="38.0" />
          </font>
       </Text>
-      <Button layoutX="552.0" layoutY="672.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="70.0" prefWidth="289.0" style="-fx-background-color: #87CEEB;" text="Hacer reserva" textFill="WHITE">
+      <Button layoutX="552.0" layoutY="672.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="70.0" prefWidth="360.0" style="-fx-background-color: #87CEEB;" text="Realizar reserva" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="37.0" />
          </font>
@@ -75,7 +75,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="621.0" layoutY="171.0" prefHeight="470.0" prefWidth="720.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
+      <ScrollPane fx:id="scrollImagenes" layoutX="621.0" layoutY="171.0" prefHeight="470.0" prefWidth="720.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
          <content>
             <GridPane fx:id="templateFotos">
                <rowConstraints>

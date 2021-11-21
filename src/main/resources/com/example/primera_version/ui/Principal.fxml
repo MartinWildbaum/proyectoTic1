@@ -19,21 +19,27 @@
       </Label>
       <Label fx:id="usernameLabel" layoutX="350.0" layoutY="201.0" text="Usuario" textFill="WHITE">
          <font>
-            <Font size="19.0" />
+            <Font name="Cambria Bold Italic" size="19.0" />
          </font>
       </Label>
       <Label fx:id="passwordLabel" layoutX="325.0" layoutY="249.0" text="Contraseña" textFill="WHITE">
          <font>
-            <Font size="19.0" />
+            <Font name="Cambria Bold Italic" size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="450.0" layoutY="200.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button fx:id="iniciarSesionButton" layoutX="500.0" layoutY="322.0" mnemonicParsing="false" onAction="#irMenuPrincipal" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #ffffff;" text="Iniciar Sesión">
+      <TextField fx:id="username" alignment="CENTER" layoutX="450.0" layoutY="200.0" prefHeight="26.0" prefWidth="200.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font></TextField>
+      <Button fx:id="iniciarSesionButton" layoutX="500.0" layoutY="322.0" mnemonicParsing="false" onAction="#irMenuPrincipal" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #87CCEB;" text="Iniciar Sesión">
          <font>
             <Font name="Cambria Bold Italic" size="13.0" />
          </font></Button>
-      <PasswordField fx:id="password" layoutX="450.0" layoutY="249.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button fx:id="registrarseButton" layoutX="500.0" layoutY="375.0" mnemonicParsing="false" onAction="#agregarTuristaAction" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #ffffff;" text="Registrarse">
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="450.0" layoutY="249.0" prefHeight="26.0" prefWidth="200.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font></PasswordField>
+      <Button fx:id="registrarseButton" layoutX="500.0" layoutY="375.0" mnemonicParsing="false" onAction="#agregarTuristaAction" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #87CCEB;" text="Registrarse">
          <font>
             <Font name="Cambria Bold Italic" size="13.0" />
          </font></Button>

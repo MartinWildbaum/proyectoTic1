@@ -131,7 +131,12 @@ public class AgregarExperienciaController implements Initializable {
             String titulo = txtTitulo.getText();
             String descripcion = txtDescripcion.getText();
             String ubicacion = txtUbicacion.getText();
-            String aforoDisponible = txtAforoDisponible.getText();
+            String aforoDisponible;
+            if(txtAforoDisponible.getText().isBlank()){
+                aforoDisponible = "0";
+            }else {
+                aforoDisponible = txtAforoDisponible.getText();
+            }
             String enlacesRelacionados = txtEnlacesRelacionados.getText();
             ArrayList<byte[]> fotos = imagenes;
             byte[] fotoPortada = imagenPortada;

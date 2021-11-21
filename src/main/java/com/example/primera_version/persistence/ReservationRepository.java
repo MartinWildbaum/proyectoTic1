@@ -35,4 +35,10 @@ public interface ReservationRepository extends CrudRepository<Reserva, Long> {
 
     List<Reserva> findAllByNumeroReservaContaining(Long numero);
 
+    @Query("select r from Reserva r where r.experiencia = ?1")
+    List<Reserva> findByExperiencia(Experiencia experiencia);
+
+
+
+
 }

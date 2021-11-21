@@ -84,7 +84,7 @@ public class MenuMgr {
             * volver a ejecutar el algoritmo solo en el caso de que el turista cambie los intereses o se agregue un determinado numero de experiencias nuevas. Tal vez sea bueno ejecutarlo cada
             * determinado tiempo por ejemplo. */
             experiencia.setPuntaje(puntaje);
-            if(experiencia.getEstaDisponible() && puntaje > 0){
+            if(experiencia.getOperadorTuristico().getEstado() && experiencia.getEstaDisponible() && puntaje > 0){
                 colaExperienciasAMostrar.add(experiencia);
             }
         }

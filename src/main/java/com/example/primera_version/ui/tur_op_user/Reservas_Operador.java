@@ -6,6 +6,7 @@ import com.example.primera_version.business.entities.Reserva;
 import com.example.primera_version.ui.Principal;
 import com.sun.scenario.effect.impl.sw.java.JSWInvertMaskPeer;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -17,10 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
@@ -33,16 +31,16 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class Reservas_Operador implements Initializable {
 
     @FXML
     private TextField campoBusqueda;
+
+    @FXML
+    private DatePicker fechaReserva;
 
     @FXML
     private TableView<Reserva> misReservas;
@@ -57,7 +55,7 @@ public class Reservas_Operador implements Initializable {
     private TableColumn<Reserva, LocalDate> fechayhoraReserva;
 
     @FXML
-    private TableColumn<Reserva,Long> idExperienciaReserva;
+    private TableColumn<Reserva,String> tituloExperienciaReserva;
 
     @FXML
     private TableColumn<Reserva, String> mailTuristReserva;
@@ -128,13 +126,14 @@ public class Reservas_Operador implements Initializable {
         numeroReserva.setStyle("-fx-alignment: CENTER;");
         estadoReserva.setStyle("-fx-alignment: CENTER;");
         fechayhoraReserva.setStyle("-fx-alignment: CENTER;");
-        idExperienciaReserva.setStyle("-fx-alignment: CENTER;");
+        tituloExperienciaReserva.setStyle("-fx-alignment: CENTER;");
         mailTuristReserva.setStyle("-fx-alignment: CENTER;");
         numeroPersonas.setStyle("-fx-alignment: CENTER;");
 
         numeroReserva.setCellValueFactory((new PropertyValueFactory<>("numeroReserva")));
         fechayhoraReserva.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        idExperienciaReserva.setCellValueFactory((new PropertyValueFactory<>("experiencia")));
+        tituloExperienciaReserva.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExperiencia().getTituloExperiencia()));
+        //idExperienciaReserva.setCellValueFactory((new PropertyValueFactory<>("experiencia")));
         mailTuristReserva.setCellValueFactory((new PropertyValueFactory<>("turista")));
         numeroPersonas.setCellValueFactory(new PropertyValueFactory<>("numeroPersonas"));
         //estadoReserva.setCellValueFactory(new PropertyValueFactory<>("estado"));
@@ -171,14 +170,26 @@ public class Reservas_Operador implements Initializable {
             }
         });
 
+        fechayhoraReserva.setSortType(TableColumn.SortType.DESCENDING);
+        misReservas.getSortOrder().add(fechayhoraReserva);
+        misReservas.sort();
+
     }
 
     @FXML
-    void busquedaDinamica(KeyEvent event) {
-        List<Reserva> query = (List<Reserva>) reservaMgr.encontrarNumeroReserva(Long.valueOf((campoBusqueda.getText())));
-        listaReserva = FXCollections.observableArrayList();
-        listaReserva.removeAll();
-        listaReserva.addAll(query);
-        misReservas.setItems(listaReserva);
+    void busquedaDinamica(ActionEvent event) {
+        if(fechaReserva.getValue() == null){
+            listaReserva =  reservaMgr.encontrarPorExperiencia(experienciasOperadorController.misExperiencias.getSelectionModel().getSelectedItem());
+            misReservas.setItems(listaReserva);
+            misReservas.sort();
+        }else{
+            List<Reserva> query = (List<Reserva>) reservaMgr.encontrarReservasPorFechaYExperiencia(experienciasOperadorController.misExperiencias.getSelectionModel().getSelectedItem(),fechaReserva.getValue());
+            listaReserva = FXCollections.observableArrayList();
+            listaReserva.removeAll();
+            listaReserva.addAll(query);
+            misReservas.setItems(listaReserva);
+            misReservas.sort();
+        }
+
     }
 }

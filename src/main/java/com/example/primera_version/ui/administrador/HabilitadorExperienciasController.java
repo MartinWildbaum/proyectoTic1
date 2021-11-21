@@ -105,6 +105,7 @@ public class HabilitadorExperienciasController implements Initializable {
             }
         }
         experienciasExpuestas.setItems(lista);
+        experienciasExpuestas.sort();
     }
 
     @FXML
@@ -204,5 +205,9 @@ public class HabilitadorExperienciasController implements Initializable {
                 return cell;
             }
         });
+
+        momentoRegistro.setSortType(TableColumn.SortType.DESCENDING);
+        experienciasExpuestas.getSortOrder().add(momentoRegistro);
+        experienciasExpuestas.sort();
     }
 }

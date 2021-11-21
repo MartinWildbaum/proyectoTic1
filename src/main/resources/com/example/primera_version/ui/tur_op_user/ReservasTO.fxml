@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -11,12 +11,12 @@
    <children>
       <TableView fx:id="misReservas" editable="true" layoutX="25.0" layoutY="82.0" prefHeight="432.0" prefWidth="968.0">
          <columns>
-            <TableColumn fx:id="numeroReserva" editable="false" prefWidth="140.0" sortable="false" text="Número de Reserva" />
-            <TableColumn fx:id="fechayhoraReserva" editable="false" minWidth="0.0" prefWidth="114.5" sortable="false" text="Fecha " />
-            <TableColumn fx:id="idExperienciaReserva" editable="false" prefWidth="119.0" sortable="false" text="Id experiencia" />
-            <TableColumn fx:id="mailTuristReserva" editable="false" prefWidth="164.0" sortable="false" text="Mail Turista" />
-            <TableColumn fx:id="numero_personas" prefWidth="132.33331298828125" text="Número de Personas" />
-            <TableColumn fx:id="estadoReserva" prefWidth="110.33334350585938" text="Estado" />
+            <TableColumn fx:id="numeroReserva" editable="false" prefWidth="181.33334350585938" sortable="false" text="Número de Reserva" />
+            <TableColumn fx:id="fechayhoraReserva" editable="false" minWidth="0.0" prefWidth="73.66665649414062" sortable="false" text="Fecha " />
+            <TableColumn fx:id="tituloExperienciaReserva" editable="false" prefWidth="175.0" sortable="false" text="Titulo experiencia" />
+            <TableColumn fx:id="mailTuristReserva" editable="false" prefWidth="156.0" sortable="false" text="Mail Turista" />
+            <TableColumn fx:id="numeroPersonas" prefWidth="159.0" text="Número de Personas" />
+            <TableColumn fx:id="estadoReserva" prefWidth="222.6666259765625" text="Estado" />
          </columns>
       </TableView>
       <Button layoutX="478.0" layoutY="550.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
@@ -29,11 +29,11 @@
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="campoBusqueda" layoutX="80.0" layoutY="32.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar reserva por número...." />
       <Button layoutX="286.0" layoutY="551.0" mnemonicParsing="false" onAction="#volverAMisExperiencias" style="-fx-background-color: #ffffff;" text="Volver a mis experiencias" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
+      <DatePicker fx:id="fechaReserva" layoutX="27.0" layoutY="37.0" onAction="#busquedaDinamica" prefHeight="25.0" prefWidth="195.0" promptText="Buscar reserva por fecha ... " />
    </children>
 </AnchorPane>

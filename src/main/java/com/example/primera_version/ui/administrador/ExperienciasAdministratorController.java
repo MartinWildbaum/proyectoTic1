@@ -90,6 +90,7 @@ public class ExperienciasAdministratorController implements Initializable {
         lista.removeAll();
         lista.addAll(query);
         experienciasExpuestas.setItems(lista);
+        experienciasExpuestas.sort();
         /*
         tituloExpriencia.setCellValueFactory(new PropertyValueFactory<>("tituloExperiencia"));
 
@@ -185,6 +186,9 @@ public class ExperienciasAdministratorController implements Initializable {
                 return cell;
             }
         });
+        idExperiencia.setSortType(SortType.DESCENDING);
+        experienciasExpuestas.getSortOrder().add(idExperiencia);
+        experienciasExpuestas.sort();
     }
 
 /*

@@ -10,19 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MisReservasController">
+<AnchorPane style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.MisReservasController">
    <children>
-      <Label layoutX="565.0" layoutY="151.0" prefHeight="59.0" prefWidth="270.0" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="565.0" layoutY="141.0" prefHeight="59.0" prefWidth="270.0" text="Mis reservas" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="45.0" />
          </font>
       </Label>
-      <TextField fx:id="campoBusqueda" layoutX="250.0" layoutY="218.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="35.0" prefWidth="255.0" promptText="Buscar reserva por número...." />
-      <TableView fx:id="misReservas" editable="true" layoutX="250.0" layoutY="270.0" prefHeight="460.0" prefWidth="977.0">
+      <TextField fx:id="campoBusqueda" layoutX="250.0" layoutY="208.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="35.0" prefWidth="255.0" promptText="Buscar reserva por experiencias ... " />
+      <TableView fx:id="misReservas" editable="true" layoutX="250.0" layoutY="260.0" prefHeight="460.0" prefWidth="977.0" style="-fx-background-color: #87CEEB; -fx-table-cell-border-color: #00CCFF;">
          <columns>
             <TableColumn fx:id="numeroReserva" editable="false" prefWidth="205.0" sortable="false" text="Número de Reserva" />
             <TableColumn fx:id="fechayhoraReserva" editable="false" minWidth="0.0" prefWidth="211.5" sortable="false" text="Fecha " />
-            <TableColumn fx:id="tituloExperiencia" editable="false" prefWidth="286.5" sortable="false" text="Titulo experiencia" />
+            <TableColumn fx:id="tituloExperiencia" editable="false" prefWidth="286.5" sortable="false" style="-fx-background-color: transparent;" text="Titulo experiencia" />
             <TableColumn fx:id="numeroAcompanantes" prefWidth="273.0" text="Número de acompanantes" />
          </columns>
       </TableView>
@@ -55,10 +55,25 @@
             </Button>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="200.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="192.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fotos/lupa.jpeg" />
          </image>
       </ImageView>
+      <Button layoutX="818.0" layoutY="723.0" mnemonicParsing="false" onAction="#realizarDenuncia" style="-fx-background-color: #87CEEB;" text="Realizar Denuncia" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1015.0" layoutY="725.0" mnemonicParsing="false" onAction="#realizarCritica" style="-fx-background-color: #87CEEB;" text="Realizar Critica" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="570.0" layoutY="723.0" mnemonicParsing="false" onAction="#puntuarExperiencia" style="-fx-background-color: #87CEEB;" text="Puntuar Experiencia" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

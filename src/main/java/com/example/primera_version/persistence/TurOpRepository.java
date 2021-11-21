@@ -23,4 +23,5 @@ public interface TurOpRepository extends CrudRepository<OperadorTuristico, Long>
      OperadorTuristico findOneByRazonSocial(String razonSocial);
 
     List<OperadorTuristico> findAllByNameTOContaining(String texto);
+
 }

@@ -228,4 +228,12 @@ import java.util.Set;
         imagen = new Image(bis);
         return imagen;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Experiencia)) return false;
+        Experiencia xp = (Experiencia) obj;
+        return this.getIdExperiencia().equals(xp.getIdExperiencia());
+    }
 }

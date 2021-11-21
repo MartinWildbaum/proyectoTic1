@@ -7,6 +7,7 @@ import com.example.primera_version.business.exceptions.ReservaNoDisponible;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.ReservationRepository;
 import com.example.primera_version.persistence.TuristRepository;
+import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ReservaMgr {
@@ -44,13 +46,13 @@ public class ReservaMgr {
     private boolean puedoHacerReserva(Experiencia experiencia,Long cantidadDePersonas, LocalDate fechaReserva){
 
         // Ni me fijo que haya lugar
-        if(cantidadDePersonas > experiencia.getCantidad()){
+        if(cantidadDePersonas > experiencia.getCantidad() && experiencia.getCantidad() != 0){
             return false;
         }
         // Aca controlo que no se haya pasado el aforo
         if(reservationRepository.countByExperienciaAndFecha(experiencia, fechaReserva) == null){
             return true;
-        }else if (reservationRepository.countByExperienciaAndFecha(experiencia, fechaReserva) + cantidadDePersonas > experiencia.getCantidad()){
+        }else if ((reservationRepository.countByExperienciaAndFecha(experiencia, fechaReserva) + cantidadDePersonas > experiencia.getCantidad()) && experiencia.getCantidad() != 0){
             return false;
         }
         return true;
@@ -97,6 +99,65 @@ public class ReservaMgr {
     public void actualizarReserva(Reserva reserva){
         reservationRepository.save(reserva);
     }
+/*
+    public ArrayList<Reserva> encontrarPorNumeroYExperiencia(Experiencia experiencia, Long numeroReserva){
+
+        ArrayList<Reserva> devolucion = new ArrayList<>(10);
+        List<Reserva> reservaPorNumero = reservationRepository.findAllByNumeroReservaContaining(numeroReserva);
+        for (Reserva reserva: reservaPorNumero) {
+            if(reserva.getExperiencia().equals(experiencia)){
+                devolucion.add(reserva);
+            }
+        }
+        return devolucion;
+    }*/
 
 
+    public ArrayList<Reserva> encontrarReservasPorFechaYExperiencia(Experiencia xp, LocalDate fechaReserva){
+        ArrayList<Reserva> devolucion = new ArrayList<>(10);
+        ArrayList<Reserva> reservasExperiencia = (ArrayList<Reserva>) reservationRepository.findByExperiencia(xp);
+        for (Reserva reserva: reservasExperiencia) {
+            if(reserva.getFecha().equals(fechaReserva)){
+                devolucion.add(reserva);
+            }
+        }
+
+        return devolucion;
+
+    }
+
+    public ArrayList<Reserva> enconotrarPorNumeroYTurista(Turist turist, Long numeroReserva){
+
+        ArrayList<Reserva> devolucion = new ArrayList<>(10);
+
+
+        List<Reserva> reservaPorNumero = reservationRepository.findAllByNumeroReservaContaining(numeroReserva);
+
+        for (Reserva reserva: reservaPorNumero) {
+            if (reserva.getTurista().equals(turist)){
+                devolucion.add(reserva);
+            }
+        }
+        return devolucion;
+    }
+
+    public ArrayList<Reserva> encontrarPorTituloExpYTurista(Turist turist, String texto){
+        ArrayList<Reserva> devolucion = new ArrayList<>(10);
+
+        Collection<Reserva> reservasTurista = turist.getReservas();
+        for (Reserva reserva: reservasTurista) {
+            if(reserva.getExperiencia().getTituloExperiencia().contains(texto)){
+                devolucion.add(reserva);
+            }
+        }
+
+
+        return devolucion;
+
+    }
+
+    public ObservableList<Reserva> encontrarPorExperiencia(Experiencia experiencia){
+        ObservableList<Reserva> devolucion = (ObservableList<Reserva>) reservationRepository.findByExperiencia(experiencia);
+        return devolucion;
+    }
 }

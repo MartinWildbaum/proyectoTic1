@@ -13,11 +13,11 @@ public class OperadorTuristico {
     @Column(name = "razon_social", nullable = false, unique = true)
     private String razonSocial;
 
-    @Column(name = "name_tur_op", nullable = false)
+    @Column(name = "name_tur_op", nullable = false, unique = true)
     private String nameTO;
 
     @Column(name = "estado", nullable = false, columnDefinition = "BOOLEAN")
-    private Boolean estado = false;
+    private Boolean estado = true; // Lo hago empezar habilitado ya que lo registra un administrador
 
     @Column(name = "contact_name", nullable = false)
     private String contact_name;
@@ -46,7 +46,7 @@ public class OperadorTuristico {
         this.idOpTur = idOpTur;
         this.razonSocial = razonSocial;
         this.nameTO = nameTO;
-        this.estado = false;
+        this.estado = true;
         this.contact_name = contact_name;
         this.contact_surname = contact_surname;
         this.contact_phone = contact_phone;
@@ -137,5 +137,13 @@ public class OperadorTuristico {
     @Override
     public String toString() {
         return nameTO;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof OperadorTuristico)) return false;
+        OperadorTuristico operadorTuristico = (OperadorTuristico) obj;
+        return this.getIdOpTur().equals(operadorTuristico.getIdOpTur());
     }
 }

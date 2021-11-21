@@ -14,10 +14,10 @@ public class Imagen {
     private Long idImagen;
 
     @ManyToOne(targetEntity = Experiencia.class)
-    @JoinColumn(name="id_experiencia", referencedColumnName = "id_experiencia")
+    @JoinColumn(name="id_experiencia", referencedColumnName = "id_experiencia", nullable = false)
     private Experiencia experiencia;
 
-    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB")
+    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB", nullable = false)
     private byte[] imagen;
 
 

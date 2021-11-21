@@ -115,4 +115,16 @@ public class ExperienceMgr {
         experienceRepository.save(experiencia);
     }
 
+    public ArrayList<Experiencia> encontrarTodasPorTituloYOperador(OperadorTuristico operadorTuristico, String texto){
+        ArrayList<Experiencia> devolucion = new ArrayList<>(10);
+        ArrayList<Experiencia> listaExperiencias = (ArrayList<Experiencia>) experienceRepository.findAllByTituloExperienciaContaining(texto);
+        for (Experiencia experiencia: listaExperiencias) {
+            if(experiencia.getOperadorTuristico().equals(operadorTuristico)){
+                devolucion.add(experiencia);
+            }
+        }
+
+        return devolucion;
+    }
+
 }

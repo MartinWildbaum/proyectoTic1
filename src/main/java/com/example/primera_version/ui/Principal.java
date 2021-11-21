@@ -9,23 +9,31 @@ import com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController;
 import com.example.primera_version.ui.turist.MenuTuristController;
 import com.example.primera_version.ui.turist.AddTuristController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 @Component
-public class Principal {
+public class Principal implements Initializable {
 
     @Autowired
     private TuristMgr turistMgr;
@@ -93,6 +101,7 @@ public class Principal {
                 Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
                 stage.close();
+                //root.setPadding(new Insets(15,15,15,15));//FIXME
                 stage.setScene(new Scene(root));
                 stage.show();
             } else if (adminMgr.ingresar(username.getText(), password.getText())) {
@@ -123,4 +132,33 @@ public class Principal {
         alert.showAndWait();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        DropShadow shadow = new DropShadow();
+        iniciarSesionButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                iniciarSesionButton.setEffect(shadow);
+            }
+        });
+        iniciarSesionButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                iniciarSesionButton.setEffect(null);
+            }
+        });
+        registrarseButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                registrarseButton.setEffect(shadow);
+            }
+        });
+        registrarseButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                registrarseButton.setEffect(null);
+            }
+        });
+    }
 }

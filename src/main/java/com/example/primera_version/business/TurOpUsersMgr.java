@@ -3,11 +3,9 @@ package com.example.primera_version.business;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.business.entities.Turist;
 import com.example.primera_version.business.entities.UsuarioOpTur;
-import com.example.primera_version.business.exceptions.InvalidUserInformation;
-import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
-import com.example.primera_version.business.exceptions.UserAlreadyExists;
-import com.example.primera_version.business.exceptions.UserNotExists;
+import com.example.primera_version.business.exceptions.*;
 import com.example.primera_version.persistence.OpTurUsersRepository;
+import com.example.primera_version.persistence.TurOpRepository;
 import com.example.primera_version.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +17,9 @@ public class TurOpUsersMgr {
 
     @Autowired
     private OpTurUsersRepository opTurUsersRepository;
+
+    @Autowired
+    private TurOpRepository turOpRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -35,25 +36,28 @@ public class TurOpUsersMgr {
     }
 
     //En verdad esta funcion en principio no se utiliza
-    public void addUsuarioOpTuristico(String mail, String password, String passwordConfirmar, OperadorTuristico operadorTuristico) throws InvalidUserInformation, UserAlreadyExists, PasswordNoCoinciden {
+    public void addUsuarioOpTuristico(String mail, String password, String passwordConfirmar, String razonSocial) throws InvalidUserInformation, UserAlreadyExists, PasswordNoCoinciden, InvalidTOInformation {
 
         // Verifico que la informacion que me metieron en la interface sea valida, osea que no haya ningun campo vacio o cosas incoherentes
 
-        if ( operadorTuristico == null || chequearString(password) || chequearString(mail) || chequearString(passwordConfirmar)) { //agregue que si la fecha es despues de hoy que de un error
-
+        if ( chequearString(razonSocial) || chequearString(password) || chequearString(mail) || chequearString(passwordConfirmar)) {
             throw new InvalidUserInformation("ERROR!, Alguno de los datos ingresados no es correcto");
 
         }
 
-        // Verifico si el turista no existe, si existe voy a tirar una excepcion
+        // Verifico si el usuario del operador turistico no existe, si existe voy a tirar una excepcion
 
-        if (opTurUsersRepository.findOneByMail(mail) != null) { //como la primary key cambio esto tiene que cambiar?
+        if (opTurUsersRepository.findOneByMail(mail) != null) {
 
             throw new UserAlreadyExists("Ya existe un usuario registrado con ese mail");
         }
 
         if(!passwordConfirmar.equals(password)){
             throw new PasswordNoCoinciden("Las contrseñas no coinciden");
+        }
+        OperadorTuristico operadorTuristico = turOpRepository.findOneByRazonSocial(razonSocial);
+        if(operadorTuristico == null){
+            throw new InvalidTOInformation("La razon social ingresada no se encuentra en nustros registros");
         }
 
         // Me creo el turista que quiero agregar con los datos que me pasaron que ya se que son todos correctos/validos
@@ -100,6 +104,12 @@ public class TurOpUsersMgr {
     public UsuarioOpTur encontrarUnUsuariosOperadorTuristico(String mail){
         UsuarioOpTur uot = opTurUsersRepository.findOneByMail(mail);
         return uot;
+    }
+
+    public OperadorTuristico encontrarOperadorTuristicoParaElQueTrabaja(String mailEmpleado){
+        UsuarioOpTur usuarioOpTur = opTurUsersRepository.findOneByMail(mailEmpleado);
+        OperadorTuristico operadorTuristico = usuarioOpTur.getOperadorTuristico();
+        return operadorTuristico;
     }
 
 }

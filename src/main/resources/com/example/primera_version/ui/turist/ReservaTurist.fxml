@@ -10,36 +10,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ReservaController">
+<AnchorPane style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ReservaController">
    <children>
       <Button layoutX="537.0" layoutY="620.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="76.0" prefWidth="366.0" style="-fx-background-color: #87CEEB;" text="Realizar Reserva" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="40.0" />
          </font></Button>
-      <Label layoutX="394.0" layoutY="228.0" text="Tipo de documento:" textFill="WHITE">
+      <Label layoutX="347.0" layoutY="222.0" text="Tipo de documento:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="331.0" layoutY="312.0" text="Número de documento:" textFill="WHITE">
+      <Label layoutX="265.0" layoutY="310.0" text="Número de documento:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="350.0" layoutY="385.0" text="Cantidad de personas:" textFill="WHITE">
+      <Label layoutX="299.0" layoutY="385.0" text="Cantidad de personas:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
       <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="752.0" layoutY="322.0" prefHeight="40.0" prefWidth="250.0" />
       <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="752.0" layoutY="390.0" prefHeight="40.0" prefWidth="250.0" />
-      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="752.0" layoutY="233.0" prefHeight="40.0" prefWidth="250.0" />
-      <Label layoutX="399.0" layoutY="467.0" text="Fecha de la reserva:" textFill="WHITE">
+      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="752.0" layoutY="233.0" opacity="0.81" prefHeight="40.0" prefWidth="250.0" />
+      <Label layoutX="347.0" layoutY="467.0" text="Fecha de la reserva:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <DatePicker fx:id="fechaReserva" layoutX="752.0" layoutY="475.0" prefHeight="40.0" prefWidth="250.0" />
+      <DatePicker fx:id="fechaReserva" layoutX="752.0" layoutY="475.0" prefHeight="40.0" prefWidth="250.0" promptText="Elija la fecha de su reserva ... " />
       <AnchorPane prefHeight="123.0" prefWidth="1400.0" style="-fx-background-color: #000000;">
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">

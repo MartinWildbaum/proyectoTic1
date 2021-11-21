@@ -13,7 +13,7 @@ import java.util.Set;
 public class Turist extends Usuario{
 
     @ManyToOne(targetEntity = Pais.class)
-    @JoinColumn(name="nombre_pais", referencedColumnName = "nombre")
+    @JoinColumn(name="nombre_pais", referencedColumnName = "nombre", nullable = false)
     private Pais pais;
 
 
@@ -39,7 +39,7 @@ public class Turist extends Usuario{
     private Collection<Interes> intereses;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turista")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turista", fetch = FetchType.EAGER)
     private Set<Reserva> reservas;
 
     public Turist(String mail, String password, Pais pais, LocalDate birthdate, Collection<Interes> intereses) {

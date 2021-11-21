@@ -5,12 +5,17 @@ import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +50,21 @@ public class MostrarExperienciasDinamicoController {
 
 //            imagenExperiencia.setX(75);
         }
+        efectoFotos(imagenExperiencia);
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
+        DropShadow shadow = new DropShadow();
+        buttonExperiencia.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                buttonExperiencia.setEffect(shadow);
+            }
+        });
+        buttonExperiencia.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                buttonExperiencia.setEffect(null);
+            }
+        });
 
     }
 
@@ -66,4 +85,16 @@ public class MostrarExperienciasDinamicoController {
 
     }
 
+
+
+    public void efectoFotos(ImageView imagenxp){
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.5);
+        imagenxp.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
+            imagenxp.setEffect(colorAdjust);
+        });
+        imagenxp.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+            imagenxp.setEffect(null);
+        });
+    }
 }

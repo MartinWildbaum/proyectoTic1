@@ -85,6 +85,7 @@ public class OperadoresAdminisradorController implements Initializable{
         lista.removeAll();
         lista.addAll(query);
         operadoresExpuestos.setItems(lista);
+        operadoresExpuestos.sort();
         /*
         nombreOperador.setCellValueFactory(new PropertyValueFactory<>("nameTO"));
         razonSocial.setCellValueFactory(cellData -> {
@@ -191,6 +192,10 @@ public class OperadoresAdminisradorController implements Initializable{
                 return cell;
             }
         });
+
+        idOperadorTuristico.setSortType(SortType.DESCENDING);
+        operadoresExpuestos.getSortOrder().add(idOperadorTuristico);
+        operadoresExpuestos.sort();
 
     }
 

@@ -1,33 +1,30 @@
 package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
-import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.MenuMgr;
 import com.example.primera_version.business.TuristMgr;
-import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.ui.Principal;
-import com.example.primera_version.ui.administrador.MenuAdministradorController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import java.io.IOException;
-import java.io.NotSerializableException;
-import java.lang.reflect.Array;
+
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
 @Component
-public class MenuTuristController{
+public class MenuTuristController implements Initializable {
 
     @Autowired
     MenuMgr menuMgr;
@@ -37,8 +34,25 @@ public class MenuTuristController{
 
     @Autowired
     private Principal principal;
+
+
     @FXML
     private GridPane experienciaGrid;
+
+    @FXML
+    private Button boton1;
+
+    @FXML
+    private Button boton2;
+
+    @FXML
+    private Button boton3;
+
+    @FXML
+    private Button boton4;
+
+    @FXML
+    private Button boton5;
 
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
@@ -79,6 +93,70 @@ public class MenuTuristController{
         stage.show();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DropShadow shadow = new DropShadow();
+        boton1.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton1.setEffect(shadow);
+            }
+        });
+        boton1.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton1.setEffect(null);
+            }
+        });
+        boton2.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton2.setEffect(shadow);
+            }
+        });
+        boton2.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton2.setEffect(null);
+            }
+        });
+        boton3.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton3.setEffect(shadow);
+            }
+        });
+        boton3.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton3.setEffect(null);
+            }
+        });
+        boton4.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton4.setEffect(shadow);
+            }
+        });
+        boton4.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton4.setEffect(null);
+            }
+        });
+        boton5.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton5.setEffect(shadow);
+            }
+        });
+        boton5.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton5.setEffect(null);
+            }
+        });
+    }
 
 
 //    @Override
