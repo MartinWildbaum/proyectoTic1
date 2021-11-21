@@ -2,6 +2,7 @@ package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.ReservaMgr;
+import com.example.primera_version.business.TuristMgr;
 import com.example.primera_version.business.entities.Reserva;
 import com.example.primera_version.ui.Principal;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -59,6 +60,9 @@ public class MisReservasController implements Initializable {
     private ReservaMgr reservaMgr;
 
     @Autowired
+    private TuristMgr turistMgr;
+
+    @Autowired
     private Principal principal;
 
     private ObservableList<Reserva> listaReserva;
@@ -67,26 +71,25 @@ public class MisReservasController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         misReservas.setEditable(true);
-/*
-        Collection<Reserva> query = experienciasOperadorController.misExperiencias.getSelectionModel().getSelectedItem().getReservas();
+
+        Collection<Reserva> query = turistMgr.encontrarTurista(principal.username.getText()).getReservas();
         listaReserva = FXCollections.observableArrayList();
         listaReserva.addAll(query);
         misReservas.setItems(listaReserva);
 
         numeroReserva.setStyle("-fx-alignment: CENTER;");
-        estadoReserva.setStyle("-fx-alignment: CENTER;");
+        tituloExperiencia.setStyle("-fx-alignment: CENTER;");
         fechayhoraReserva.setStyle("-fx-alignment: CENTER;");
-        idExperienciaReserva.setStyle("-fx-alignment: CENTER;");
-        mailTuristReserva.setStyle("-fx-alignment: CENTER;");
-        numeroPersonas.setStyle("-fx-alignment: CENTER;");
+        numeroAcompañantes.setStyle("-fx-alignment: CENTER;");
+
 
         numeroReserva.setCellValueFactory((new PropertyValueFactory<>("numeroReserva")));
         fechayhoraReserva.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        idExperienciaReserva.setCellValueFactory((new PropertyValueFactory<>("experiencia")));
-        mailTuristReserva.setCellValueFactory((new PropertyValueFactory<>("turista")));
-        numeroPersonas.setCellValueFactory(new PropertyValueFactory<>("numeroPersonas"));
+        numeroAcompañantes.setCellValueFactory((new PropertyValueFactory<>("numeroPersonas")));
+        tituloExperiencia.setCellValueFactory((new PropertyValueFactory<>("experiencia"))); // Ver como hacer para que me muestre el titulo y no el id de la experiencia
 
-*/
+
+
     }
 
 

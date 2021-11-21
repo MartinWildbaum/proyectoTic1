@@ -34,6 +34,7 @@ public class MostrarExperienciasDinamicoController {
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
 
+    public Experiencia experienciaASetear;
 
     public void setData(Experiencia experiencia){
 
@@ -51,9 +52,10 @@ public class MostrarExperienciasDinamicoController {
     public void irExperiencia(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        experienciaASetear = experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText());
+        //experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
         AnchorPane root = fxmlLoader.load(ExperienciaTemplate.class.getResourceAsStream("Template.fxml"));
-        experienciaTemplate.setTemplete(experienceMgr.encontrarExperienciaPorTitulo(((Button) event.getSource()).getText()).getIdExperiencia());
-        Node source = (Node) event.getSource();
+        Node source = (Node) event.getSource();;
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
         stage.setScene(new Scene(root));

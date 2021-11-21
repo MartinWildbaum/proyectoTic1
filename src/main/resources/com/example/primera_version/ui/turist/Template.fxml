@@ -31,7 +31,7 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Text fx:id="templateTitulo" layoutX="74.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" wrappingWidth="457.13671875">
+      <Text fx:id="templateTitulo" layoutX="74.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo EXPERIENCIA" textAlignment="CENTER" wrappingWidth="457.13671875">
          <font>
             <Font name="Cambria Bold Italic" size="43.0" />
          </font>
@@ -59,7 +59,7 @@
                   <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="135.0" layoutY="36.0" prefWidth="157.0" text="TurisTIC" textFill="AQUA">
+            <Label layoutX="135.0" layoutY="36.0" prefWidth="215.0" text="TurisTIC" textFill="AQUA">
                <font>
                   <Font name="System Bold Italic" size="41.0" />
                </font>

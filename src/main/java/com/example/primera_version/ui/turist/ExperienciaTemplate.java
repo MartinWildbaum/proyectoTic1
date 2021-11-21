@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,6 +49,9 @@ public class ExperienciaTemplate implements Initializable {
     @Autowired
     private Principal principal;
 
+    @Autowired
+    private MostrarExperienciasDinamicoController mostrarExperienciasDinamicoController;
+
 
 
 
@@ -61,7 +65,6 @@ public class ExperienciaTemplate implements Initializable {
         // Pogramar aparicion de imagenes
         if (experiencia_mostrada.getImagenes().size() > 0){
             templateImage.setImage(experiencia_mostrada.getImagenes().iterator().next().getImagenAsJavaFxImage(200,200));
-
         }
     }
 
@@ -120,9 +123,11 @@ public class ExperienciaTemplate implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorTitulo(templateTitulo.getText());
+        Experiencia experiencia_mostrada = mostrarExperienciasDinamicoController.experienciaASetear;
+        setTemplete(experiencia_mostrada.getIdExperiencia());
+        //Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorTitulo(templateTitulo.getText());
         //no me esta encontrando la experiencia
-        int cantidadDeFotos=experiencia_mostrada.getImagenes().size();
+        int cantidadDeFotos = experiencia_mostrada.getImagenes().size();
         int columns = 0;
         int row = 1;
         try{
