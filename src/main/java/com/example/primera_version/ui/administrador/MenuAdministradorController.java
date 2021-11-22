@@ -120,70 +120,27 @@ public class MenuAdministradorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         DropShadow shadow = new DropShadow();
-        administrarOperadores.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                administrarOperadores.setEffect(shadow);
-            }
-        });
-        administrarOperadores.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                administrarOperadores.setEffect(null);
-            }
-        });
+        animarBoton(administrarOperadores, shadow);
+        animarBoton(administrarExperiencias, shadow);
+        animarBoton(habilitarExperiencias, shadow);
+        animarBoton(ingresarFuncionario, shadow);
+        animarBoton(cerrarSession, shadow);
+    }
 
-        administrarExperiencias.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                administrarExperiencias.setEffect(shadow);
-            }
-        });
-        administrarExperiencias.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                administrarExperiencias.setEffect(null);
-            }
-        });
+    private void animarBoton(Button boton, DropShadow dropShadow){
 
-        habilitarExperiencias.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                habilitarExperiencias.setEffect(shadow);
+                boton.setEffect(dropShadow);
             }
         });
-        habilitarExperiencias.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                habilitarExperiencias.setEffect(null);
+                boton.setEffect(null);
             }
         });
-
-        ingresarFuncionario.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ingresarFuncionario.setEffect(shadow);
-            }
-        });
-        ingresarFuncionario.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ingresarFuncionario.setEffect(null);
-            }
-        });
-        cerrarSession.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                cerrarSession.setEffect(shadow);
-            }
-        });
-        cerrarSession.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                cerrarSession.setEffect(null);
-            }
-        });
-
     }
 }
 

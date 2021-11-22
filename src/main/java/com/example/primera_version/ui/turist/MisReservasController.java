@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +17,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,15 @@ public class MisReservasController implements Initializable {
 
     @FXML
     private TextField campoBusqueda;
+
+    @FXML
+    private Button puntuarExperiencia;
+
+    @FXML
+    private Button realizarDenuncia;
+
+    @FXML
+    private Button realizarCritica;
 
     @FXML
     private TableView<Reserva> misReservas;
@@ -98,6 +110,11 @@ public class MisReservasController implements Initializable {
         misReservas.setStyle("-fx-stroke: transparent;");
         misReservas.setStyle("-fx-alignment: CENTER ; ");
         misReservas.setStyle("-fx-text-alignment: center;");
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(puntuarExperiencia, shadow);
+        animarBoton(realizarCritica, shadow);
+        animarBoton(realizarDenuncia, shadow);
 
     }
 
@@ -235,6 +252,22 @@ public class MisReservasController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(contextText);
         alert.showAndWait();
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
     }
 }
 

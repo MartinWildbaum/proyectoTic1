@@ -8,6 +8,7 @@ import com.example.primera_version.business.exceptions.PasswordNoCoinciden;
 import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +58,15 @@ public class AddTuristController implements Initializable {
 
     @FXML
     private ComboBox<String> myComboBoxPaises;
+
+    @FXML
+    private Button agregar;
+
+    @FXML
+    private Button cancelar;
+
+    @FXML
+    private Button seleccionarIntereses;
 
     @FXML
     void addTurist(ActionEvent event) {
@@ -137,6 +149,11 @@ public class AddTuristController implements Initializable {
         for (String nombrePais : paisMgr.getPaises()){
             myComboBoxPaises.getItems().add(nombrePais);
         }
+        DropShadow shadow = new DropShadow();
+        animarBoton(agregar, shadow);
+        animarBoton(cancelar, shadow);
+        animarBoton(seleccionarIntereses, shadow);
+
         }
 
     @FXML
@@ -150,5 +167,21 @@ public class AddTuristController implements Initializable {
 
     }
 
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
 
 }

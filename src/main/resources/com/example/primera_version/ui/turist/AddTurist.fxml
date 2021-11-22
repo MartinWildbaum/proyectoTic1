@@ -57,20 +57,20 @@
       <PasswordField fx:id="txtPassword1" alignment="CENTER" layoutX="373.0" layoutY="256.0" prefHeight="26.0" prefWidth="200.0" />
       <PasswordField fx:id="txtPassword2" alignment="CENTER" layoutX="373.0" layoutY="301.0" prefHeight="26.0" prefWidth="200.0" />
       <ComboBox fx:id="myComboBoxPaises" layoutX="373.0" layoutY="173.0" prefHeight="26.0" prefWidth="200.0" promptText="Seleccione un pais ... " />
-      <Button fx:id="btnAdd" layoutX="380.0" layoutY="438.0" mnemonicParsing="false" onAction="#addTurist" style="-fx-background-color: #000000;" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="agregar" layoutX="380.0" layoutY="438.0" mnemonicParsing="false" onAction="#addTurist" style="-fx-background-color: #000000;" text="Agregar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="24.0" />
          </font></Button>
-      <Button fx:id="btnClose" layoutX="486.0" layoutY="439.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #000000;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="cancelar" layoutX="486.0" layoutY="439.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #000000;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="24.0" />
          </font></Button>
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fotos/logo.png" />
+            <Image url="fotos/logo.png" />
          </image>
       </ImageView>
-      <Button alignment="TOP_CENTER" layoutX="374.0" layoutY="337.0" mnemonicParsing="false" onAction="#irASeleccionarIntereses" prefHeight="26.0" prefWidth="206.0" text="Seleccionar mis intereses" textAlignment="CENTER" underline="true">
+      <Button fx:id="seleccionarIntereses" alignment="TOP_CENTER" layoutX="374.0" layoutY="337.0" mnemonicParsing="false" onAction="#irASeleccionarIntereses" prefHeight="26.0" prefWidth="206.0" text="Seleccionar mis intereses" textAlignment="CENTER" underline="true">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>

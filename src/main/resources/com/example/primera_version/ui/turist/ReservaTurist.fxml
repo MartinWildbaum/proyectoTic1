@@ -12,7 +12,7 @@
 
 <AnchorPane style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.ReservaController">
    <children>
-      <Button layoutX="537.0" layoutY="620.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="76.0" prefWidth="366.0" style="-fx-background-color: #87CEEB;" text="Realizar Reserva" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="realizarRes" layoutX="537.0" layoutY="620.0" mnemonicParsing="false" onAction="#addReserva" prefHeight="76.0" prefWidth="366.0" style="-fx-background-color: #87CEEB;" text="Realizar Reserva" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="40.0" />
          </font></Button>
@@ -44,7 +44,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="197.0" text="TurisTIC" textFill="AQUA">
@@ -52,12 +52,12 @@
                   <Font name="Cambria Bold Italic" size="41.0" />
                </font>
             </Label>
-            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>

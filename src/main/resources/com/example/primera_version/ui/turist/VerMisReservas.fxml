@@ -30,7 +30,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="195.0" text="TurisTIC" textFill="AQUA">
@@ -38,17 +38,17 @@
                   <Font name="Cambria Bold Italic" size="41.0" />
                </font>
             </Label>
-            <Button layoutX="720.0" layoutY="34.0" mnemonicParsing="false" onAction="#volverAlPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al perfil" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="720.0" layoutY="34.0" mnemonicParsing="false" onAction="#volverAlPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al perfil" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="1164.0" layoutY="34.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="1164.0" layoutY="34.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="950.0" layoutY="34.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="230.0" style="-fx-background-color: #000000;" text="Volver al Menu" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="950.0" layoutY="34.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="230.0" style="-fx-background-color: #000000;" text="Volver al Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
@@ -57,20 +57,20 @@
       </AnchorPane>
       <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="192.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fotos/lupa.jpeg" />
+            <Image url="fotos/lupa.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="818.0" layoutY="723.0" mnemonicParsing="false" onAction="#realizarDenuncia" style="-fx-background-color: #87CEEB;" text="Realizar Denuncia" textAlignment="CENTER">
+      <Button fx:id="realizarDenuncia" layoutX="818.0" layoutY="723.0" mnemonicParsing="false" onAction="#realizarDenuncia" style="-fx-background-color: #87CEEB;" text="Realizar Denuncia" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1015.0" layoutY="725.0" mnemonicParsing="false" onAction="#realizarCritica" style="-fx-background-color: #87CEEB;" text="Realizar Critica" textAlignment="CENTER">
+      <Button fx:id="realizarCritica" layoutX="1015.0" layoutY="725.0" mnemonicParsing="false" onAction="#realizarCritica" style="-fx-background-color: #87CEEB;" text="Realizar Critica" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="570.0" layoutY="723.0" mnemonicParsing="false" onAction="#puntuarExperiencia" style="-fx-background-color: #87CEEB;" text="Puntuar Experiencia" textAlignment="CENTER">
+      <Button fx:id="puntuarExperiencia" layoutX="570.0" layoutY="723.0" mnemonicParsing="false" onAction="#puntuarExperiencia" style="-fx-background-color: #87CEEB;" text="Puntuar Experiencia" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>

@@ -18,14 +18,14 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="550.0" layoutY="522.0" mnemonicParsing="false" onAction="#volverAddExperience" prefHeight="20.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" text="Confirmar intereses y volver ">
+      <Button fx:id="confirmarIntereses" layoutX="550.0" layoutY="522.0" mnemonicParsing="false" onAction="#volverAddExperience" prefHeight="20.0" prefWidth="307.0" style="-fx-background-color: transparent;" text="Confirmar intereses y volver ">
          <font>
             <Font name="Cambria Bold Italic" size="20.0" />
          </font>
       </Button>
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fotos/logo.png" />
+            <Image url="fotos/logo.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="45.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses generales:" textAlignment="CENTER" wrappingWidth="182.13672637939453">
@@ -44,9 +44,9 @@
          </font>
       </Text>
       <CheckComboBox fx:id="seleccionadorInteresesGenerales" layoutX="289.0" layoutY="120.0" onMouseClicked="#ajustarInt" onMouseEntered="#ajustarInt" onMouseExited="#ajustarInt" prefHeight="28.0" prefWidth="285.0" title="Seleccionar intereses generales" />
-      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="300.0" layoutY="195.0" prefHeight="77.0" prefWidth="483.0" style="-fx-background-color: #D3D3D3; -fx-background: #D3D3D3; -fx-border-color: #D3D3D3;">
+      <ScrollPane fx:id="scrollInteresesGenerales" layoutX="300.0" layoutY="195.0" prefHeight="77.0" prefWidth="483.0" style="-fx-background-color: transparent; -fx-border-color: #D3D3D3;">
          <content>
-            <Text fx:id="interesesGeneralesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="478.1366882324219">
+            <Text fx:id="interesesGeneralesSeleccionados" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="478.1366882324219">
                <font>
                   <Font name="Cambria Bold Italic" size="17.0" />
                </font>
@@ -64,9 +64,9 @@
          </font>
       </Text>
       <CheckComboBox fx:id="seleccionadorInteresesParticulares" layoutX="348.0" layoutY="318.0" onMouseClicked="#ajustarInt" onMouseEntered="#ajustarInt" onMouseExited="#ajustarInt" prefHeight="28.0" prefWidth="285.0" title="Seleccionar intereses particulares" />
-      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="301.0" layoutY="389.0" prefHeight="77.0" prefWidth="483.0" style="-fx-background-color: #D3D3D3; -fx-background: #D3D3D3; -fx-border-color: #D3D3D3;">
+      <ScrollPane fx:id="scrollInteresesParticulares" layoutX="301.0" layoutY="389.0" prefHeight="77.0" prefWidth="483.0" style="-fx-background-color: transparent; -fx-border-color: #D3D3D3;">
          <content>
-            <Text fx:id="interesesParticularesSeleccionados" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="478.1366882324219">
+            <Text fx:id="interesesParticularesSeleccionados" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="478.1366882324219">
                <font>
                   <Font name="Cambria Bold Italic" size="17.0" />
                </font>

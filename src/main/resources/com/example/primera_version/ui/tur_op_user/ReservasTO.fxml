@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('fotos/fondoMenuTurist.png'); -fx-background-color: #D3D3D3; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.Reservas_Operador">
    <children>
-      <TableView fx:id="misReservas" editable="true" layoutX="25.0" layoutY="82.0" prefHeight="432.0" prefWidth="968.0">
+      <TableView fx:id="misReservas" editable="true" layoutX="25.0" layoutY="82.0" prefHeight="432.0" prefWidth="968.0" style="-fx-background-color: transparent;">
          <columns>
             <TableColumn fx:id="numeroReserva" editable="false" prefWidth="181.33334350585938" sortable="false" text="Número de Reserva" />
             <TableColumn fx:id="fechayhoraReserva" editable="false" minWidth="0.0" prefWidth="73.66665649414062" sortable="false" text="Fecha " />
@@ -19,17 +19,17 @@
             <TableColumn fx:id="estadoReserva" prefWidth="222.6666259765625" text="Estado" />
          </columns>
       </TableView>
-      <Button layoutX="478.0" layoutY="550.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
+      <Button fx:id="volverMenu" layoutX="478.0" layoutY="550.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: transparent;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="613.0" layoutY="550.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button fx:id="cerrarSesion" layoutX="613.0" layoutY="550.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: transparent;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="286.0" layoutY="551.0" mnemonicParsing="false" onAction="#volverAMisExperiencias" style="-fx-background-color: #ffffff;" text="Volver a mis experiencias" textAlignment="CENTER">
+      <Button fx:id="volverExperiencias" layoutX="286.0" layoutY="551.0" mnemonicParsing="false" onAction="#volverAMisExperiencias" style="-fx-background-color: transparent;" text="Volver a mis experiencias" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>

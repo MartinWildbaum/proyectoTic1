@@ -13,28 +13,40 @@ import com.example.primera_version.business.exceptions.UserAlreadyExists;
 import com.example.primera_version.ui.Principal;
 import com.example.primera_version.ui.turist.SeleccionadorInicialInteresesController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.ResourceBundle;
 
 @Component
-public class AgregarFuncionarioOperadorController {
+public class AgregarFuncionarioOperadorController implements Initializable {
 
     @Autowired
     private  Principal principal;
 
     @Autowired
     private TurOpUsersMgr turOpUsersMgr;
+
+    @FXML
+    private Button agregar;
+
+    @FXML
+    private Button cancelar;
 
     @FXML
     private TextField txtMail;
@@ -120,5 +132,31 @@ public class AgregarFuncionarioOperadorController {
         alert.setHeaderText(null);
         alert.setContentText(contextText);
         alert.showAndWait();
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(agregar, shadow);
+        animarBoton(cancelar, shadow);
+
+
     }
 }

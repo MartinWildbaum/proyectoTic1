@@ -7,17 +7,17 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3; -fx-background-image: url('fotos/fondoMenuTurist.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.tur_op_user.MenuOperatorsUsersController">
    <children>
-      <Button layoutX="240.0" layoutY="280.0" mnemonicParsing="false" onAction="#verMisExperiencias" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" text="Ver experiencias de la empresa">
+      <Button fx:id="experienciasEmpresa" layoutX="240.0" layoutY="280.0" mnemonicParsing="false" onAction="#verMisExperiencias" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Ver experiencias de la empresa">
          <font>
             <Font name="Cambria Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="532.0" layoutY="280.0" mnemonicParsing="false" onAction="#agregarUnaExperiencia" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" text="Agregar una nueva experiencia">
+      <Button fx:id="nuevaExperiencia" layoutX="532.0" layoutY="280.0" mnemonicParsing="false" onAction="#agregarUnaExperiencia" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Agregar una nueva experiencia">
          <font>
             <Font name="Cambria Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="16.0" layoutY="21.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button fx:id="cerrarSesion" layoutX="16.0" layoutY="21.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: transpent;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>

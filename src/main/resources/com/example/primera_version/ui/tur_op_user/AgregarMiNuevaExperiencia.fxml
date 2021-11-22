@@ -45,7 +45,7 @@
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="367.0" layoutY="484.0" mnemonicParsing="false" onAction="#agregarExperiencia" prefHeight="38.0" prefWidth="286.0" style="-fx-background-color: #ffffff;" text="Agregar expereincia">
+      <Button fx:id="agregarExperiencia" layoutX="367.0" layoutY="484.0" mnemonicParsing="false" onAction="#agregarExperiencia" prefHeight="38.0" prefWidth="286.0" style="-fx-background-color: transparent;" text="Agregar expereincia">
          <font>
             <Font name="Cambria Italic" size="22.0" />
          </font></Button>
@@ -72,21 +72,21 @@
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="430.0" layoutY="354.0" mnemonicParsing="false" onAction="#addImagen" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #ffffff;" text="Añadir nueva imagen">
+      <Button fx:id="anadirImagenes" layoutX="430.0" layoutY="354.0" mnemonicParsing="false" onAction="#addImagen" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: transparent;" text="Añadir nueva imagen">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font></Button>
-      <Button layoutX="21.0" layoutY="28.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
+      <Button fx:id="volverMenu" layoutX="21.0" layoutY="28.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="19.0" layoutY="82.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button fx:id="cerrarSesion" layoutX="19.0" layoutY="82.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: transparent;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button alignment="TOP_CENTER" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" onAction="#seleccionarInteresesExperiencia" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #ffffff;" text="Seleccionar intereses asociados" textAlignment="CENTER">
+      <Button fx:id="seleccionarIntereses" alignment="TOP_CENTER" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" onAction="#seleccionarInteresesExperiencia" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: transparent;" text="Seleccionar intereses asociados" textAlignment="CENTER">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>
@@ -96,7 +96,7 @@
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="434.0" layoutY="413.0" mnemonicParsing="false" onAction="#addImagenDePortada" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #ffffff;" text="Anadir imagen portada">
+      <Button fx:id="anadirPortada" layoutX="434.0" layoutY="413.0" mnemonicParsing="false" onAction="#addImagenDePortada" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: transparent;" text="Anadir imagen portada">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>

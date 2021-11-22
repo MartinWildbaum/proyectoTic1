@@ -41,7 +41,7 @@
             <Font name="Cambria" size="38.0" />
          </font>
       </Text>
-      <Button layoutX="552.0" layoutY="672.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="70.0" prefWidth="360.0" style="-fx-background-color: #87CEEB;" text="Realizar reserva" textFill="WHITE">
+      <Button fx:id="realizarReserva" layoutX="552.0" layoutY="672.0" mnemonicParsing="false" onAction="#realizarReserva" prefHeight="70.0" prefWidth="360.0" style="-fx-background-color: #87CEEB;" text="Realizar reserva" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="37.0" />
          </font>
@@ -50,7 +50,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefWidth="215.0" text="TurisTIC" textFill="AQUA">
@@ -58,17 +58,17 @@
                   <Font name="System Bold Italic" size="41.0" />
                </font>
             </Label>
-            <Button layoutX="760.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="760.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="957.0" layoutY="32.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="60.0" prefWidth="230.0" style="-fx-background-color: #000000;" text="Volver al menu" textFill="WHITE">
+            <Button layoutX="957.0" layoutY="32.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="60.0" prefWidth="230.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>

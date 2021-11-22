@@ -53,18 +53,7 @@ public class MostrarExperienciasDinamicoController {
         efectoFotos(imagenExperiencia);
         buttonExperiencia.setText(experiencia.getTituloExperiencia());
         DropShadow shadow = new DropShadow();
-        buttonExperiencia.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                buttonExperiencia.setEffect(shadow);
-            }
-        });
-        buttonExperiencia.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                buttonExperiencia.setEffect(null);
-            }
-        });
+        animarBoton(buttonExperiencia, shadow);
 
     }
 
@@ -95,6 +84,22 @@ public class MostrarExperienciasDinamicoController {
         });
         imagenxp.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
             imagenxp.setEffect(null);
+        });
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
         });
     }
 }

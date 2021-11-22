@@ -136,28 +136,22 @@ public class Principal implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         DropShadow shadow = new DropShadow();
-        iniciarSesionButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+        animarBoton(iniciarSesionButton, shadow);
+        animarBoton(registrarseButton, shadow);
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                iniciarSesionButton.setEffect(shadow);
+                boton.setEffect(dropShadow);
             }
         });
-        iniciarSesionButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                iniciarSesionButton.setEffect(null);
-            }
-        });
-        registrarseButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                registrarseButton.setEffect(shadow);
-            }
-        });
-        registrarseButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                registrarseButton.setEffect(null);
+                boton.setEffect(null);
             }
         });
     }

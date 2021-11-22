@@ -12,6 +12,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +22,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -37,7 +40,13 @@ import java.util.*;
 public class Reservas_Operador implements Initializable {
 
     @FXML
-    private TextField campoBusqueda;
+    private Button volverMenu;
+
+    @FXML
+    private Button cerrarSesion;
+
+    @FXML
+    private Button volverExperiencias;
 
     @FXML
     private DatePicker fechaReserva;
@@ -174,6 +183,12 @@ public class Reservas_Operador implements Initializable {
         misReservas.getSortOrder().add(fechayhoraReserva);
         misReservas.sort();
 
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(volverMenu, shadow);
+        animarBoton(cerrarSesion, shadow);
+        animarBoton(volverExperiencias, shadow);;
+
     }
 
     @FXML
@@ -191,5 +206,21 @@ public class Reservas_Operador implements Initializable {
             misReservas.sort();
         }
 
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
     }
 }

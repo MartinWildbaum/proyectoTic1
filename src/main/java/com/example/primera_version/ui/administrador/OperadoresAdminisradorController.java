@@ -2,7 +2,6 @@ package com.example.primera_version.ui.administrador;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.TurOpMgr;
-import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.ui.Principal;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -11,6 +10,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +21,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -46,6 +48,15 @@ public class OperadoresAdminisradorController implements Initializable{
 
     @FXML
     private TextField campoBusqueda;
+
+    @FXML
+    private Button volverMenu;
+
+    @FXML
+    private Button cerrarSesion;
+
+    @FXML
+    private Button agregarOperador;
 
     @FXML
     private TableView<OperadorTuristico> operadoresExpuestos;
@@ -138,7 +149,7 @@ public class OperadoresAdminisradorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
 
-        //operadoresExpuestos.setEditable(true);
+        operadoresExpuestos.setEditable(true);
         List<OperadorTuristico> query = (List<OperadorTuristico>) turOpMgr.encontrarTodos();
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
@@ -196,6 +207,11 @@ public class OperadoresAdminisradorController implements Initializable{
         idOperadorTuristico.setSortType(SortType.DESCENDING);
         operadoresExpuestos.getSortOrder().add(idOperadorTuristico);
         operadoresExpuestos.sort();
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(cerrarSesion, shadow);
+        animarBoton(volverMenu, shadow);
+        animarBoton(agregarOperador, shadow);
 
     }
 
@@ -296,4 +312,20 @@ public class OperadoresAdminisradorController implements Initializable{
 
     }
 */
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
 }

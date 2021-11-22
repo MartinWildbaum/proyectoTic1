@@ -5,12 +5,16 @@ import com.example.primera_version.business.entities.Experiencia;
 import com.example.primera_version.business.entities.Imagen;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -46,6 +50,9 @@ public class ExperienciaTemplate implements Initializable {
 
     @FXML
     private GridPane templateFotos;
+
+    @FXML
+    private Button realizarReserva;
 
     @Autowired
     private ExperienceMgr experienceMgr;
@@ -155,6 +162,8 @@ public class ExperienciaTemplate implements Initializable {
             templateFotos.add(anchorPane,columns++,row);
         }
 
+        DropShadow shadow = new DropShadow();
+        animarBoton(realizarReserva, shadow);
         }
 
 
@@ -181,6 +190,20 @@ public class ExperienciaTemplate implements Initializable {
         }
 */
 
+    private void animarBoton(Button boton, DropShadow dropShadow){
 
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
 
 }

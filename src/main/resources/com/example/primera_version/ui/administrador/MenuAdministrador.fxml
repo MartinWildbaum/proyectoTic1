@@ -17,7 +17,7 @@
             <Font name="Cambria Bold Italic" size="19.0" />
          </font>
       </Button>
-      <Button layoutX="781.0" layoutY="525.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button fx:id="cerrarSession" layoutX="781.0" layoutY="525.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="19.0" />
          </font>

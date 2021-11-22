@@ -7,15 +7,15 @@ import com.example.primera_version.business.exceptions.InvalidUserInformation;
 import com.example.primera_version.business.exceptions.ReservaNoDisponible;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +40,9 @@ public class ReservaController implements Initializable {
 
     @FXML
     private DatePicker fechaReserva;
+
+    @FXML
+    private Button realizarRes;
 
     @Autowired
     private Principal principal;
@@ -127,6 +130,9 @@ public class ReservaController implements Initializable {
             txtTipoDeDocumento.getSelectionModel().select(turist.getTipoDocumento());
             txtNumeroDeDocumento.setText(turist.getValorDocumento());
         }
+        DropShadow shadow = new DropShadow();
+        animarBoton(realizarRes, shadow);
+
     }
 
     private void showAlert(String title, String contextText) {
@@ -159,6 +165,22 @@ public class ReservaController implements Initializable {
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
     }
 
 }

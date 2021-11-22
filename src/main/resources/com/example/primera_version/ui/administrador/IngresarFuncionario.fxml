@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.AgregarFuncionarioOperadorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.AgregarFuncionarioOperadorController">
    <children>
       <Label layoutX="233.0" layoutY="210.0" text="Contraseña" textFill="WHITE">
          <font>
@@ -26,7 +26,7 @@
       <Label layoutX="316.0" layoutY="254.0" textFill="WHITE" />
       <Label layoutX="91.0" layoutY="52.0" text="Registro funcionario de operador turistico" textFill="WHITE">
          <font>
-            <Font name="Cambria Italic" size="32.0" />
+            <Font name="Cambria Bold Italic" size="32.0" />
          </font>
       </Label>
       <Label layoutX="867.0" layoutY="194.0" text="TurisTIC" textFill="AQUA">
@@ -46,17 +46,17 @@
          <font>
             <Font name="Cambria Bold Italic" size="12.0" />
          </font></PasswordField>
-      <Button fx:id="btnAdd" layoutX="324.0" layoutY="397.0" mnemonicParsing="false" onAction="#addUserTO" style="-fx-background-color: #000000;" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="agregar" layoutX="324.0" layoutY="397.0" mnemonicParsing="false" onAction="#addUserTO" style="-fx-background-color: #D3D3D3;" text="Agregar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font></Button>
-      <Button fx:id="btnClose" layoutX="449.0" layoutY="397.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #000000;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="cancelar" layoutX="449.0" layoutY="397.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #D3D3D3;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Cambria Bold Italic" size="18.0" />
          </font></Button>
       <ImageView fitHeight="157.0" fitWidth="150.0" layoutX="834.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fotos/logo.png" />
+            <Image url="fotos/logo.png" />
          </image>
       </ImageView>
       <Label layoutX="51.0" layoutY="301.0" text="Razon social del operador turistico" textFill="WHITE">

@@ -8,10 +8,13 @@ import com.example.primera_version.business.entities.InteresParticular;
 import com.example.primera_version.ui.Principal;
 import com.example.primera_version.ui.turist.AddTuristController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -30,6 +33,9 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
 
     @Autowired
     private InteresMgr interesMgr;
+
+    @FXML
+    private Button confirmarIntereses;
 
     @FXML
     public CheckComboBox<Interes> seleccionadorInteresesGenerales;
@@ -63,6 +69,9 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
         for (InteresGeneral interesGeneral : interesMgr.getIntereseGenerales()) {
             seleccionadorInteresesGenerales.getItems().add(interesGeneral);
         }
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(confirmarIntereses, shadow);
     }
 
     @FXML
@@ -104,12 +113,27 @@ public class SeleccionadorInteresesExperiencia implements Initializable {
 
     }
 
-
     @FXML
     public void volverAddExperience(ActionEvent actionEvent) throws IOException {
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
 
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
     }
 }

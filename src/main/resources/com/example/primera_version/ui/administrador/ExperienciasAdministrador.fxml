@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #000000; -fx-background-image: url('fotos/fotoAdmin.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.ExperienciasAdministratorController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.ExperienciasAdministratorController">
    <children>
       <TableView fx:id="experienciasExpuestas" layoutX="14.0" layoutY="65.0" prefHeight="375.0" prefWidth="965.0">
         <columns>
@@ -22,12 +22,12 @@
         </columns>
       </TableView>
       <TextField fx:id="campoBusqueda" layoutX="14.0" layoutY="24.0" onAction="#busquedaDinamica" onKeyTyped="#busquedaDinamica" prefHeight="31.0" prefWidth="255.0" promptText="Buscar experiencia por titulo..." />
-      <Button layoutX="334.0" layoutY="523.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #ffffff;" text="Volver al menu" textAlignment="CENTER">
+      <Button fx:id="volverMenu" layoutX="334.0" layoutY="523.0" mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: #D3D3D3;" text="Volver al menu" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="467.0" layoutY="523.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar Sesión" textAlignment="CENTER">
+      <Button fx:id="cerrarSesion" layoutX="467.0" layoutY="523.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #D3D3D3;" text="Cerrar Sesión" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font>

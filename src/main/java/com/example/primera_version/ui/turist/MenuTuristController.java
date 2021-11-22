@@ -55,6 +55,12 @@ public class MenuTuristController implements Initializable {
     private Button boton5;
 
     @FXML
+    private Button miPerfil;
+
+    @FXML
+    private Button cerrarSesion;
+
+    @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -96,66 +102,14 @@ public class MenuTuristController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DropShadow shadow = new DropShadow();
-        boton1.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton1.setEffect(shadow);
-            }
-        });
-        boton1.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton1.setEffect(null);
-            }
-        });
-        boton2.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton2.setEffect(shadow);
-            }
-        });
-        boton2.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton2.setEffect(null);
-            }
-        });
-        boton3.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton3.setEffect(shadow);
-            }
-        });
-        boton3.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton3.setEffect(null);
-            }
-        });
-        boton4.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton4.setEffect(shadow);
-            }
-        });
-        boton4.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton4.setEffect(null);
-            }
-        });
-        boton5.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton5.setEffect(shadow);
-            }
-        });
-        boton5.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                boton5.setEffect(null);
-            }
-        });
+        animarBoton(boton1, shadow);
+        animarBoton(boton2, shadow);
+        animarBoton(boton3, shadow);
+        animarBoton(boton4, shadow);
+        animarBoton(boton5, shadow);
+        animarBoton(miPerfil, shadow);
+        animarBoton(cerrarSesion, shadow);
+
     }
 
 
@@ -185,4 +139,20 @@ public class MenuTuristController implements Initializable {
 //            e.printStackTrace();
 //        }
 //    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
 }

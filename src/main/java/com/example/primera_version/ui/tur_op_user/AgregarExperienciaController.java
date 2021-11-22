@@ -16,6 +16,7 @@ import com.example.primera_version.ui.Principal;
 
 import com.example.primera_version.ui.turist.SeleccionadorInicialInteresesController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -61,6 +64,24 @@ public class AgregarExperienciaController implements Initializable {
 
     @Autowired
     private SeleccionadorInteresesExperiencia seleccionadorInteresesExperiencia;
+
+    @FXML
+    private Button agregarExperiencia;
+
+    @FXML
+    private Button volverMenu;
+
+    @FXML
+    private Button cerrarSesion;
+
+    @FXML
+    private Button seleccionarIntereses;
+
+    @FXML
+    private Button anadirImagenes;
+
+    @FXML
+    private Button anadirPortada;
 
     @FXML
     private TextField txtTitulo;
@@ -121,6 +142,14 @@ public class AgregarExperienciaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser = new FileChooser();
 
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(volverMenu, shadow);
+        animarBoton(cerrarSesion, shadow);
+        animarBoton(agregarExperiencia, shadow);
+        animarBoton(anadirPortada, shadow);
+        animarBoton(anadirImagenes, shadow);
+        animarBoton(seleccionarIntereses, shadow);
     }
 
     @FXML
@@ -177,6 +206,14 @@ public class AgregarExperienciaController implements Initializable {
                     "Por favor, revise los datos ingresados"
             );
         }
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(volverMenu, shadow);
+        animarBoton(cerrarSesion, shadow);
+        animarBoton(agregarExperiencia, shadow);
+        animarBoton(seleccionarIntereses, shadow);
+        animarBoton(anadirImagenes, shadow);
+        animarBoton(anadirPortada, shadow);
     }
 
     @FXML
@@ -235,5 +272,24 @@ public class AgregarExperienciaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
+    }
+
+
+
 }
 

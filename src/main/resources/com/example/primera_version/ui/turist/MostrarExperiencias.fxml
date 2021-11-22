@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="59.0" prefWidth="223.0" text="TurisTIC" textFill="AQUA">
@@ -24,19 +24,19 @@
                   <Font name="System Bold Italic" size="41.0" />
                </font>
             </Label>
-            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="909.0" layoutY="36.0" mnemonicParsing="false" onAction="#visitarTuPerfil" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Mi Perfil" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
-            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="1164.0" layoutY="36.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="224.0" style="-fx-background-color: #000000;" text="Cerrar Sesión" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>
             </Button>
             <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="908.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/fotoPerfil.png" />
+                  <Image url="fotos/fotoPerfil.png" />
                </image>
             </ImageView>
          </children>
