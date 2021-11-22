@@ -91,8 +91,8 @@ public class ReservaMgr {
         return (ArrayList<Reserva>) reservationRepository.findAll();
     }
 
-    public ArrayList<Reserva> encontrarNumeroReserva(Long numero){
-        ArrayList<Reserva> listaReservas = (ArrayList<Reserva>) reservationRepository.findAllByNumeroReservaContaining(numero);
+    public Reserva encontrarNumeroReserva(Long numero){
+        Reserva listaReservas = reservationRepository.findOneByNumeroReserva(numero);
         return listaReservas;
     }
 

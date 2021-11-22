@@ -60,9 +60,9 @@
             <Font name="Cambria" size="29.0" />
          </font>
       </TextField>
-      <Button fx:id="bottonConfirmar" alignment="CENTER" layoutX="598.0" layoutY="545.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
+      <Button fx:id="bottonConfirmar" alignment="CENTER" layoutX="598.0" layoutY="545.0" mnemonicParsing="false" onAction="#confirmarReserva" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
          <font>
-            <Font name="Cambria Italic" size="23.0" />
+            <Font name="Cambria Italic" size="35.0" />
          </font>
       </Button>
    </children>
