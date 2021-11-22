@@ -24,6 +24,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -187,39 +189,33 @@ public class MisReservasController implements Initializable {
                     "No puede realizar la denuncia !",
                     "Solo es posible realizar denuncias de experiencias luego de asistir a estas.");
         }
-/*
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(AgregarExperienciaController.class.getResourceAsStream(".fxml"));
+        AnchorPane root = fxmlLoader.load(DenunciaController.class.getResourceAsStream("RealizarDenuncia.fxml"));
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-*/
     }
 
     @FXML
     void realizarCritica(ActionEvent actionEvent) throws Exception{
 
-        if(misReservas.getSelectionModel().getSelectedItem().getFecha().isAfter(LocalDate.now())){
+        if(misReservas.getSelectionModel().getSelectedItem().getFecha().isAfter(LocalDate.now()) && !misReservas.getSelectionModel().getSelectedItem().getFecha().isEqual(LocalDate.now())){
             showAlert(
                     "No puede realizar la critica !",
                     "Solo es posible realizar criticas de experiencias luego de asistir a estas.");
         }
-        /*
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(AgregarExperienciaController.class.getResourceAsStream(".fxml"));
-        //principal.setearAnchorPane(root);
+        AnchorPane root = fxmlLoader.load(CriticaController.class.getResourceAsStream("RealizarCritica.fxml"));
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
-
-         */
-
     }
 
 
@@ -231,20 +227,18 @@ public class MisReservasController implements Initializable {
                     "No puede puntuar la experiencia !",
                     "Solo es posible puntuar experiencias luego de asistir a estas.");
         }
-        /*
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(AgregarExperienciaController.class.getResourceAsStream(".fxml"));
-        //principal.setearAnchorPane(root);
+        AnchorPane root = fxmlLoader.load(PuntuarExperienciaController.class.getResourceAsStream("PuntuarExperiencia.fxml"));
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
         stage.setScene(new Scene(root));
         stage.show();
 
-         */
+        }
 
-    }
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -268,6 +262,14 @@ public class MisReservasController implements Initializable {
                 boton.setEffect(null);
             }
         });
+    }
+
+    public TableColumn<Reserva, String> getTituloExperiencia() {
+        return tituloExperiencia;
+    }
+
+    public TableView<Reserva> getMisReservas() {
+        return misReservas;
     }
 }
 

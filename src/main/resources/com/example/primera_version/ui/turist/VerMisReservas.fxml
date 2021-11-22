@@ -30,7 +30,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fotos/logo.png" />
+                  <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="195.0" text="TurisTIC" textFill="AQUA">
@@ -57,7 +57,7 @@
       </AnchorPane>
       <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="192.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="fotos/lupa.jpeg" />
+            <Image url="@fotos/lupa.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="realizarDenuncia" layoutX="818.0" layoutY="723.0" mnemonicParsing="false" onAction="#realizarDenuncia" style="-fx-background-color: #87CEEB;" text="Realizar Denuncia" textAlignment="CENTER">
