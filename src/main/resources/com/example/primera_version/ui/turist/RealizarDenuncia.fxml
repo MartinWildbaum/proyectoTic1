@@ -42,26 +42,32 @@
       </AnchorPane>
       <Label layoutX="320.0" layoutY="375.0" prefHeight="37.0" prefWidth="314.0" text="Motivo de la denuncia" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="Cambria" size="30.0" />
          </font>
       </Label>
       <Label layoutX="273.0" layoutY="476.0" text="Descrpicion de la denucia" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="Cambria" size="30.0" />
          </font>
       </Label>
       <Label layoutX="330.0" layoutY="275.0" prefHeight="37.0" prefWidth="276.0" text="Titulo Experiencia" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="Cambria" size="30.0" />
          </font>
       </Label>
       <Text fx:id="tituloExperienciaDenuncia" fill="WHITE" layoutX="668.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="223.8837890625">
          <font>
-            <Font size="30.0" />
+            <Font name="Cambria Bold Italic" size="30.0" />
          </font>
       </Text>
-      <TextField fx:id="motivoDeLaDenuncia" layoutX="661.0" layoutY="378.0" prefHeight="42.0" prefWidth="326.0" style="-fx-background-color: #87CEEB #87CEEB;" />
-      <TextField fx:id="descrpicionDenuncia" layoutX="664.0" layoutY="470.0" prefHeight="42.0" prefWidth="326.0" style="-fx-background-color: #87CEEB #87CEEB;" />
+      <TextField fx:id="motivoDeLaDenuncia" layoutX="661.0" layoutY="378.0" prefHeight="42.0" prefWidth="326.0" promptText="Escriba el motivo de la denuncia" style="-fx-background-color: #87CEEB #87CEEB;">
+         <font>
+            <Font name="Cambria Bold Italic" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="descrpicionDenuncia" layoutX="664.0" layoutY="470.0" prefHeight="42.0" prefWidth="326.0" promptText="Escriba la descripcion de la denuncia" style="-fx-background-color: #87CEEB #87CEEB;">
+         <font>
+            <Font name="Cambria Bold Italic" size="14.0" />
+         </font></TextField>
       <Button fx:id="bottonConfirmar" alignment="CENTER" layoutX="608.0" layoutY="555.0" mnemonicParsing="false" onAction="#confirmarDenuncia" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
          <font>
             <Font name="Cambria Italic" size="35.0" />

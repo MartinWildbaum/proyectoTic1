@@ -42,25 +42,25 @@
       </AnchorPane>
       <Label layoutX="330.0" layoutY="260.0" text="Titulo Experiencia:" textFill="WHITE">
          <font>
-            <Font name="Cambria" size="32.0" />
+            <Font name="Cambria Bold Italic" size="32.0" />
          </font>
       </Label>
       <Label layoutX="481.0" layoutY="400.0" text="Critica:" textFill="WHITE">
          <font>
-            <Font name="Cambria" size="32.0" />
+            <Font name="Cambria Bold Italic" size="32.0" />
          </font>
       </Label>
-      <Text fx:id="titExpe" fill="WHITE" layoutX="624.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="332.875">
+      <Text fx:id="titExpe" fill="WHITE" layoutX="645.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="332.875">
          <font>
             <Font name="Cambria" size="32.0" />
          </font>
       </Text>
       <TextField fx:id="criticaExperiencia" layoutX="631.0" layoutY="381.0" prefHeight="80.0" prefWidth="406.0" promptText="Cuentanos tu experiencia..." style="-fx-background-color: #87CEEB;">
          <font>
-            <Font name="Cambria" size="29.0" />
+            <Font name="Cambria Italic" size="29.0" />
          </font>
       </TextField>
-      <Button alignment="CENTER" layoutX="598.0" layoutY="545.0" mnemonicParsing="false" onAction="#confirmarReserva" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
+      <Button fx:id="bottonConfirmar" alignment="CENTER" layoutX="598.0" layoutY="545.0" mnemonicParsing="false" onAction="#confirmarReserva" prefHeight="110.0" prefWidth="224.0" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
          <font>
             <Font name="Cambria Italic" size="35.0" />
          </font>

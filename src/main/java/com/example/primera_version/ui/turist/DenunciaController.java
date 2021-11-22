@@ -2,7 +2,10 @@ package com.example.primera_version.ui.turist;
 
 import com.example.primera_version.Main;
 import com.example.primera_version.business.CriticaMgr;
+import com.example.primera_version.business.DenunciaMgr;
+import com.example.primera_version.business.ReservaMgr;
 import com.example.primera_version.business.entities.Reserva;
+import com.example.primera_version.business.exceptions.InavlidClasificacionInformation;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,8 +41,11 @@ public class DenunciaController implements Initializable {
     @FXML
     private TextField descrpicionDenuncia;
 
-    @FXML
-    private CriticaMgr criticaMgr;
+    @Autowired
+    private DenunciaMgr denunciaMgr;
+
+    @Autowired
+    private ReservaMgr reservaMgr;
 
     @FXML
     private Button bottonConfirmar;
@@ -111,12 +117,36 @@ public class DenunciaController implements Initializable {
         }
 
 
-        String motivo = motivoDeLaDenuncia.getText();
-        String descrpicio=descrpicionDenuncia.getText();
+        if (motivoDeLaDenuncia.getText() == null || motivoDeLaDenuncia.getText().isBlank() || descrpicionDenuncia.getText() == null || descrpicionDenuncia.getText().isBlank()) {
+            showAlert(
+                    "Error en los datos!",
+                    "Por favor ingrese los datos correctamente.");
+            motivoDeLaDenuncia.setText(null);
+            descrpicionDenuncia.setText(null);
+
+        }else{
+
+            String motivo = motivoDeLaDenuncia.getText();
+            String descrpicion = descrpicionDenuncia.getText();
+
+            Reserva reserva = reservaMgr.encontrarNumeroReserva(misReservasController.getMisReservas().getSelectionModel().getSelectedItem().getNumeroReserva());
 
 
+            try {
+                denunciaMgr.addDenuncia(motivo, descrpicion, reserva);
+                showAlert("Critica agregada", "Se creo con exito!");
+                close(event);
 
+            } catch (InavlidClasificacionInformation | IOException inavlidClasificacionInformation) {
+                showAlert(
+                        "Informacion invalida !",
+                        "Se encontro un error en los datos ingresados o ya hay una critica para esta reserva.");
+
+            }
+        }
     }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -139,7 +169,7 @@ public class DenunciaController implements Initializable {
     void close(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(Reserva.class.getResourceAsStream("ReservaTurist.fxml"));
+        AnchorPane root = fxmlLoader.load(MisReservasController.class.getResourceAsStream("VerMisReservas.fxml"));
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

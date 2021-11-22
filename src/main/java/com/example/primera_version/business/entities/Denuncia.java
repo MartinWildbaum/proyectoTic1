@@ -7,9 +7,12 @@ import java.time.LocalDateTime;
 public class Denuncia {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_denuncia")
     private Long idDenuncia;
+
+    @Column(name = "motivo_denuncia", nullable = false)
+    private String motivoDenuncia;
 
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
@@ -62,4 +65,12 @@ public class Denuncia {
     public void setReserva(Reserva reserva) {
     this.reserva = reserva;
     }
+
+    public String getMotivoDenuncia() {
+        return motivoDenuncia;
     }
+
+    public void setMotivoDenuncia(String motivoDenuncia) {
+        this.motivoDenuncia = motivoDenuncia;
+    }
+}

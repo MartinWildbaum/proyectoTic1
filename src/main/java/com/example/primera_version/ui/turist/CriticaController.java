@@ -4,6 +4,9 @@ import com.example.primera_version.Main;
 import com.example.primera_version.business.CriticaMgr;
 import com.example.primera_version.business.ReservaMgr;
 import com.example.primera_version.business.entities.Reserva;
+import com.example.primera_version.business.exceptions.InavlidClasificacionInformation;
+import com.example.primera_version.business.exceptions.InvalidUserInformation;
+import com.example.primera_version.business.exceptions.ReservaNoDisponible;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,7 +50,7 @@ public class CriticaController implements Initializable {
     @FXML
     private Button bottonConfirmar;
 
-    @FXML
+    @Autowired
     private CriticaMgr criticaMgr;
 
 
@@ -122,22 +125,30 @@ public class CriticaController implements Initializable {
                     "Error en los datos!",
                     "Por favor ingrese los datos correctamente.");
 
+            criticaExperiencia.setText(null);
+
+        }else{
+            String criticaTexto = criticaExperiencia.getText();
+            Reserva reserva = reservaMgr.encontrarNumeroReserva(misReservasController.getMisReservas().getSelectionModel().getSelectedItem().getNumeroReserva());
+
+
+            try {
+                criticaMgr.addCritica(criticaTexto, reserva);
+                showAlert("Critica agregada", "Se creo con exito!");
+                close(event);
+
+            } catch (InavlidClasificacionInformation inavlidClasificacionInformation) {
+                showAlert(
+                        "Informacion invalida !",
+                        "Se encontro un error en los datos ingresados o ya hay una critica para esta reserva.");
+
+            }
+        }
         }
 
-        String criticaTexto = criticaExperiencia.getText();
-        Reserva reserva = reservaMgr.encontrarNumeroReserva(misReservasController.getMisReservas().getSelectionModel().getSelectedItem().getNumeroReserva());
-
-        criticaMgr.addCritica(criticaTexto, reserva);
-        showAlert("Critica agregada", "Se creo con exito!");
-        close(event);
 
 
 
-
-
-
-
-    }
 
 
     private void showAlert(String title, String contextText) {
@@ -152,7 +163,7 @@ public class CriticaController implements Initializable {
     void close(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        AnchorPane root = fxmlLoader.load(Reserva.class.getResourceAsStream("ReservaTurist.fxml"));
+        AnchorPane root = fxmlLoader.load(MisReservasController.class.getResourceAsStream("VerMisReservas.fxml"));
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

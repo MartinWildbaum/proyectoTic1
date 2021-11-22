@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -33,10 +34,14 @@ public class MostrarExperiencias implements Initializable  {
     private TuristMgr turistMgr;
 
     @Autowired
+    private MostrarExperienciasDinamicoController mostrarExperienciasDinamicoController;
+
+    @Autowired
     private Principal principal;
 
     @FXML
     private GridPane experienciaGrid;
+
 
     @FXML
     private ScrollPane scrollExperiencias;
@@ -74,6 +79,7 @@ public class MostrarExperiencias implements Initializable  {
         scrollExperiencias.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollExperiencias.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
+
         // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
         Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.getUsername().getText()));
         int numExpAMostrar = experienciasRecomendadas.size();
@@ -97,6 +103,8 @@ public class MostrarExperiencias implements Initializable  {
         }catch (IOException e){
             e.printStackTrace();
         }
+
+
     }
 
 }
