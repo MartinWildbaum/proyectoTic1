@@ -2,8 +2,10 @@ package com.example.primera_version.persistence;
 
 import com.example.primera_version.business.ExperienceMgr;
 import com.example.primera_version.business.entities.Experiencia;
+import com.example.primera_version.business.entities.Interes;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import net.bytebuddy.agent.builder.AgentBuilder;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +27,8 @@ public interface ExperienceRepository extends CrudRepository<Experiencia, Long> 
 
     List<Experiencia> findAllByOperadorTuristico(OperadorTuristico operadorTuristico);
 
+    @Query("select e from Experiencia e left join e.intereses intereses where intereses.nombre = ?1")
+    List<Experiencia> findByInteresesNombre(String nombre);
 
 
 }

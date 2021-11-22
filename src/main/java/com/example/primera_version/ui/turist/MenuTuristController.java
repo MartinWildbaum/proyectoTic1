@@ -60,6 +60,10 @@ public class MenuTuristController implements Initializable {
     @FXML
     private Button cerrarSesion;
 
+
+    private Button apretado;
+
+
     @FXML
     void visitarTuPerfil(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -91,6 +95,7 @@ public class MenuTuristController implements Initializable {
     void bottonMisExperiencias(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        apretado = (Button) event.getSource();
         AnchorPane root = fxmlLoader.load(MostrarExperiencias.class.getResourceAsStream("MostrarExperiencias.fxml"));
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
@@ -154,5 +159,9 @@ public class MenuTuristController implements Initializable {
                 boton.setEffect(null);
             }
         });
+    }
+
+    public Button getApretado() {
+        return apretado;
     }
 }

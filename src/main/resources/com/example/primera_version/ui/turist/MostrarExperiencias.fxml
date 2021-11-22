@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="59.0" prefWidth="223.0" text="TurisTIC" textFill="AQUA">
@@ -37,9 +37,14 @@
             </Button>
             <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="908.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/fotoPerfil.png" />
+                  <Image url="fotos/fotoPerfil.png" />
                </image>
             </ImageView>
+            <Button fx:id="volverMenu" layoutX="655.0" layoutY="35.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <ScrollPane fx:id="scrollExperiencias" layoutX="418.0" layoutY="159.0" prefHeight="592.0" prefWidth="948.0" style="-fx-background-color: #87CEEB; -fx-background: #87CEEB;">
@@ -51,7 +56,7 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <ImageView fitHeight="296.0" fitWidth="370.0" focusTraversable="true" layoutX="33.0" layoutY="172.0" opacity="0.84" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('fotos/cartelMon.jpg');" />
+      <ImageView fx:id="cartelMon" fitHeight="296.0" fitWidth="370.0" focusTraversable="true" layoutX="33.0" layoutY="172.0" opacity="0.84" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('fotos/cartelMon.jpg');" />
       <Text layoutX="52.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Quienes somos?">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />

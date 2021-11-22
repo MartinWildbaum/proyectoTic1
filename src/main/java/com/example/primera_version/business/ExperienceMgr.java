@@ -1,11 +1,9 @@
 package com.example.primera_version.business;
-import com.example.primera_version.business.entities.Experiencia;
-import com.example.primera_version.business.entities.Imagen;
-import com.example.primera_version.business.entities.Interes;
-import com.example.primera_version.business.entities.OperadorTuristico;
+import com.example.primera_version.business.entities.*;
 import com.example.primera_version.business.exceptions.*;
 import com.example.primera_version.persistence.ExperienceRepository;
 import com.example.primera_version.persistence.ImageRepository;
+import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 
@@ -125,6 +124,10 @@ public class ExperienceMgr {
         }
 
         return devolucion;
+    }
+
+    public List<Experiencia> encontrarTodasPorInteresGeneral(String  tituloExperiencia){
+        return experienceRepository.findByInteresesNombre(tituloExperiencia);
     }
 
 }

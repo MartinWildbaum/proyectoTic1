@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="195.0" text="TurisTIC" textFill="AQUA">
@@ -40,22 +40,22 @@
             </Button>
          </children>
       </AnchorPane>
-      <Label layoutX="320.0" layoutY="375.0" prefHeight="37.0" prefWidth="314.0" text="Motivo de la denuncia" textFill="WHITE">
+      <Label layoutX="320.0" layoutY="375.0" prefHeight="37.0" prefWidth="314.0" text="Motivo de la denuncia">
          <font>
             <Font name="Cambria" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="273.0" layoutY="476.0" text="Descrpicion de la denucia" textFill="WHITE">
+      <Label layoutX="273.0" layoutY="476.0" text="Descrpicion de la denucia">
          <font>
             <Font name="Cambria" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="330.0" layoutY="275.0" prefHeight="37.0" prefWidth="276.0" text="Titulo Experiencia" textFill="WHITE">
+      <Label layoutX="330.0" layoutY="275.0" prefHeight="37.0" prefWidth="276.0" text="Titulo Experiencia">
          <font>
             <Font name="Cambria" size="30.0" />
          </font>
       </Label>
-      <Text fx:id="tituloExperienciaDenuncia" fill="WHITE" layoutX="668.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="223.8837890625">
+      <Text fx:id="tituloExperienciaDenuncia" layoutX="668.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="223.8837890625">
          <font>
             <Font name="Cambria Bold Italic" size="30.0" />
          </font>

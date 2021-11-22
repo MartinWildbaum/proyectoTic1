@@ -62,4 +62,8 @@ public class InteresMgr {
         return intereses;
     }
 
+    public InteresGeneral encontrarGeneralPorNombre(String nombreInteres){
+        return generalInterestRepository.findByNombre(nombreInteres);
+    }
+
 }

@@ -6,7 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.turist.PuntuarExperienciaController">
    <children>
@@ -14,7 +15,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fotos/logo.png" />
+                  <Image url="fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="195.0" text="TurisTIC" textFill="AQUA">
@@ -39,5 +40,26 @@
             </Button>
          </children>
       </AnchorPane>
+      <Label layoutX="254.0" layoutY="270.0" text="Titulo Experiencia" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="46.0" />
+         </font>
+      </Label>
+      <Text fx:id="titExperiencia" fill="WHITE" layoutX="712.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="Cambria Bold Italic" size="46.0" />
+         </font>
+      </Text>
+      <Label layoutX="480.0" layoutY="404.0" text="Rating" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="46.0" />
+         </font>
+      </Label>
+      <Rating fx:id="rating" layoutX="709.0" layoutY="414.0" prefHeight="38.0" prefWidth="166.0" />
+      <Button fx:id="buttonConfirmar" layoutX="592.0" layoutY="562.0" mnemonicParsing="false" onAction="#confirmarPuntuacion" style="-fx-background-color: #87CEEB;" text="Confirmar" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="39.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
