@@ -4,15 +4,27 @@ plugins {
 	id 'java'
 	id 'application'
 	id 'org.openjfx.javafxplugin' version '0.0.9'
+	id 'java-library'
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+version = '1.0'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(11)
+	}
+}
 
 repositories {
 	mavenCentral()
 }
+
+application {
+	mainModule = 'com.example.primera_version.Main'
+	mainClass = 'com.example.primera_version.Main'
+}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
