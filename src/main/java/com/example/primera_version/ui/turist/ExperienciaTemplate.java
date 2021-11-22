@@ -90,6 +90,19 @@ public class ExperienciaTemplate implements Initializable {
 
 
     @FXML
+    void volverMisExperiencias(ActionEvent actionEvent) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        AnchorPane root = fxmlLoader.load(Perfil.class.getResourceAsStream("MostrarExperiencias.fxml"));
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    @FXML
     void cerrarSesion(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);

@@ -91,15 +91,13 @@ public class MenuMgr {
         }
 
         //Aca termino de meter las experiencias en orden segun los intereses. Ahora si el tamaño es menor 5 lleno hasta tener 10 por lo menos
-        while (colaExperienciasAMostrar.size()<10){
+        while (colaExperienciasAMostrar.size()<5){
             for (Experiencia experiencia:allExperiencias) {
                 if(!colaExperienciasAMostrar.contains(experiencia) && experiencia.getEstaDisponible()){
                     colaExperienciasAMostrar.add(experiencia);
                 }
             }
         }
-
-
 
 
         return colaExperienciasAMostrar;

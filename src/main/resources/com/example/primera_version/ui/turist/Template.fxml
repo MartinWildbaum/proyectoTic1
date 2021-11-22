@@ -50,7 +50,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fotos/logo.png" />
+                  <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefWidth="215.0" text="TurisTIC" textFill="AQUA">
@@ -69,6 +69,11 @@
                </font>
             </Button>
             <Button layoutX="957.0" layoutY="32.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="60.0" prefWidth="230.0" style="-fx-background-color: #000000;" text="Volver al menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Cambria Bold" size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="456.0" layoutY="37.0" mnemonicParsing="false" onAction="#volverMisExperiencias" prefHeight="52.0" prefWidth="366.0" style="-fx-background-color: #000000;" text="Volver a mis experiencias" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Cambria Bold" size="27.0" />
                </font>

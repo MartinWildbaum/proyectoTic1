@@ -220,7 +220,7 @@ public class HabilitadorExperienciasController implements Initializable {
         DropShadow shadow = new DropShadow();
         animarBoton(volverMenu, shadow);
         animarBoton(cerrarSesion, shadow);
-
+        
 
     }
 
