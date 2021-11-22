@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -95,7 +96,7 @@ public class ReservaController implements Initializable {
             //Llamo a la funcion para ver si puedo hacer la reserva
 
             try {
-                reservaMgr.agregarReserva(principal.username.getText(),experienciaTemplate.templateTitulo.getText(), tipoDeDoc, numeroDeDoc, cantPersonas, fecha);
+                reservaMgr.agregarReserva(principal.getUsername().getText(),experienciaTemplate.getTemplateTitulo().getText(), tipoDeDoc, numeroDeDoc, cantPersonas, fecha);
                 showAlert("Reserva agregada", "Se agrego con exito la Reserva!");
                 close(event);
 
@@ -125,13 +126,15 @@ public class ReservaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         String[] tiposDeDocumentos={"Pasaporte","Cédula"};
         txtTipoDeDocumento.getItems().addAll(tiposDeDocumentos);
-        Turist turist = turistMgr.encontrarTurista(principal.username.getText());
+        Turist turist = turistMgr.encontrarTurista(principal.getUsername().getText());
         if(turist.getValorDocumento() != null){ // Ya realizo alguna reserva
             txtTipoDeDocumento.getSelectionModel().select(turist.getTipoDocumento());
             txtNumeroDeDocumento.setText(turist.getValorDocumento());
         }
         DropShadow shadow = new DropShadow();
         animarBoton(realizarRes, shadow);
+
+
 
     }
 

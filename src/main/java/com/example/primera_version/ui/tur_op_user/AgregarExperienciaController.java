@@ -141,6 +141,7 @@ public class AgregarExperienciaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser = new FileChooser();
+        imagenes.clear();
 
 
         DropShadow shadow = new DropShadow();
@@ -183,7 +184,7 @@ public class AgregarExperienciaController implements Initializable {
             }
 
             else {
-                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, intereses, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText()).getOperadorTuristico(), fotoPortada);
+                experienceMgr.addExperience(titulo, descripcion, enlacesRelacionados, ubicacion, fotos, intereses, aforoDisponible, turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.getUsername().getText()).getOperadorTuristico(), fotoPortada);
                 // Cuando la agregue voy a tener que pasar el operador para el que trabaj el que la agrego
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
                 volverAlMenu(actionEvent);

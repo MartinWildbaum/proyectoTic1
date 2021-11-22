@@ -22,7 +22,7 @@ public class MenuMgr {
 
         // Se realiza asi porque estoy recorriendo intereses de turistas y experiencias. Si hay un turista muy interesado, tendra a lo sumo 50 intereses
         // Me genero la cola de prioridad de 100 lugares ya que me parece un numero razonable de experiencias que coinciden con sus intereses
-        Queue<Experiencia> colaExperienciasAMostrar = new PriorityQueue<>(100);
+        Queue<Experiencia> colaExperienciasAMostrar = new PriorityQueue<>(30);
 
         // PREPARO TURISTA
         
@@ -38,6 +38,7 @@ public class MenuMgr {
                 interesParticularesTurista.add((InteresParticular) interes);
             }
         }
+
         //PREPARO EXPERIENCIAS
         Collection<Experiencia> allExperiencias = (Collection<Experiencia>) experienceRepository.findAll();
 
@@ -90,11 +91,14 @@ public class MenuMgr {
         }
 
         //Aca termino de meter las experiencias en orden segun los intereses. Ahora si el tamaño es menor 5 lleno hasta tener 10 por lo menos
-        for (Experiencia experiencia:allExperiencias) {
-            if(colaExperienciasAMostrar.size() <= 10 && !colaExperienciasAMostrar.contains(experiencia)){
-                colaExperienciasAMostrar.add(experiencia);
+        while (colaExperienciasAMostrar.size()<10){
+            for (Experiencia experiencia:allExperiencias) {
+                if(!colaExperienciasAMostrar.contains(experiencia) && experiencia.getEstaDisponible()){
+                    colaExperienciasAMostrar.add(experiencia);
+                }
             }
         }
+
 
 
 

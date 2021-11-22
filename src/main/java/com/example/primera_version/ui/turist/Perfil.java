@@ -52,7 +52,7 @@ public class Perfil implements Initializable {
     private Label fechalabel;
 
     @FXML
-    public Text intereseslabel;
+    private Text intereseslabel;
 
     private String cambiarLocalDateAString(LocalDate fecha){
         return fecha.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
@@ -60,14 +60,14 @@ public class Perfil implements Initializable {
 
     public void setInformacionUsuario(){
 
-        Turist turistAMostrar = turistMgr.encontrarTurista(principal.username.getText());
+        Turist turistAMostrar = turistMgr.encontrarTurista(principal.getUsername().getText());
         usuariolabel.setText(turistAMostrar.getMail());
         usuariolabel.setStyle("-fx-alignment: CENTER;");// Me centra el texto
         paislabel.setText(turistAMostrar.getPais().getNombre());
         paislabel.setStyle("-fx-alignment: CENTER;");
         fechalabel.setText(cambiarLocalDateAString(turistAMostrar.getBirthdate()));
         fechalabel.setStyle("-fx-alignment: CENTER;");
-        intereseslabel.setText(modificadorInteresesController.interesesGeneralesSeleccionados.getText() + modificadorInteresesController.interesesParticularesSeleccionados.getText());
+        intereseslabel.setText(modificadorInteresesController.getInteresesGeneralesSeleccionados().getText() + modificadorInteresesController.getInteresesParticularesSeleccionados().getText());
         intereseslabel.setStyle("-fx-alignment: CENTER;");
     }
 
@@ -130,7 +130,7 @@ public class Perfil implements Initializable {
         scrollIntereses.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollIntereses.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        Turist turistAMostrar = turistMgr.encontrarTurista(principal.username.getText());
+        Turist turistAMostrar = turistMgr.encontrarTurista(principal.getUsername().getText());
 
 
         usuariolabel.setText(turistAMostrar.getMail());

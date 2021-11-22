@@ -54,7 +54,7 @@
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="396.0" layoutY="450.0" mnemonicParsing="false" onAction="#addTO" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Agregar">
+      <Button fx:id="agregar" layoutX="396.0" layoutY="450.0" mnemonicParsing="false" onAction="#addTO" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #D3D3D3;" text="Agregar">
          <font>
             <Font name="Cambria Bold Italic" size="14.0" />
          </font></Button>
@@ -76,7 +76,7 @@
             <Font name="Cambria Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="450.0" mnemonicParsing="false" onAction="#volverAdminOper" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Cancelar">
+      <Button fx:id="cancelar" layoutX="528.0" layoutY="450.0" mnemonicParsing="false" onAction="#volverAdminOper" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #D3D3D3;" text="Cancelar">
          <font>
             <Font name="Cambria Bold Italic" size="13.0" />
          </font></Button>

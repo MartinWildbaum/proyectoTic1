@@ -78,7 +78,7 @@ public class MisReservasController implements Initializable {
         misReservas.setEditable(true);
 
 
-        Collection<Reserva> query = turistMgr.encontrarTurista(principal.username.getText()).getReservas();
+        Collection<Reserva> query = turistMgr.encontrarTurista(principal.getUsername().getText()).getReservas();
         listaReserva = FXCollections.observableArrayList();
         for (Reserva reserva: query) {
             if(reserva.getExperiencia().getEstaDisponible() && reserva.getExperiencia().getOperadorTuristico().getEstado()){ // La agrego solo si tanto la expriencia como el operador turistico estan habilitados
@@ -124,7 +124,7 @@ public class MisReservasController implements Initializable {
     void busquedaDinamica(KeyEvent event) {
 
 
-        List<Reserva> query = (List<Reserva>) reservaMgr.encontrarPorTituloExpYTurista(turistMgr.encontrarTurista(principal.username.getText()), campoBusqueda.getText());
+        List<Reserva> query = (List<Reserva>) reservaMgr.encontrarPorTituloExpYTurista(turistMgr.encontrarTurista(principal.getUsername().getText()), campoBusqueda.getText());
         listaReserva = FXCollections.observableArrayList();
         listaReserva.removeAll();
         listaReserva.addAll(query);

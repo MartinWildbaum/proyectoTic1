@@ -196,6 +196,7 @@ public class HabilitadorExperienciasController implements Initializable {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                         experiencia.setEstaDisponible(newValue);
+                        experiencia.setAdministrador(adminMgr.encontrarAdministradorPorMail(principal.getUsername().getText()));
                         experienceMgr.actualizarExperiencia(experiencia);
                     }
                 });
@@ -219,6 +220,8 @@ public class HabilitadorExperienciasController implements Initializable {
         DropShadow shadow = new DropShadow();
         animarBoton(volverMenu, shadow);
         animarBoton(cerrarSesion, shadow);
+
+
     }
 
     private void animarBoton(Button boton, DropShadow dropShadow){

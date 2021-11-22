@@ -6,22 +6,29 @@ import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.exceptions.InvalidTOInformation;
 import com.example.primera_version.ui.Principal;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 @Component
-public class TOController {
+public class TOController implements Initializable {
 
 //Esta de aca me controla la ventana del operador turistico, en donde me puedo registrar y eso
 
@@ -48,6 +55,12 @@ public class TOController {
 
     @FXML
     private TextField txtContactAge;
+
+    @FXML
+    private Button agregar;
+
+    @FXML
+    private Button cancelar;
 
 
 
@@ -139,6 +152,31 @@ public class TOController {
         stage.setScene(new Scene(root));
         stage.show();
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        DropShadow shadow = new DropShadow();
+        animarBoton(agregar, shadow);
+        animarBoton(cancelar, shadow);
+
+    }
+
+    private void animarBoton(Button boton, DropShadow dropShadow){
+
+        boton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(dropShadow);
+            }
+        });
+        boton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                boton.setEffect(null);
+            }
+        });
     }
 }
 

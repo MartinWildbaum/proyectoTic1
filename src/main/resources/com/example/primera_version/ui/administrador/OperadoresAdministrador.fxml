@@ -9,15 +9,15 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.primera_version.ui.administrador.OperadoresAdminisradorController">
    <children>
-      <TableView fx:id="operadoresExpuestos" layoutX="14.0" layoutY="65.0" prefHeight="416.0" prefWidth="965.0">
+      <TableView fx:id="operadoresExpuestos" editable="true" layoutX="14.0" layoutY="65.0" prefHeight="416.0" prefWidth="965.0">
          <columns>
-            <TableColumn fx:id="idOperadorTuristico" editable="false" prefWidth="125.66665649414062" sortable="false" text="idOperadorTuristico" />
-            <TableColumn fx:id="nombreOperador" editable="false" prefWidth="140.0" text="Nombre operador" />
-            <TableColumn fx:id="razonSocial" editable="false" minWidth="0.0" prefWidth="105.0" sortable="false" text="Razon social" />
-            <TableColumn fx:id="nombreContacto" editable="false" prefWidth="118.33331298828125" sortable="false" text="Nombre contacto" />
-            <TableColumn fx:id="apellidoContacto" editable="false" prefWidth="121.33331298828125" sortable="false" text="Apellido contacto" />
-            <TableColumn fx:id="edadContacto" editable="false" prefWidth="107.6666259765625" sortable="false" text="Edad Contacto" />
-            <TableColumn fx:id="telefonoContacto" editable="false" prefWidth="131.3333740234375" sortable="false" text="Telefono Contacto" />
+            <TableColumn fx:id="idOperadorTuristico" prefWidth="125.66665649414062" text="idOperadorTuristico" />
+            <TableColumn fx:id="nombreOperador" prefWidth="140.0" text="Nombre operador" />
+            <TableColumn fx:id="razonSocial" minWidth="0.0" prefWidth="105.0" text="Razon social" />
+            <TableColumn fx:id="nombreContacto" prefWidth="118.33331298828125" text="Nombre contacto" />
+            <TableColumn fx:id="apellidoContacto" prefWidth="121.33331298828125" text="Apellido contacto" />
+            <TableColumn fx:id="edadContacto" prefWidth="107.6666259765625" text="Edad Contacto" />
+            <TableColumn fx:id="telefonoContacto" prefWidth="131.3333740234375" text="Telefono Contacto" />
             <TableColumn fx:id="estaDisponible" prefWidth="120.0" text="Disponible" />
          </columns>
       </TableView>

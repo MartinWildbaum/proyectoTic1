@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fotos/logo.png" />
+                  <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="59.0" prefWidth="223.0" text="TurisTIC" textFill="AQUA">
@@ -36,7 +36,7 @@
             </Button>
             <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="908.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fotos/fotoPerfil.png" />
+                  <Image url="@fotos/fotoPerfil.png" />
                </image>
             </ImageView>
          </children>

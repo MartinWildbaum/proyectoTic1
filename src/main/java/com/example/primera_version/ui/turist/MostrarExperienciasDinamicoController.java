@@ -28,7 +28,7 @@ public class MostrarExperienciasDinamicoController {
     private ImageView imagenExperiencia;
 
     @FXML
-    public Button buttonExperiencia;
+    private Button buttonExperiencia;
 
     @Autowired
     private ExperienceMgr experienceMgr;
@@ -39,7 +39,7 @@ public class MostrarExperienciasDinamicoController {
     @Autowired
     private ExperienciaTemplate experienciaTemplate;
 
-    public Experiencia experienciaASetear;
+    private Experiencia experienciaASetear;
 
     public void setData(Experiencia experiencia){
 
@@ -101,5 +101,13 @@ public class MostrarExperienciasDinamicoController {
                 boton.setEffect(null);
             }
         });
+    }
+
+    public Experiencia getExperienciaASetear() {
+        return experienciaASetear;
+    }
+
+    public void setExperienciaASetear(Experiencia experienciaASetear) {
+        this.experienciaASetear = experienciaASetear;
     }
 }

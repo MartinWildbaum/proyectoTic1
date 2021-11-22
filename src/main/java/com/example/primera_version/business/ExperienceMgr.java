@@ -73,7 +73,7 @@ public class ExperienceMgr {
 
         experienceRepository.save(experienciaAgregar);
 
-        //FIXME
+
         for (byte[] imagen: imagenes) {
             Imagen imagenAgregar = new Imagen();
             imagenAgregar.setImagen(imagen);

@@ -181,6 +181,7 @@ public class ExperienciasAdministratorController implements Initializable {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                         experiencia.setEstaDisponible(newValue);
+                        experiencia.setAdministrador(adminMgr.encontrarAdministradorPorMail(principal.getUsername().getText()));
                         experienceMgr.actualizarExperiencia(experiencia);
                     }
                 });

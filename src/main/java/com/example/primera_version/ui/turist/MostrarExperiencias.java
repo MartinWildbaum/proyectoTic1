@@ -75,7 +75,7 @@ public class MostrarExperiencias implements Initializable  {
         scrollExperiencias.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         // Voy a darle las experiencias recomendadas ya en orden de relavancia desde el manager de forma que simplemente las exponga en orden
-        Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.username.getText()));
+        Queue<Experiencia> experienciasRecomendadas = menuMgr.asociadorExperiencias(turistMgr.encontrarTurista(principal.getUsername().getText()));
         int numExpAMostrar = experienciasRecomendadas.size();
         int columns = 0;
         int row = 1;

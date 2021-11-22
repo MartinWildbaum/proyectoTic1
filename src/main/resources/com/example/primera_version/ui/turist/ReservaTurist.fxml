@@ -31,9 +31,15 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="752.0" layoutY="322.0" prefHeight="40.0" prefWidth="250.0" />
-      <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="752.0" layoutY="390.0" prefHeight="40.0" prefWidth="250.0" />
-      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="752.0" layoutY="233.0" opacity="0.81" prefHeight="40.0" prefWidth="250.0" />
+      <TextField fx:id="txtNumeroDeDocumento" alignment="CENTER" layoutX="752.0" layoutY="322.0" prefHeight="40.0" prefWidth="250.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="txtCantidadDePersonas" alignment="CENTER" layoutX="752.0" layoutY="390.0" prefHeight="40.0" prefWidth="250.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="14.0" />
+         </font></TextField>
+      <ChoiceBox fx:id="txtTipoDeDocumento" layoutX="752.0" layoutY="233.0" opacity="0.81" prefHeight="40.0" prefWidth="250.0" style="-fx-mark-color: 7fffd4; -fx-text-fill: white; -fx-border-color: 7fffd4;" />
       <Label layoutX="347.0" layoutY="467.0" text="Fecha de la reserva:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
@@ -44,7 +50,7 @@
          <children>
             <ImageView fitHeight="123.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fotos/logo.png" />
+                  <Image url="@fotos/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="135.0" layoutY="36.0" prefHeight="50.0" prefWidth="197.0" text="TurisTIC" textFill="AQUA">

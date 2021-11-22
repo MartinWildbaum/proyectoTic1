@@ -5,6 +5,8 @@ import com.example.primera_version.business.TurOpMgr;
 import com.example.primera_version.business.entities.OperadorTuristico;
 import com.example.primera_version.ui.Principal;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -168,10 +170,17 @@ public class OperadoresAdminisradorController implements Initializable{
         idOperadorTuristico.setCellValueFactory((new PropertyValueFactory<>("idOpTur")));
         nombreOperador.setCellValueFactory(new PropertyValueFactory<>("nameTO"));
         razonSocial.setCellValueFactory(new PropertyValueFactory<>("razonSocial"));
-        nombreContacto.setCellValueFactory((new PropertyValueFactory<>("contact_name")));
-        apellidoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_surname")));
-        edadContacto.setCellValueFactory((new PropertyValueFactory<>("contact_age")));
-        telefonoContacto.setCellValueFactory((new PropertyValueFactory<>("contact_phone")));
+        /*
+        nombreContacto.setCellValueFactory((new PropertyValueFactory<>("contactName")));
+        apellidoContacto.setCellValueFactory((new PropertyValueFactory<>("contactSurname")));
+        edadContacto.setCellValueFactory((new PropertyValueFactory<>("contactAge")));
+        telefonoContacto.setCellValueFactory((new PropertyValueFactory<>("contactPhone")));
+        */
+        nombreContacto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getCantact_name()));
+        apellidoContacto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getCantact_surname()));
+        edadContacto.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getContact_age())));
+        telefonoContacto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getContact_phone()));
+
         //estaDisponible.setCellValueFactory((new PropertyValueFactory<>("estado")));
         estaDisponible.setCellValueFactory(new Callback<CellDataFeatures<OperadorTuristico, Boolean>, ObservableValue<Boolean>>() {
             @Override

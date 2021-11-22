@@ -48,7 +48,7 @@ public class Principal implements Initializable {
     private AddTuristController addTuristController;
 
     @FXML
-    public TextField username;
+    private TextField username;
 
     @FXML
     private PasswordField password;
@@ -154,5 +154,9 @@ public class Principal implements Initializable {
                 boton.setEffect(null);
             }
         });
+    }
+
+    public TextField getUsername() {
+        return username;
     }
 }

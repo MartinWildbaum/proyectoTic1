@@ -97,7 +97,7 @@ public class ExperienciasOperadorController implements  Initializable{
 
     @FXML
     void busquedaDinamica(KeyEvent event){
-        OperadorTuristico opTuri = turOpUsersMgr.encontrarOperadorTuristicoParaElQueTrabaja(principal.username.getText());
+        OperadorTuristico opTuri = turOpUsersMgr.encontrarOperadorTuristicoParaElQueTrabaja(principal.getUsername().getText());
         List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasPorTituloYOperador(opTuri, campoBusqueda.getText());
         lista = FXCollections.observableArrayList();
         lista.removeAll();
@@ -149,7 +149,7 @@ public class ExperienciasOperadorController implements  Initializable{
     public void initialize(URL location, ResourceBundle resources){ // Lo que hace es levantar de una cuando se llama a la clase
         //username_label.setText(cliente.getUsername());
         //Agarro todas las experiencias del operador turistico para el que trabaja el operador que ingreso.
-        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasPorOperadorTuristico((turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.username.getText())).getOperadorTuristico());
+        List<Experiencia> query = (List<Experiencia>) experienceMgr.encontrarTodasPorOperadorTuristico((turOpUsersMgr.encontrarUnUsuariosOperadorTuristico(principal.getUsername().getText())).getOperadorTuristico());
         lista = FXCollections.observableArrayList();
         lista.addAll(query);
         misExperiencias.setItems(lista);

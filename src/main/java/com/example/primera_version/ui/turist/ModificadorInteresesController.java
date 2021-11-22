@@ -49,22 +49,22 @@ public class ModificadorInteresesController implements Initializable {
     private Button guardarCambios;
 
     @FXML
-    public CheckComboBox<Interes> seleccionadorInteresesGenerales;
+    private CheckComboBox<Interes> seleccionadorInteresesGenerales;
 
     @FXML
-    public CheckComboBox<Interes> seleccionadorInteresesParticulares;
+    private CheckComboBox<Interes> seleccionadorInteresesParticulares;
 
     @FXML
-    public ScrollPane scrollInteresesGenerales;
+    private ScrollPane scrollInteresesGenerales;
 
     @FXML
-    public ScrollPane scrollInteresesParticulares;
+    private ScrollPane scrollInteresesParticulares;
 
     @FXML
-    public Text interesesGeneralesSeleccionados;
+    private Text interesesGeneralesSeleccionados;
 
     @FXML
-    public Text interesesParticularesSeleccionados;
+    private Text interesesParticularesSeleccionados;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -74,7 +74,7 @@ public class ModificadorInteresesController implements Initializable {
         scrollInteresesParticulares.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollInteresesParticulares.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        Turist turist = turistMgr.encontrarTurista(principal.username.getText());
+        Turist turist = turistMgr.encontrarTurista(principal.getUsername().getText());
 
         // Cargo los intereses generales con todos los intereses generales que tengo.
         for (Interes intereseGeneralAgregar: interesMgr.getIntereseGenerales()) {
@@ -186,7 +186,7 @@ public class ModificadorInteresesController implements Initializable {
         Collection<Interes> interesesNuevos = new ArrayList<>(10);
         interesesNuevos.addAll(seleccionadorInteresesGenerales.getCheckModel().getCheckedItems());
         interesesNuevos.addAll(seleccionadorInteresesParticulares.getCheckModel().getCheckedItems());
-        Turist turist = turistMgr.encontrarTurista(principal.username.getText());
+        Turist turist = turistMgr.encontrarTurista(principal.getUsername().getText());
         turist.setIntereses(interesesNuevos);
         turistMgr.actualizarTurista(turist);
         perfil.setInformacionUsuario();
@@ -219,4 +219,20 @@ public class ModificadorInteresesController implements Initializable {
         principal.setearAnchorPane(root);
     }
 */
+
+    public Text getInteresesGeneralesSeleccionados() {
+        return interesesGeneralesSeleccionados;
+    }
+
+    public void setInteresesGeneralesSeleccionados(Text interesesGeneralesSeleccionados) {
+        this.interesesGeneralesSeleccionados = interesesGeneralesSeleccionados;
+    }
+
+    public Text getInteresesParticularesSeleccionados() {
+        return interesesParticularesSeleccionados;
+    }
+
+    public void setInteresesParticularesSeleccionados(Text interesesParticularesSeleccionados) {
+        this.interesesParticularesSeleccionados = interesesParticularesSeleccionados;
+    }
 }

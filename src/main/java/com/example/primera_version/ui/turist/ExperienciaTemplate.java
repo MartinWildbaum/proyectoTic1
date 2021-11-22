@@ -31,7 +31,7 @@ public class ExperienciaTemplate implements Initializable {
 
 
     @FXML
-    public Text templateTitulo;
+    private Text templateTitulo;
 
     @FXML
     private ScrollPane scrollDescripcion;
@@ -136,7 +136,7 @@ public class ExperienciaTemplate implements Initializable {
         scrollImagenes.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
 
-        Experiencia experiencia_mostrada = mostrarExperienciasDinamicoController.experienciaASetear;
+        Experiencia experiencia_mostrada = mostrarExperienciasDinamicoController.getExperienciaASetear();
         setTemplete(experiencia_mostrada.getIdExperiencia());
         //Experiencia experiencia_mostrada = experienceMgr.encontrarExperienciaPorTitulo(templateTitulo.getText());
         //no me esta encontrando la experiencia
@@ -206,4 +206,12 @@ public class ExperienciaTemplate implements Initializable {
         });
     }
 
+
+    public Text getTemplateTitulo() {
+        return templateTitulo;
+    }
+
+    public void setTemplateTitulo(Text templateTitulo) {
+        this.templateTitulo = templateTitulo;
+    }
 }

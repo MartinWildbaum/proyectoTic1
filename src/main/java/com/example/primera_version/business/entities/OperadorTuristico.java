@@ -20,16 +20,16 @@ public class OperadorTuristico {
     private Boolean estado = true; // Lo hago empezar habilitado ya que lo registra un administrador
 
     @Column(name = "contact_name", nullable = false)
-    private String contact_name;
+    private String contactName;
 
     @Column(name = "contact_surname", nullable = false)
-    private String contact_surname;
+    private String contactSurname;
 
     @Column(name = "contact_phone", nullable = false)
-    private String contact_phone;
+    private String contactPhone;
 
     @Column(name = "contact_age", nullable = true)
-    private Integer contact_age;
+    private Integer contactAge;
 
     @OneToMany(targetEntity = Administrador.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_op_tur")
@@ -47,10 +47,10 @@ public class OperadorTuristico {
         this.razonSocial = razonSocial;
         this.nameTO = nameTO;
         this.estado = true;
-        this.contact_name = contact_name;
-        this.contact_surname = contact_surname;
-        this.contact_phone = contact_phone;
-        this.contact_age = contact_age;
+        this.contactName = contact_name;
+        this.contactSurname = contact_surname;
+        this.contactPhone = contact_phone;
+        this.contactAge = contact_age;
     }
 
 
@@ -87,35 +87,35 @@ public class OperadorTuristico {
     }
 
     public String getCantact_name() {
-        return contact_name;
+        return contactName;
     }
 
     public void setContact_name(String cantact_name) {
-        this.contact_name = cantact_name;
+        this.contactName = cantact_name;
     }
 
     public String getCantact_surname() {
-        return contact_surname;
+        return contactSurname;
     }
 
     public void setContact_surname(String cantact_surname) {
-        this.contact_surname = cantact_surname;
+        this.contactSurname = cantact_surname;
     }
 
     public String getContact_phone() {
-        return contact_phone;
+        return contactPhone;
     }
 
     public void setContact_phone(String contact_phone) {
-        this.contact_phone = contact_phone;
+        this.contactPhone = contact_phone;
     }
 
     public Integer getContact_age() {
-        return contact_age;
+        return contactAge;
     }
 
     public void setContact_age(Integer contact_age) {
-        this.contact_age = contact_age;
+        this.contactAge = contact_age;
     }
 
     public Collection<Experiencia> getExperiencias() {
